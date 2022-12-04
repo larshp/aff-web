@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "cl_abap_zip.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;;;AAsCA;;;;;;;;;;EAEE;;;;;;;QACO,oEAAgC;;IAErC,SAAM,wDAAgC;IACxC;;EAEA;;;;;QAEI,wDAAgB;QAChB,uaAAoC;IACtC,sHAA4D;2IAIrB;EACzC;EAEA;;;;;QACO,uaAAoC;IACzC,WAAW,OAAC,SAAO,IAAI;IACvB,WAAW,OAAC,kBAAgB,2BAAS,SAAS;IAC9C,WAAW,OAAC,YAAU,OAAO;iHAKU;IACvC,0EAAyC;EAC3C;EAEA;;;IACE,oCAAS,GAAF,YAAI,kDAAM;EACnB;EAEA;;QAGO,oEAAgC;QAChC,uaAAoC;QACpC,8DAAsB;QACtB,2EAAuC;;IAG5C,aAAU,mDAA8B;;;oGAIP;gGAEJ;gGAEA;gGAEA;gGAEA;gGAEA;+EAEiB;4GAEe;yGAEH;qGAEJ;gGAEzB;oFAGqB;wDAClB;2EAIa;IAC7C;IAEA,SAAM,4BAAiB;IACzB;;AAEF",
+  "file": "cl_abap_zip.clas.mjs",
+  "sourceRoot": ""
+}

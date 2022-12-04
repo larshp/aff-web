@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "cl_apc_tcp_client_manager.clas.locals_imp.abap"
+  ],
+  "names": [],
+  "mappings": ";;;AASA;;;;;;;;;EACE;;IACE,cAAY,YAAO;IACrB;;EAEA;;IACE,oCAAS,GAAF,YAAI,kDAAM;IACnB;;EAEA;;;IACE,iBAAU,SAAS;EACrB;AACF;;AAmBA;;;EACE;;;;;;;;;;;;IACE,4CAAO,kBAAsB;IAC7B,4CAAO,kBAAsB;IAC7B,4CAAO,qBAAyB;IAChC,iBAAU,OAAO;IACjB,iBAAU,OAAO;IACjB,oBAAa,UAAU;IACzB;;EAEA;IACE;IACA;IACA;MACA;MACA;MAEA;IACA;IACA;IACA;IACA;EACF;EAEA;IACE;EACF;EAEA;;IACE,eAAa,OAAE;IACjB;;EAEA;;;IAEA;;EAEA;;;IACE;IACA;EACF;AACF",
+  "file": "cl_apc_tcp_client_manager.clas.locals.mjs",
+  "sourceRoot": ""
+}

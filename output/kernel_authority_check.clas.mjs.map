@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "kernel_authority_check.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;;AAMA;;;;;;;;EAEE;;;;IAEE,eAAE,OAAC,UAAQ,UAAC;EACd;AAEF",
+  "file": "kernel_authority_check.clas.mjs",
+  "sourceRoot": ""
+}

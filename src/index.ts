@@ -55,28 +55,17 @@ const editor1 = monaco.editor.create(document.getElementById("container1"), {
 });
 
 const editor2 = monaco.editor.create(document.getElementById("container2"), {
-  value: "js",
+  value: "json",
   theme: "vs-dark",
   minimap: {
     enabled: false,
   },
-  language: "javascript",
-});
-
-const editor3 = monaco.editor.create(document.getElementById("container3"), {
-  value: "output",
-  theme: "vs-dark",
-  minimap: {
-    enabled: false,
-  },
-  readOnly: true,
-  language: "text",
+  language: "json",
 });
 
 function updateEditorLayouts() {
   editor1.layout();
   editor2.layout();
-  editor3.layout();
 }
 
 const observer = new MutationObserver(mutations => {
@@ -108,13 +97,12 @@ async function jsChanged() {
     try {
       const f = new AsyncFunction("abapLocal", js);
       await f(abap);
-      editor3.setValue(abap.console.get());
     } catch(e) {
       // write all errors to runtime result
-      editor3.setValue("An error was thrown: " + e.toString());
+      editor2.setValue("An error was thrown: " + e.toString());
     }
   } catch (error) {
-    editor3.setValue(error.message);
+    editor2.setValue(error.message);
     console.dir(error);
   }
 }
@@ -130,8 +118,7 @@ async function abapChanged() {
     const res = await new Transpiler().runRaw([{filename, contents}]);
     editor2.setValue(res.objects[0].chunk.getCode() || "");
   } catch (error) {
-    editor2.setValue("");
-    editor3.setValue(error.message);
+    editor2.setValue(error.message);
     console.dir(error);
   }
 }

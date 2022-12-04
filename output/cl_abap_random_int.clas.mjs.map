@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "cl_abap_random_int.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;;;;AAkBA;;;;;;;;EACE;;;;;;;;;;;;;IACE,oCAAS,GAAF,YAAI,kDAAM;IACnB;;EAEA;;IACE,oCAAS,GAAF,YAAI,kDAAM;IACnB;;AACF",
+  "file": "cl_abap_random_int.clas.mjs",
+  "sourceRoot": ""
+}

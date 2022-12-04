@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "cl_bcs.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;;AAmDA;;;;;;;;EAEE;;;IACE,oCAAS,GAAF,YAAI,kDAAM;EACnB;EAEA;;;IACE,oCAAS,GAAF,YAAI,kDAAM;EACnB;EAEA;;;IACE,oCAAS,GAAF,YAAI,kDAAM;EACnB;EAEA;;;IACE,oCAAS,GAAF,YAAI,kDAAM;EACnB;EAEA;;;;;IACE,oCAAS,GAAF,YAAI,kDAAM;IACnB;;EAEA;;;;;IACE,oCAAS,GAAF,YAAI,kDAAM;IACnB;;EAEA;;;;;;;;;;;IACE,oCAAS,GAAF,YAAI,kDAAM;EACnB;AAEF",
+  "file": "cl_bcs.clas.mjs",
+  "sourceRoot": ""
+}

@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "kernel_create_data_handle.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;;AAyBA;;;;;;;;EAEE;;;;;;;;IACE,4CAAO,iBAAe;IAEtB,IACE,OAGA,AAGA,KAPG,MAAM,OAAE,IAAb;;mDAGgC;;qDAGE;;oDAGD;;MAE7B;MACA,oCAAS,GAAF,YAAI,kDAAM;;EAEvB;EAEA;;;;;;;;QACO,6EAA6C;QAC7C,gbAAuD;QACvD,2TAAwC;QACxC,2EAA8B;+BAEnC,WAAa,MAAM;IACnB,mBAAgB,uCAA4B;IAC5C;;;2HAOsB;MACpB;IACF;IACA;EACF;EAEA;;;;;;;;QACO,2EAAuC;QACvC,2EAAyB;+BAE9B,UAAY,MAAM;wFAME;IAEpB;EACF;EAEA;;;;;;;;IACE,IACE,OAEA,AAEA,AAEA,AAEA,AAEA,AAEA,AAEA,AAEA,KAjBG,MAAM,OAAE,SAAb;;;;;;;;;;;;;;;;;;;;MAoBI;MACA,oCAAS,GAAF,YAAI,kDAAM;;EAEvB;AAEF",
+  "file": "kernel_create_data_handle.clas.mjs",
+  "sourceRoot": ""
+}

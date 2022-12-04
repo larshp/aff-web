@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "kernel_numberrange.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;;;AAmBA;;;;;;;;EAEE;;;;;;;;;;IAEE,IAAc,OAAyB;IACvC,mLAAoF;IACpF,iBAAY,GAAT,eAAE,OAAC,OAAQ,WAAC;MACb,OAAK,OAAC,WAAsB,mBAAb,OAAK,OAAC,OAAS,WAAC;IACjC;;MAEE,OAAK,OAAC,gBAAc,WAAW;MAC/B,OAAK,OAAC,WAAS,MAAM;MACrB,OAAK,OAAC,WAAS,UAAC;IAClB;IACA,WAAS,OAAK,OAAC,MAAM;EACvB;AAEF",
+  "file": "kernel_numberrange.clas.mjs",
+  "sourceRoot": ""
+}

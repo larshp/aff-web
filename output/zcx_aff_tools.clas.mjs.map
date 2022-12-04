@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "..\\downport\\zcx_aff_tools.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;;AAoBA;;;EAEE;;;;;;;;;;;;;;;;IAKE,sBAAM,OAAE,OAAE,MAAM;IAChB,yBAAG,kBAAsB;qFAC6B;MACpD,sBAAM,4BAAuB;MAC7B,4BAAuB,OAAC,UAAQ,mEAAuB;MACvD,4BAAuB,OAAC,UAAQ,mEAAuB;MACvD,4BAAuB,OAAC,UAAQ,mEAAuB;MACvD,4BAAuB,OAAC,UAAQ,mEAAuB;MACvD,+BAAwB,8CAAG;MAC3B,+BAAwB,eAAE,OAAC,KAAK;MAChC,+BAAwB,eAAE,OAAC,KAAK;MAChC,+BAAwB,eAAE,OAAC,KAAK;MAChC,+BAAwB,eAAE,OAAC,KAAK;IAClC;MACE,iCAA0B,MAAM;IAClC;IACF;;AAEF",
+  "file": "zcx_aff_tools.clas.mjs",
+  "sourceRoot": ""
+}

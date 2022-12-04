@@ -1,0 +1,5 @@
+abap.DDIC["SSTMNT"] = {
+  "objectType": "TABL",
+  "type": new abap.types.Structure({level: new abap.types.Integer({qualifiedName: "SSTMNT-LEVEL"}), struc: new abap.types.Integer({qualifiedName: "SSTMNT-STRUC"}), from: new abap.types.Integer({qualifiedName: "SSTMNT-FROM"}), to: new abap.types.Integer({qualifiedName: "SSTMNT-TO"}), number: new abap.types.Integer({qualifiedName: "SSTMNT-NUMBER"}), colonrow: new abap.types.Integer({qualifiedName: "SSTMNT-COLONROW"}), trow: new abap.types.Integer({qualifiedName: "SSTMNT-TROW"}), coloncol: new abap.types.Integer({qualifiedName: "SSTMNT-COLONCOL"}), tcol: new abap.types.Integer({qualifiedName: "SSTMNT-TCOL"}), prefixlen: new abap.types.Integer({qualifiedName: "SSTMNT-PREFIXLEN"}), type: new abap.types.Character({qualifiedName: "SSTMNT-TYPE"}), terminator: new abap.types.Character({qualifiedName: "SSTMNT-TERMINATOR"}), enhmt: new abap.types.Integer({qualifiedName: "SSTMNT-ENHMT"})}, "SSTMNT"),
+  "keyFields": [],
+};

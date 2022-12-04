@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "cl_gui_frontend_services.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;;;;;;;AA0JA;;;;;;;;;;;;;;;;;EACE;;;;;;;IACE,oCAAS,GAAF,YAAI,4EAA+B;IAC5C;;EAEA;;;;;;IACE,oCAAS,GAAF,YAAI,+EAAkC;EAC/C;EAEA;;;;;;;IACE,oCAAS,GAAF,YAAI,uEAA0B;IACvC;;EAEA;;;;;;;;IACE,oCAAS,GAAF,YAAI,wEAA2B;EACxC;EAEA;;;;;;;;IACE,oCAAS,GAAF,YAAI,6EAAgC;EAC7C;EAEA;;;;;;;;;;IACE,oCAAS,GAAF,YAAI,iFAAoC;EACjD;EAEA;;;;;;;;IACE,oCAAS,GAAF,YAAI,6EAAgC;EAC7C;EAEA;;;;;;;;;;;;;;;;IACE,oCAAS,GAAF,YAAI,yEAA4B;EACzC;EAEA;;;;;;IACE,oCAAS,GAAF,YAAI,+EAAkC;EAC/C;EAEA;;;;;;;;;;;;;;;;;;;;;IACE,oCAAS,GAAF,YAAI,oEAAuB;EACpC;EAEA;;;;;;;;;;IACE,oCAAS,GAAF,YAAI,6EAAgC;EAC7C;EAEA;;;;;;;;;;;;IACE,oCAAS,GAAF,YAAI,uEAA0B;EACvC;EAEA;;;;;;;;;;;;;;;;;;IACE,oCAAS,GAAF,YAAI,6EAAgC;EAC7C;EAEA;;;;;;;;;;;;;;;;;;;;IACE,oCAAS,GAAF,YAAI,6EAAgC;EAC7C;EAEA;;;;;IACE,aAAW,2CAAkB;IAC/B;;EAEA;;;;;;;;;;IACE,oCAAS,GAAF,YAAI,6EAAgC;EAC7C;EAEA;;;;;;IACE,oCAAS,GAAF,YAAI,iFAAoC;EACjD;EAEA;;;;;;;;IACE,oCAAS,GAAF,YAAI,4EAA+B;EAC5C;AACF",
+  "file": "cl_gui_frontend_services.clas.mjs",
+  "sourceRoot": ""
+}

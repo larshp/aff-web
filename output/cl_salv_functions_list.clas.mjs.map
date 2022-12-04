@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "cl_salv_functions_list.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;;AAKA;;;;;;;;EACE;IACE,oCAAS,GAAF,YAAI,kDAAM;EACnB;AACF",
+  "file": "cl_salv_functions_list.clas.mjs",
+  "sourceRoot": ""
+}

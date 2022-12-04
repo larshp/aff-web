@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "cl_abap_conv_out_ce.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;;;;AAoCA;;;;;;;;;;EACE;;;;;;;;;;;;;;;IAEE,IACE,OAEA,IAHG,QAAL;;MAEI,GAAG,OAAE,mBAAiB,iDAAM;;MAE5B,GAAG,OAAE,mBAAiB,oDAAS;;MAE/B,oCAAS,GAAF,YAAI,4DAAe;;IAEhC;;EAEA;;;;;;;QACO,0EAAsC;QACtC,2DAAmB;IACxB,YAAS,iFAA2B;6DAKf;IACrB,oCAAyB,GAAlB,2BAAS,UAAW,WAAC;IAC5B,QAAM,6BAAS;IACf,QAAU,mBAAJ,IAAkB,wBAAZ,yCAAc,cAAG;IAC/B;;EAEA;;;QACO,wDAAgB;iDAEY;IACjC,sCAAY,gBAAU,cAAS,cAAsB;EACvD;EAEA;;IACE,WAAS,cAAS;IACpB;;EAEA;IACE,sBAAM,cAAS;EACjB;EAEA;;;;;;;IAGE;IACA;EACF;AACF",
+  "file": "cl_abap_conv_out_ce.clas.mjs",
+  "sourceRoot": ""
+}

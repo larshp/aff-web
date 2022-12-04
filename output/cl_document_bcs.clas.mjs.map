@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "cl_document_bcs.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;;AA4BA;;;;;;;;EAEE;;;;;;;;;;;;;IACE,oCAAS,GAAF,YAAI,kDAAM;IACnB;;EAEA;;;;;;;;;;;;;IACE,oCAAS,GAAF,YAAI,kDAAM;EACnB;AAEF",
+  "file": "cl_document_bcs.clas.mjs",
+  "sourceRoot": ""
+}

@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "cl_shm_area.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;;;;;;;;;AAmLA;;;;;;;;;;;;;;;;;;;;;;EAEE;;IACE,oCAAS,GAAF,YAAI,kDAAM;IACnB;;EAEA;;;;;;;;;;;;;;;;;;;;;;;;;;;IACE,oCAAS,GAAF,YAAI,kDAAM;IACnB;;EAEA;IACE,oCAAS,GAAF,YAAI,kDAAM;EACnB;EAEA;IACE,oCAAS,GAAF,YAAI,kDAAM;EACnB;EAEA;;;;;;;;;;IACE,oCAAS,GAAF,YAAI,kDAAM;EACnB;EAEA;;;;;;;;;;;;;;;;;IACE,oCAAS,GAAF,YAAI,kDAAM;IACnB;;EAEA;;;;;;;;;;;;;;;;IACE,oCAAS,GAAF,YAAI,kDAAM;IACnB;;EAEA;;;;;;;;;;;;;;;;;;;;;;;;;IACE,oCAAS,GAAF,YAAI,kDAAM;IACnB;;EAEA;;;IACE,oCAAS,GAAF,YAAI,kDAAM;EACnB;EAEA;;;;;;;;;;;;;;;;;;;;;;;;;;;IACE,oCAAS,GAAF,YAAI,kDAAM;IACnB;;EAEA;;;;;;;;;;;;;;;;;;;;;;;;;IACE,oCAAS,GAAF,YAAI,kDAAM;IACnB;;EAEA;;;;;;;;;IACE,oCAAS,GAAF,YAAI,kDAAM;EACnB;EAEA;;;;;;;;;IACE,oCAAS,GAAF,YAAI,kDAAM;EACnB;AAEF",
+  "file": "cl_shm_area.clas.mjs",
+  "sourceRoot": ""
+}
