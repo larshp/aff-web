@@ -64,8 +64,8 @@ class kernel_call_transformation {
         }
         if (INPUT.result.constructor.name === "Table") {
           lt_rtab = INPUT.result;
-          for await (const unique112 of abap.statements.loop(lt_rtab)) {
-            ls_rtab.set(unique112);
+          for await (const unique113 of abap.statements.loop(lt_rtab)) {
+            ls_rtab.set(unique113);
             await abap.Classes['KERNEL_IXML_XML_TO_DATA'].build({iv_name: ls_rtab.get().name, iv_ref: ls_rtab.get().value, ii_doc: kernel_call_transformation.mi_doc});
           }
         } else {
@@ -93,8 +93,8 @@ class kernel_call_transformation {
             if (INPUT && INPUT.iv_ref) {iv_ref = INPUT.iv_ref;}
             let lo_type = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TYPEDESCR"});
             lo_type.set((await abap.Classes['CL_ABAP_TYPEDESCR'].describe_by_data({p_data: (iv_ref).getPointer()})));
-            let unique113 = lo_type.get().type_kind;
-            if (abap.compare.eq(unique113, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int) || abap.compare.eq(unique113, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int1) || abap.compare.eq(unique113, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int2) || abap.compare.eq(unique113, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int8) || abap.compare.eq(unique113, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_decfloat) || abap.compare.eq(unique113, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_decfloat16) || abap.compare.eq(unique113, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_decfloat34)) {
+            let unique114 = lo_type.get().type_kind;
+            if (abap.compare.eq(unique114, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int) || abap.compare.eq(unique114, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int1) || abap.compare.eq(unique114, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int2) || abap.compare.eq(unique114, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int8) || abap.compare.eq(unique114, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_decfloat) || abap.compare.eq(unique114, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_decfloat16) || abap.compare.eq(unique114, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_decfloat34)) {
               rv_type.set(new abap.types.Character({length: 3}).set('num'));
             } else {
               rv_type.set(new abap.types.Character({length: 3}).set('str'));
@@ -118,14 +118,14 @@ class kernel_call_transformation {
             let fs_table_ = new abap.types.FieldSymbol(new abap.types.Table(new abap.types.Character({length: 4}), {"withHeader":false}));
             let fs_field_ = new abap.types.FieldSymbol(new abap.types.Character({length: 4}));
             lo_type.set((await abap.Classes['CL_ABAP_TYPEDESCR'].describe_by_data({p_data: (iv_ref).getPointer()})));
-            let unique114 = lo_type.get().kind;
-            if (abap.compare.eq(unique114, abap.Classes['CL_ABAP_TYPEDESCR'].kind_struct)) {
+            let unique115 = lo_type.get().kind;
+            if (abap.compare.eq(unique115, abap.Classes['CL_ABAP_TYPEDESCR'].kind_struct)) {
               await kernel_call_transformation.mi_writer.get().if_sxml_writer$open_element({name: new abap.types.Character({length: 6}).set('object')});
               await abap.statements.cast(lo_struc, lo_type);
               lt_comps.set((await lo_struc.get().get_components()));
               abap.statements.assign({target: fs_any_, source: (iv_ref).getPointer()});
-              for await (const unique115 of abap.statements.loop(lt_comps)) {
-                ls_compo.set(unique115);
+              for await (const unique116 of abap.statements.loop(lt_comps)) {
+                ls_compo.set(unique116);
                 abap.statements.assign({component: ls_compo.get().name, target: fs_field_, source: fs_any_});
                 lv_ref.assign(fs_field_.getPointer());
                 await kernel_call_transformation.mi_writer.get().if_sxml_writer$open_element({name: (await this.traverse_write_type({iv_ref: lv_ref}))});
@@ -134,13 +134,13 @@ class kernel_call_transformation {
                 await kernel_call_transformation.mi_writer.get().if_sxml_writer$close_element();
               }
               await kernel_call_transformation.mi_writer.get().if_sxml_writer$close_element();
-            } else if (abap.compare.eq(unique114, abap.Classes['CL_ABAP_TYPEDESCR'].kind_elem)) {
+            } else if (abap.compare.eq(unique115, abap.Classes['CL_ABAP_TYPEDESCR'].kind_elem)) {
               await kernel_call_transformation.mi_writer.get().if_sxml_writer$write_value({value: (iv_ref).getPointer()});
-            } else if (abap.compare.eq(unique114, abap.Classes['CL_ABAP_TYPEDESCR'].kind_table)) {
+            } else if (abap.compare.eq(unique115, abap.Classes['CL_ABAP_TYPEDESCR'].kind_table)) {
               await kernel_call_transformation.mi_writer.get().if_sxml_writer$open_element({name: new abap.types.Character({length: 5}).set('array')});
               abap.statements.assign({target: fs_table_, source: (iv_ref).getPointer()});
-              for await (const unique116 of abap.statements.loop(fs_table_)) {
-                fs_any_.assign(unique116);
+              for await (const unique117 of abap.statements.loop(fs_table_)) {
+                fs_any_.assign(unique117);
                 lv_ref.assign(fs_any_.getPointer());
                 if (abap.compare.eq(((await abap.Classes['CL_ABAP_TYPEDESCR'].describe_by_data({p_data: (lv_ref).getPointer()}))).get().kind, abap.Classes['CL_ABAP_TYPEDESCR'].kind_elem)) {
                   await kernel_call_transformation.mi_writer.get().if_sxml_writer$open_element({name: (await this.traverse_write_type({iv_ref: lv_ref}))});

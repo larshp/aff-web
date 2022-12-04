@@ -99,25 +99,25 @@ class zcl_aff_abap_doc_parser {
     let msg = new abap.types.String({qualifiedName: "STRING"});
     abap.statements.find(this.abap_doc_string, {regex: new abap.types.String().set(`\\$[a-zA-Z]+`), first: false, results: result_table});
     modified_abap_doc_string.set(this.abap_doc_string);
-    for await (const unique1 of abap.statements.loop(result_table)) {
-      fs_entry_.assign(unique1);
+    for await (const unique2 of abap.statements.loop(result_table)) {
+      fs_entry_.assign(unique2);
       offset.set(fs_entry_.get().offset);
       length.set(fs_entry_.get().length);
       key_word.set(this.abap_doc_string.getOffset({offset: offset, length: length}));
-      let unique2 = key_word;
-      if (abap.compare.eq(unique2, zcl_aff_abap_doc_parser.abap_doc_annotation.get().callback_class)) {
+      let unique3 = key_word;
+      if (abap.compare.eq(unique3, zcl_aff_abap_doc_parser.abap_doc_annotation.get().callback_class)) {
         await this.parse_callback_class();
-      } else if (abap.compare.eq(unique2, zcl_aff_abap_doc_parser.abap_doc_annotation.get().default_)) {
+      } else if (abap.compare.eq(unique3, zcl_aff_abap_doc_parser.abap_doc_annotation.get().default_)) {
         await this.parse_default();
-      } else if (abap.compare.eq(unique2, zcl_aff_abap_doc_parser.abap_doc_annotation.get().values)) {
+      } else if (abap.compare.eq(unique3, zcl_aff_abap_doc_parser.abap_doc_annotation.get().values)) {
         await this.parse_enum_values();
-      } else if (abap.compare.eq(unique2, zcl_aff_abap_doc_parser.abap_doc_annotation.get().required)) {
+      } else if (abap.compare.eq(unique3, zcl_aff_abap_doc_parser.abap_doc_annotation.get().required)) {
         await this.parse_required();
-      } else if (abap.compare.eq(unique2, zcl_aff_abap_doc_parser.abap_doc_annotation.get().show_always)) {
+      } else if (abap.compare.eq(unique3, zcl_aff_abap_doc_parser.abap_doc_annotation.get().show_always)) {
         await this.parse_show_always();
-      } else if (abap.compare.eq(unique2, zcl_aff_abap_doc_parser.abap_doc_annotation.get().minimum) || abap.compare.eq(unique2, zcl_aff_abap_doc_parser.abap_doc_annotation.get().maximum) || abap.compare.eq(unique2, zcl_aff_abap_doc_parser.abap_doc_annotation.get().exclusive_minimum) || abap.compare.eq(unique2, zcl_aff_abap_doc_parser.abap_doc_annotation.get().exclusive_maximum) || abap.compare.eq(unique2, zcl_aff_abap_doc_parser.abap_doc_annotation.get().max_length) || abap.compare.eq(unique2, zcl_aff_abap_doc_parser.abap_doc_annotation.get().multiple_of) || abap.compare.eq(unique2, zcl_aff_abap_doc_parser.abap_doc_annotation.get().min_length)) {
+      } else if (abap.compare.eq(unique3, zcl_aff_abap_doc_parser.abap_doc_annotation.get().minimum) || abap.compare.eq(unique3, zcl_aff_abap_doc_parser.abap_doc_annotation.get().maximum) || abap.compare.eq(unique3, zcl_aff_abap_doc_parser.abap_doc_annotation.get().exclusive_minimum) || abap.compare.eq(unique3, zcl_aff_abap_doc_parser.abap_doc_annotation.get().exclusive_maximum) || abap.compare.eq(unique3, zcl_aff_abap_doc_parser.abap_doc_annotation.get().max_length) || abap.compare.eq(unique3, zcl_aff_abap_doc_parser.abap_doc_annotation.get().multiple_of) || abap.compare.eq(unique3, zcl_aff_abap_doc_parser.abap_doc_annotation.get().min_length)) {
         await this.parse_number_annotations({key_word: key_word});
-      } else if (abap.compare.eq(unique2, zcl_aff_abap_doc_parser.abap_doc_annotation.get().enum_value)) {
+      } else if (abap.compare.eq(unique3, zcl_aff_abap_doc_parser.abap_doc_annotation.get().enum_value)) {
         await this.parse_enum_value();
       } else {
         abap.statements.replace({target:modified_abap_doc_string, all:false, with: new abap.types.Character({length: 0}).set(''),of: key_word});
@@ -168,8 +168,8 @@ class zcl_aff_abap_doc_parser {
     }
     length_found.set(temp4.get().length);
     this.decoded_abap_doc.get().callback_class.set((await this.get_annotation_value({length: abap.operators.minus(length_found,constant_1), offset: offset_found, to_decode: string_to_parse, length_of_annotation: constant_20, remove_whitespaces: abap.builtin.abap_true})));
-    for await (const unique3 of abap.statements.loop(result_table)) {
-      fs_entry_.assign(unique3);
+    for await (const unique4 of abap.statements.loop(result_table)) {
+      fs_entry_.assign(unique4);
       await this.check_next_word({offset: abap.operators.add(fs_entry_.get().offset,fs_entry_.get().length), text_to_check: string_to_parse});
     }
   }
@@ -223,16 +223,16 @@ class zcl_aff_abap_doc_parser {
     abap.statements.replace({target:string_to_parse, all:true, with: new abap.types.String().set(`\\$default\\{@link`),regex: new abap.types.String().set(`\\$default[\\s]*(:[\\s]*)?\\{[\\s]*@link`)});
     abap.statements.find(string_to_parse, {regex: new abap.types.String().set(`\\$default'[^']*'`), first: false, results: result_table_value});
     abap.statements.find(string_to_parse, {regex: new abap.types.String().set(`\\$default\\{@link[^\\}]+\\}`), first: false, results: result_table_link});
-    for await (const unique4 of abap.statements.loop(result_table_value)) {
-      fs_default_value_.assign(unique4);
+    for await (const unique5 of abap.statements.loop(result_table_value)) {
+      fs_default_value_.assign(unique5);
       abap.statements.clear(temp3);
       temp3.get().offset.set(fs_default_value_.get().offset);
       temp3.get().length.set(fs_default_value_.get().length);
       temp3.get().is_link.set(abap.builtin.abap_false);
       abap.statements.insertInternal({data: temp3, table: mixed_result_table});
     }
-    for await (const unique5 of abap.statements.loop(result_table_link)) {
-      fs_default_link_.assign(unique5);
+    for await (const unique6 of abap.statements.loop(result_table_link)) {
+      fs_default_link_.assign(unique6);
       abap.statements.clear(temp4);
       temp4.get().offset.set(fs_default_link_.get().offset);
       temp4.get().length.set(fs_default_link_.get().length);
@@ -251,8 +251,8 @@ class zcl_aff_abap_doc_parser {
       await this.parser_log.get().zif_aff_log$add_info({message_text: msg, component_name: this.component_name});
     }
     warning_set.set(abap.builtin.abap_false);
-    for await (const unique6 of abap.statements.loop(mixed_result_table)) {
-      fs_entry_.assign(unique6);
+    for await (const unique7 of abap.statements.loop(mixed_result_table)) {
+      fs_entry_.assign(unique7);
       await this.check_next_word({offset: abap.operators.add(fs_entry_.get().offset,fs_entry_.get().length), text_to_check: string_to_parse});
       if (abap.compare.eq(fs_entry_.get().is_link, abap.builtin.abap_false) && abap.compare.initial(this.decoded_abap_doc.get().default_)) {
         this.decoded_abap_doc.get().default_.set(abap.operators.concat(new abap.types.String().set(`"`),abap.operators.concat((await this.get_annotation_value({length: abap.operators.minus(fs_entry_.get().length,constant_1), offset: fs_entry_.get().offset, to_decode: string_to_parse, length_of_annotation: constant_9, remove_whitespaces: abap.builtin.abap_false})),new abap.types.String().set(`"`))));
@@ -300,8 +300,8 @@ class zcl_aff_abap_doc_parser {
     }
     await this.write_log_for_multiple_entries({result_table: result_table, annotaion: zcl_aff_abap_doc_parser.abap_doc_annotation.get().values});
     warning_written.set(abap.builtin.abap_false);
-    for await (const unique7 of abap.statements.loop(result_table)) {
-      fs_entry_.assign(unique7);
+    for await (const unique8 of abap.statements.loop(result_table)) {
+      fs_entry_.assign(unique8);
       offset_found.set(fs_entry_.get().offset);
       length_found.set(fs_entry_.get().length);
       link.set((await this.get_annotation_value({length: abap.operators.minus(length_found,constant_1), offset: offset_found, to_decode: string_to_parse, length_of_annotation: constant_13, remove_whitespaces: abap.builtin.abap_true})));
@@ -329,8 +329,8 @@ class zcl_aff_abap_doc_parser {
     abap.statements.find(this.abap_doc_string, {find: zcl_aff_abap_doc_parser.abap_doc_annotation.get().required, first: false, results: result_table});
     await this.write_log_for_multiple_entries({result_table: result_table, annotaion: zcl_aff_abap_doc_parser.abap_doc_annotation.get().required});
     this.decoded_abap_doc.get().required.set(abap.builtin.abap_true);
-    for await (const unique8 of abap.statements.loop(result_table)) {
-      fs_entry_.assign(unique8);
+    for await (const unique9 of abap.statements.loop(result_table)) {
+      fs_entry_.assign(unique9);
       await this.check_next_word({offset: abap.operators.add(fs_entry_.get().offset,fs_entry_.get().length), text_to_check: this.abap_doc_string});
     }
   }
@@ -343,40 +343,40 @@ class zcl_aff_abap_doc_parser {
     abap.statements.find(this.abap_doc_string, {find: zcl_aff_abap_doc_parser.abap_doc_annotation.get().show_always, first: false, results: result_table});
     await this.write_log_for_multiple_entries({result_table: result_table, annotaion: zcl_aff_abap_doc_parser.abap_doc_annotation.get().show_always});
     this.decoded_abap_doc.get().showalways.set(abap.builtin.abap_true);
-    for await (const unique9 of abap.statements.loop(result_table)) {
-      fs_entry_.assign(unique9);
+    for await (const unique10 of abap.statements.loop(result_table)) {
+      fs_entry_.assign(unique10);
       await this.check_next_word({offset: abap.operators.add(fs_entry_.get().offset,fs_entry_.get().length), text_to_check: this.abap_doc_string});
     }
   }
   async parse_number_annotations(INPUT) {
     let key_word = new abap.types.String({qualifiedName: "STRING"});
     if (INPUT && INPUT.key_word) {key_word.set(INPUT.key_word);}
-    let unique10 = key_word;
-    if (abap.compare.eq(unique10, zcl_aff_abap_doc_parser.abap_doc_annotation.get().minimum)) {
+    let unique11 = key_word;
+    if (abap.compare.eq(unique11, zcl_aff_abap_doc_parser.abap_doc_annotation.get().minimum)) {
       if (abap.compare.initial(this.decoded_abap_doc.get().minimum)) {
         this.decoded_abap_doc.get().minimum.set((await this.get_number_annotation({annotation_name: key_word})));
       }
-    } else if (abap.compare.eq(unique10, zcl_aff_abap_doc_parser.abap_doc_annotation.get().maximum)) {
+    } else if (abap.compare.eq(unique11, zcl_aff_abap_doc_parser.abap_doc_annotation.get().maximum)) {
       if (abap.compare.initial(this.decoded_abap_doc.get().maximum)) {
         this.decoded_abap_doc.get().maximum.set((await this.get_number_annotation({annotation_name: key_word})));
       }
-    } else if (abap.compare.eq(unique10, zcl_aff_abap_doc_parser.abap_doc_annotation.get().exclusive_minimum)) {
+    } else if (abap.compare.eq(unique11, zcl_aff_abap_doc_parser.abap_doc_annotation.get().exclusive_minimum)) {
       if (abap.compare.initial(this.decoded_abap_doc.get().exclusive_minimum)) {
         this.decoded_abap_doc.get().exclusive_minimum.set((await this.get_number_annotation({annotation_name: key_word})));
       }
-    } else if (abap.compare.eq(unique10, zcl_aff_abap_doc_parser.abap_doc_annotation.get().exclusive_maximum)) {
+    } else if (abap.compare.eq(unique11, zcl_aff_abap_doc_parser.abap_doc_annotation.get().exclusive_maximum)) {
       if (abap.compare.initial(this.decoded_abap_doc.get().exclusive_maximum)) {
         this.decoded_abap_doc.get().exclusive_maximum.set((await this.get_number_annotation({annotation_name: key_word})));
       }
-    } else if (abap.compare.eq(unique10, zcl_aff_abap_doc_parser.abap_doc_annotation.get().multiple_of)) {
+    } else if (abap.compare.eq(unique11, zcl_aff_abap_doc_parser.abap_doc_annotation.get().multiple_of)) {
       if (abap.compare.initial(this.decoded_abap_doc.get().multiple_of)) {
         this.decoded_abap_doc.get().multiple_of.set((await this.get_number_annotation({annotation_name: key_word})));
       }
-    } else if (abap.compare.eq(unique10, zcl_aff_abap_doc_parser.abap_doc_annotation.get().min_length)) {
+    } else if (abap.compare.eq(unique11, zcl_aff_abap_doc_parser.abap_doc_annotation.get().min_length)) {
       if (abap.compare.initial(this.decoded_abap_doc.get().min_length)) {
         this.decoded_abap_doc.get().min_length.set((await this.get_number_annotation({annotation_name: key_word})));
       }
-    } else if (abap.compare.eq(unique10, zcl_aff_abap_doc_parser.abap_doc_annotation.get().max_length)) {
+    } else if (abap.compare.eq(unique11, zcl_aff_abap_doc_parser.abap_doc_annotation.get().max_length)) {
       if (abap.compare.initial(this.decoded_abap_doc.get().max_length)) {
         this.decoded_abap_doc.get().max_length.set((await this.get_number_annotation({annotation_name: key_word})));
       }
@@ -418,8 +418,8 @@ class zcl_aff_abap_doc_parser {
     annotation_length.set(abap.builtin.strlen({val: dummy_annotation}));
     regex_of_number_expressions.set(await (new abap.Classes['CL_ABAP_REGEX']()).constructor_({pattern: new abap.types.String().set(`(\\+|-)?[0-9]+(.[0-9]+)?(e(\\+|-)?[0-9]+)?`), ignore_case: abap.builtin.abap_true}));
     warning_written.set(abap.builtin.abap_false);
-    for await (const unique11 of abap.statements.loop(result_table)) {
-      fs_entry_.assign(unique11);
+    for await (const unique12 of abap.statements.loop(result_table)) {
+      fs_entry_.assign(unique12);
       offset_found.set(fs_entry_.get().offset);
       length_found.set(fs_entry_.get().length);
       begin_of_number.set(abap.operators.add(offset_found,annotation_length));
@@ -480,8 +480,8 @@ class zcl_aff_abap_doc_parser {
     }
     length_found.set(temp8.get().length);
     this.decoded_abap_doc.get().enum_value.set((await this.get_annotation_value({length: abap.operators.minus(length_found,constant_1), offset: offset_found, to_decode: string_to_parse, length_of_annotation: constant_11, remove_whitespaces: abap.builtin.abap_true})));
-    for await (const unique12 of abap.statements.loop(result_table)) {
-      fs_entry_.assign(unique12);
+    for await (const unique13 of abap.statements.loop(result_table)) {
+      fs_entry_.assign(unique13);
       await this.check_next_word({offset: abap.operators.add(fs_entry_.get().offset,fs_entry_.get().length), text_to_check: string_to_parse});
     }
   }
@@ -513,9 +513,9 @@ class zcl_aff_abap_doc_parser {
       return;
     }
     regex_of_letter.set(await (new abap.Classes['CL_ABAP_REGEX']()).constructor_({pattern: new abap.types.String().set(`[a-zA-Z]`), ignore_case: abap.builtin.abap_false}));
-    let unique13 = 1;
+    let unique14 = 1;
     while (true) {
-      abap.builtin.sy.get().index.set(unique13++);
+      abap.builtin.sy.get().index.set(unique14++);
       next_char.set(text_to_check.getOffset({offset: current_offset, length: 1}));
       current_offset.set(abap.operators.add(current_offset,constant_1));
       next_word.set(abap.operators.concat(next_word,next_char));

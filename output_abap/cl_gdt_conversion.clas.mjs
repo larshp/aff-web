@@ -21,10 +21,10 @@ class cl_gdt_conversion {
     if (INPUT && INPUT.im_currency_code) {im_currency_code.set(INPUT.im_currency_code);}
     let ex_value = new abap.types.Packed({length: 1, decimals: 0});
     if (INPUT && INPUT.ex_value) {ex_value = INPUT.ex_value;}
-    let unique79 = im_currency_code;
-    if (abap.compare.eq(unique79, new abap.types.Character({length: 3}).set('DKK')) || abap.compare.eq(unique79, new abap.types.Character({length: 3}).set('EUR')) || abap.compare.eq(unique79, new abap.types.Character({length: 3}).set('USD'))) {
+    let unique80 = im_currency_code;
+    if (abap.compare.eq(unique80, new abap.types.Character({length: 3}).set('DKK')) || abap.compare.eq(unique80, new abap.types.Character({length: 3}).set('EUR')) || abap.compare.eq(unique80, new abap.types.Character({length: 3}).set('USD'))) {
       ex_value.set(im_value);
-    } else if (abap.compare.eq(unique79, new abap.types.Character({length: 3}).set('VND'))) {
+    } else if (abap.compare.eq(unique80, new abap.types.Character({length: 3}).set('VND'))) {
       ex_value.set(abap.operators.multiply(im_value,constant_100));
     } else {
       abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 4}).set('todo')));
@@ -87,14 +87,14 @@ class cl_gdt_conversion {
     if (INPUT && INPUT.im_value) {im_value = INPUT.im_value;}
     let ex_value = new abap.types.Character({length: 3, qualifiedName: "MSEHI"});
     if (INPUT && INPUT.ex_value) {ex_value = INPUT.ex_value;}
-    let unique80 = im_value;
-    if (abap.compare.eq(unique80, new abap.types.Character({length: 3}).set('MTR'))) {
+    let unique81 = im_value;
+    if (abap.compare.eq(unique81, new abap.types.Character({length: 3}).set('MTR'))) {
       ex_value.set(new abap.types.Character({length: 1}).set('M'));
-    } else if (abap.compare.eq(unique80, new abap.types.Character({length: 3}).set('PCE'))) {
+    } else if (abap.compare.eq(unique81, new abap.types.Character({length: 3}).set('PCE'))) {
       ex_value.set(new abap.types.Character({length: 2}).set('PC'));
-    } else if (abap.compare.eq(unique80, new abap.types.Character({length: 3}).set('KGM'))) {
+    } else if (abap.compare.eq(unique81, new abap.types.Character({length: 3}).set('KGM'))) {
       ex_value.set(new abap.types.Character({length: 2}).set('KG'));
-    } else if (abap.compare.eq(unique80, new abap.types.Character({length: 3}).set('LTR'))) {
+    } else if (abap.compare.eq(unique81, new abap.types.Character({length: 3}).set('LTR'))) {
       ex_value.set(new abap.types.Character({length: 1}).set('L'));
     } else {
       abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 4}).set('todo')));
@@ -108,12 +108,12 @@ class cl_gdt_conversion {
     if (INPUT && INPUT.im_value) {im_value = INPUT.im_value;}
     let ex_value = new abap.types.Character({length: 2, qualifiedName: "LAISO"});
     if (INPUT && INPUT.ex_value) {ex_value = INPUT.ex_value;}
-    let unique81 = im_value;
-    if (abap.compare.eq(unique81, new abap.types.Character({length: 1}).set('E'))) {
+    let unique82 = im_value;
+    if (abap.compare.eq(unique82, new abap.types.Character({length: 1}).set('E'))) {
       ex_value.set(new abap.types.Character({length: 2}).set('en'));
-    } else if (abap.compare.eq(unique81, new abap.types.Character({length: 1}).set('K'))) {
+    } else if (abap.compare.eq(unique82, new abap.types.Character({length: 1}).set('K'))) {
       ex_value.set(new abap.types.Character({length: 2}).set('da'));
-    } else if (abap.compare.eq(unique81, new abap.types.Character({length: 1}).set('D'))) {
+    } else if (abap.compare.eq(unique82, new abap.types.Character({length: 1}).set('D'))) {
       ex_value.set(new abap.types.Character({length: 2}).set('de'));
     } else {
       abap.statements.assert(abap.compare.eq(constant_0, constant_1));

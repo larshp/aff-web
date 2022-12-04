@@ -176,8 +176,8 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
     let fs_enum_value_ = new abap.types.FieldSymbol(new abap.types.Structure({value: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-VALUE"}), overwritten_value: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-OVERWRITTEN_VALUE"})}, "zcl_aff_writer_json_schema=>ty_enum_value"));
     let enum_descr = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     await this.write_tag({line: new abap.types.String().set(`"enum": [`)});
-    for await (const unique49 of abap.statements.loop(enum_properties.get().values)) {
-      fs_enum_value_.assign(unique49);
+    for await (const unique50 of abap.statements.loop(enum_properties.get().values)) {
+      fs_enum_value_.assign(unique50);
       if (abap.compare.initial(fs_enum_value_.get().overwritten_value)) {
         abap.statements.insertInternal({data: fs_enum_value_.get().value, table: enum_values});
       } else {
@@ -198,8 +198,8 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
     if (INPUT && INPUT.property_table) {property_table.set(INPUT.property_table);}
     let fs_value_ = new abap.types.FieldSymbol(new abap.types.String());
     this.indent_level.set(abap.operators.add(this.indent_level,constant_1));
-    for await (const unique50 of abap.statements.loop(property_table)) {
-      fs_value_.assign(unique50);
+    for await (const unique51 of abap.statements.loop(property_table)) {
+      fs_value_.assign(unique51);
       if (abap.compare.lt(abap.builtin.sy.get().tabix, abap.builtin.lines({val: property_table}))) {
         await this.write_tag({line: new abap.types.String().set(`"${abap.templateFormatting(fs_value_)}",`)});
       } else {
@@ -391,9 +391,9 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
     if (abap.compare.ne(abap.builtin.sy.get().subrc, constant_0)) {
       throw await (new abap.Classes['CX_SY_ITAB_LINE_NOT_FOUND']()).constructor_();
     }
-    const unique51 = temp10.get().number_brackets.get();
-    for (let unique52 = 0; unique52 < unique51; unique52++) {
-      abap.builtin.sy.get().index.set(unique52 + 1);
+    const unique52 = temp10.get().number_brackets.get();
+    for (let unique53 = 0; unique53 < unique52; unique53++) {
+      abap.builtin.sy.get().index.set(unique53 + 1);
       temp13.set(abap.builtin.sy.get().tabix);
       abap.statements.readTable(this.me.get().structure_buffer,{index: constant_1,into: temp12});
       abap.builtin.sy.get().tabix.set(temp13);
@@ -484,9 +484,9 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
     if (abap.compare.ne(abap.builtin.sy.get().subrc, constant_0)) {
       throw await (new abap.Classes['CX_SY_ITAB_LINE_NOT_FOUND']()).constructor_();
     }
-    const unique53 = temp21.get().number_brackets.get();
-    for (let unique54 = 0; unique54 < unique53; unique54++) {
-      abap.builtin.sy.get().index.set(unique54 + 1);
+    const unique54 = temp21.get().number_brackets.get();
+    for (let unique55 = 0; unique55 < unique54; unique55++) {
+      abap.builtin.sy.get().index.set(unique55 + 1);
       await this.write_closing_tag({line: new abap.types.String().set(`}`)});
     }
     await abap.statements.deleteInternal(this.me.get().table_buffer,{where: (i) => {return abap.compare.eq(i.name, table_name);}});
@@ -719,8 +719,8 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
       if (abap.Classes[callback_class.get()] === undefined && abap.Classes['CX_SY_DYN_CALL_ILLEGAL_CLASS'] === undefined) { throw "CX_SY_DYN_CALL_ILLEGAL_CLASS not found"; }
       if (abap.Classes[callback_class.get()] === undefined) { throw new abap.Classes['CX_SY_DYN_CALL_ILLEGAL_CLASS'](); }
       subschema.set(await abap.Classes[callback_class.get()].get_subschema());
-      for await (const unique55 of abap.statements.loop(subschema)) {
-        fs_line_.assign(unique55);
+      for await (const unique56 of abap.statements.loop(subschema)) {
+        fs_line_.assign(unique56);
         await this.write_tag({line: fs_line_});
       }
       this.ignore_til_indent_level.set(this.indent_level);
@@ -804,8 +804,8 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
           if (abap.compare.initial(ddic_fixed_values)) {
             return result;
           }
-          for await (const unique56 of abap.statements.loop(ddic_fixed_values)) {
-            fs_value_.assign(unique56);
+          for await (const unique57 of abap.statements.loop(ddic_fixed_values)) {
+            fs_value_.assign(unique57);
             text.set(fs_value_.get().ddtext);
             abap.statements.replace({target:text, all:true, with: new abap.types.Character({length: 1}).set('_'),regex: new abap.types.Character({length: 2}).set('\\s')});
             abap.statements.clear(temp28);
@@ -839,8 +839,8 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
               }
             }
             if (abap.compare.initial(ddic_fixed_values) === false) {
-              for await (const unique57 of abap.statements.loop(ddic_fixed_values)) {
-                fs_value_.assign(unique57);
+              for await (const unique58 of abap.statements.loop(ddic_fixed_values)) {
+                fs_value_.assign(unique58);
                 abap.statements.append({source: fs_value_.get().ddtext, target: result});
               }
             }
@@ -875,8 +875,8 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
           let temp21 = new abap.types.String({qualifiedName: "STRING"});
           await this.get_structure_of_enum_values({link_to_values: this.abap_doc.get().enumvalues_link, fullname_of_type: this.fullname_of_type, structure_of_values: structure_of_values, name_of_source: name_of_source, name_of_constant: name_of_constant});
           if (abap.compare.initial(structure_of_values) === false) {
-            for await (const unique58 of abap.statements.loop(structure_of_values.get().components)) {
-              fs_component_.assign(unique58);
+            for await (const unique59 of abap.statements.loop(structure_of_values.get().components)) {
+              fs_component_.assign(unique59);
               if (abap.compare.ne(fs_component_.get().type_kind, enum_type)) {
                 temp29.set(name_of_constant);
                 temp20.set(this.fullname_of_type);
@@ -978,8 +978,8 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
               if (abap.compare.ne(abap.builtin.sy.get().subrc, constant_0)) {
                 throw await (new abap.Classes['CX_SY_ITAB_LINE_NOT_FOUND']()).constructor_();
               }
-              for await (const unique59 of abap.statements.loop(temp28)) {
-                fs_required_comp_.assign(unique59);
+              for await (const unique60 of abap.statements.loop(temp28)) {
+                fs_required_comp_.assign(unique60);
                 temp40.set(abap.builtin.sy.get().tabix);
                 abap.statements.readTable(this.stack_of_required_tabs,{index: constant_1,into: temp39});
                 abap.builtin.sy.get().tabix.set(temp40);

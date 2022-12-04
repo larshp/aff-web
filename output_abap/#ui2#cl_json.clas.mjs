@@ -34,19 +34,19 @@ class $ui2$cl_json {
     let fs_any_ = new abap.types.FieldSymbol(new abap.types.Character({length: 4}));
     let fs_tab_ = new abap.types.FieldSymbol(new abap.types.Table(new abap.types.Character({length: 4}), {"withHeader":false}));
     lo_type.set((await abap.Classes['CL_ABAP_TYPEDESCR'].describe_by_data({p_data: data})));
-    let unique104 = lo_type.get().kind;
-    if (abap.compare.eq(unique104, abap.Classes['CL_ABAP_TYPEDESCR'].kind_elem)) {
-      let unique105 = lo_type.get().type_kind;
-      if (abap.compare.eq(unique105, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_char) || abap.compare.eq(unique105, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_string)) {
+    let unique105 = lo_type.get().kind;
+    if (abap.compare.eq(unique105, abap.Classes['CL_ABAP_TYPEDESCR'].kind_elem)) {
+      let unique106 = lo_type.get().type_kind;
+      if (abap.compare.eq(unique106, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_char) || abap.compare.eq(unique106, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_string)) {
         r_json.set(abap.operators.concat(new abap.types.Character({length: 1}).set('"'),abap.operators.concat(data,new abap.types.Character({length: 1}).set('"'))));
       } else {
         r_json.set(data);
       }
-    } else if (abap.compare.eq(unique104, abap.Classes['CL_ABAP_TYPEDESCR'].kind_table)) {
+    } else if (abap.compare.eq(unique105, abap.Classes['CL_ABAP_TYPEDESCR'].kind_table)) {
       r_json.set(new abap.types.Character({length: 1}).set('['));
       abap.statements.assign({target: fs_tab_, source: data});
-      for await (const unique106 of abap.statements.loop(fs_tab_)) {
-        fs_any_.assign(unique106);
+      for await (const unique107 of abap.statements.loop(fs_tab_)) {
+        fs_any_.assign(unique107);
         lv_index.set(abap.builtin.sy.get().tabix);
         r_json.set(abap.operators.concat(r_json,(await this.serialize({data: fs_any_}))));
         if (abap.compare.ne(abap.builtin.lines({val: data}), lv_index)) {
@@ -54,12 +54,12 @@ class $ui2$cl_json {
         }
       }
       r_json.set(abap.operators.concat(r_json,new abap.types.Character({length: 1}).set(']')));
-    } else if (abap.compare.eq(unique104, abap.Classes['CL_ABAP_TYPEDESCR'].kind_struct)) {
+    } else if (abap.compare.eq(unique105, abap.Classes['CL_ABAP_TYPEDESCR'].kind_struct)) {
       await abap.statements.cast(lo_struct, lo_type);
       lt_components.set((await lo_struct.get().get_components()));
       r_json.set(new abap.types.Character({length: 1}).set('{'));
-      for await (const unique107 of abap.statements.loop(lt_components)) {
-        ls_component.set(unique107);
+      for await (const unique108 of abap.statements.loop(lt_components)) {
+        ls_component.set(unique108);
         lv_index.set(abap.builtin.sy.get().tabix);
         abap.statements.assign({component: ls_component.get().name, target: fs_any_, source: data});
         abap.statements.assert(abap.compare.eq(abap.builtin.sy.get().subrc, constant_0));
@@ -116,31 +116,31 @@ class $ui2$cl_json {
     let lv_member = new abap.types.String();
     let fs_any_ = new abap.types.FieldSymbol(new abap.types.Character({length: 4}));
     lo_type.set((await abap.Classes['CL_ABAP_TYPEDESCR'].describe_by_data({p_data: data})));
-    let unique108 = lo_type.get().kind;
-    if (abap.compare.eq(unique108, abap.Classes['CL_ABAP_TYPEDESCR'].kind_elem)) {
+    let unique109 = lo_type.get().kind;
+    if (abap.compare.eq(unique109, abap.Classes['CL_ABAP_TYPEDESCR'].kind_elem)) {
       if (abap.compare.eq(lo_type.get().absolute_name, new abap.types.Character({length: 30}).set('\\TYPE-POOL=ABAP\\TYPE=ABAP_BOOL')) || abap.compare.eq(lo_type.get().absolute_name, new abap.types.Character({length: 10}).set('\\TYPE=FLAG'))) {
         data.set(abap.builtin.boolc(abap.compare.eq((await $ui2$cl_json.mo_parsed.get().value_string({iv_path: prefix})), new abap.types.Character({length: 4}).set('true'))));
       } else {
         data.set((await $ui2$cl_json.mo_parsed.get().value_string({iv_path: prefix})));
       }
-    } else if (abap.compare.eq(unique108, abap.Classes['CL_ABAP_TYPEDESCR'].kind_table)) {
+    } else if (abap.compare.eq(unique109, abap.Classes['CL_ABAP_TYPEDESCR'].kind_table)) {
       lt_members.set((await $ui2$cl_json.mo_parsed.get().members({iv_path: abap.operators.concat(prefix,new abap.types.Character({length: 1}).set('/'))})));
-      for await (const unique109 of abap.statements.loop(lt_members)) {
-        lv_member.set(unique109);
+      for await (const unique110 of abap.statements.loop(lt_members)) {
+        lv_member.set(unique110);
         abap.statements.createData(ref,{"likeLineOf": data});
         abap.statements.assign({target: fs_any_, source: (ref).getPointer()});
         await this._deserialize({prefix: abap.operators.concat(prefix,abap.operators.concat(new abap.types.Character({length: 1}).set('/'),lv_member)), pretty_name: pretty_name, data: fs_any_});
         abap.statements.insertInternal({data: fs_any_, table: data});
       }
-    } else if (abap.compare.eq(unique108, abap.Classes['CL_ABAP_TYPEDESCR'].kind_struct)) {
+    } else if (abap.compare.eq(unique109, abap.Classes['CL_ABAP_TYPEDESCR'].kind_struct)) {
       await abap.statements.cast(lo_struct, lo_type);
       lt_components.set((await lo_struct.get().get_components()));
-      for await (const unique110 of abap.statements.loop(lt_components)) {
-        ls_component.set(unique110);
+      for await (const unique111 of abap.statements.loop(lt_components)) {
+        ls_component.set(unique111);
         abap.statements.assign({component: ls_component.get().name, target: fs_any_, source: data});
         abap.statements.assert(abap.compare.eq(abap.builtin.sy.get().subrc, constant_0));
-        let unique111 = pretty_name;
-        if (abap.compare.eq(unique111, $ui2$cl_json.pretty_mode.get().camel_case)) {
+        let unique112 = pretty_name;
+        if (abap.compare.eq(unique112, $ui2$cl_json.pretty_mode.get().camel_case)) {
           lv_name.set(abap.builtin.to_mixed({val: abap.builtin.to_lower({val: ls_component.get().name})}));
         } else {
           lv_name.set(abap.builtin.to_lower({val: ls_component.get().name}));

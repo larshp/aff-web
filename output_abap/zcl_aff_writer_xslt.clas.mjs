@@ -230,12 +230,12 @@ class zcl_aff_writer_xslt extends zcl_aff_writer {
     let temp7 = new abap.types.Character({length: 50, qualifiedName: "SYMSGV"});
     let msg = new abap.types.String({qualifiedName: "STRING"});
     let temp8 = new abap.types.ABAPObject({qualifiedName: "ZCX_AFF_TOOLS"});
-    let unique60 = json_type;
-    if (abap.compare.eq(unique60, abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$type_info.get().string) || abap.compare.eq(unique60, abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$type_info.get().date_time)) {
+    let unique61 = json_type;
+    if (abap.compare.eq(unique61, abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$type_info.get().string) || abap.compare.eq(unique61, abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$type_info.get().date_time)) {
       result.set(new abap.types.String().set(`str`));
-    } else if (abap.compare.eq(unique60, abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$type_info.get().boolean)) {
+    } else if (abap.compare.eq(unique61, abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$type_info.get().boolean)) {
       result.set(new abap.types.String().set(`bool`));
-    } else if (abap.compare.eq(unique60, abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$type_info.get().numeric)) {
+    } else if (abap.compare.eq(unique61, abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$type_info.get().numeric)) {
       result.set(new abap.types.String().set(`num`));
     } else {
       temp7.set(json_type);
@@ -257,14 +257,14 @@ class zcl_aff_writer_xslt extends zcl_aff_writer {
     if (abap.compare.eq((await this.is_sy_langu({element_description: element_description})), abap.builtin.abap_true)) {
       result.set(new abap.types.String().set(` option="format(language)"`));
     } else {
-      let unique61 = json_type;
-      if (abap.compare.eq(unique61, abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$type_info.get().string)) {
+      let unique62 = json_type;
+      if (abap.compare.eq(unique62, abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$type_info.get().string)) {
         result.set(abap.builtin.space);
-      } else if (abap.compare.eq(unique61, abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$type_info.get().date_time)) {
+      } else if (abap.compare.eq(unique62, abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$type_info.get().date_time)) {
         result.set(new abap.types.String().set(` option="format(dateTimeOffset)"`));
-      } else if (abap.compare.eq(unique61, abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$type_info.get().boolean)) {
+      } else if (abap.compare.eq(unique62, abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$type_info.get().boolean)) {
         result.set(new abap.types.String().set(` option="format(boolean)"`));
-      } else if (abap.compare.eq(unique61, abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$type_info.get().numeric)) {
+      } else if (abap.compare.eq(unique62, abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$type_info.get().numeric)) {
         result.set(new abap.types.String().set(` option="format(alpha)"`));
       } else {
         temp9.set(json_type);
@@ -293,8 +293,8 @@ class zcl_aff_writer_xslt extends zcl_aff_writer {
     }
     await this.write_tag({line: new abap.types.String().set(`<tt:value${abap.templateFormatting((await this.get_ref({name: element_name})))} ${abap.templateFormatting((await this.get_option({json_type: json_type, element_description: element_description})))}map="`)});
     index.set(constant_1);
-    for await (const unique62 of abap.statements.loop(enum_values)) {
-      fs_enum_value_.assign(unique62);
+    for await (const unique63 of abap.statements.loop(enum_values)) {
+      fs_enum_value_.assign(unique63);
       abap_value.set((await this.get_abap_value({abap_value: fs_enum_value_.get().abap_value, element_description: element_description})));
       if (abap.compare.initial(fs_enum_value_.get().overwritten_json_value)) {
         xml_value.set(fs_enum_value_.get().json_value);
@@ -317,12 +317,12 @@ class zcl_aff_writer_xslt extends zcl_aff_writer {
     let element_description = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_ELEMDESCR"});
     if (INPUT && INPUT.element_description) {element_description.set(INPUT.element_description);}
     let abap_value_copy = new abap.types.String({qualifiedName: "STRING"});
-    let unique63 = element_description.get().type_kind;
-    if (abap.compare.eq(unique63, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int) || abap.compare.eq(unique63, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int1) || abap.compare.eq(unique63, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int2) || abap.compare.eq(unique63, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int8)) {
+    let unique64 = element_description.get().type_kind;
+    if (abap.compare.eq(unique64, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int) || abap.compare.eq(unique64, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int1) || abap.compare.eq(unique64, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int2) || abap.compare.eq(unique64, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int8)) {
       abap_value_copy.set(abap_value);
       abap.statements.condense(abap_value_copy, {nogaps: false});
       result.set(new abap.types.String().set(`I(${abap.templateFormatting(abap_value_copy)})`));
-    } else if (abap.compare.eq(unique63, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_num)) {
+    } else if (abap.compare.eq(unique64, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_num)) {
       result.set(new abap.types.String().set(`N('${abap.templateFormatting(abap_value)}')`));
     } else {
       result.set(new abap.types.String().set(`'${abap.templateFormatting(abap_value)}'`));
@@ -456,8 +456,8 @@ class zcl_aff_writer_xslt extends zcl_aff_writer {
     await this.get_structure_of_enum_values({link_to_values: this.abap_doc.get().enumvalues_link, fullname_of_type: this.fullname_of_type, structure_of_values: structure_of_values, name_of_source: name_of_source, name_of_constant: name_of_constant});
     if (abap.compare.initial(structure_of_values) === false) {
       abap.statements.assign({target: fs_attr_, dynamicName: name_of_source.get() + '=>' + name_of_constant.get(), dynamicSource: (() => {try { return eval(name_of_source.get().toLowerCase().match(/\w+/)[0]); } catch {}})()});
-      for await (const unique64 of abap.statements.loop(structure_of_values.get().components)) {
-        fs_component_.assign(unique64);
+      for await (const unique65 of abap.statements.loop(structure_of_values.get().components)) {
+        fs_component_.assign(unique65);
         fullname_of_component.set(abap.operators.concat(name_of_constant,abap.operators.concat(new abap.types.Character({length: 1}).set('-'),fs_component_.get().name)));
         abap_doc_of_component.set((await this.call_reader_and_decode({name_of_source: name_of_source, element_name: fullname_of_component})));
         if (abap.compare.ne(fs_component_.get().type_kind, enum_type)) {
@@ -546,32 +546,32 @@ class zcl_aff_writer_xslt extends zcl_aff_writer {
     let message = new abap.types.String({qualifiedName: "STRING"});
     let temp18 = new abap.types.ABAPObject({qualifiedName: "ZCX_AFF_TOOLS"});
     let temp19 = new abap.types.ABAPObject({qualifiedName: "ZCX_AFF_TOOLS"});
-    let unique65 = element_description.get().type_kind;
-    if (abap.compare.eq(unique65, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int) || abap.compare.eq(unique65, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int1) || abap.compare.eq(unique65, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int2)) {
+    let unique66 = element_description.get().type_kind;
+    if (abap.compare.eq(unique66, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int) || abap.compare.eq(unique66, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int1) || abap.compare.eq(unique66, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int2)) {
       value_copy.set(value);
       abap.statements.condense(value_copy, {nogaps: false});
       result.set(new abap.types.String().set(`I(${abap.templateFormatting(value_copy)})`));
-    } else if (abap.compare.eq(unique65, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int8)) {
+    } else if (abap.compare.eq(unique66, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int8)) {
       result.set(new abap.types.String().set(`INT8(${abap.templateFormatting(value)})`));
-    } else if (abap.compare.eq(unique65, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_float)) {
+    } else if (abap.compare.eq(unique66, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_float)) {
       result.set(new abap.types.String().set(`F('${abap.templateFormatting(value)}')`));
-    } else if (abap.compare.eq(unique65, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_xstring) || abap.compare.eq(unique65, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_hex)) {
+    } else if (abap.compare.eq(unique66, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_xstring) || abap.compare.eq(unique66, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_hex)) {
       result.set(new abap.types.String().set(`X('${abap.templateFormatting(value)}')`));
-    } else if (abap.compare.eq(unique65, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_decfloat16)) {
+    } else if (abap.compare.eq(unique66, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_decfloat16)) {
       result.set(new abap.types.String().set(`DECFLOAT16('${abap.templateFormatting(value)}')`));
-    } else if (abap.compare.eq(unique65, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_decfloat34)) {
+    } else if (abap.compare.eq(unique66, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_decfloat34)) {
       result.set(new abap.types.String().set(`DECFLOAT34('${abap.templateFormatting(value)}')`));
-    } else if (abap.compare.eq(unique65, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_packed)) {
+    } else if (abap.compare.eq(unique66, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_packed)) {
       result.set(new abap.types.String().set(`P(${abap.templateFormatting(value)})`));
-    } else if (abap.compare.eq(unique65, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_num)) {
+    } else if (abap.compare.eq(unique66, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_num)) {
       result.set(new abap.types.String().set(`N('${abap.templateFormatting(value)}')`));
-    } else if (abap.compare.eq(unique65, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_char) || abap.compare.eq(unique65, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_string)) {
+    } else if (abap.compare.eq(unique66, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_char) || abap.compare.eq(unique66, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_string)) {
       result.set(new abap.types.String().set(`C('${abap.templateFormatting(value)}')`));
-    } else if (abap.compare.eq(unique65, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_date)) {
+    } else if (abap.compare.eq(unique66, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_date)) {
       result.set(new abap.types.String().set(`D('${abap.templateFormatting(value)}')`));
-    } else if (abap.compare.eq(unique65, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_time)) {
+    } else if (abap.compare.eq(unique66, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_time)) {
       result.set(new abap.types.String().set(`T('${abap.templateFormatting(value)}')`));
-    } else if (abap.compare.eq(unique65, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_utclong)) {
+    } else if (abap.compare.eq(unique66, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_utclong)) {
       message.set((await this.log.get().zif_aff_log$get_message_text({msgno: constant_117, msgv1: new abap.types.String().set(`UTCLONG`)})));
       temp18.set(await (new abap.Classes['ZCX_AFF_TOOLS']()).constructor_({message: message}));
       throw temp18.get();
@@ -595,8 +595,8 @@ class zcl_aff_writer_xslt extends zcl_aff_writer {
       throw await (new abap.Classes['CX_SY_ITAB_LINE_NOT_FOUND']()).constructor_();
     }
     actual_entry.set(temp9);
-    for await (const unique66 of abap.statements.loop(actual_entry.get().table_of_defaults)) {
-      fs_default_.assign(unique66);
+    for await (const unique67 of abap.statements.loop(actual_entry.get().table_of_defaults)) {
+      fs_default_.assign(unique67);
       temp20.set(new abap.types.String().set(`${abap.templateFormatting(abap.builtin.repeat({val: new abap.types.String().set(` `), occ: abap.operators.minus(abap.operators.multiply(this.indent_level,zcl_aff_writer_xslt.c_indent_number_characters),zcl_aff_writer_xslt.c_indent_number_characters)}))}<tt:assign to-ref="${abap.templateFormatting(fs_default_.get().var_name)}" val="${abap.templateFormatting(fs_default_.get().default_value)}"/>`));
       abap.statements.append({source: temp20, target: list_of_applies});
     }
@@ -625,8 +625,8 @@ class zcl_aff_writer_xslt extends zcl_aff_writer {
     } else {
       ref_name.set(new abap.types.String().set(`.${abap.templateFormatting(this.st_root_name)}`));
     }
-    let unique67 = description.get().kind;
-    if (abap.compare.eq(unique67, abap.Classes['CL_ABAP_TYPEDESCR'].kind_elem)) {
+    let unique68 = description.get().kind;
+    if (abap.compare.eq(unique68, abap.Classes['CL_ABAP_TYPEDESCR'].kind_elem)) {
       if (abap.compare.initial(tag) === false) {
         calculated_tag.set(tag);
       } else {
@@ -635,10 +635,10 @@ class zcl_aff_writer_xslt extends zcl_aff_writer {
       }
       component_start.set(new abap.types.String().set(`<${abap.templateFormatting(calculated_tag)}>`));
       component_end.set(new abap.types.String().set(`</${abap.templateFormatting(calculated_tag)}>`));
-    } else if (abap.compare.eq(unique67, abap.Classes['CL_ABAP_TYPEDESCR'].kind_struct)) {
+    } else if (abap.compare.eq(unique68, abap.Classes['CL_ABAP_TYPEDESCR'].kind_struct)) {
       component_start.set(new abap.types.String().set(`<object>`));
       component_end.set(new abap.types.String().set(`</object>`));
-    } else if (abap.compare.eq(unique67, abap.Classes['CL_ABAP_TYPEDESCR'].kind_table)) {
+    } else if (abap.compare.eq(unique68, abap.Classes['CL_ABAP_TYPEDESCR'].kind_table)) {
       component_start.set(new abap.types.String().set(`<array>`));
       component_end.set(new abap.types.String().set(`</array>`));
     }
@@ -691,8 +691,8 @@ class zcl_aff_writer_xslt extends zcl_aff_writer {
       }
     }
     if (abap.compare.gt(abap.builtin.lines({val: errors}), constant_0) || abap.compare.initial(exception) === false) {
-      for await (const unique68 of abap.statements.loop(errors)) {
-        fs_error_.assign(unique68);
+      for await (const unique69 of abap.statements.loop(errors)) {
+        fs_error_.assign(unique69);
         await abap.Classes['CL_MESSAGE_HELPER'].set_msg_vars_for_clike({text: fs_error_.get().text});
         msg.set((await log.get().zif_aff_log$get_message_text({msgno: constant_0, msgv1: abap.builtin.sy.get().msgv1, msgv2: abap.builtin.sy.get().msgv2, msgv3: abap.builtin.sy.get().msgv3, msgv4: abap.builtin.sy.get().msgv4})));
         abap.statements.clear(temp22);
@@ -721,8 +721,8 @@ class zcl_aff_writer_xslt extends zcl_aff_writer {
     await this.write_open_tag({line: new abap.types.String().set(` <_ tt:lax="on">`)});
     await this.write_open_tag({line: new abap.types.String().set(`<tt:call-method class="CL_AFF_XSLT_CALLBACK_TYPE" name="RAISE_DIFFERENT_TYPE_EXCEPTION" reader="IO_READER">`)});
     components.set((await structure_description.get().get_components()));
-    for await (const unique69 of abap.statements.loop(components)) {
-      component.set(unique69);
+    for await (const unique70 of abap.statements.loop(components)) {
+      component.set(unique70);
       formatted_name.set((await this.format_name({name: component.get().name})));
       if (abap.compare.initial(component.get().as_include) === false) {
         continue;

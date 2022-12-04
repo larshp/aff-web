@@ -70,8 +70,8 @@ class cl_http_utility {
     let str = new abap.types.String({qualifiedName: "STRING"});
     let ls_field = new abap.types.Structure({name: new abap.types.String({qualifiedName: "IHTTPNVP-NAME"}), value: new abap.types.String({qualifiedName: "IHTTPNVP-VALUE"})}, "IHTTPNVP");
     abap.statements.split({source: string, at: new abap.types.Character({length: 1}).set('&'), table: tab});
-    for await (const unique88 of abap.statements.loop(tab)) {
-      str.set(unique88);
+    for await (const unique89 of abap.statements.loop(tab)) {
+      str.set(unique89);
       abap.statements.split({source: str, at: new abap.types.Character({length: 1}).set('='), targets: [ls_field.get().name,ls_field.get().value]});
       abap.statements.append({source: ls_field, target: fields});
     }
@@ -97,8 +97,8 @@ class cl_http_utility {
     let tab = new abap.types.Table(new abap.types.String({qualifiedName: "STRING"}), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "");
     let str = new abap.types.String({qualifiedName: "STRING"});
     let ls_field = new abap.types.Structure({name: new abap.types.String({qualifiedName: "IHTTPNVP-NAME"}), value: new abap.types.String({qualifiedName: "IHTTPNVP-VALUE"})}, "IHTTPNVP");
-    for await (const unique89 of abap.statements.loop(fields)) {
-      ls_field.set(unique89);
+    for await (const unique90 of abap.statements.loop(fields)) {
+      ls_field.set(unique90);
       str.set(abap.operators.concat(ls_field.get().name,abap.operators.concat(new abap.types.Character({length: 1}).set('='),ls_field.get().value)));
       abap.statements.append({source: str, target: tab});
     }

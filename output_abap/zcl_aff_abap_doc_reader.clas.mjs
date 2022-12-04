@@ -57,16 +57,16 @@ class zcl_aff_abap_doc_reader {
     if (abap.compare.eq(abap.builtin.lines({val: this.blocks}), constant_0)) {
       await this.parse();
     }
-    for await (const unique31 of abap.statements.loop(this.blocks)) {
-      fs_fs_abap_doc_block_.assign(unique31);
+    for await (const unique32 of abap.statements.loop(this.blocks)) {
+      fs_fs_abap_doc_block_.assign(unique32);
       if (abap.compare.eq(fs_fs_abap_doc_block_.get().hook_relevant_tok_name.get().str, new abap.types.Character({length: 5}).set('BEGIN'))) {
         l_scanned_elem_name.set(fs_fs_abap_doc_block_.get().hook_relevant_tok_name_add.get().str);
       } else {
         l_scanned_elem_name.set(fs_fs_abap_doc_block_.get().hook_relevant_tok_name.get().str);
       }
       if (abap.compare.eq(l_scanned_elem_name, l_element_name)) {
-        for await (const unique32 of abap.statements.loop(fs_fs_abap_doc_block_.get().tab_comments)) {
-          adoc_line.set(unique32);
+        for await (const unique33 of abap.statements.loop(fs_fs_abap_doc_block_.get().tab_comments)) {
+          adoc_line.set(unique33);
           abap.statements.condense(adoc_line, {nogaps: false});
           adoc_line.set(adoc_line.getOffset({offset: 2}));
           abap.statements.condense(adoc_line, {nogaps: false});

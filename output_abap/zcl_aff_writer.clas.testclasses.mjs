@@ -669,8 +669,8 @@ class ltcl_type_writer {
     temp103.get().default_.set(new abap.types.Character({length: 2}).set('-5'));
     temp103.get().is_valid.set(abap.builtin.abap_true);
     abap.statements.insertInternal({data: temp103, table: table_of_tuples});
-    for await (const unique48 of abap.statements.loop(table_of_tuples)) {
-      fs_entry_.assign(unique48);
+    for await (const unique49 of abap.statements.loop(table_of_tuples)) {
+      fs_entry_.assign(unique49);
       is_valid.set((await this.cut.get().is_default_value_valid({element_description: fs_entry_.get().element_description, default_value: fs_entry_.get().default_, fullname_of_type: new abap.types.String().set(`TEST_VALUE`)})));
       await abap.Classes['CL_ABAP_UNIT_ASSERT'].assert_equals({exp: fs_entry_.get().is_valid, act: is_valid});
     }

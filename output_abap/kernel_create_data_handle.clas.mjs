@@ -18,12 +18,12 @@ class kernel_create_data_handle {
     let dref = new abap.types.DataReference(new abap.types.Character({length: 4}));
     if (INPUT && INPUT.dref) {dref = INPUT.dref;}
     abap.statements.assert(abap.compare.initial(handle) === false);
-    let unique128 = handle.get().kind;
-    if (abap.compare.eq(unique128, abap.Classes['CL_ABAP_TYPEDESCR'].kind_elem)) {
+    let unique129 = handle.get().kind;
+    if (abap.compare.eq(unique129, abap.Classes['CL_ABAP_TYPEDESCR'].kind_elem)) {
       await this.elem({handle: handle, dref: dref});
-    } else if (abap.compare.eq(unique128, abap.Classes['CL_ABAP_TYPEDESCR'].kind_struct)) {
+    } else if (abap.compare.eq(unique129, abap.Classes['CL_ABAP_TYPEDESCR'].kind_struct)) {
       await this.struct({handle: handle, dref: dref});
-    } else if (abap.compare.eq(unique128, abap.Classes['CL_ABAP_TYPEDESCR'].kind_table)) {
+    } else if (abap.compare.eq(unique129, abap.Classes['CL_ABAP_TYPEDESCR'].kind_table)) {
       await this.table({handle: handle, dref: dref});
     } else {
       console.dir(handle);
@@ -45,8 +45,8 @@ class kernel_create_data_handle {
     await abap.statements.cast(lo_struct, handle);
     lt_components.set((await lo_struct.get().get_components()));
     let obj = {};
-    for await (const unique129 of abap.statements.loop(lt_components)) {
-      ls_component.set(unique129);
+    for await (const unique130 of abap.statements.loop(lt_components)) {
+      ls_component.set(unique130);
       await this.call({handle: (await lo_struct.get().get_component_type({p_name: ls_component.get().name})), dref: field});
       obj[ls_component.get().name.get().toLowerCase()] = field.getPointer();
     }
@@ -74,24 +74,24 @@ class kernel_create_data_handle {
     if (INPUT && INPUT.handle) {handle.set(INPUT.handle);}
     let dref = new abap.types.DataReference(new abap.types.Character({length: 4}));
     if (INPUT && INPUT.dref) {dref = INPUT.dref;}
-    let unique130 = handle.get().type_kind;
-    if (abap.compare.eq(unique130, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_float)) {
+    let unique131 = handle.get().type_kind;
+    if (abap.compare.eq(unique131, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_float)) {
       abap.statements.createData(dref,{"typeName": "F"});
-    } else if (abap.compare.eq(unique130, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_string)) {
+    } else if (abap.compare.eq(unique131, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_string)) {
       abap.statements.createData(dref,{"typeName": "STRING"});
-    } else if (abap.compare.eq(unique130, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_xstring)) {
+    } else if (abap.compare.eq(unique131, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_xstring)) {
       abap.statements.createData(dref,{"typeName": "XSTRING"});
-    } else if (abap.compare.eq(unique130, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int)) {
+    } else if (abap.compare.eq(unique131, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int)) {
       abap.statements.createData(dref,{"typeName": "I"});
-    } else if (abap.compare.eq(unique130, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_date)) {
+    } else if (abap.compare.eq(unique131, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_date)) {
       abap.statements.createData(dref,{"typeName": "D"});
-    } else if (abap.compare.eq(unique130, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_hex)) {
+    } else if (abap.compare.eq(unique131, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_hex)) {
       abap.statements.createData(dref,{"typeName": "X","length": handle.get().length});
-    } else if (abap.compare.eq(unique130, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_packed)) {
+    } else if (abap.compare.eq(unique131, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_packed)) {
       abap.statements.createData(dref,{"typeName": "P","length": handle.get().length});
-    } else if (abap.compare.eq(unique130, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_char)) {
+    } else if (abap.compare.eq(unique131, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_char)) {
       abap.statements.createData(dref,{"typeName": "C","length": handle.get().length});
-    } else if (abap.compare.eq(unique130, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_time)) {
+    } else if (abap.compare.eq(unique131, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_time)) {
       abap.statements.createData(dref,{"typeName": "T"});
     } else {
       console.dir(handle);

@@ -96,8 +96,8 @@ class cl_http_client {
     }
     await this.if_http_client$request.get().if_http_entity$get_header_fields({fields: lt_header_fields});
     let headers = {};
-    for await (const unique87 of abap.statements.loop(lt_header_fields,{where: async (i) => {return abap.compare.ne(i.name, new abap.types.Character({length: 12}).set('~request_uri'));}})) {
-      ls_field.set(unique87);
+    for await (const unique88 of abap.statements.loop(lt_header_fields,{where: async (i) => {return abap.compare.ne(i.name, new abap.types.Character({length: 12}).set('~request_uri'));}})) {
+      ls_field.set(unique88);
       headers[ls_field.get().name.get()] = ls_field.get().value.get();
     }
     lv_body.set((await this.if_http_client$request.get().if_http_entity$get_cdata()));

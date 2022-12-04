@@ -58,8 +58,8 @@ class lcl_stack {
   async get_full_name() {
     let rv_path = new abap.types.String({qualifiedName: "STRING"});
     let ls_data = new abap.types.Structure({name: new abap.types.String({qualifiedName: "LCL_STACK=>TY_DATA-NAME"}), is_array: new abap.types.Character({qualifiedName: "ABAP_BOOL"}), array_index: new abap.types.Integer({qualifiedName: "LCL_STACK=>TY_DATA-ARRAY_INDEX"})}, "lcl_stack=>ty_data");
-    for await (const unique99 of abap.statements.loop(this.mt_data)) {
-      ls_data.set(unique99);
+    for await (const unique100 of abap.statements.loop(this.mt_data)) {
+      ls_data.set(unique100);
       rv_path.set(abap.operators.concat(rv_path,ls_data.get().name));
     }
     return rv_path;
@@ -88,8 +88,8 @@ class lcl_parser {
     let iv_path = new abap.types.String({qualifiedName: "STRING"});
     if (INPUT && INPUT.iv_path) {iv_path.set(INPUT.iv_path);}
     let ls_data = new abap.types.Structure({parent: new abap.types.String({qualifiedName: "LCL_PARSER=>TY_DATA-PARENT"}), name: new abap.types.String({qualifiedName: "LCL_PARSER=>TY_DATA-NAME"}), full_name: new abap.types.String({qualifiedName: "LCL_PARSER=>TY_DATA-FULL_NAME"}), value: new abap.types.String({qualifiedName: "LCL_PARSER=>TY_DATA-VALUE"})}, "lcl_parser=>ty_data");
-    for await (const unique100 of abap.statements.loop(this.mt_data,{where: async (i) => {return abap.compare.eq(i.parent, iv_path);}})) {
-      ls_data.set(unique100);
+    for await (const unique101 of abap.statements.loop(this.mt_data,{where: async (i) => {return abap.compare.eq(i.parent, iv_path);}})) {
+      ls_data.set(unique101);
       abap.statements.append({source: ls_data.get().name, target: rt_members});
     }
     return rt_members;
@@ -145,20 +145,20 @@ class lcl_parser {
     let lt_nodes = new abap.types.Table(new abap.types.ABAPObject({qualifiedName: "IF_SXML_NODE"}), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "");
     lo_stack.set(await (new abap.Classes['CLAS-/UI2/CL_JSON-LCL_STACK']()).constructor_());
     li_reader.set((await abap.Classes['CL_SXML_STRING_READER'].create({data: (await abap.Classes['CL_ABAP_CODEPAGE'].convert_to({source: iv_json}))})));
-    let unique101 = 1;
+    let unique102 = 1;
     while (true) {
-      abap.builtin.sy.get().index.set(unique101++);
+      abap.builtin.sy.get().index.set(unique102++);
       li_node.set((await li_reader.get().if_sxml_reader$read_next_node()));
       if (abap.compare.initial(li_node)) {
         break;
       }
       abap.statements.append({source: li_node, target: lt_nodes});
     }
-    for await (const unique102 of abap.statements.loop(lt_nodes)) {
-      li_node.set(unique102);
+    for await (const unique103 of abap.statements.loop(lt_nodes)) {
+      li_node.set(unique103);
       lv_index.set(abap.builtin.sy.get().tabix);
-      let unique103 = li_node.get().if_sxml_node$type;
-      if (abap.compare.eq(unique103, abap.Classes['IF_SXML_NODE'].if_sxml_node$co_nt_element_open)) {
+      let unique104 = li_node.get().if_sxml_node$type;
+      if (abap.compare.eq(unique104, abap.Classes['IF_SXML_NODE'].if_sxml_node$co_nt_element_open)) {
         await abap.statements.cast(li_open, li_node);
         lt_attributes.set((await li_open.get().if_sxml_open_element$get_attributes()));
         abap.statements.readTable(lt_attributes,{index: constant_1,into: li_attribute});
@@ -189,7 +189,7 @@ class lcl_parser {
           abap.statements.append({source: ls_data, target: this.mt_data});
           await lo_stack.get().push({iv_name: new abap.types.Character({length: 1}).set('/'), iv_type: li_open.get().if_sxml_open_element$qname.get().name});
         }
-      } else if (abap.compare.eq(unique103, abap.Classes['IF_SXML_NODE'].if_sxml_node$co_nt_element_close)) {
+      } else if (abap.compare.eq(unique104, abap.Classes['IF_SXML_NODE'].if_sxml_node$co_nt_element_close)) {
         await abap.statements.cast(li_close, li_node);
         lv_name.set((await lo_stack.get().pop()));
         if (abap.compare.eq(lv_name, new abap.types.Character({length: 1}).set('/'))) {

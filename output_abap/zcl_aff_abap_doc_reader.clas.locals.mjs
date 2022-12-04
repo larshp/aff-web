@@ -37,8 +37,8 @@ class lcl_section_source_comments {
     result.set(abap.builtin.abap_false);
     abap.statements.clear(this.me.get().depth);
     if (abap.compare.gt(limit_col, constant_0)) {
-      for await (const unique14 of abap.statements.loop(tab_statements,{where: async (i) => {return (abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('P')) && abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('S')) && abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('G'))) && abap.compare.le(i.from, limit);}})) {
-        fs_fs_stmnt_tmp_.assign(unique14);
+      for await (const unique15 of abap.statements.loop(tab_statements,{where: async (i) => {return (abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('P')) && abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('S')) && abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('G'))) && abap.compare.le(i.from, limit);}})) {
+        fs_fs_stmnt_tmp_.assign(unique15);
         abap.statements.readTable(tab_tokens,{index: fs_fs_stmnt_tmp_.get().from,assigning: fs_fs_tok_prev_prev_});
         abap.statements.readTable(tab_tokens,{index: abap.operators.add(fs_fs_stmnt_tmp_.get().from,constant_1),assigning: fs_fs_tok_prev_prev1_});
         abap.statements.readTable(tab_tokens,{index: abap.operators.add(fs_fs_stmnt_tmp_.get().from,constant_2),assigning: fs_fs_tok_prev_prev2_});
@@ -51,8 +51,8 @@ class lcl_section_source_comments {
         }
       }
     } else {
-      for await (const unique15 of abap.statements.loop(tab_statements,{where: async (i) => {return (abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('P')) && abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('S')) && abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('G'))) && abap.compare.lt(i.from, limit);}})) {
-        fs_fs_stmnt_tmp_.assign(unique15);
+      for await (const unique16 of abap.statements.loop(tab_statements,{where: async (i) => {return (abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('P')) && abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('S')) && abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('G'))) && abap.compare.lt(i.from, limit);}})) {
+        fs_fs_stmnt_tmp_.assign(unique16);
         abap.statements.readTable(tab_tokens,{index: fs_fs_stmnt_tmp_.get().from,assigning: fs_fs_tok_prev_prev_});
         abap.statements.readTable(tab_tokens,{index: abap.operators.add(fs_fs_stmnt_tmp_.get().from,constant_1),assigning: fs_fs_tok_prev_prev1_});
         abap.statements.readTable(tab_tokens,{index: abap.operators.add(fs_fs_stmnt_tmp_.get().from,constant_2),assigning: fs_fs_tok_prev_prev2_});
@@ -89,8 +89,8 @@ class lcl_section_source_comments {
     result.set(abap.builtin.abap_false);
     abap.statements.clear(this.me.get().depth);
     if (abap.compare.gt(limit_col, constant_0)) {
-      for await (const unique16 of abap.statements.loop(tab_statements,{where: async (i) => {return (abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('P')) && abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('S')) && abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('G'))) && abap.compare.le(i.from, limit);}})) {
-        fs_fs_stmnt_tmp_.assign(unique16);
+      for await (const unique17 of abap.statements.loop(tab_statements,{where: async (i) => {return (abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('P')) && abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('S')) && abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('G'))) && abap.compare.le(i.from, limit);}})) {
+        fs_fs_stmnt_tmp_.assign(unique17);
         abap.statements.readTable(tab_tokens,{index: fs_fs_stmnt_tmp_.get().from,assigning: fs_fs_tok_prev_prev_});
         abap.statements.readTable(tab_tokens,{index: abap.operators.add(fs_fs_stmnt_tmp_.get().from,constant_1),assigning: fs_fs_tok_prev_prev1_});
         abap.statements.readTable(tab_tokens,{index: abap.operators.add(fs_fs_stmnt_tmp_.get().from,constant_2),assigning: fs_fs_tok_prev_prev2_});
@@ -103,8 +103,8 @@ class lcl_section_source_comments {
         }
       }
     } else {
-      for await (const unique17 of abap.statements.loop(tab_statements,{where: async (i) => {return (abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('P')) && abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('S')) && abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('G'))) && abap.compare.lt(i.from, limit);}})) {
-        fs_fs_stmnt_tmp_.assign(unique17);
+      for await (const unique18 of abap.statements.loop(tab_statements,{where: async (i) => {return (abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('P')) && abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('S')) && abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('G'))) && abap.compare.lt(i.from, limit);}})) {
+        fs_fs_stmnt_tmp_.assign(unique18);
         abap.statements.readTable(tab_tokens,{index: fs_fs_stmnt_tmp_.get().from,assigning: fs_fs_tok_prev_prev_});
         abap.statements.readTable(tab_tokens,{index: abap.operators.add(fs_fs_stmnt_tmp_.get().from,constant_1),assigning: fs_fs_tok_prev_prev1_});
         abap.statements.readTable(tab_tokens,{index: abap.operators.add(fs_fs_stmnt_tmp_.get().from,constant_2),assigning: fs_fs_tok_prev_prev2_});
@@ -173,8 +173,8 @@ class lcl_section_source_comments {
     let l_hier = new abap.types.Structure({depth: new abap.types.Integer({qualifiedName: "LCL_SECTION_SOURCE_COMMENTS=>TY_NODE-DEPTH"}), node_name: new abap.types.String({qualifiedName: "LCL_SECTION_SOURCE_COMMENTS=>TY_NODE-NODE_NAME"}), parent_node: new abap.types.String({qualifiedName: "LCL_SECTION_SOURCE_COMMENTS=>TY_NODE-PARENT_NODE"}), stmnt_from_idx: new abap.types.Integer({qualifiedName: "LCL_SECTION_SOURCE_COMMENTS=>TY_NODE-STMNT_FROM_IDX"}), stmnt_to_idx: new abap.types.Integer({qualifiedName: "LCL_SECTION_SOURCE_COMMENTS=>TY_NODE-STMNT_TO_IDX"})}, "lcl_section_source_comments=>ty_node");
     abap.statements.clear(tab_abap_doc);
     await this.me.get().build_hierarchy_nodes({tab_statements: tab_statements, tab_tokens: tab_tokens, nodes: this.me.get().hierarchy_nodes});
-    for await (const unique18 of abap.statements.loop(tab_statements,{where: async (i) => {return abap.compare.eq(i.type, new abap.types.Character({length: 1}).set('P')) || abap.compare.eq(i.type, new abap.types.Character({length: 1}).set('S'));}})) {
-      fs_fs_stmnt_.assign(unique18);
+    for await (const unique19 of abap.statements.loop(tab_statements,{where: async (i) => {return abap.compare.eq(i.type, new abap.types.Character({length: 1}).set('P')) || abap.compare.eq(i.type, new abap.types.Character({length: 1}).set('S'));}})) {
+      fs_fs_stmnt_.assign(unique19);
       abap.statements.clear(tab_comments_to_save);
       abap.statements.clear(relevant_token1);
       abap.statements.clear(relevant_token2);
@@ -182,8 +182,8 @@ class lcl_section_source_comments {
       abap.statements.clear(line_comment_block);
       abap.statements.clear(l_name_concatenated);
       current_statement.set(abap.builtin.sy.get().tabix);
-      for await (const unique19 of abap.statements.loop(tab_tokens,{from: fs_fs_stmnt_.get().from,to: fs_fs_stmnt_.get().to})) {
-        fs_fs_tok_.assign(unique19);
+      for await (const unique20 of abap.statements.loop(tab_tokens,{from: fs_fs_stmnt_.get().from,to: fs_fs_stmnt_.get().to})) {
+        fs_fs_tok_.assign(unique20);
         abap.statements.readTable(tab_source,{index: fs_fs_tok_.get().row,into: l_line_code});
         if (abap.compare.gt(fs_fs_tok_.get().col, constant_0)) {
           l_length.set(abap.operators.minus(fs_fs_tok_.get().col,constant_1));
@@ -204,8 +204,8 @@ class lcl_section_source_comments {
       }
       embeded_types.set(abap.builtin.abap_false);
       embeded_data_const.set(abap.builtin.abap_false);
-      for await (const unique20 of abap.statements.loop(tab_statements,{to: current_statement,where: async (i) => {return (abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('P')) && abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('S')) && abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('G')));}})) {
-        fs_fs_stmnt_prev_.assign(unique20);
+      for await (const unique21 of abap.statements.loop(tab_statements,{to: current_statement,where: async (i) => {return (abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('P')) && abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('S')) && abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('G')));}})) {
+        fs_fs_stmnt_prev_.assign(unique21);
       }
       if (abap.compare.assigned(fs_fs_stmnt_prev_)) {
         abap.statements.readTable(tab_tokens,{index: fs_fs_stmnt_prev_.get().from,assigning: fs_fs_tok_prev_});
@@ -226,13 +226,13 @@ class lcl_section_source_comments {
           }
         }
       }
-      for await (const unique21 of abap.statements.loop(tab_statements,{from: abap.operators.add(current_statement,constant_1),where: async (i) => {return (abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('P')) && abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('S')) && abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('G')));}})) {
-        fs_fs_stmnt_next_.assign(unique21);
+      for await (const unique22 of abap.statements.loop(tab_statements,{from: abap.operators.add(current_statement,constant_1),where: async (i) => {return (abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('P')) && abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('S')) && abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('G')));}})) {
+        fs_fs_stmnt_next_.assign(unique22);
         break;
       }
       if (abap.compare.assigned(fs_fs_stmnt_next_)) {
-        for await (const unique22 of abap.statements.loop(tab_tokens,{from: fs_fs_stmnt_next_.get().from,where: async (i) => {return abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('C'));}})) {
-          fs_fs_tok_.assign(unique22);
+        for await (const unique23 of abap.statements.loop(tab_tokens,{from: fs_fs_stmnt_next_.get().from,where: async (i) => {return abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('C'));}})) {
+          fs_fs_tok_.assign(unique23);
           if (abap.compare.initial(relevant_token2) && abap.compare.initial(relevant_token1) === false) {
             relevant_token2.set(fs_fs_tok_);
             if (abap.compare.eq(relevant_token1.get().str, new abap.types.Character({length: 5}).set('CLASS'))) {
@@ -266,16 +266,16 @@ class lcl_section_source_comments {
           abap.statements.clear(l_count);
           abap.statements.clear(l_from);
           abap.statements.clear(l_to);
-          for await (const unique23 of abap.statements.loop(this.me.get().hierarchy_nodes)) {
-            l_hier.set(unique23);
+          for await (const unique24 of abap.statements.loop(this.me.get().hierarchy_nodes)) {
+            l_hier.set(unique24);
             if (!(abap.compare.eq(l_hier.get().depth, constant_0) && abap.compare.gt(l_hier.get().stmnt_from_idx, constant_0) && abap.compare.le(l_hier.get().stmnt_from_idx, fs_fs_stmnt_next_.get().from))) {
               continue;
             }
             l_from.set(abap.builtin.sy.get().tabix);
           }
           if (abap.compare.gt(l_from, constant_0)) {
-            for await (const unique24 of abap.statements.loop(this.me.get().hierarchy_nodes,{from: abap.operators.add(l_from,constant_1),where: async (i) => {return abap.compare.eq(i.depth, constant_0);}})) {
-              l_hier.set(unique24);
+            for await (const unique25 of abap.statements.loop(this.me.get().hierarchy_nodes,{from: abap.operators.add(l_from,constant_1),where: async (i) => {return abap.compare.eq(i.depth, constant_0);}})) {
+              l_hier.set(unique25);
               l_to.set(abap.builtin.sy.get().tabix);
               break;
             }
@@ -284,19 +284,19 @@ class lcl_section_source_comments {
             } else if (abap.compare.gt(l_to, l_from)) {
               l_to.set(abap.operators.minus(l_to,constant_1));
             }
-            for await (const unique25 of abap.statements.loop(this.me.get().hierarchy_nodes,{from: l_from,to: l_to,where: async (i) => {return abap.compare.eq(i.node_name, l_name_node) && abap.compare.eq(i.depth, this.me.get().depth);}})) {
-              l_node.set(unique25);
+            for await (const unique26 of abap.statements.loop(this.me.get().hierarchy_nodes,{from: l_from,to: l_to,where: async (i) => {return abap.compare.eq(i.node_name, l_name_node) && abap.compare.eq(i.depth, this.me.get().depth);}})) {
+              l_node.set(unique26);
               l_depth.set(l_node.get().depth);
               l_parent.set(l_node.get().parent_node);
               while (abap.compare.ne(l_depth, constant_0)) {
                 abap.statements.clear(hierarchy_nodes_descending);
-                for await (const unique26 of abap.statements.loop(this.me.get().hierarchy_nodes,{from: l_from,to: l_to,where: async (i) => {return abap.compare.eq(i.node_name, l_parent) && abap.compare.lt(i.depth, l_depth);}})) {
-                  l_node_new.set(unique26);
+                for await (const unique27 of abap.statements.loop(this.me.get().hierarchy_nodes,{from: l_from,to: l_to,where: async (i) => {return abap.compare.eq(i.node_name, l_parent) && abap.compare.lt(i.depth, l_depth);}})) {
+                  l_node_new.set(unique27);
                   abap.statements.append({source: l_node_new, target: hierarchy_nodes_descending});
                 }
                 abap.statements.sort(hierarchy_nodes_descending,{by: [{component: "depth", descending: true}]});
-                for await (const unique27 of abap.statements.loop(hierarchy_nodes_descending,{where: async (i) => {return abap.compare.eq(i.node_name, l_parent) && abap.compare.lt(i.depth, l_depth);}})) {
-                  l_node_new.set(unique27);
+                for await (const unique28 of abap.statements.loop(hierarchy_nodes_descending,{where: async (i) => {return abap.compare.eq(i.node_name, l_parent) && abap.compare.lt(i.depth, l_depth);}})) {
+                  l_node_new.set(unique28);
                   abap.statements.insertInternal({data: l_node_new.get().node_name, index: constant_1, table: nodes});
                 }
                 if (abap.compare.ne(abap.builtin.sy.get().subrc, constant_0)) {
@@ -311,8 +311,8 @@ class lcl_section_source_comments {
         if (abap.compare.le(abap.builtin.lines({val: nodes}), constant_1)) {
           abap.statements.clear(l_name_concatenated);
         } else {
-          for await (const unique28 of abap.statements.loop(nodes)) {
-            l_name_node.set(unique28);
+          for await (const unique29 of abap.statements.loop(nodes)) {
+            l_name_node.set(unique29);
             if (abap.compare.initial(l_name_concatenated)) {
               l_name_concatenated.set(l_name_node);
             } else {
@@ -370,8 +370,8 @@ class lcl_section_source_comments {
     let temp6 = new abap.types.Integer();
     let temp7 = new abap.types.Integer();
     abap.statements.clear(nodes);
-    for await (const unique29 of abap.statements.loop(tab_statements,{where: async (i) => {return (abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('P')) && abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('S')) && abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('G')));}})) {
-      fs_fs_stmnt_.assign(unique29);
+    for await (const unique30 of abap.statements.loop(tab_statements,{where: async (i) => {return (abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('P')) && abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('S')) && abap.compare.ne(i.type, new abap.types.Character({length: 1}).set('G')));}})) {
+      fs_fs_stmnt_.assign(unique30);
       temp4.set(abap.builtin.sy.get().tabix);
       abap.statements.readTable(tab_tokens,{index: fs_fs_stmnt_.get().from,into: temp3});
       abap.builtin.sy.get().tabix.set(temp4);
@@ -399,8 +399,8 @@ class lcl_section_source_comments {
       if (!(abap.compare.eq(temp3.get().str, new abap.types.Character({length: 5}).set('TYPES')) || abap.compare.eq(temp1.get().str, new abap.types.Character({length: 4}).set('DATA')) || abap.compare.eq(temp8.get().str, new abap.types.Character({length: 10}).set('CLASS-DATA')) || abap.compare.eq(temp10.get().str, new abap.types.Character({length: 9}).set('CONSTANTS')))) {
         continue;
       }
-      for await (const unique30 of abap.statements.loop(tab_tokens,{from: fs_fs_stmnt_.get().from,to: fs_fs_stmnt_.get().to})) {
-        fs_fs_tok_.assign(unique30);
+      for await (const unique31 of abap.statements.loop(tab_tokens,{from: fs_fs_stmnt_.get().from,to: fs_fs_stmnt_.get().to})) {
+        fs_fs_tok_.assign(unique31);
         if (!((abap.compare.eq(fs_fs_tok_.get().str, new abap.types.Character({length: 5}).set('TYPES')) || abap.compare.eq(fs_fs_tok_.get().str, new abap.types.Character({length: 4}).set('DATA')) || abap.compare.eq(fs_fs_tok_.get().str, new abap.types.Character({length: 10}).set('CLASS-DATA')) || abap.compare.eq(fs_fs_tok_.get().str, new abap.types.Character({length: 9}).set('CONSTANTS'))))) {
           continue;
         }

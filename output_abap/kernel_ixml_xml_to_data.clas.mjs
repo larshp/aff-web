@@ -46,13 +46,13 @@ class kernel_ixml_xml_to_data {
     let fs_field_ = new abap.types.FieldSymbol(new abap.types.Character({length: 4}));
     let fs_tab_ = new abap.types.FieldSymbol(new abap.types.Table(new abap.types.Character({length: 4}), {"withHeader":false}));
     lo_type.set((await abap.Classes['CL_ABAP_TYPEDESCR'].describe_by_data({p_data: (iv_ref).getPointer()})));
-    let unique122 = lo_type.get().kind;
-    if (abap.compare.eq(unique122, abap.Classes['CL_ABAP_TYPEDESCR'].kind_struct)) {
+    let unique123 = lo_type.get().kind;
+    if (abap.compare.eq(unique123, abap.Classes['CL_ABAP_TYPEDESCR'].kind_struct)) {
       abap.statements.assign({target: fs_any_, source: (iv_ref).getPointer()});
       li_iterator.set((await (await ii_node.get().if_ixml_node$get_children()).get().if_ixml_node_list$create_iterator()));
-      let unique123 = 1;
+      let unique124 = 1;
       while (true) {
-        abap.builtin.sy.get().index.set(unique123++);
+        abap.builtin.sy.get().index.set(unique124++);
         li_child.set((await li_iterator.get().if_ixml_node_iterator$get_next()));
         if (abap.compare.initial(li_child)) {
           break;
@@ -64,16 +64,16 @@ class kernel_ixml_xml_to_data {
           await this.traverse({ii_node: li_child, iv_ref: lv_ref});
         }
       }
-    } else if (abap.compare.eq(unique122, abap.Classes['CL_ABAP_TYPEDESCR'].kind_elem)) {
+    } else if (abap.compare.eq(unique123, abap.Classes['CL_ABAP_TYPEDESCR'].kind_elem)) {
       li_child.set((await ii_node.get().if_ixml_node$get_first_child()));
       abap.statements.assign({target: fs_any_, source: (iv_ref).getPointer()});
       fs_any_.set((await li_child.get().if_ixml_node$get_value()));
-    } else if (abap.compare.eq(unique122, abap.Classes['CL_ABAP_TYPEDESCR'].kind_table)) {
+    } else if (abap.compare.eq(unique123, abap.Classes['CL_ABAP_TYPEDESCR'].kind_table)) {
       abap.statements.assign({target: fs_tab_, source: (iv_ref).getPointer()});
       li_iterator.set((await (await ii_node.get().if_ixml_node$get_children()).get().if_ixml_node_list$create_iterator()));
-      let unique124 = 1;
+      let unique125 = 1;
       while (true) {
-        abap.builtin.sy.get().index.set(unique124++);
+        abap.builtin.sy.get().index.set(unique125++);
         li_child.set((await li_iterator.get().if_ixml_node_iterator$get_next()));
         if (abap.compare.initial(li_child)) {
           break;

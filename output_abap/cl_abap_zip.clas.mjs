@@ -59,8 +59,8 @@ class cl_abap_zip {
     let lo_conv = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_CONV_OUT_CE"});
     lo_stream.set(await (new abap.Classes['CLAS-CL_ABAP_ZIP-LCL_STREAM']()).constructor_());
     lo_conv.set((await abap.Classes['CL_ABAP_CONV_OUT_CE'].create()));
-    for await (const unique78 of abap.statements.loop(this.mt_contents)) {
-      ls_contents.set(unique78);
+    for await (const unique79 of abap.statements.loop(this.mt_contents)) {
+      ls_contents.set(unique79);
       await lo_stream.get().append({iv_xstr: new abap.types.Character({length: 8}).set('504B0304')});
       await lo_stream.get().append({iv_xstr: new abap.types.Character({length: 4}).set('1400')});
       await lo_stream.get().append({iv_xstr: new abap.types.Character({length: 4}).set('0000')});

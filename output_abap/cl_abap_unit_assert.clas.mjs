@@ -220,9 +220,9 @@ class cl_abap_unit_assert {
       }
       abap.statements.assign({target: fs_tab1_, source: act});
       abap.statements.assign({target: fs_tab2_, source: exp});
-      const unique157 = abap.builtin.lines({val: act}).get();
-      for (let unique158 = 0; unique158 < unique157; unique158++) {
-        abap.builtin.sy.get().index.set(unique158 + 1);
+      const unique158 = abap.builtin.lines({val: act}).get();
+      for (let unique159 = 0; unique159 < unique158; unique159++) {
+        abap.builtin.sy.get().index.set(unique159 + 1);
         index.set(abap.builtin.sy.get().index);
         abap.statements.readTable(fs_tab1_,{index: index,assigning: fs_row1_});
         await this.assert_subrc();

@@ -27,8 +27,8 @@ class kernel_scan_abap_source {
     let lv_source = new abap.types.String({qualifiedName: "STRING"});
     lv_source.set(INPUT.scan_abap_source.array ? INPUT.scan_abap_source.array().map(e => e.get()).join("\n") : INPUT.scan_abap_source.get());
     await this.call_internal({source: lv_source, et_stokesx: lt_stokesx, et_sstmnt: lt_sstmnt});
-    for await (const unique131 of abap.statements.loop(lt_stokesx)) {
-      ls_stokesx.set(unique131);
+    for await (const unique132 of abap.statements.loop(lt_stokesx)) {
+      ls_stokesx.set(unique132);
       abap.statements.clear(ls_stokes);
       abap.statements.moveCorresponding(ls_stokesx, ls_stokes);
       abap.statements.append({source: ls_stokes, target: lt_stokes});
@@ -140,13 +140,13 @@ class kernel_scan_abap_source {
     let lt_insert = new abap.types.Table(new abap.types.Structure({str: new abap.types.String({qualifiedName: "STOKESX-STR"}), row: new abap.types.Integer({qualifiedName: "STOKESX-ROW"}), off2: new abap.types.Integer({qualifiedName: "STOKESX-OFF2"}), off3: new abap.types.Integer({qualifiedName: "STOKESX-OFF3"}), col: new abap.types.Integer({qualifiedName: "STOKESX-COL"}), len1: new abap.types.Integer({qualifiedName: "STOKESX-LEN1"}), len2: new abap.types.Integer({qualifiedName: "STOKESX-LEN2"}), len3: new abap.types.Integer({qualifiedName: "STOKESX-LEN3"}), type: new abap.types.Character({qualifiedName: "STOKESX-TYPE"})}, "STOKESX"), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "kernel_scan_abap_source=>ty_stokesx");
     let lt_delete = new abap.types.Table(new abap.types.Integer({qualifiedName: "I"}), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "");
     let lv_index = new abap.types.Integer({qualifiedName: "I"});
-    for await (const unique132 of abap.statements.loop(ct_statements)) {
-      fs_ls_statement_.assign(unique132);
+    for await (const unique133 of abap.statements.loop(ct_statements)) {
+      fs_ls_statement_.assign(unique133);
       lv_statement_index.set(abap.builtin.sy.get().tabix);
       contains_comment.set(abap.builtin.abap_false);
       contains_normal.set(abap.builtin.abap_false);
-      for await (const unique133 of abap.statements.loop(ct_tokens,{from: fs_ls_statement_.get().from,to: fs_ls_statement_.get().to})) {
-        ls_token.set(unique133);
+      for await (const unique134 of abap.statements.loop(ct_tokens,{from: fs_ls_statement_.get().from,to: fs_ls_statement_.get().to})) {
+        ls_token.set(unique134);
         if (abap.compare.eq(ls_token.get().type, kernel_scan_abap_source.gc_token.get().comment)) {
           contains_comment.set(abap.builtin.abap_true);
         } else {
@@ -157,20 +157,20 @@ class kernel_scan_abap_source {
         lv_count.set(constant_0);
         abap.statements.clear(lt_insert);
         abap.statements.clear(lt_delete);
-        for await (const unique134 of abap.statements.loop(ct_tokens,{from: fs_ls_statement_.get().from,to: fs_ls_statement_.get().to})) {
-          ls_token.set(unique134);
+        for await (const unique135 of abap.statements.loop(ct_tokens,{from: fs_ls_statement_.get().from,to: fs_ls_statement_.get().to})) {
+          ls_token.set(unique135);
           if (abap.compare.eq(ls_token.get().type, kernel_scan_abap_source.gc_token.get().comment)) {
             abap.statements.insertInternal({data: abap.builtin.sy.get().tabix, index: constant_1, table: lt_delete});
             abap.statements.insertInternal({data: ls_token, index: constant_1, table: lt_insert});
             lv_count.set(abap.operators.add(lv_count,constant_1));
           }
         }
-        for await (const unique135 of abap.statements.loop(lt_delete)) {
-          lv_index.set(unique135);
+        for await (const unique136 of abap.statements.loop(lt_delete)) {
+          lv_index.set(unique136);
           await abap.statements.deleteInternal(ct_tokens,{index: lv_index});
         }
-        for await (const unique136 of abap.statements.loop(lt_insert)) {
-          ls_token.set(unique136);
+        for await (const unique137 of abap.statements.loop(lt_insert)) {
+          ls_token.set(unique137);
           abap.statements.insertInternal({data: ls_token, index: fs_ls_statement_.get().from, table: ct_tokens});
         }
         abap.statements.clear(ls_statement);

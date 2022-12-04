@@ -98,19 +98,19 @@ class zcl_aff_tools_unit_test_helper {
     let temp20 = new abap.types.Table(new abap.types.Structure({component_name: new abap.types.String({qualifiedName: "ZIF_AFF_LOG=>TY_LOG_OUT-COMPONENT_NAME"}), type: new abap.types.Character({qualifiedName: "SYMSGTY"}), message_text: new abap.types.String({qualifiedName: "ZIF_AFF_LOG=>TY_LOG_OUT-MESSAGE_TEXT"}), message: new abap.types.Structure({msgty: new abap.types.Character({qualifiedName: "SYMSG-MSGTY"}), msgid: new abap.types.Character({length: 20, qualifiedName: "SYMSG-MSGID"}), msgno: new abap.types.Numc({length: 3, qualifiedName: "SYMSG-MSGNO"}), msgv1: new abap.types.Character({length: 50, qualifiedName: "SYMSG-MSGV1"}), msgv2: new abap.types.Character({length: 50, qualifiedName: "SYMSG-MSGV2"}), msgv3: new abap.types.Character({length: 50, qualifiedName: "SYMSG-MSGV3"}), msgv4: new abap.types.Character({length: 50, qualifiedName: "SYMSG-MSGV4"})}, "SYMSG")}, "zif_aff_log=>ty_log_out"), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "zif_aff_log=>tt_log_out");
     let fs_message_ = new abap.types.FieldSymbol(new abap.types.Structure({component_name: new abap.types.String({qualifiedName: "ZIF_AFF_LOG=>TY_LOG_OUT-COMPONENT_NAME"}), type: new abap.types.Character({qualifiedName: "SYMSGTY"}), message_text: new abap.types.String({qualifiedName: "ZIF_AFF_LOG=>TY_LOG_OUT-MESSAGE_TEXT"}), message: new abap.types.Structure({msgty: new abap.types.Character({qualifiedName: "SYMSG-MSGTY"}), msgid: new abap.types.Character({length: 20, qualifiedName: "SYMSG-MSGID"}), msgno: new abap.types.Numc({length: 3, qualifiedName: "SYMSG-MSGNO"}), msgv1: new abap.types.Character({length: 50, qualifiedName: "SYMSG-MSGV1"}), msgv2: new abap.types.Character({length: 50, qualifiedName: "SYMSG-MSGV2"}), msgv3: new abap.types.Character({length: 50, qualifiedName: "SYMSG-MSGV3"}), msgv4: new abap.types.Character({length: 50, qualifiedName: "SYMSG-MSGV4"})}, "SYMSG")}, "zif_aff_log=>ty_log_out"));
     let temp21 = new abap.types.Integer();
-    let unique36 = message_severity_threshold;
-    if (abap.compare.eq(unique36, abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().info)) {
+    let unique37 = message_severity_threshold;
+    if (abap.compare.eq(unique37, abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().info)) {
       abap.statements.clear(temp6);
       abap.statements.append({source: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().info, target: temp6});
       abap.statements.append({source: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().warning, target: temp6});
       abap.statements.append({source: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().error, target: temp6});
       types_to_report.set(temp6);
-    } else if (abap.compare.eq(unique36, abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().warning)) {
+    } else if (abap.compare.eq(unique37, abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().warning)) {
       abap.statements.clear(temp10);
       abap.statements.append({source: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().warning, target: temp10});
       abap.statements.append({source: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().error, target: temp10});
       types_to_report.set(temp10);
-    } else if (abap.compare.eq(unique36, abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().error)) {
+    } else if (abap.compare.eq(unique37, abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().error)) {
       abap.statements.clear(temp13);
       abap.statements.append({source: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().error, target: temp13});
       types_to_report.set(temp13);
@@ -126,8 +126,8 @@ class zcl_aff_tools_unit_test_helper {
     temp19.set(abap.builtin.sy.get().subrc);
     if (abap.compare.eq(temp19, constant_0)) {
       temp20.set((await log.get().zif_aff_log$get_messages()));
-      for await (const unique37 of abap.statements.loop(temp20)) {
-        fs_message_.assign(unique37);
+      for await (const unique38 of abap.statements.loop(temp20)) {
+        fs_message_.assign(unique38);
         abap.statements.readTable(types_to_report,{withKey: (i) => {return abap.compare.eq(i.table_line, fs_message_.get().type);}});
         temp21.set(abap.builtin.sy.get().subrc);
         if (abap.compare.eq(temp21, constant_0)) {
@@ -151,12 +151,12 @@ class zcl_aff_tools_unit_test_helper {
     let fs_act_line_ = new abap.types.FieldSymbol(new abap.types.String());
     exp.set(exp_data);
     act.set(act_data);
-    for await (const unique38 of abap.statements.loop(exp)) {
-      fs_exp_line_.assign(unique38);
+    for await (const unique39 of abap.statements.loop(exp)) {
+      fs_exp_line_.assign(unique39);
       abap.statements.condense(fs_exp_line_, {nogaps: true});
     }
-    for await (const unique39 of abap.statements.loop(act)) {
-      fs_act_line_.assign(unique39);
+    for await (const unique40 of abap.statements.loop(act)) {
+      fs_act_line_.assign(unique40);
       abap.statements.condense(fs_act_line_, {nogaps: true});
     }
     await abap.Classes['CL_ABAP_UNIT_ASSERT'].assert_equals({exp: exp, act: act});
@@ -187,22 +187,22 @@ class zcl_aff_tools_unit_test_helper {
     exp_work_copy.set(exp);
     act_work_copy.set(act);
     if (abap.compare.eq(ignore_spaces, abap.builtin.abap_true)) {
-      for await (const unique40 of abap.statements.loop(exp_work_copy)) {
-        fs_exp_line_.assign(unique40);
+      for await (const unique41 of abap.statements.loop(exp_work_copy)) {
+        fs_exp_line_.assign(unique41);
         abap.statements.condense(fs_exp_line_, {nogaps: true});
       }
-      for await (const unique41 of abap.statements.loop(act_work_copy)) {
-        fs_act_line_.assign(unique41);
+      for await (const unique42 of abap.statements.loop(act_work_copy)) {
+        fs_act_line_.assign(unique42);
         abap.statements.condense(fs_act_line_, {nogaps: true});
       }
     }
     if (abap.compare.eq(ignore_case, abap.builtin.abap_true)) {
-      for await (const unique42 of abap.statements.loop(exp_work_copy)) {
-        fs_exp_line_.assign(unique42);
+      for await (const unique43 of abap.statements.loop(exp_work_copy)) {
+        fs_exp_line_.assign(unique43);
         fs_exp_line_.set(abap.builtin.to_lower({val: fs_exp_line_}));
       }
-      for await (const unique43 of abap.statements.loop(act_work_copy)) {
-        fs_act_line_.assign(unique43);
+      for await (const unique44 of abap.statements.loop(act_work_copy)) {
+        fs_act_line_.assign(unique44);
         fs_act_line_.set(abap.builtin.to_lower({val: fs_act_line_}));
       }
     }

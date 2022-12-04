@@ -28,10 +28,10 @@ class cl_abap_conv_out_ce {
     let replacement = new abap.types.String({qualifiedName: "STRING"});
     if (INPUT && INPUT.replacement) {replacement.set(INPUT.replacement);}
     ret.set(await (new abap.Classes['CL_ABAP_CONV_OUT_CE']()).constructor_());
-    let unique86 = encoding;
-    if (abap.compare.eq(unique86, new abap.types.Character({length: 5}).set('UTF-8')) || abap.compare.eq(unique86, new abap.types.Character({length: 0}).set(''))) {
+    let unique87 = encoding;
+    if (abap.compare.eq(unique87, new abap.types.Character({length: 5}).set('UTF-8')) || abap.compare.eq(unique87, new abap.types.Character({length: 0}).set(''))) {
       ret.get().mv_js_encoding.set(new abap.types.Character({length: 4}).set('utf8'));
-    } else if (abap.compare.eq(unique86, new abap.types.Character({length: 4}).set('4103'))) {
+    } else if (abap.compare.eq(unique87, new abap.types.Character({length: 4}).set('4103'))) {
       ret.get().mv_js_encoding.set(new abap.types.Character({length: 7}).set('utf16le'));
     } else {
       abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 13}).set('not supported')));

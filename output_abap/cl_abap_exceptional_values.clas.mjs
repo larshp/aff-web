@@ -23,10 +23,10 @@ class cl_abap_exceptional_values {
     let lv_decimals = new abap.types.Integer({qualifiedName: "I"});
     let fs_out_ = new abap.types.FieldSymbol(new abap.types.Character({length: 4}));
     abap.statements.describe({field: in_, type: lv_type});
-    let unique70 = lv_type;
-    if (abap.compare.eq(unique70, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int)) {
+    let unique71 = lv_type;
+    if (abap.compare.eq(unique71, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int)) {
       out.assign(abap.Classes['CL_ABAP_MATH'].max_int4);
-    } else if (abap.compare.eq(unique70, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_packed)) {
+    } else if (abap.compare.eq(unique71, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_packed)) {
       abap.statements.describe({field: in_, length: lv_length, mode: 'BYTE'});
       abap.statements.createData(out,{"typeName": "P","length": lv_length});
       abap.statements.assign({target: fs_out_, source: (out).getPointer()});
@@ -50,10 +50,10 @@ class cl_abap_exceptional_values {
     let lv_type = new abap.types.Character();
     let fs_out_ = new abap.types.FieldSymbol(new abap.types.Character({length: 4}));
     abap.statements.describe({field: in_, type: lv_type});
-    let unique71 = lv_type;
-    if (abap.compare.eq(unique71, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int)) {
+    let unique72 = lv_type;
+    if (abap.compare.eq(unique72, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int)) {
       out.assign(abap.Classes['CL_ABAP_MATH'].min_int4);
-    } else if (abap.compare.eq(unique71, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_packed)) {
+    } else if (abap.compare.eq(unique72, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_packed)) {
       out.set((await this.get_max_value({in_: in_})));
       abap.statements.assign({target: fs_out_, source: (out).getPointer()});
       fs_out_.set(abap.operators.multiply(fs_out_,constant_minus_1));

@@ -57,24 +57,24 @@ class zcl_aff_writer {
     let temp1 = new abap.types.String({qualifiedName: "STRING"});
     let temp2 = new abap.types.String({qualifiedName: "STRING"});
     let temp3 = new abap.types.ABAPObject({qualifiedName: "ZCX_AFF_TOOLS"});
-    let unique44 = element_description.get().type_kind;
-    if (abap.compare.eq(unique44, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_string) || abap.compare.eq(unique44, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_csequence) || abap.compare.eq(unique44, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_clike) || abap.compare.eq(unique44, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_char) || abap.compare.eq(unique44, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_w) || abap.compare.eq(unique44, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_xstring) || abap.compare.eq(unique44, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_hex) || abap.compare.eq(unique44, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_num) || abap.compare.eq(unique44, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_enum)) {
+    let unique45 = element_description.get().type_kind;
+    if (abap.compare.eq(unique45, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_string) || abap.compare.eq(unique45, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_csequence) || abap.compare.eq(unique45, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_clike) || abap.compare.eq(unique45, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_char) || abap.compare.eq(unique45, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_w) || abap.compare.eq(unique45, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_xstring) || abap.compare.eq(unique45, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_hex) || abap.compare.eq(unique45, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_num) || abap.compare.eq(unique45, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_enum)) {
       if (abap.compare.initial((await this.is_type_boolean({element_description: element_description}))) === false) {
         temp1.set(abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$type_info.get().boolean);
       } else {
         temp1.set(abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$type_info.get().string);
       }
       result.set(temp1);
-    } else if (abap.compare.eq(unique44, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_float) || abap.compare.eq(unique44, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int) || abap.compare.eq(unique44, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int1) || abap.compare.eq(unique44, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int2) || abap.compare.eq(unique44, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int8) || abap.compare.eq(unique44, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_decfloat) || abap.compare.eq(unique44, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_decfloat16) || abap.compare.eq(unique44, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_decfloat34) || abap.compare.eq(unique44, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_numeric)) {
+    } else if (abap.compare.eq(unique45, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_float) || abap.compare.eq(unique45, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int) || abap.compare.eq(unique45, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int1) || abap.compare.eq(unique45, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int2) || abap.compare.eq(unique45, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int8) || abap.compare.eq(unique45, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_decfloat) || abap.compare.eq(unique45, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_decfloat16) || abap.compare.eq(unique45, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_decfloat34) || abap.compare.eq(unique45, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_numeric)) {
       result.set(abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$type_info.get().numeric);
-    } else if (abap.compare.eq(unique44, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_packed)) {
+    } else if (abap.compare.eq(unique45, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_packed)) {
       if (abap.compare.initial((await this.is_type_timestamp({element_description: element_description}))) === false) {
         temp2.set(abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$type_info.get().date_time);
       } else {
         temp2.set(abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$type_info.get().numeric);
       }
       result.set(temp2);
-    } else if (abap.compare.eq(unique44, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_date) || abap.compare.eq(unique44, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_time) || abap.compare.eq(unique44, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_utclong)) {
+    } else if (abap.compare.eq(unique45, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_date) || abap.compare.eq(unique45, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_time) || abap.compare.eq(unique45, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_utclong)) {
       result.set(abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$type_info.get().date_time);
     } else {
       temp3.set(await (new abap.Classes['ZCX_AFF_TOOLS']()).constructor_());
@@ -120,14 +120,14 @@ class zcl_aff_writer {
     let temp5 = new abap.types.Structure({operation: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER=>TY_STACK_ENTRY-OPERATION"}), name: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER=>TY_STACK_ENTRY-NAME"})}, "zcl_aff_writer=>ty_stack_entry");
     let temp6 = new abap.types.Structure({operation: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER=>TY_STACK_ENTRY-OPERATION"}), name: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER=>TY_STACK_ENTRY-NAME"})}, "zcl_aff_writer=>ty_stack_entry");
     let temp7 = new abap.types.ABAPObject({qualifiedName: "ZCX_AFF_TOOLS"});
-    let unique45 = node_description.get().kind;
-    if (abap.compare.eq(unique45, abap.Classes['CL_ABAP_TYPEDESCR'].kind_struct)) {
+    let unique46 = node_description.get().kind;
+    if (abap.compare.eq(unique46, abap.Classes['CL_ABAP_TYPEDESCR'].kind_struct)) {
       await this.open_structure({structure_name: node_name, structure_description: node_description});
       abap.statements.clear(temp5);
       temp5.get().operation.set(abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$operation.get().open_structure);
       temp5.get().name.set(node_name);
       await this.add_to_stack({entry: temp5});
-    } else if (abap.compare.eq(unique45, abap.Classes['CL_ABAP_TYPEDESCR'].kind_table)) {
+    } else if (abap.compare.eq(unique46, abap.Classes['CL_ABAP_TYPEDESCR'].kind_table)) {
       await this.open_table({table_name: node_name, table_description: node_description});
       abap.statements.clear(temp6);
       temp6.get().operation.set(abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$operation.get().open_table);
@@ -146,14 +146,14 @@ class zcl_aff_writer {
     let temp8 = new abap.types.Structure({operation: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER=>TY_STACK_ENTRY-OPERATION"}), name: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER=>TY_STACK_ENTRY-NAME"})}, "zcl_aff_writer=>ty_stack_entry");
     let temp9 = new abap.types.Structure({operation: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER=>TY_STACK_ENTRY-OPERATION"}), name: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER=>TY_STACK_ENTRY-NAME"})}, "zcl_aff_writer=>ty_stack_entry");
     let temp10 = new abap.types.ABAPObject({qualifiedName: "ZCX_AFF_TOOLS"});
-    let unique46 = node_description.get().kind;
-    if (abap.compare.eq(unique46, abap.Classes['CL_ABAP_TYPEDESCR'].kind_struct)) {
+    let unique47 = node_description.get().kind;
+    if (abap.compare.eq(unique47, abap.Classes['CL_ABAP_TYPEDESCR'].kind_struct)) {
       await this.close_structure({structure_name: node_name, structure_description: node_description});
       abap.statements.clear(temp8);
       temp8.get().operation.set(abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$operation.get().close_structure);
       temp8.get().name.set(node_name);
       await this.add_to_stack({entry: temp8});
-    } else if (abap.compare.eq(unique46, abap.Classes['CL_ABAP_TYPEDESCR'].kind_table)) {
+    } else if (abap.compare.eq(unique47, abap.Classes['CL_ABAP_TYPEDESCR'].kind_table)) {
       await this.close_table({table_name: node_name, table_description: node_description});
       abap.statements.clear(temp9);
       temp9.get().operation.set(abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$operation.get().close_table);
@@ -354,8 +354,8 @@ class zcl_aff_writer {
     let splitted_in_details = new abap.types.Table(new abap.types.String({qualifiedName: "STRING"}), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "");
     place_of_type.set(absolute_name);
     abap.statements.split({source: place_of_type, at: new abap.types.Character({length: 1}).set('\\'), table: splitted_in_componets});
-    for await (const unique47 of abap.statements.loop(splitted_in_componets)) {
-      fs_component_.assign(unique47);
+    for await (const unique48 of abap.statements.loop(splitted_in_componets)) {
+      fs_component_.assign(unique48);
       if (abap.compare.initial(fs_component_) === false) {
         abap.statements.split({source: fs_component_, at: new abap.types.Character({length: 1}).set('='), table: splitted_in_details});
         abap.statements.append({source: splitted_in_details, lines: true, target: result});

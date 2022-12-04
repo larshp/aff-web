@@ -34,8 +34,8 @@ class cl_abap_structdescr extends cl_abap_complexdescr {
     if (abap.compare.eq(abap.builtin.lines({val: p_components}), constant_0)) {
       throw await (new abap.Classes['CX_SY_STRUCT_ATTRIBUTES']()).constructor_();
     }
-    for await (const unique137 of abap.statements.loop(p_components)) {
-      ls_component.set(unique137);
+    for await (const unique138 of abap.statements.loop(p_components)) {
+      ls_component.set(unique138);
       if (abap.compare.initial(ls_component.get().name)) {
         throw await (new abap.Classes['CX_SY_STRUCT_COMP_NAME']()).constructor_();
       } else if (abap.compare.initial(ls_component.get().type)) {
@@ -43,8 +43,8 @@ class cl_abap_structdescr extends cl_abap_complexdescr {
       }
     }
     ref.set(await (new abap.Classes['CL_ABAP_STRUCTDESCR']()).constructor_());
-    for await (const unique138 of abap.statements.loop(p_components)) {
-      ls_component.set(unique138);
+    for await (const unique139 of abap.statements.loop(p_components)) {
+      ls_component.set(unique139);
       abap.statements.clear(ls_ref);
       ls_ref.get().name.set(ls_component.get().name);
       ls_ref.get().ref.set(ls_component.get().type);
@@ -80,8 +80,8 @@ class cl_abap_structdescr extends cl_abap_complexdescr {
     lt_components.set((await this.get_components()));
     abap.statements.assert(abap.compare.cp(this.absolute_name, new abap.types.Character({length: 7}).set('+TYPE=*')));
     lv_name.set(this.absolute_name.getOffset({offset: 6}));
-    for await (const unique139 of abap.statements.loop(lt_components)) {
-      ls_component.set(unique139);
+    for await (const unique140 of abap.statements.loop(lt_components)) {
+      ls_component.set(unique140);
       abap.statements.clear(ls_return);
       ls_return.get().tabname.set(lv_name);
       ls_return.get().fieldname.set(ls_component.get().name);
@@ -131,8 +131,8 @@ class cl_abap_structdescr extends cl_abap_complexdescr {
     let ls_component = new abap.types.Structure({length: new abap.types.Integer({qualifiedName: "LENGTH"}), decimals: new abap.types.Integer({qualifiedName: "DECIMALS"}), type_kind: new abap.types.Character({qualifiedName: "abap_typekind"}), name: new abap.types.Character({length: 30, qualifiedName: "abap_compname"})}, "abap_compdescr");
     let ls_ref = new abap.types.Structure({name: new abap.types.String({qualifiedName: "CL_ABAP_STRUCTDESCR=>TY_REFS-NAME"}), ref: new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR"})}, "cl_abap_structdescr=>ty_refs");
     abap.statements.clear(this.components);
-    for await (const unique140 of abap.statements.loop(this.mt_refs)) {
-      ls_ref.set(unique140);
+    for await (const unique141 of abap.statements.loop(this.mt_refs)) {
+      ls_ref.set(unique141);
       abap.statements.clear(ls_component);
       ls_component.get().name.set(ls_ref.get().name);
       ls_component.get().type_kind.set(ls_ref.get().ref.get().type_kind);
@@ -144,8 +144,8 @@ class cl_abap_structdescr extends cl_abap_complexdescr {
     let ls_component = new abap.types.Structure({length: new abap.types.Integer({qualifiedName: "LENGTH"}), decimals: new abap.types.Integer({qualifiedName: "DECIMALS"}), type_kind: new abap.types.Character({qualifiedName: "abap_typekind"}), name: new abap.types.Character({length: 30, qualifiedName: "abap_compname"})}, "abap_compdescr");
     let ret = new abap.types.Structure({name: new abap.types.String({qualifiedName: "NAME"}), type: new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR"}), as_include: new abap.types.Character({qualifiedName: "ABAP_BOOL"}), suffix: new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr");
     let ls_ref = new abap.types.Structure({name: new abap.types.String({qualifiedName: "CL_ABAP_STRUCTDESCR=>TY_REFS-NAME"}), ref: new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR"})}, "cl_abap_structdescr=>ty_refs");
-    for await (const unique141 of abap.statements.loop(this.components)) {
-      ls_component.set(unique141);
+    for await (const unique142 of abap.statements.loop(this.components)) {
+      ls_component.set(unique142);
       abap.statements.clear(ret);
       ret.get().name.set(ls_component.get().name);
       abap.statements.readTable(this.mt_refs,{into: ls_ref,withKey: (i) => {return abap.compare.eq(i.name, ls_component.get().name);}});

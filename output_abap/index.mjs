@@ -19,6 +19,8 @@ async function run() {
 // --------------------------------------------
     clas = unit.addObject("CL_OO_CLASSNAME_SERVICE");
 // --------------------------------------------
+    clas = unit.addObject("CL_RUN");
+// --------------------------------------------
     clas = unit.addObject("CX_O2_XSLT_ERROR");
 // --------------------------------------------
     clas = unit.addObject("ZCL_AFF_ABAP_DOC_PARSER");

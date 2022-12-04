@@ -69,14 +69,14 @@ class zcl_aff_generator {
     let temp4 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_STRUCTDESCR"});
     let temp5 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TABLEDESCR"});
     let temp6 = new abap.types.ABAPObject({qualifiedName: "ZCX_AFF_TOOLS"});
-    let unique33 = type_description.get().kind;
-    if (abap.compare.eq(unique33, abap.Classes['CL_ABAP_TYPEDESCR'].kind_elem)) {
+    let unique34 = type_description.get().kind;
+    if (abap.compare.eq(unique34, abap.Classes['CL_ABAP_TYPEDESCR'].kind_elem)) {
       await abap.statements.cast(temp3, type_description);
       await this.process_element({element_name: type_name, element_description: temp3});
-    } else if (abap.compare.eq(unique33, abap.Classes['CL_ABAP_TYPEDESCR'].kind_struct)) {
+    } else if (abap.compare.eq(unique34, abap.Classes['CL_ABAP_TYPEDESCR'].kind_struct)) {
       await abap.statements.cast(temp4, type_description);
       await this.process_structure({structure_name: type_name, structure_description: temp4});
-    } else if (abap.compare.eq(unique33, abap.Classes['CL_ABAP_TYPEDESCR'].kind_table)) {
+    } else if (abap.compare.eq(unique34, abap.Classes['CL_ABAP_TYPEDESCR'].kind_table)) {
       await abap.statements.cast(temp5, type_description);
       await this.process_table({table_name: type_name, table_description: temp5});
     } else {
@@ -132,8 +132,8 @@ class zcl_aff_generator {
     if (INPUT && INPUT.components) {components.set(INPUT.components);}
     let fs_component_ = new abap.types.FieldSymbol(new abap.types.Structure({name: new abap.types.String({qualifiedName: "NAME"}), type: new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR"}), as_include: new abap.types.Character({qualifiedName: "ABAP_BOOL"}), suffix: new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr"));
     let temp9 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_STRUCTDESCR"});
-    for await (const unique34 of abap.statements.loop(components)) {
-      fs_component_.assign(unique34);
+    for await (const unique35 of abap.statements.loop(components)) {
+      fs_component_.assign(unique35);
       if (abap.compare.eq(fs_component_.get().as_include, abap.builtin.abap_true)) {
         await abap.statements.cast(temp9, fs_component_.get().type);
         await this.process_include({structure_description: temp9});

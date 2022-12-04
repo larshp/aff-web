@@ -19,10 +19,10 @@ class lcl_dump {
     if (INPUT && INPUT.iv_val) {iv_val = INPUT.iv_val;}
     let lv_type = new abap.types.Character();
     abap.statements.describe({field: iv_val, type: lv_type});
-    let unique155 = lv_type;
-    if (abap.compare.eq(unique155, new abap.types.Character({length: 1}).set('u')) || abap.compare.eq(unique155, new abap.types.Character({length: 1}).set('v'))) {
+    let unique156 = lv_type;
+    if (abap.compare.eq(unique156, new abap.types.Character({length: 1}).set('u')) || abap.compare.eq(unique156, new abap.types.Character({length: 1}).set('v'))) {
       rv_str.set((await this.dump_structure({iv_val: iv_val})));
-    } else if (abap.compare.eq(unique155, new abap.types.Character({length: 1}).set('h'))) {
+    } else if (abap.compare.eq(unique156, new abap.types.Character({length: 1}).set('h'))) {
       rv_str.set(new abap.types.String().set(`[itab]`));
     } else {
       rv_str.set(new abap.types.String().set(`${abap.templateFormatting(iv_val)}`));
@@ -41,8 +41,8 @@ class lcl_dump {
     let lv_str = new abap.types.String({qualifiedName: "STRING"});
     let fs_fs_ = new abap.types.FieldSymbol(new abap.types.Character({length: 4}));
     Object.keys(iv_val.get()).forEach((name) => lt_components.append(new abap.types.String().set(name)));
-    for await (const unique156 of abap.statements.loop(lt_components)) {
-      lv_name.set(unique156);
+    for await (const unique157 of abap.statements.loop(lt_components)) {
+      lv_name.set(unique157);
       if (abap.compare.ne(rv_str, new abap.types.Character({length: 0}).set(''))) {
         rv_str.set(abap.operators.concat(rv_str,new abap.types.String().set(`, `)));
       }

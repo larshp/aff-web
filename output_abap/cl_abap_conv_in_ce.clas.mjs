@@ -35,10 +35,10 @@ class cl_abap_conv_in_ce {
     abap.statements.assert(abap.compare.eq(replacement, new abap.types.Character({length: 1}).set('#')));
     abap.statements.assert(abap.compare.initial(endian));
     ret.set(await (new abap.Classes['CL_ABAP_CONV_IN_CE']()).constructor_());
-    let unique85 = encoding;
-    if (abap.compare.eq(unique85, new abap.types.Character({length: 5}).set('UTF-8'))) {
+    let unique86 = encoding;
+    if (abap.compare.eq(unique86, new abap.types.Character({length: 5}).set('UTF-8'))) {
       ret.get().mv_js_encoding.set(new abap.types.Character({length: 4}).set('utf8'));
-    } else if (abap.compare.eq(unique85, new abap.types.Character({length: 4}).set('4103'))) {
+    } else if (abap.compare.eq(unique86, new abap.types.Character({length: 4}).set('4103'))) {
       ret.get().mv_js_encoding.set(new abap.types.Character({length: 8}).set('utf-16le'));
     } else {
       abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 13}).set('not supported')));

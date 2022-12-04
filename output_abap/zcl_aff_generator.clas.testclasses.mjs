@@ -366,8 +366,8 @@ class ltcl_type_generator {
     let temp3 = new abap.types.String();
     let temp4 = new abap.types.Integer();
     await abap.Classes['CL_ABAP_UNIT_ASSERT'].assert_equals({exp: abap.builtin.lines({val: exp}), act: abap.builtin.lines({val: act}), msg: new abap.types.String().set(`Number of entries doesn't match expectation`)});
-    for await (const unique35 of abap.statements.loop(exp)) {
-      fs_exp_line_.assign(unique35);
+    for await (const unique36 of abap.statements.loop(exp)) {
+      fs_exp_line_.assign(unique36);
       temp4.set(abap.builtin.sy.get().tabix);
       abap.statements.readTable(act,{index: abap.builtin.sy.get().tabix,into: temp3});
       abap.builtin.sy.get().tabix.set(temp4);
