@@ -15348,6 +15348,6 @@ ENDINTERFACE.');`);
       cx_uuid_error.
 ENDINTERFACE.');`);
   insert.push(`INSERT INTO t000 ('MANDT', 'CCCATEGORY', 'CCNOCLIIND') VALUES ('123', '', '');`);
-  const {setup} = await import("setup.mjs");
+  const {setup} = await import("../setup.mjs");
   await setup(globalThis.abap, schemas, insert);
 }

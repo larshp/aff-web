@@ -15,13 +15,18 @@ module.exports = {
     open: true,
     hot: true,
   },
+  experiments: {
+    topLevelAwait: true,
+  },
   resolve: {
     fallback: {
+      "./%23ui2%23cl_json.clas.mjs": false,
       "buffer": require.resolve("buffer/"),
       "stream": require.resolve("stream-browserify"),
       "crypto": require.resolve("crypto-browserify"),
       "path": require.resolve("path-browserify"),
       "fs": false,
+      "net": false,
       "http": false,
       "https": false,
       "zlib": false,

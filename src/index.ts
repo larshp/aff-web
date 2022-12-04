@@ -19,6 +19,9 @@ import {ABAP} from "@abaplint/runtime";
 import * as abaplint from "@abaplint/core";
 import * as abapMonaco from "@abaplint/monaco";
 import Split from "split-grid";
+import * as foo from "../output_abap/_init.mjs";
+console.dir(foo);
+//initializeABAP().then(() => console.dir("initialized"));
 
 const reg = new abaplint.Registry(new abaplint.Config(JSON.stringify(config)));
 abapMonaco.registerABAP(reg);
@@ -111,6 +114,7 @@ const editor2 = monaco.editor.create(document.getElementById("container2"), {
   language: "json",
 });
 
+/*
 function updateEditorLayouts() {
   editor1.layout();
   editor2.layout();
@@ -132,10 +136,10 @@ observer.observe(document.getElementById("horizon"), {
 });
 
 window.addEventListener("resize", updateEditorLayouts);
-
+*/
 // see https://github.com/SimulatedGREG/electron-vue/issues/777
 // see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/AsyncFunction
-const AsyncFunction = new Function(`return Object.getPrototypeOf(async function(){}).constructor`)();
+//const AsyncFunction = new Function(`return Object.getPrototypeOf(async function(){}).constructor`)();
 
 async function jsChanged() {
 /*
