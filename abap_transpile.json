@@ -5,7 +5,7 @@
     "dtel",
     "clas"
   ],
-  "output_folder": "output",
+  "output_folder": "output_abap",
   "libs": [
     {
       "url": "https://github.com/open-abap/open-abap-core"
