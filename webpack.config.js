@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require("path");
 const webpack = require("webpack");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
@@ -77,6 +78,11 @@ module.exports = {
   plugins: [
     new HtmlWebPackPlugin({
       template: "public/index.html",
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+          { from: 'public/sql-wasm.wasm' }
+      ]
     }),
     new webpack.ProvidePlugin({
       Buffer: ['buffer', 'Buffer'],
