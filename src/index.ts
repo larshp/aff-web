@@ -14,16 +14,15 @@ global.MonacoEnvironment = {
 
 import "./index.css";
 import * as monaco from "monaco-editor";
-import {config, Transpiler} from "@abaplint/transpiler";
 import {ABAP} from "@abaplint/runtime";
 import * as abaplint from "@abaplint/core";
 import * as abapMonaco from "@abaplint/monaco";
 import Split from "split-grid";
-import * as foo from "../output_abap/_init.mjs";
-console.dir(foo);
+import * as init from "../output_abap/_init.mjs";
+console.dir(init);
 //initializeABAP().then(() => console.dir("initialized"));
 
-const reg = new abaplint.Registry(new abaplint.Config(JSON.stringify(config)));
+const reg = new abaplint.Registry();
 abapMonaco.registerABAP(reg);
 
 const filename = "file:///zif_aff_intf_v1.intf.abap";
