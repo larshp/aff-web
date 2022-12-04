@@ -1,6 +1,5 @@
 const {cx_root} = await import("./cx_root.clas.mjs");
 // cl_abap_regex.clas.abap
-const constant_1 = new abap.types.Integer().set(1);
 class cl_abap_regex {
   static INTERNAL_TYPE = 'CLAS';
   static IMPLEMENTED_INTERFACES = [];
@@ -8,10 +7,10 @@ class cl_abap_regex {
     this.me = new abap.types.ABAPObject();
     this.me.set(this);
     this.mv_pattern = new abap.types.String({qualifiedName: "STRING"});
-    this.mv_ignore_case = new abap.types.Character({qualifiedName: "ABAP_BOOL"});
+    this.mv_ignore_case = new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});
     let pattern = new abap.types.Character();
     if (INPUT && INPUT.pattern) {pattern = INPUT.pattern;}
-    let ignore_case = new abap.types.Character({qualifiedName: "ABAP_BOOL"});
+    let ignore_case = new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});
     if (INPUT && INPUT.ignore_case) {ignore_case = INPUT.ignore_case;}
     if (INPUT === undefined || INPUT.ignore_case === undefined) {ignore_case = abap.builtin.abap_false;}
     this.mv_pattern.set(pattern);
@@ -25,10 +24,10 @@ class cl_abap_regex {
     let regex = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_REGEX"});
     let pattern = new abap.types.Character();
     if (INPUT && INPUT.pattern) {pattern = INPUT.pattern;}
-    let ignore_case = new abap.types.Character({qualifiedName: "ABAP_BOOL"});
+    let ignore_case = new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});
     if (INPUT && INPUT.ignore_case) {ignore_case = INPUT.ignore_case;}
     if (INPUT === undefined || INPUT.ignore_case === undefined) {ignore_case = abap.builtin.abap_false;}
-    abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 4}).set('todo')));
+    abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(4).set('todo')));
     return regex;
   }
   async create_matcher(INPUT) {

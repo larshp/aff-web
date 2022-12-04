@@ -4,7 +4,7 @@
     "..\\downport\\cl_oo_classname_service.clas.abap"
   ],
   "names": [],
-  "mappings": ";;;AAiBA;;;;;;;;EACE;;;;;;;IACE,oCAAS,GAAF,YAAI,kDAAM;IACnB;;AACF",
+  "mappings": ";;AAiBA;;;;;;;;EACE;;;;;;;IACE,oCAAS,GAAF,iCAAI,wCAAM;IACnB;;AACF",
   "file": "cl_oo_classname_service.clas.mjs",
   "sourceRoot": ""
 }

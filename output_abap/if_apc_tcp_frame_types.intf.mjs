@@ -1,7 +1,4 @@
 // if_apc_tcp_frame_types.intf.abap
-const constant_1 = new abap.types.Integer().set(1);
-const constant_2 = new abap.types.Integer().set(2);
-const constant_3 = new abap.types.Integer().set(3);
 class if_apc_tcp_frame_types {
   static INTERNAL_TYPE = 'INTF';
   static IMPLEMENTED_INTERFACES = [];

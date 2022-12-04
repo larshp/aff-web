@@ -1,7 +1,6 @@
 const {cx_root} = await import("./cx_root.clas.mjs");
 const {zcl_aff_writer} = await import("./zcl_aff_writer.clas.mjs");
 // zcl_aff_generator.clas.abap
-const constant_0 = new abap.types.Integer().set(0);
 class zcl_aff_generator {
   static INTERNAL_TYPE = 'CLAS';
   static IMPLEMENTED_INTERFACES = [];
@@ -18,7 +17,7 @@ class zcl_aff_generator {
   }
   async generate_type(INPUT) {
     let result = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
-    let data = new abap.types.Character({length: 4});
+    let data = new abap.types.Character(4);
     if (INPUT && INPUT.data) {data = INPUT.data;}
     let type_description = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TYPEDESCR"});
     type_description.set((await abap.Classes['CL_ABAP_TYPEDESCR'].describe_by_data({p_data: data})));
@@ -48,15 +47,15 @@ class zcl_aff_generator {
   async check_mandatory_fields(INPUT) {
     let structure_description = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_STRUCTDESCR"});
     if (INPUT && INPUT.structure_description) {structure_description.set(INPUT.structure_description);}
-    let components = new abap.types.Table(new abap.types.Structure({name: new abap.types.String({qualifiedName: "NAME"}), type: new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR"}), as_include: new abap.types.Character({qualifiedName: "ABAP_BOOL"}), suffix: new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr"), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "abap_component_tab");
+    let components = new abap.types.Table(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr"), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "abap_component_tab");
     let temp2 = new abap.types.Integer();
     let temp1 = new abap.types.Integer();
     components.set((await structure_description.get().get_components()));
-    abap.statements.readTable(components,{withKey: (i) => {return abap.compare.eq(i.name, new abap.types.Character({length: 6}).set('HEADER'));}});
+    abap.statements.readTable(components,{withKey: (i) => {return abap.compare.eq(i.name, new abap.types.Character(6).set('HEADER'));}});
     temp2.set(abap.builtin.sy.get().subrc);
-    abap.statements.readTable(components,{withKey: (i) => {return abap.compare.eq(i.name, new abap.types.Character({length: 14}).set('FORMAT_VERSION'));}});
+    abap.statements.readTable(components,{withKey: (i) => {return abap.compare.eq(i.name, new abap.types.Character(14).set('FORMAT_VERSION'));}});
     temp1.set(abap.builtin.sy.get().subrc);
-    if (!(abap.compare.eq(temp2, constant_0) && abap.compare.eq(temp1, constant_0))) {
+    if (!(abap.compare.eq(temp2, new abap.types.Integer().set(0)) && abap.compare.eq(temp1, new abap.types.Integer().set(0)))) {
       await this.log.get().zif_aff_log$add_warning({message_text: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$co_msg124, component_name: (await structure_description.get().get_relative_name())});
     }
   }
@@ -69,14 +68,14 @@ class zcl_aff_generator {
     let temp4 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_STRUCTDESCR"});
     let temp5 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TABLEDESCR"});
     let temp6 = new abap.types.ABAPObject({qualifiedName: "ZCX_AFF_TOOLS"});
-    let unique34 = type_description.get().kind;
-    if (abap.compare.eq(unique34, abap.Classes['CL_ABAP_TYPEDESCR'].kind_elem)) {
+    let unique37 = type_description.get().kind;
+    if (abap.compare.eq(unique37, abap.Classes['CL_ABAP_TYPEDESCR'].kind_elem)) {
       await abap.statements.cast(temp3, type_description);
       await this.process_element({element_name: type_name, element_description: temp3});
-    } else if (abap.compare.eq(unique34, abap.Classes['CL_ABAP_TYPEDESCR'].kind_struct)) {
+    } else if (abap.compare.eq(unique37, abap.Classes['CL_ABAP_TYPEDESCR'].kind_struct)) {
       await abap.statements.cast(temp4, type_description);
       await this.process_structure({structure_name: type_name, structure_description: temp4});
-    } else if (abap.compare.eq(unique34, abap.Classes['CL_ABAP_TYPEDESCR'].kind_table)) {
+    } else if (abap.compare.eq(unique37, abap.Classes['CL_ABAP_TYPEDESCR'].kind_table)) {
       await abap.statements.cast(temp5, type_description);
       await this.process_table({table_name: type_name, table_description: temp5});
     } else {
@@ -106,7 +105,7 @@ class zcl_aff_generator {
     if (INPUT && INPUT.structure_name) {structure_name.set(INPUT.structure_name);}
     let temp8 = new abap.types.String({qualifiedName: "STRING"});
     let name = new abap.types.String({qualifiedName: "STRING"});
-    let components = new abap.types.Table(new abap.types.Structure({name: new abap.types.String({qualifiedName: "NAME"}), type: new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR"}), as_include: new abap.types.Character({qualifiedName: "ABAP_BOOL"}), suffix: new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr"), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "abap_component_tab");
+    let components = new abap.types.Table(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr"), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "abap_component_tab");
     if (abap.compare.initial(structure_name) === false) {
       temp8.set(structure_name);
     } else {
@@ -121,19 +120,19 @@ class zcl_aff_generator {
   async process_include(INPUT) {
     let structure_description = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_STRUCTDESCR"});
     if (INPUT && INPUT.structure_description) {structure_description.set(INPUT.structure_description);}
-    let components = new abap.types.Table(new abap.types.Structure({name: new abap.types.String({qualifiedName: "NAME"}), type: new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR"}), as_include: new abap.types.Character({qualifiedName: "ABAP_BOOL"}), suffix: new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr"), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "abap_component_tab");
+    let components = new abap.types.Table(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr"), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "abap_component_tab");
     components.set((await structure_description.get().get_components()));
     await this.writer.get().zif_aff_writer$open_include({include_description: structure_description});
     await this.process_components({components: components});
     await this.writer.get().zif_aff_writer$close_include();
   }
   async process_components(INPUT) {
-    let components = new abap.types.Table(new abap.types.Structure({name: new abap.types.String({qualifiedName: "NAME"}), type: new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR"}), as_include: new abap.types.Character({qualifiedName: "ABAP_BOOL"}), suffix: new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr"), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "abap_component_tab");
+    let components = new abap.types.Table(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr"), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "abap_component_tab");
     if (INPUT && INPUT.components) {components.set(INPUT.components);}
-    let fs_component_ = new abap.types.FieldSymbol(new abap.types.Structure({name: new abap.types.String({qualifiedName: "NAME"}), type: new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR"}), as_include: new abap.types.Character({qualifiedName: "ABAP_BOOL"}), suffix: new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr"));
+    let fs_component_ = new abap.types.FieldSymbol(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr"));
     let temp9 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_STRUCTDESCR"});
-    for await (const unique35 of abap.statements.loop(components)) {
-      fs_component_.assign(unique35);
+    for await (const unique38 of abap.statements.loop(components)) {
+      fs_component_.assign(unique38);
       if (abap.compare.eq(fs_component_.get().as_include, abap.builtin.abap_true)) {
         await abap.statements.cast(temp9, fs_component_.get().type);
         await this.process_include({structure_description: temp9});

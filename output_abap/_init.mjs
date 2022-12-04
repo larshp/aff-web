@@ -282,6 +282,7 @@ import "./match_result_tab.ttyp.mjs";
 import "./msehi.dtel.mjs";
 import "./number_get_next.fugr.number_get_next.mjs";
 import "./numc4.dtel.mjs";
+import "./o2pageline_table.ttyp.mjs";
 import "./openabap.fugr.conversion_exit_alpha_input.mjs";
 import "./openabap.fugr.conversion_exit_alpha_output.mjs";
 import "./openabap.fugr.conversion_exit_isola_input.mjs";
@@ -393,11 +394,11 @@ import "./zw3mi.fugr.wwwparams_read.mjs";
 
 export async function initializeABAP() {
   const sqlite = [];
-sqlite.push(`CREATE TABLE t000 ('mandt' NCHAR(3), 'cccategory' NCHAR(1), 'ccnocliind' NCHAR(1), PRIMARY KEY('mandt'));`);
-sqlite.push(`CREATE TABLE t100 ('sprsl' NCHAR(1), 'arbgb' NCHAR(20), 'msgnr' NCHAR(3), 'text' NCHAR(73), PRIMARY KEY('sprsl','arbgb','msgnr'));`);
-sqlite.push(`CREATE TABLE tdevc ('devclass' NCHAR(30), 'dlvunit' NCHAR(30), 'component' NCHAR(20), 'parentcl' NCHAR(30), PRIMARY KEY('devclass'));`);
-sqlite.push(`CREATE TABLE tfdir ('funcname' NCHAR(30), PRIMARY KEY('funcname'));`);
-sqlite.push(`CREATE TABLE reposrc ('progname' NCHAR(40), 'data' TEXT, PRIMARY KEY('progname'));`);
+sqlite.push(`CREATE TABLE 't000' ('mandt' NCHAR(3), 'cccategory' NCHAR(1), 'ccnocliind' NCHAR(1), PRIMARY KEY('mandt'));`);
+sqlite.push(`CREATE TABLE 't100' ('sprsl' NCHAR(1), 'arbgb' NCHAR(20), 'msgnr' NCHAR(3), 'text' NCHAR(73), PRIMARY KEY('sprsl','arbgb','msgnr'));`);
+sqlite.push(`CREATE TABLE 'tdevc' ('devclass' NCHAR(30), 'dlvunit' NCHAR(30), 'component' NCHAR(20), 'parentcl' NCHAR(30), PRIMARY KEY('devclass'));`);
+sqlite.push(`CREATE TABLE 'tfdir' ('funcname' NCHAR(30), PRIMARY KEY('funcname'));`);
+sqlite.push(`CREATE TABLE 'reposrc' ('progname' NCHAR(40), 'data' TEXT, PRIMARY KEY('progname'));`);
   const hdb = `todo`;
   const pg = `todo`;
   const schemas = {sqlite, hdb, pg};

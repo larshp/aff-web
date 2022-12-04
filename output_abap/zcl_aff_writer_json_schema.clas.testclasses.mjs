@@ -2,11 +2,6 @@ const {zcl_aff_writer} = await import("./zcl_aff_writer.clas.mjs");
 const {zcl_aff_writer_json_schema} = await import("./zcl_aff_writer_json_schema.clas.mjs");
 const {cx_root} = await import("./cx_root.clas.mjs");
 // zcl_aff_writer_json_schema.clas.testclasses.abap
-const constant_10 = new abap.types.Integer().set(10);
-const constant_14 = new abap.types.Integer().set(14);
-const constant_2 = new abap.types.Integer().set(2);
-const constant_30 = new abap.types.Integer().set(30);
-const constant_60 = new abap.types.Integer().set(60);
 
 class ltcl_json_writer {
   static INTERNAL_TYPE = 'CLAS';
@@ -25,9 +20,9 @@ class ltcl_json_writer {
   }
   async enum_element() {
     
-    let undefined = new abap.types.Structure({general: new abap.types.String({qualifiedName: "CATEGORY"}), classic_badi: new abap.types.String({qualifiedName: "CATEGORY"})});
-    undefined.get().general.set(new abap.types.Character({length: 1}).set('1'));
-    undefined.get().classic_badi.set(new abap.types.Character({length: 1}).set('2'));
+    let undefined = new abap.types.Structure({"general": new abap.types.String({qualifiedName: "CATEGORY"}), "classic_badi": new abap.types.String({qualifiedName: "CATEGORY"})});
+    undefined.get().general.set(new abap.types.Character(1).set('1'));
+    undefined.get().classic_badi.set(new abap.types.Character(1).set('2'));
     let temp44 = new abap.types.String({qualifiedName: "CATEGORY"});
     let act_schema = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp45 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
@@ -80,7 +75,7 @@ class ltcl_json_writer {
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_equals_ignore_spaces({act_data: act_schema, exp_data: exp_schema});
   }
   async use_ddic_info_for_element() {
-    let temp64 = new abap.types.Character({qualifiedName: "ABAP_LANGUAGE_VERSION"});
+    let temp64 = new abap.types.Character(1, {"qualifiedName":"ABAP_LANGUAGE_VERSION"});
     let act_schema = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp65 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp36 = new abap.types.String();
@@ -116,7 +111,7 @@ class ltcl_json_writer {
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_equals_ignore_spaces({act_data: act_schema, exp_data: exp_schema});
   }
   async use_ddic_info_for_max_length() {
-    let temp84 = new abap.types.Character({length: 36, qualifiedName: "SYSUUID_C36"});
+    let temp84 = new abap.types.Character(36, {"qualifiedName":"SYSUUID_C36"});
     let act_schema = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp85 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp39 = new abap.types.String();
@@ -144,7 +139,7 @@ class ltcl_json_writer {
   }
   async structure_in_table() {
     
-    let temp95 = new abap.types.Table(new abap.types.Structure({my_element: new abap.types.String({qualifiedName: "MY_STRUCTURE-MY_ELEMENT"})}, "my_structure"), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "my_table");
+    let temp95 = new abap.types.Table(new abap.types.Structure({"my_element": new abap.types.String({qualifiedName: "MY_STRUCTURE-MY_ELEMENT"})}, "my_structure"), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "my_table");
     let act_schema = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp96 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp42 = new abap.types.String();
@@ -178,7 +173,7 @@ class ltcl_json_writer {
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_equals_ignore_spaces({act_data: act_schema, exp_data: exp_schema});
   }
   async nested_boolean() {
-    let temp113 = new abap.types.Structure({hide_column: new abap.types.Character({qualifiedName: "ty_list_report-hide_column"})}, "ty_list_report");
+    let temp113 = new abap.types.Structure({"hide_column": new abap.types.Character(1, {"qualifiedName":"ty_list_report-hide_column","ddicName":"ABAP_BOOL"})}, "ty_list_report");
     let act_schema = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp114 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp45 = new abap.types.String();
@@ -211,7 +206,7 @@ class ltcl_json_writer {
   async nested_table() {
     
     
-    let temp128 = new abap.types.Table(new abap.types.Table(new abap.types.String({qualifiedName: "STRING"}), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "nested_table"), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "first_table");
+    let temp128 = new abap.types.Table(new abap.types.Table(new abap.types.String({qualifiedName: "STRING"}), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "nested_table"), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "first_table");
     let act_schema = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp129 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp48 = new abap.types.String();
@@ -242,7 +237,7 @@ class ltcl_json_writer {
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_equals_ignore_spaces({act_data: act_schema, exp_data: exp_schema});
   }
   async max_length() {
-    let temp143 = new abap.types.Structure({name: new abap.types.Character({length: 30, qualifiedName: "component_description-name"}), description: new abap.types.Character({length: 60, qualifiedName: "component_description-description"}), numeric_text: new abap.types.Numc({length: 10, qualifiedName: "component_description-numeric_text"})}, "component_description");
+    let temp143 = new abap.types.Structure({"name": new abap.types.Character(30, {"qualifiedName":"component_description-name"}), "description": new abap.types.Character(60, {"qualifiedName":"component_description-description"}), "numeric_text": new abap.types.Numc({length: 10, qualifiedName: "component_description-numeric_text"})}, "component_description");
     let act_schema = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp144 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp51 = new abap.types.String();
@@ -283,7 +278,7 @@ class ltcl_json_writer {
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_equals_ignore_spaces({act_data: act_schema, exp_data: exp_schema});
   }
   async number_max_value() {
-    let temp168 = new abap.types.Structure({integer: new abap.types.Integer({qualifiedName: "COMPONENT_DESCRIPTION-INTEGER"}), integer8: new abap.types.Integer({qualifiedName: "COMPONENT_DESCRIPTION-INTEGER8"}), decfloat16: new abap.types.typeTodoDecFloat16Type(), decfloat34: new abap.types.DecFloat34(), ftype: new abap.types.Float({qualifiedName: "COMPONENT_DESCRIPTION-FTYPE"}), packed: new abap.types.Packed({length: 14, decimals: 2, qualifiedName: "component_description-packed"}), integer2: new abap.types.Integer({qualifiedName: "INT2"})}, "component_description");
+    let temp168 = new abap.types.Structure({"integer": new abap.types.Integer({qualifiedName: "COMPONENT_DESCRIPTION-INTEGER"}), "integer8": new abap.types.Integer({qualifiedName: "COMPONENT_DESCRIPTION-INTEGER8"}), "decfloat16": new abap.types.typeTodoDecFloat16Type(), "decfloat34": new abap.types.DecFloat34(), "ftype": new abap.types.Float({qualifiedName: "COMPONENT_DESCRIPTION-FTYPE"}), "packed": new abap.types.Packed({length: 14, decimals: 2, qualifiedName: "component_description-packed"}), "integer2": new abap.types.Integer({qualifiedName: "INT2"})}, "component_description");
     let act_schema = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp169 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp54 = new abap.types.String();
@@ -403,7 +398,7 @@ class ltcl_json_writer {
     let temp62 = new abap.types.String();
     let invalid_json_schema = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let log = new abap.types.ABAPObject({qualifiedName: "ZIF_AFF_LOG"});
-    let is_valid = new abap.types.Character({qualifiedName: "ABAP_BOOL"});
+    let is_valid = new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});
     abap.statements.clear(temp220);
     abap.statements.append({source: new abap.types.String().set(`{`), target: temp220});
     temp60.set(new abap.types.String().set(`    "$comment": "This file is autogenerated, do not edit manually, see ${abap.templateFormatting(abap.Classes['ZCL_AFF_WRITER_JSON_SCHEMA'].c_link_to_repository)} for more information.", `));
@@ -437,7 +432,7 @@ class ltcl_json_writer {
     let temp65 = new abap.types.String();
     let invalid_json_schema = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let log = new abap.types.ABAPObject({qualifiedName: "ZIF_AFF_LOG"});
-    let is_valid = new abap.types.Character({qualifiedName: "ABAP_BOOL"});
+    let is_valid = new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});
     abap.statements.clear(temp237);
     abap.statements.append({source: new abap.types.String().set(`{`), target: temp237});
     temp63.set(new abap.types.String().set(`    "$comment": "This file is autogenerated, do not edit manually, see ${abap.templateFormatting(abap.Classes['ZCL_AFF_WRITER_JSON_SCHEMA'].c_link_to_repository)} for more information.", `));
@@ -516,7 +511,7 @@ class ltcl_json_writer_abap_doc {
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_log_contains_text({log: this.log, exp_text: new abap.types.String().set(`Type of constant CO_TEST does not match type of DEFAULT_LINK`), exp_component_name: new abap.types.String().set(`DEFAULT_LINK`), exp_type: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().warning});
   }
   async original_description() {
-    let temp266 = new abap.types.Structure({original_language: new abap.types.Character({qualifiedName: "zcl_aff_test_types=>ty_original_language"})}, "zcl_aff_test_types=>ty_header_60_src");
+    let temp266 = new abap.types.Structure({"original_language": new abap.types.Character(1, {"qualifiedName":"zcl_aff_test_types=>ty_original_language","conversionExit":"ISOLA"})}, "zcl_aff_test_types=>ty_header_60_src");
     let act_schema = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp267 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp69 = new abap.types.String();
@@ -652,7 +647,7 @@ class ltcl_json_writer_abap_doc {
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_log_has_no_message({log: this.log, message_severity_threshold: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().info});
   }
   async format_version() {
-    let temp320 = new abap.types.Structure({format_version: new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>TY_FORMAT_VERSION-FORMAT_VERSION"}), field1: new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>TY_FORMAT_VERSION-FIELD1"})}, "zcl_aff_test_types=>ty_format_version");
+    let temp320 = new abap.types.Structure({"format_version": new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>TY_FORMAT_VERSION-FORMAT_VERSION"}), "field1": new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>TY_FORMAT_VERSION-FIELD1"})}, "zcl_aff_test_types=>ty_format_version");
     let act_schema = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp321 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp81 = new abap.types.String();
@@ -788,7 +783,7 @@ class ltcl_json_writer_abap_doc {
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_log_has_no_message({log: this.log, message_severity_threshold: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().info});
   }
   async simple_structure() {
-    let temp384 = new abap.types.Structure({my_first_element: new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MYSTRING"}), my_second_element: new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>MY_STRUCTURE-MY_SECOND_ELEMENT"})}, "zcl_aff_test_types=>my_structure");
+    let temp384 = new abap.types.Structure({"my_first_element": new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MYSTRING"}), "my_second_element": new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>MY_STRUCTURE-MY_SECOND_ELEMENT"})}, "zcl_aff_test_types=>my_structure");
     let act_schema = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp385 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp93 = new abap.types.String();
@@ -833,7 +828,7 @@ class ltcl_json_writer_abap_doc {
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_log_has_no_message({log: this.log, message_severity_threshold: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().info});
   }
   async simple_structure_single_field() {
-    let temp411 = new abap.types.Structure({foo_element: new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MYSTRING"})}, "zcl_aff_test_types=>my_structure_single");
+    let temp411 = new abap.types.Structure({"foo_element": new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MYSTRING"})}, "zcl_aff_test_types=>my_structure_single");
     let act_schema = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp412 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp96 = new abap.types.String();
@@ -871,7 +866,7 @@ class ltcl_json_writer_abap_doc {
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_log_has_no_message({log: this.log, message_severity_threshold: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().info});
   }
   async simple_structure_two_fields() {
-    let temp431 = new abap.types.Structure({foo1: new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>MY_STRUCTURE_TWO-FOO1"}), foo2: new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>MY_STRUCTURE_TWO-FOO2"})}, "zcl_aff_test_types=>my_structure_two");
+    let temp431 = new abap.types.Structure({"foo1": new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>MY_STRUCTURE_TWO-FOO1"}), "foo2": new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>MY_STRUCTURE_TWO-FOO2"})}, "zcl_aff_test_types=>my_structure_two");
     let act_schema = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp432 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp99 = new abap.types.String();
@@ -914,7 +909,7 @@ class ltcl_json_writer_abap_doc {
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_log_has_no_message({log: this.log, message_severity_threshold: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().warning});
   }
   async simple_structure_dollar() {
-    let temp456 = new abap.types.Structure({my_first_element: new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MYSTRING"}), my_second_element: new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>MY_STRUCTURE2-MY_SECOND_ELEMENT"})}, "zcl_aff_test_types=>my_structure2");
+    let temp456 = new abap.types.Structure({"my_first_element": new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MYSTRING"}), "my_second_element": new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>MY_STRUCTURE2-MY_SECOND_ELEMENT"})}, "zcl_aff_test_types=>my_structure2");
     let act_schema = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp457 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp102 = new abap.types.String();
@@ -962,7 +957,7 @@ class ltcl_json_writer_abap_doc {
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_log_contains_text({log: this.log, exp_text: new abap.types.String().set(`Annotation $ructure is unknown`), exp_type: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().warning, exp_component_name: new abap.types.String().set(`MY_STRUCTURE2`)});
   }
   async nested_structure() {
-    let temp486 = new abap.types.Structure({nested_struc: new abap.types.Structure({my_element: new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MY_NESTED_STRUCTURE-MY_ELEMENT"})}, "zcl_aff_test_types=>my_nested_structure"), my_element: new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MY_STRUCTURE3-MY_ELEMENT"})}, "zcl_aff_test_types=>my_structure3");
+    let temp486 = new abap.types.Structure({"nested_struc": new abap.types.Structure({"my_element": new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MY_NESTED_STRUCTURE-MY_ELEMENT"})}, "zcl_aff_test_types=>my_nested_structure"), "my_element": new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MY_STRUCTURE3-MY_ELEMENT"})}, "zcl_aff_test_types=>my_structure3");
     let act_schema = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp487 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp105 = new abap.types.String();
@@ -1015,7 +1010,7 @@ class ltcl_json_writer_abap_doc {
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_log_has_no_message({log: this.log, message_severity_threshold: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().info});
   }
   async standard_table() {
-    let temp521 = new abap.types.Table(new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MYSTRING"}), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "zcl_aff_test_types=>my_standard_table");
+    let temp521 = new abap.types.Table(new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MYSTRING"}), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "zcl_aff_test_types=>my_standard_table");
     let act_schema = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp522 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp108 = new abap.types.String();
@@ -1050,7 +1045,7 @@ class ltcl_json_writer_abap_doc {
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_log_has_no_message({log: this.log, message_severity_threshold: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().info});
   }
   async hashed_table() {
-    let temp538 = new abap.types.Table(new abap.types.Structure({my_first_element: new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MYSTRING"}), my_second_element: new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>MY_STRUCTURE-MY_SECOND_ELEMENT"})}, "zcl_aff_test_types=>my_structure"), {"withHeader":false,"type":"HASHED","isUnique":true,"keyFields":["MY_FIRST_ELEMENT"]}, "zcl_aff_test_types=>my_hashed_table");
+    let temp538 = new abap.types.Table(new abap.types.Structure({"my_first_element": new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MYSTRING"}), "my_second_element": new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>MY_STRUCTURE-MY_SECOND_ELEMENT"})}, "zcl_aff_test_types=>my_structure"), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"HASHED","isUnique":true,"keyFields":["MY_FIRST_ELEMENT"]},"secondary":[]}, "zcl_aff_test_types=>my_hashed_table");
     let act_schema = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp539 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp111 = new abap.types.String();
@@ -1101,7 +1096,7 @@ class ltcl_json_writer_abap_doc {
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_log_has_no_message({log: this.log, message_severity_threshold: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().info});
   }
   async structure_with_tables() {
-    let temp571 = new abap.types.Structure({first_table: new abap.types.Table(new abap.types.Structure({my_first_element: new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MYSTRING"}), my_second_element: new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>MY_STRUCTURE-MY_SECOND_ELEMENT"})}, "zcl_aff_test_types=>my_structure"), {"withHeader":false,"type":"SORTED","isUnique":true,"keyFields":["MY_SECOND_ELEMENT"]}, "zcl_aff_test_types=>my_sorted_table_unique"), second_table: new abap.types.Table(new abap.types.Structure({my_first_element: new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MYSTRING"}), my_second_element: new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>MY_STRUCTURE-MY_SECOND_ELEMENT"})}, "zcl_aff_test_types=>my_structure"), {"withHeader":false,"type":"SORTED","isUnique":false,"keyFields":["MY_SECOND_ELEMENT"]}, "zcl_aff_test_types=>my_sorted_table_n_unique")}, "zcl_aff_test_types=>my_structure_with_tables");
+    let temp571 = new abap.types.Structure({"first_table": new abap.types.Table(new abap.types.Structure({"my_first_element": new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MYSTRING"}), "my_second_element": new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>MY_STRUCTURE-MY_SECOND_ELEMENT"})}, "zcl_aff_test_types=>my_structure"), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"SORTED","isUnique":true,"keyFields":["MY_SECOND_ELEMENT"]},"secondary":[]}, "zcl_aff_test_types=>my_sorted_table_unique"), "second_table": new abap.types.Table(new abap.types.Structure({"my_first_element": new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MYSTRING"}), "my_second_element": new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>MY_STRUCTURE-MY_SECOND_ELEMENT"})}, "zcl_aff_test_types=>my_structure"), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"SORTED","isUnique":false,"keyFields":["MY_SECOND_ELEMENT"]},"secondary":[]}, "zcl_aff_test_types=>my_sorted_table_n_unique")}, "zcl_aff_test_types=>my_structure_with_tables");
     let act_schema = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp572 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp114 = new abap.types.String();
@@ -1186,8 +1181,8 @@ class ltcl_json_writer_abap_doc {
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_log_has_no_message({log: this.log, message_severity_threshold: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().info});
   }
   async structure_with_different_enum() {
-    let temp638 = new abap.types.Structure({enum_without_all: new abap.types.Numc({length: 2, qualifiedName: "zcl_aff_test_types=>category_no_initial"}), enum_with_default: new abap.types.Numc({length: 2, qualifiedName: "zcl_aff_test_types=>category_no_initial"}), enum_with_required: new abap.types.Numc({length: 2, qualifiedName: "zcl_aff_test_types=>category_no_initial"})}, "zcl_aff_test_types=>structure_with_different_enum");
-    let test = new abap.types.Structure({enum_without_all: new abap.types.Numc({length: 2, qualifiedName: "zcl_aff_test_types=>category_no_initial"}), enum_with_default: new abap.types.Numc({length: 2, qualifiedName: "zcl_aff_test_types=>category_no_initial"}), enum_with_required: new abap.types.Numc({length: 2, qualifiedName: "zcl_aff_test_types=>category_no_initial"})}, "zcl_aff_test_types=>structure_with_different_enum");
+    let temp638 = new abap.types.Structure({"enum_without_all": new abap.types.Numc({length: 2, qualifiedName: "zcl_aff_test_types=>category_no_initial"}), "enum_with_default": new abap.types.Numc({length: 2, qualifiedName: "zcl_aff_test_types=>category_no_initial"}), "enum_with_required": new abap.types.Numc({length: 2, qualifiedName: "zcl_aff_test_types=>category_no_initial"})}, "zcl_aff_test_types=>structure_with_different_enum");
+    let test = new abap.types.Structure({"enum_without_all": new abap.types.Numc({length: 2, qualifiedName: "zcl_aff_test_types=>category_no_initial"}), "enum_with_default": new abap.types.Numc({length: 2, qualifiedName: "zcl_aff_test_types=>category_no_initial"}), "enum_with_required": new abap.types.Numc({length: 2, qualifiedName: "zcl_aff_test_types=>category_no_initial"})}, "zcl_aff_test_types=>structure_with_different_enum");
     abap.statements.clear(temp638);
     test.set(temp638);
     await this.test_generator.get().generate_type({data: test});
@@ -1195,7 +1190,7 @@ class ltcl_json_writer_abap_doc {
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_log_contains_text({log: this.log, exp_text: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$co_msg127, exp_component_name: new abap.types.String().set(`STRUCTURE_WITH_DIFFERENT_ENUM-ENUM_WITHOUT_ALL`), exp_type: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().warning});
   }
   async complex_type_with_enum() {
-    let temp639 = new abap.types.Structure({header: new abap.types.Structure({description: new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>HEADER-DESCRIPTION"}), original_language: new abap.types.Character({qualifiedName: "zcl_aff_test_types=>header-original_language"}), abap_language_version: new abap.types.Character({qualifiedName: "zcl_aff_test_types=>language_version"})}, "zcl_aff_test_types=>header"), class_category: new abap.types.Numc({length: 2, qualifiedName: "zcl_aff_test_types=>ty_class_properties-class_category"})}, "zcl_aff_test_types=>ty_class_properties");
+    let temp639 = new abap.types.Structure({"header": new abap.types.Structure({"description": new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>HEADER-DESCRIPTION"}), "original_language": new abap.types.Character(1, {"qualifiedName":"zcl_aff_test_types=>header-original_language","conversionExit":"ISOLA"}), "abap_language_version": new abap.types.Character(1, {"qualifiedName":"zcl_aff_test_types=>language_version"})}, "zcl_aff_test_types=>header"), "class_category": new abap.types.Numc({length: 2, qualifiedName: "zcl_aff_test_types=>ty_class_properties-class_category"})}, "zcl_aff_test_types=>ty_class_properties");
     let act_schema_co = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp640 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp117 = new abap.types.String();
@@ -1284,7 +1279,7 @@ class ltcl_json_writer_abap_doc {
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_log_has_no_message({log: this.log, message_severity_threshold: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().info});
   }
   async nested_nested_structure() {
-    let temp710 = new abap.types.Structure({field1: new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>LIST-FIELD1"}), field2: new abap.types.Character({length: 2, qualifiedName: "zcl_aff_test_types=>list-field2"}), list1: new abap.types.Structure({element_of_list1: new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>LIST1-ELEMENT_OF_LIST1"}), list2: new abap.types.Structure({element_of_list2: new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>LIST2-ELEMENT_OF_LIST2"})}, "zcl_aff_test_types=>list2")}, "zcl_aff_test_types=>list1"), field3: new abap.types.Character({length: 2, qualifiedName: "zcl_aff_test_types=>list-field3"})}, "zcl_aff_test_types=>list");
+    let temp710 = new abap.types.Structure({"field1": new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>LIST-FIELD1"}), "field2": new abap.types.Character(2, {"qualifiedName":"zcl_aff_test_types=>list-field2"}), "list1": new abap.types.Structure({"element_of_list1": new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>LIST-LIST1-ELEMENT_OF_LIST1"}), "list2": new abap.types.Structure({"element_of_list2": new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>LIST-LIST1-LIST2-ELEMENT_OF_LIST2"})}, "zcl_aff_test_types=>list-list1-list2")}, "zcl_aff_test_types=>list-list1"), "field3": new abap.types.Character(2, {"qualifiedName":"zcl_aff_test_types=>list-field3"})}, "zcl_aff_test_types=>list");
     let act_schema_co = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp711 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp120 = new abap.types.String();
@@ -1374,7 +1369,7 @@ class ltcl_json_writer_abap_doc {
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_log_has_no_message({log: this.log, message_severity_threshold: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().info});
   }
   async table_in_nested_stru_with_ad() {
-    let temp782 = new abap.types.Structure({field1: new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>OUTER_STRUC-FIELD1"}), inner_struc: new abap.types.Structure({element_of_inner_struc: new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>INNER_STRUC-ELEMENT_OF_INNER_STRUC"}), inner_table_var: new abap.types.Table(new abap.types.String({qualifiedName: "STRING"}), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "zcl_aff_test_types=>inner_struc-inner_table_var")}, "zcl_aff_test_types=>inner_struc"), field2: new abap.types.Character({length: 2, qualifiedName: "zcl_aff_test_types=>outer_struc-field2"})}, "zcl_aff_test_types=>outer_struc");
+    let temp782 = new abap.types.Structure({"field1": new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>OUTER_STRUC-FIELD1"}), "inner_struc": new abap.types.Structure({"element_of_inner_struc": new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>OUTER_STRUC-INNER_STRUC-ELEMENT_OF_INNER_STRUC"}), "inner_table_var": new abap.types.Table(new abap.types.String({qualifiedName: "STRING"}), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "zcl_aff_test_types=>outer_struc-inner_struc-inner_table_var")}, "zcl_aff_test_types=>outer_struc-inner_struc"), "field2": new abap.types.Character(2, {"qualifiedName":"zcl_aff_test_types=>outer_struc-field2"})}, "zcl_aff_test_types=>outer_struc");
     let act_schema_co = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp783 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp123 = new abap.types.String();
@@ -1449,7 +1444,7 @@ class ltcl_json_writer_abap_doc {
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_log_has_no_message({log: this.log, message_severity_threshold: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().info});
   }
   async nestes_table_with_ad() {
-    let temp839 = new abap.types.Table(new abap.types.Table(new abap.types.String({qualifiedName: "STRING"}), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "zcl_aff_test_types=>nested_table"), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "zcl_aff_test_types=>first_table");
+    let temp839 = new abap.types.Table(new abap.types.Table(new abap.types.String({qualifiedName: "STRING"}), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "zcl_aff_test_types=>nested_table"), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "zcl_aff_test_types=>first_table");
     let act_schema_co = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp840 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp126 = new abap.types.String();
@@ -1486,7 +1481,7 @@ class ltcl_json_writer_abap_doc {
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_log_has_no_message({log: this.log, message_severity_threshold: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().info});
   }
   async structure_with_wrong_enum_link() {
-    let temp858 = new abap.types.Structure({element_one: new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_WITH_WRONG_LINK-ELEMENT_ONE"}), element_two: new abap.types.Numc({length: 2, qualifiedName: "zcl_aff_test_types=>category_wrong"})}, "zcl_aff_test_types=>structure_with_wrong_link");
+    let temp858 = new abap.types.Structure({"element_one": new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_WITH_WRONG_LINK-ELEMENT_ONE"}), "element_two": new abap.types.Numc({length: 2, qualifiedName: "zcl_aff_test_types=>category_wrong"})}, "zcl_aff_test_types=>structure_with_wrong_link");
     let act_schema_co = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp859 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp129 = new abap.types.String();
@@ -1527,10 +1522,10 @@ class ltcl_json_writer_abap_doc {
     exp_schema.set(temp859);
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_equals_ignore_spaces({act_data: act_schema_co, exp_data: exp_schema});
     this.log.set((await this.cut.get().zif_aff_writer$get_log()));
-    await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_log_contains_text({log: this.log, exp_text: new abap.types.Character({length: 84}).set('Constant ZCL_AFF_TEST_TYPES=>ENUM_VALUES_WRONG given in ABAP Doc link doesn\'t exist'), exp_type: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().warning, exp_component_name: new abap.types.String().set(`STRUCTURE_WITH_WRONG_LINK-ELEMENT_TWO`)});
+    await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_log_contains_text({log: this.log, exp_text: new abap.types.Character(84).set('Constant ZCL_AFF_TEST_TYPES=>ENUM_VALUES_WRONG given in ABAP Doc link doesn\'t exist'), exp_type: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().warning, exp_component_name: new abap.types.String().set(`STRUCTURE_WITH_WRONG_LINK-ELEMENT_TWO`)});
   }
   async structure_with_table() {
-    let temp884 = new abap.types.Structure({table1: new abap.types.Table(new abap.types.String({qualifiedName: "STRING"}), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "zcl_aff_test_types=>string_table"), structure: new abap.types.Structure({field: new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>INNER_STRUC-FIELD"})}, "zcl_aff_test_types=>inner_struc"), table2: new abap.types.Table(new abap.types.String({qualifiedName: "STRING"}), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "zcl_aff_test_types=>string_table")}, "zcl_aff_test_types=>structure_with_doc_outside");
+    let temp884 = new abap.types.Structure({"table1": new abap.types.Table(new abap.types.String({qualifiedName: "STRING"}), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "zcl_aff_test_types=>string_table"), "structure": new abap.types.Structure({"field": new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>INNER_STRUC-FIELD"})}, "zcl_aff_test_types=>inner_struc"), "table2": new abap.types.Table(new abap.types.String({qualifiedName: "STRING"}), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "zcl_aff_test_types=>string_table")}, "zcl_aff_test_types=>structure_with_doc_outside");
     let act_schema_co = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp885 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp132 = new abap.types.String();
@@ -1627,7 +1622,7 @@ class ltcl_json_writer_abap_doc {
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_log_has_no_message({log: this.log, message_severity_threshold: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().info});
   }
   async structure_with_numbers() {
-    let temp945 = new abap.types.Structure({integer: new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_WITH_NUMBERS-INTEGER"}), float: new abap.types.typeTodoDecFloat16Type(), packed_with_multiple: new abap.types.Packed({length: 4, decimals: 2, qualifiedName: "zcl_aff_test_types=>structure_with_numbers-packed_with_multiple"}), packed_without_multiple: new abap.types.Packed({length: 4, decimals: 1, qualifiedName: "zcl_aff_test_types=>structure_with_numbers-packed_without_multiple"}), integer_out: new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>INTEGER_OUTSIDE"}), integer_out_with_doc: new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>INTEGER_OUTSIDE"})}, "zcl_aff_test_types=>structure_with_numbers");
+    let temp945 = new abap.types.Structure({"integer": new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_WITH_NUMBERS-INTEGER"}), "float": new abap.types.typeTodoDecFloat16Type(), "packed_with_multiple": new abap.types.Packed({length: 4, decimals: 2, qualifiedName: "zcl_aff_test_types=>structure_with_numbers-packed_with_multiple"}), "packed_without_multiple": new abap.types.Packed({length: 4, decimals: 1, qualifiedName: "zcl_aff_test_types=>structure_with_numbers-packed_without_multiple"}), "integer_out": new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>INTEGER_OUTSIDE"}), "integer_out_with_doc": new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>INTEGER_OUTSIDE"})}, "zcl_aff_test_types=>structure_with_numbers");
     let act_schema_co = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp946 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp138 = new abap.types.String();
@@ -1703,7 +1698,7 @@ class ltcl_json_writer_abap_doc {
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_log_has_no_message({log: this.log, message_severity_threshold: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().info});
   }
   async structure_different_default() {
-    let temp1003 = new abap.types.Structure({four_byte_int: new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_DIFFERENT_DEFAULT-FOUR_BYTE_INT"}), eight_byte_int: new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_DIFFERENT_DEFAULT-EIGHT_BYTE_INT"}), bin_float: new abap.types.Float({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_DIFFERENT_DEFAULT-BIN_FLOAT"}), byte_like: new abap.types.Hex({length: 2}), byte_like2: new abap.types.XString({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_DIFFERENT_DEFAULT-BYTE_LIKE2"}), decimal_float_16: new abap.types.typeTodoDecFloat16Type(), decimal_float_34: new abap.types.DecFloat34(), packed_number: new abap.types.Packed({length: 3, decimals: 2, qualifiedName: "zcl_aff_test_types=>structure_different_default-packed_number"}), numeric_text: new abap.types.Numc({length: 4, qualifiedName: "zcl_aff_test_types=>structure_different_default-numeric_text"}), character_text: new abap.types.Character({length: 5, qualifiedName: "zcl_aff_test_types=>structure_different_default-character_text"}), string_text: new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_DIFFERENT_DEFAULT-STRING_TEXT"}), date_field: new abap.types.Date({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_DIFFERENT_DEFAULT-DATE_FIELD"}), time_field: new abap.types.Time({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_DIFFERENT_DEFAULT-TIME_FIELD"}), date_time_field: new abap.types.UTCLong({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_DIFFERENT_DEFAULT-DATE_TIME_FIELD"}), bool_true: new abap.types.Character({qualifiedName: "ABAP_BOOL"}), bool_false: new abap.types.Character({qualifiedName: "ABAP_BOOL"}), enum_type: new abap.types.Numc({length: 2, qualifiedName: "zcl_aff_test_types=>structure_different_default-enum_type"})}, "zcl_aff_test_types=>structure_different_default");
+    let temp1003 = new abap.types.Structure({"four_byte_int": new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_DIFFERENT_DEFAULT-FOUR_BYTE_INT"}), "eight_byte_int": new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_DIFFERENT_DEFAULT-EIGHT_BYTE_INT"}), "bin_float": new abap.types.Float({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_DIFFERENT_DEFAULT-BIN_FLOAT"}), "byte_like": new abap.types.Hex({length: 2}), "byte_like2": new abap.types.XString({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_DIFFERENT_DEFAULT-BYTE_LIKE2"}), "decimal_float_16": new abap.types.typeTodoDecFloat16Type(), "decimal_float_34": new abap.types.DecFloat34(), "packed_number": new abap.types.Packed({length: 3, decimals: 2, qualifiedName: "zcl_aff_test_types=>structure_different_default-packed_number"}), "numeric_text": new abap.types.Numc({length: 4, qualifiedName: "zcl_aff_test_types=>structure_different_default-numeric_text"}), "character_text": new abap.types.Character(5, {"qualifiedName":"zcl_aff_test_types=>structure_different_default-character_text"}), "string_text": new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_DIFFERENT_DEFAULT-STRING_TEXT"}), "date_field": new abap.types.Date({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_DIFFERENT_DEFAULT-DATE_FIELD"}), "time_field": new abap.types.Time({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_DIFFERENT_DEFAULT-TIME_FIELD"}), "date_time_field": new abap.types.UTCLong({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_DIFFERENT_DEFAULT-DATE_TIME_FIELD"}), "bool_true": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "bool_false": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "enum_type": new abap.types.Numc({length: 2, qualifiedName: "zcl_aff_test_types=>structure_different_default-enum_type"})}, "zcl_aff_test_types=>structure_different_default");
     let act_schema_co = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp1004 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp141 = new abap.types.String();
@@ -1868,7 +1863,7 @@ class ltcl_json_writer_abap_doc {
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_log_contains_text({log: this.log, exp_text: new abap.types.String().set(`Annotation $default for type UTCLONG is not supported`), exp_component_name: new abap.types.String().set(`STRUCTURE_DIFFERENT_DEFAULT-DATE_TIME_FIELD`), exp_type: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().warning});
   }
   async structure_with_default_problem() {
-    let temp1150 = new abap.types.Structure({integer: new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_WITH_DEFAULT_PROBLEM-INTEGER"}), string_element: new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_WITH_DEFAULT_PROBLEM-STRING_ELEMENT"}), enum_required: new abap.types.Numc({length: 2, qualifiedName: "zcl_aff_test_types=>structure_with_default_problem-enum_required"}), enum_show_always: new abap.types.Numc({length: 2, qualifiedName: "zcl_aff_test_types=>structure_with_default_problem-enum_show_always"})}, "zcl_aff_test_types=>structure_with_default_problem");
+    let temp1150 = new abap.types.Structure({"integer": new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_WITH_DEFAULT_PROBLEM-INTEGER"}), "string_element": new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_WITH_DEFAULT_PROBLEM-STRING_ELEMENT"}), "enum_required": new abap.types.Numc({length: 2, qualifiedName: "zcl_aff_test_types=>structure_with_default_problem-enum_required"}), "enum_show_always": new abap.types.Numc({length: 2, qualifiedName: "zcl_aff_test_types=>structure_with_default_problem-enum_show_always"})}, "zcl_aff_test_types=>structure_with_default_problem");
     let act_schema_co = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp1151 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp144 = new abap.types.String();
@@ -1955,7 +1950,7 @@ class ltcl_json_writer_abap_doc {
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_log_contains_text({log: this.log, exp_text: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$co_msg126, exp_component_name: new abap.types.String().set(`STRUCTURE_WITH_DEFAULT_PROBLEM-ENUM_REQUIRED`), exp_type: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().warning});
   }
   async nested_struc_with_default() {
-    let temp1218 = new abap.types.Structure({outer_component: new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>NESTED_STRUC_WITH_DEFAULT-OUTER_COMPONENT"}), middle_struc: new abap.types.Structure({middle_component: new abap.types.Character({length: 4, qualifiedName: "zcl_aff_test_types=>middle_struc_with_default-middle_component"}), inner_struc: new abap.types.Structure({inner_component: new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>INNER_STRUC_WITH_DEFAULT-INNER_COMPONENT"})}, "zcl_aff_test_types=>inner_struc_with_default")}, "zcl_aff_test_types=>middle_struc_with_default")}, "zcl_aff_test_types=>nested_struc_with_default");
+    let temp1218 = new abap.types.Structure({"outer_component": new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>NESTED_STRUC_WITH_DEFAULT-OUTER_COMPONENT"}), "middle_struc": new abap.types.Structure({"middle_component": new abap.types.Character(4, {"qualifiedName":"zcl_aff_test_types=>middle_struc_with_default-middle_component"}), "inner_struc": new abap.types.Structure({"inner_component": new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>INNER_STRUC_WITH_DEFAULT-INNER_COMPONENT"})}, "zcl_aff_test_types=>inner_struc_with_default")}, "zcl_aff_test_types=>middle_struc_with_default")}, "zcl_aff_test_types=>nested_struc_with_default");
     let act_schema_co = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp1219 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp147 = new abap.types.String();
@@ -2024,7 +2019,7 @@ class ltcl_json_writer_abap_doc {
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_log_has_no_message({log: this.log, message_severity_threshold: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().info});
   }
   async structure_with_wrong_default() {
-    let temp1269 = new abap.types.Structure({element_one: new abap.types.Numc({length: 2, qualifiedName: "zcl_aff_test_types=>category"}), element_two: new abap.types.Numc({length: 2, qualifiedName: "zcl_aff_test_types=>category"})}, "zcl_aff_test_types=>structure_with_wrong_default");
+    let temp1269 = new abap.types.Structure({"element_one": new abap.types.Numc({length: 2, qualifiedName: "zcl_aff_test_types=>category"}), "element_two": new abap.types.Numc({length: 2, qualifiedName: "zcl_aff_test_types=>category"})}, "zcl_aff_test_types=>structure_with_wrong_default");
     let act_schema_co = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp1270 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp150 = new abap.types.String();
@@ -2087,7 +2082,7 @@ class ltcl_json_writer_abap_doc {
     exp_schema.set(temp1270);
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_equals_ignore_spaces({act_data: act_schema_co, exp_data: exp_schema});
     this.log.set((await this.cut.get().zif_aff_writer$get_log()));
-    await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_log_contains_text({log: this.log, exp_text: new abap.types.Character({length: 81}).set('Component WRONG_COMPONENT of constant ENUM_VALUES in ABAP Doc link doesn\'t exist'), exp_type: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().warning, exp_component_name: new abap.types.String().set(`STRUCTURE_WITH_WRONG_DEFAULT-ELEMENT_ONE`)});
+    await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_log_contains_text({log: this.log, exp_text: new abap.types.Character(81).set('Component WRONG_COMPONENT of constant ENUM_VALUES in ABAP Doc link doesn\'t exist'), exp_type: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().warning, exp_component_name: new abap.types.String().set(`STRUCTURE_WITH_WRONG_DEFAULT-ELEMENT_ONE`)});
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_log_contains_text({log: this.log, exp_text: new abap.types.String().set(`Title is missing`), exp_type: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().info, exp_component_name: new abap.types.String().set(`ENUM_VALUES-CLASSIC_BADI`)});
   }
   async element_with_callbackclas() {
@@ -2129,7 +2124,7 @@ class ltcl_json_writer_abap_doc {
   }
   async simple_table_with_callbackclas() {
     let temp1334 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
-    let temp1344 = new abap.types.Table(new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MYSTRING"}), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "zcl_aff_test_types=>table_callback");
+    let temp1344 = new abap.types.Table(new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MYSTRING"}), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "zcl_aff_test_types=>table_callback");
     let act_schema = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp1345 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp156 = new abap.types.String();
@@ -2176,7 +2171,7 @@ class ltcl_json_writer_abap_doc {
   }
   async table_with_call_of_struc() {
     let temp1361 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
-    let temp1386 = new abap.types.Table(new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MYSTRING"}), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "zcl_aff_test_types=>table_callback");
+    let temp1386 = new abap.types.Table(new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MYSTRING"}), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "zcl_aff_test_types=>table_callback");
     let act_schema = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp1387 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp159 = new abap.types.String();
@@ -2253,7 +2248,7 @@ class ltcl_json_writer_abap_doc {
   }
   async nested_table_with_callback() {
     let temp1418 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
-    let temp1432 = new abap.types.Table(new abap.types.Table(new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MYSTRING"}), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "zcl_aff_test_types=>my_standard_table"), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "zcl_aff_test_types=>table_call_of_table");
+    let temp1432 = new abap.types.Table(new abap.types.Table(new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MYSTRING"}), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "zcl_aff_test_types=>my_standard_table"), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "zcl_aff_test_types=>table_call_of_table");
     let act_schema_co = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp1433 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp162 = new abap.types.String();
@@ -2304,7 +2299,7 @@ class ltcl_json_writer_abap_doc {
   }
   async table_of_struc_with_callback() {
     let temp1453 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
-    let temp1464 = new abap.types.Table(new abap.types.Structure({element_name: new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_CALLBACK-ELEMENT_NAME"})}, "zcl_aff_test_types=>structure_callback"), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "zcl_aff_test_types=>table_of_struc_with_callback");
+    let temp1464 = new abap.types.Table(new abap.types.Structure({"element_name": new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_CALLBACK-ELEMENT_NAME"})}, "zcl_aff_test_types=>structure_callback"), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "zcl_aff_test_types=>table_of_struc_with_callback");
     let act_schema = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp1465 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp163 = new abap.types.String();
@@ -2358,7 +2353,7 @@ class ltcl_json_writer_abap_doc {
   }
   async struct_with_table_callback() {
     let temp1487 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
-    let temp1499 = new abap.types.Structure({element_table_callback: new abap.types.Table(new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MYSTRING"}), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "zcl_aff_test_types=>table_callback"), my_second_element: new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUC_OF_TABLE_WITH_CALLBACK-MY_SECOND_ELEMENT"})}, "zcl_aff_test_types=>struc_of_table_with_callback");
+    let temp1499 = new abap.types.Structure({"element_table_callback": new abap.types.Table(new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MYSTRING"}), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "zcl_aff_test_types=>table_callback"), "my_second_element": new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUC_OF_TABLE_WITH_CALLBACK-MY_SECOND_ELEMENT"})}, "zcl_aff_test_types=>struc_of_table_with_callback");
     let act_schema = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp1500 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp166 = new abap.types.String();
@@ -2425,7 +2420,7 @@ class ltcl_json_writer_abap_doc {
   }
   async struc_with_struc_callback() {
     let temp1534 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
-    let temp1550 = new abap.types.Structure({my_first_element: new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUC_IN_STRUC_WITH_CALLBACK-MY_FIRST_ELEMENT"}), element_structure_callback: new abap.types.Structure({element_name: new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_CALLBACK-ELEMENT_NAME"})}, "zcl_aff_test_types=>structure_callback"), my_third_element: new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUC_IN_STRUC_WITH_CALLBACK-MY_THIRD_ELEMENT"})}, "zcl_aff_test_types=>struc_in_struc_with_callback");
+    let temp1550 = new abap.types.Structure({"my_first_element": new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUC_IN_STRUC_WITH_CALLBACK-MY_FIRST_ELEMENT"}), "element_structure_callback": new abap.types.Structure({"element_name": new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_CALLBACK-ELEMENT_NAME"})}, "zcl_aff_test_types=>structure_callback"), "my_third_element": new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUC_IN_STRUC_WITH_CALLBACK-MY_THIRD_ELEMENT"})}, "zcl_aff_test_types=>struc_in_struc_with_callback");
     let act_schema = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp1551 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp169 = new abap.types.String();
@@ -2505,7 +2500,7 @@ class ltcl_json_writer_abap_doc {
   }
   async element_in_structure_callback() {
     let temp1594 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
-    let temp1601 = new abap.types.Structure({element_callback: new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MYSTRING"}), my_second_element: new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_WITH_ELEM_CALLBACK-MY_SECOND_ELEMENT"})}, "zcl_aff_test_types=>structure_with_elem_callback");
+    let temp1601 = new abap.types.Structure({"element_callback": new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MYSTRING"}), "my_second_element": new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_WITH_ELEM_CALLBACK-MY_SECOND_ELEMENT"})}, "zcl_aff_test_types=>structure_with_elem_callback");
     let act_schema = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp1602 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp172 = new abap.types.String();
@@ -2561,7 +2556,7 @@ class ltcl_json_writer_abap_doc {
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_log_has_no_message({log: this.log, message_severity_threshold: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().info});
   }
   async structure_with_wrong_callback() {
-    let temp1631 = new abap.types.Structure({my_first_element: new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MYSTRING"}), my_second_element: new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_WITH_WRONG_CALLBACK-MY_SECOND_ELEMENT"})}, "zcl_aff_test_types=>structure_with_wrong_callback");
+    let temp1631 = new abap.types.Structure({"my_first_element": new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MYSTRING"}), "my_second_element": new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_WITH_WRONG_CALLBACK-MY_SECOND_ELEMENT"})}, "zcl_aff_test_types=>structure_with_wrong_callback");
     let act_schema = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp1632 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp175 = new abap.types.String();
@@ -2610,7 +2605,7 @@ class ltcl_json_writer_abap_doc {
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_log_contains_text({log: this.log, exp_text: new abap.types.String().set(`Annotation ${abap.templateFormatting(abap.Classes['ZCL_AFF_ABAP_DOC_PARSER'].abap_doc_annotation.get().callback_class)} was used incorrectly`), exp_component_name: new abap.types.String().set(`STRUCTURE_WITH_WRONG_CALLBACK-MY_SECOND_ELEMENT`), exp_type: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().warning});
   }
   async structure_no_title_descr() {
-    let temp1661 = new abap.types.Structure({field1: new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_NO_TITLE_DESCR-FIELD1"}), inner_struc: new abap.types.Structure({inner_field: new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>INNER_STRUC_NO_TITLE_DESCR-INNER_FIELD"})}, "zcl_aff_test_types=>inner_struc_no_title_descr"), inner_table: new abap.types.Table(new abap.types.String({qualifiedName: "STRING"}), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "zcl_aff_test_types=>table_no_title_descr")}, "zcl_aff_test_types=>structure_no_title_descr");
+    let temp1661 = new abap.types.Structure({"field1": new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_NO_TITLE_DESCR-FIELD1"}), "inner_struc": new abap.types.Structure({"inner_field": new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>INNER_STRUC_NO_TITLE_DESCR-INNER_FIELD"})}, "zcl_aff_test_types=>inner_struc_no_title_descr"), "inner_table": new abap.types.Table(new abap.types.String({qualifiedName: "STRING"}), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "zcl_aff_test_types=>table_no_title_descr")}, "zcl_aff_test_types=>structure_no_title_descr");
     let act_schema = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp1662 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp178 = new abap.types.String();
@@ -2697,7 +2692,7 @@ class ltcl_json_writer_abap_doc {
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_log_contains_text({log: this.log, exp_text: new abap.types.String().set(`Description is missing`), exp_type: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().info, exp_component_name: new abap.types.String().set(`ELEMENT_NO_TITLE_DESCR`)});
   }
   async table_no_title_descr() {
-    let temp1706 = new abap.types.Table(new abap.types.String({qualifiedName: "STRING"}), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "zcl_aff_test_types=>table_no_title_descr");
+    let temp1706 = new abap.types.Table(new abap.types.String({qualifiedName: "STRING"}), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "zcl_aff_test_types=>table_no_title_descr");
     let act_schema = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp1707 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp184 = new abap.types.String();
@@ -2728,7 +2723,7 @@ class ltcl_json_writer_abap_doc {
     await abap.Classes['ZCL_AFF_TOOLS_UNIT_TEST_HELPER'].assert_log_contains_text({log: this.log, exp_text: new abap.types.String().set(`Description is missing`), exp_type: abap.Classes['ZIF_AFF_LOG'].zif_aff_log$c_message_type.get().info, exp_component_name: new abap.types.String().set(`TABLE_NO_TITLE_DESCR`)});
   }
   async structure_with_include() {
-    let temp1718 = new abap.types.Structure({first_element: new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>TY_INCLUDE_TYPE-FIRST_ELEMENT"}), second_element: new abap.types.Structure({my_first_element: new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MYSTRING"}), my_second_element: new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>MY_STRUCTURE-MY_SECOND_ELEMENT"})}, "zcl_aff_test_types=>my_structure"), third_element: new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>TY_INCLUDE_TYPE-THIRD_ELEMENT"}), other_element: new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_WITH_INCLUDE-OTHER_ELEMENT"}), other_structure: new abap.types.Structure({my_first_element: new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MYSTRING"}), my_second_element: new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>MY_STRUCTURE-MY_SECOND_ELEMENT"})}, "zcl_aff_test_types=>my_structure")}, "zcl_aff_test_types=>structure_with_include");
+    let temp1718 = new abap.types.Structure({"first_element": new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>TY_INCLUDE_TYPE-FIRST_ELEMENT"}), "second_element": new abap.types.Structure({"my_first_element": new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MYSTRING"}), "my_second_element": new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>MY_STRUCTURE-MY_SECOND_ELEMENT"})}, "zcl_aff_test_types=>my_structure"), "third_element": new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>TY_INCLUDE_TYPE-THIRD_ELEMENT"}), "other_element": new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>STRUCTURE_WITH_INCLUDE-OTHER_ELEMENT"}), "other_structure": new abap.types.Structure({"my_first_element": new abap.types.String({qualifiedName: "ZCL_AFF_TEST_TYPES=>MYSTRING"}), "my_second_element": new abap.types.Integer({qualifiedName: "ZCL_AFF_TEST_TYPES=>MY_STRUCTURE-MY_SECOND_ELEMENT"})}, "zcl_aff_test_types=>my_structure")}, "zcl_aff_test_types=>structure_with_include");
     let act_schema = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp1719 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp187 = new abap.types.String();
@@ -2882,25 +2877,25 @@ class ltcl_json_writer_abap_doc {
     await abap.Classes['CL_ABAP_UNIT_ASSERT'].assert_equals({exp: new abap.types.String().set(`255`), act: max});
   }
   async calculate_max_length() {
-    let c_length_30 = new abap.types.Character({length: 30, qualifiedName: "undefined"});
+    let c_length_30 = new abap.types.Character(30, {});
     let temp1802 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_ELEMDESCR"});
     let max_length = new abap.types.String({qualifiedName: "STRING"});
-    let c_length_60 = new abap.types.Character({length: 60, qualifiedName: "undefined"});
+    let c_length_60 = new abap.types.Character(60, {});
     let temp1803 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_ELEMDESCR"});
     let n_length_10 = new abap.types.Numc({length: 10});
     let temp1804 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_ELEMDESCR"});
     await abap.statements.cast(temp1802, (await abap.Classes['CL_ABAP_TYPEDESCR'].describe_by_data({p_data: c_length_30})));
     max_length.set((await this.cut.get().get_max_length({element_description: temp1802})));
-    await abap.Classes['CL_ABAP_UNIT_ASSERT'].assert_equals({exp: constant_30, act: max_length});
+    await abap.Classes['CL_ABAP_UNIT_ASSERT'].assert_equals({exp: new abap.types.Integer().set(30), act: max_length});
     await abap.statements.cast(temp1803, (await abap.Classes['CL_ABAP_TYPEDESCR'].describe_by_data({p_data: c_length_60})));
     max_length.set((await this.cut.get().get_max_length({element_description: temp1803})));
-    await abap.Classes['CL_ABAP_UNIT_ASSERT'].assert_equals({exp: constant_60, act: max_length});
+    await abap.Classes['CL_ABAP_UNIT_ASSERT'].assert_equals({exp: new abap.types.Integer().set(60), act: max_length});
     await abap.statements.cast(temp1804, (await abap.Classes['CL_ABAP_TYPEDESCR'].describe_by_data({p_data: n_length_10})));
     max_length.set((await this.cut.get().get_max_length({element_description: temp1804})));
-    await abap.Classes['CL_ABAP_UNIT_ASSERT'].assert_equals({exp: constant_10, act: max_length});
+    await abap.Classes['CL_ABAP_UNIT_ASSERT'].assert_equals({exp: new abap.types.Integer().set(10), act: max_length});
   }
   async struc_with_own_enum_values() {
-    let temp1805 = new abap.types.Structure({enum_component: new abap.types.Character({length: 2, qualifiedName: "zcl_aff_test_types=>struc_with_own_enum_values-enum_component"})}, "zcl_aff_test_types=>struc_with_own_enum_values");
+    let temp1805 = new abap.types.Structure({"enum_component": new abap.types.Character(2, {"qualifiedName":"zcl_aff_test_types=>struc_with_own_enum_values-enum_component"})}, "zcl_aff_test_types=>struc_with_own_enum_values");
     let act_schema = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp1806 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let temp190 = new abap.types.String();

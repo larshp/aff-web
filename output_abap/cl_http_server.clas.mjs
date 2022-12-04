@@ -14,7 +14,7 @@ class cl_http_server {
   static async get_location(INPUT) {
     let host = new abap.types.String({qualifiedName: "STRING"});
     if (INPUT && INPUT.host) {host = INPUT.host;}
-    host.set(new abap.types.Character({length: 13}).set('open-abap.org'));
+    host.set(new abap.types.Character(13).set('open-abap.org'));
   }
 }
 abap.Classes['CL_HTTP_SERVER'] = cl_http_server;

@@ -1,13 +1,4 @@
 // if_sxml_writer.intf.abap
-const constant_1 = new abap.types.Integer().set(1);
-const constant_2 = new abap.types.Integer().set(2);
-const constant_3 = new abap.types.Integer().set(3);
-const constant_4 = new abap.types.Integer().set(4);
-const constant_5 = new abap.types.Integer().set(5);
-const constant_6 = new abap.types.Integer().set(6);
-const constant_7 = new abap.types.Integer().set(7);
-const constant_8 = new abap.types.Integer().set(8);
-const constant_9 = new abap.types.Integer().set(9);
 class if_sxml_writer {
   static INTERNAL_TYPE = 'INTF';
   static IMPLEMENTED_INTERFACES = [];

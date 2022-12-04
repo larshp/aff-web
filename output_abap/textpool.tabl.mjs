@@ -1,5 +1,5 @@
 abap.DDIC["TEXTPOOL"] = {
   "objectType": "TABL",
-  "type": new abap.types.Structure({id: new abap.types.Character({qualifiedName: "TEXTPOOL-ID"}), key: new abap.types.Character({length: 8, qualifiedName: "TEXTPOOL-KEY"}), entry: new abap.types.Character({length: 255, qualifiedName: "TEXTPOOL-ENTRY"}), length: new abap.types.Integer({qualifiedName: "TEXTPOOL-LENGTH"})}, "TEXTPOOL"),
+  "type": new abap.types.Structure({"id": new abap.types.Character(1, {}), "key": new abap.types.Character(8, {}), "entry": new abap.types.Character(255, {}), "length": new abap.types.Integer()}, "TEXTPOOL"),
   "keyFields": [],
 };

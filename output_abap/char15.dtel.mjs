@@ -1,6 +1,6 @@
 abap.DDIC["CHAR15"] = {
   "objectType": "DTEL",
-  "type": new abap.types.Character({length: 15, qualifiedName: "CHAR15"}),
+  "type": new abap.types.Character(15, {"qualifiedName":"CHAR15","ddicName":"CHAR15"}),
   "domain": "CHAR15",
   "fixedValues": [],
 };

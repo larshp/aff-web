@@ -5,7 +5,7 @@
   "description": "web",
   "scripts": {
     "pull": "oras-pull ghcr.io/sap/abap-file-formats-tools/abap-file-formats-tools:latest",
-    "transpile": "abap_transpile abap_transpile.json",
+    "transpile": "rm -rf output_abap && npx abap_transpile abap_transpile.json",
     "dev": "webpack serve --mode development --env development",
     "webpack": "webpack",
     "test": "npm run transpile"
@@ -24,7 +24,7 @@
     "@abaplint/monaco": "^2.94.2",
     "@abaplint/runtime": "^2.3.67",
     "@abaplint/database-sqlite": "^2.3.58",
-    "@abaplint/transpiler": "^2.3.67",
+    "@abaplint/transpiler-cli": "^2.3.67",
     "buffer": "^6.0.3",
     "crypto-browserify": "^3.12.0",
     "css-loader": "^6.7.2",

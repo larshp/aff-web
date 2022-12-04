@@ -1,14 +1,5 @@
 const {cx_root} = await import("./cx_root.clas.mjs");
 // cl_abap_math.clas.abap
-const constant_minus_2147483648 = new abap.types.Integer().set(-2147483648);
-const constant_0 = new abap.types.Integer().set(0);
-const constant_1 = new abap.types.Integer().set(1);
-const constant_2 = new abap.types.Integer().set(2);
-const constant_2147483647 = new abap.types.Integer().set(2147483647);
-const constant_3 = new abap.types.Integer().set(3);
-const constant_4 = new abap.types.Integer().set(4);
-const constant_5 = new abap.types.Integer().set(5);
-const constant_6 = new abap.types.Integer().set(6);
 class cl_abap_math {
   static INTERNAL_TYPE = 'CLAS';
   static IMPLEMENTED_INTERFACES = [];

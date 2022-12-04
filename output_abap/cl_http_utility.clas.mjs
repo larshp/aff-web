@@ -1,6 +1,5 @@
 const {cx_root} = await import("./cx_root.clas.mjs");
 // cl_http_utility.clas.abap
-const constant_1 = new abap.types.Integer().set(1);
 class cl_http_utility {
   static INTERNAL_TYPE = 'CLAS';
   static IMPLEMENTED_INTERFACES = ["IF_HTTP_UTILITY"];
@@ -21,7 +20,7 @@ class cl_http_utility {
     if (INPUT && INPUT.request) {request.set(INPUT.request);}
     let uri = new abap.types.String({qualifiedName: "STRING"});
     if (INPUT && INPUT.uri) {uri.set(INPUT.uri);}
-    abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 4}).set('todo')));
+    abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(4).set('todo')));
   }
   async escape_html(INPUT) {
     return cl_http_utility.escape_html(INPUT);
@@ -30,10 +29,10 @@ class cl_http_utility {
     let escaped = new abap.types.String({qualifiedName: "STRING"});
     let unescaped = new abap.types.String({qualifiedName: "STRING"});
     if (INPUT && INPUT.unescaped) {unescaped.set(INPUT.unescaped);}
-    let keep_num_char_ref = new abap.types.Character({qualifiedName: "ABAP_BOOL"});
+    let keep_num_char_ref = new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});
     if (INPUT && INPUT.keep_num_char_ref) {keep_num_char_ref = INPUT.keep_num_char_ref;}
     if (INPUT === undefined || INPUT.keep_num_char_ref === undefined) {keep_num_char_ref = abap.builtin.abap_undefined;}
-    abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 4}).set('todo')));
+    abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(4).set('todo')));
     return escaped;
   }
   async escape_javascript(INPUT) {
@@ -43,10 +42,10 @@ class cl_http_utility {
     let escaped = new abap.types.String({qualifiedName: "STRING"});
     let unescaped = new abap.types.String({qualifiedName: "STRING"});
     if (INPUT && INPUT.unescaped) {unescaped.set(INPUT.unescaped);}
-    let inside_html = new abap.types.Character({qualifiedName: "ABAP_BOOL"});
+    let inside_html = new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});
     if (INPUT && INPUT.inside_html) {inside_html = INPUT.inside_html;}
     if (INPUT === undefined || INPUT.inside_html === undefined) {inside_html = abap.builtin.abap_false;}
-    abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 4}).set('todo')));
+    abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(4).set('todo')));
     return escaped;
   }
   async escape_xml_attr_value(INPUT) {
@@ -56,23 +55,23 @@ class cl_http_utility {
     let escaped = new abap.types.String({qualifiedName: "STRING"});
     let unescaped = new abap.types.Character();
     if (INPUT && INPUT.unescaped) {unescaped = INPUT.unescaped;}
-    abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 4}).set('todo')));
+    abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(4).set('todo')));
     return escaped;
   }
   async if_http_utility$string_to_fields(INPUT) {
     return cl_http_utility.if_http_utility$string_to_fields(INPUT);
   }
   static async if_http_utility$string_to_fields(INPUT) {
-    let fields = new abap.types.Table(new abap.types.Structure({name: new abap.types.String({qualifiedName: "IHTTPNVP-NAME"}), value: new abap.types.String({qualifiedName: "IHTTPNVP-VALUE"})}, "IHTTPNVP"), {"withHeader":false}, "TIHTTPNVP");
+    let fields = new abap.types.Table(new abap.types.Structure({"name": new abap.types.String(), "value": new abap.types.String()}, "IHTTPNVP"), {"withHeader":false}, "TIHTTPNVP");
     let string = new abap.types.String({qualifiedName: "STRING"});
     if (INPUT && INPUT.string) {string.set(INPUT.string);}
-    let tab = new abap.types.Table(new abap.types.String({qualifiedName: "STRING"}), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "");
+    let tab = new abap.types.Table(new abap.types.String({qualifiedName: "STRING"}), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "");
     let str = new abap.types.String({qualifiedName: "STRING"});
-    let ls_field = new abap.types.Structure({name: new abap.types.String({qualifiedName: "IHTTPNVP-NAME"}), value: new abap.types.String({qualifiedName: "IHTTPNVP-VALUE"})}, "IHTTPNVP");
-    abap.statements.split({source: string, at: new abap.types.Character({length: 1}).set('&'), table: tab});
-    for await (const unique89 of abap.statements.loop(tab)) {
-      str.set(unique89);
-      abap.statements.split({source: str, at: new abap.types.Character({length: 1}).set('='), targets: [ls_field.get().name,ls_field.get().value]});
+    let ls_field = new abap.types.Structure({"name": new abap.types.String(), "value": new abap.types.String()}, "IHTTPNVP");
+    abap.statements.split({source: string, at: new abap.types.Character(1).set('&'), table: tab});
+    for await (const unique95 of abap.statements.loop(tab)) {
+      str.set(unique95);
+      abap.statements.split({source: str, at: new abap.types.Character(1).set('='), targets: [ls_field.get().name,ls_field.get().value]});
       abap.statements.append({source: ls_field, target: fields});
     }
     return fields;
@@ -92,17 +91,17 @@ class cl_http_utility {
   }
   static async fields_to_string(INPUT) {
     let string = new abap.types.String({qualifiedName: "STRING"});
-    let fields = new abap.types.Table(new abap.types.Structure({name: new abap.types.String({qualifiedName: "IHTTPNVP-NAME"}), value: new abap.types.String({qualifiedName: "IHTTPNVP-VALUE"})}, "IHTTPNVP"), {"withHeader":false}, "TIHTTPNVP");
+    let fields = new abap.types.Table(new abap.types.Structure({"name": new abap.types.String(), "value": new abap.types.String()}, "IHTTPNVP"), {"withHeader":false}, "TIHTTPNVP");
     if (INPUT && INPUT.fields) {fields.set(INPUT.fields);}
-    let tab = new abap.types.Table(new abap.types.String({qualifiedName: "STRING"}), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "");
+    let tab = new abap.types.Table(new abap.types.String({qualifiedName: "STRING"}), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "");
     let str = new abap.types.String({qualifiedName: "STRING"});
-    let ls_field = new abap.types.Structure({name: new abap.types.String({qualifiedName: "IHTTPNVP-NAME"}), value: new abap.types.String({qualifiedName: "IHTTPNVP-VALUE"})}, "IHTTPNVP");
-    for await (const unique90 of abap.statements.loop(fields)) {
-      ls_field.set(unique90);
-      str.set(abap.operators.concat(ls_field.get().name,abap.operators.concat(new abap.types.Character({length: 1}).set('='),ls_field.get().value)));
+    let ls_field = new abap.types.Structure({"name": new abap.types.String(), "value": new abap.types.String()}, "IHTTPNVP");
+    for await (const unique96 of abap.statements.loop(fields)) {
+      ls_field.set(unique96);
+      str.set(abap.operators.concat(ls_field.get().name,abap.operators.concat(new abap.types.Character(1).set('='),ls_field.get().value)));
       abap.statements.append({source: str, target: tab});
     }
-    string.set(abap.builtin.concat_lines_of({table: tab, sep: new abap.types.Character({length: 1}).set('&')}));
+    string.set(abap.builtin.concat_lines_of({table: tab, sep: new abap.types.Character(1).set('&')}));
     return string;
   }
   async encode_x_base64(INPUT) {

@@ -1,6 +1,4 @@
 // if_http_client.intf.abap
-const constant_0 = new abap.types.Integer().set(0);
-const constant_1 = new abap.types.Integer().set(1);
 class if_http_client {
   static INTERNAL_TYPE = 'INTF';
   static IMPLEMENTED_INTERFACES = [];

@@ -8,7 +8,7 @@ class cx_sy_dyn_call_illegal_method extends cx_sy_dyn_call_error {
     this.me = new abap.types.ABAPObject();
     this.me.set(this);
     this.private_method = cx_sy_dyn_call_illegal_method.private_method;
-    let textid = new abap.types.Character({length: 32, qualifiedName: "undefined"});
+    let textid = new abap.types.Character(32, {});
     if (INPUT && INPUT.textid) {textid.set(INPUT.textid);}
     let previous = new abap.types.ABAPObject({qualifiedName: "CX_ROOT"});
     if (INPUT && INPUT.previous) {previous.set(INPUT.previous);}
@@ -21,7 +21,7 @@ class cx_sy_dyn_call_illegal_method extends cx_sy_dyn_call_error {
   }
 }
 abap.Classes['CX_SY_DYN_CALL_ILLEGAL_METHOD'] = cx_sy_dyn_call_illegal_method;
-cx_sy_dyn_call_illegal_method.private_method = new abap.types.Character();
+cx_sy_dyn_call_illegal_method.private_method = new abap.types.Character(1, {});
 cx_sy_dyn_call_illegal_method.private_method.set('1');
 export {cx_sy_dyn_call_illegal_method};
 //# sourceMappingURL=cx_sy_dyn_call_illegal_method.clas.mjs.map

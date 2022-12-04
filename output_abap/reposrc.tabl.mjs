@@ -1,5 +1,5 @@
 abap.DDIC["REPOSRC"] = {
   "objectType": "TABL",
-  "type": new abap.types.Structure({progname: new abap.types.Character({length: 40, qualifiedName: "REPOSRC-PROGNAME"}), data: new abap.types.String({qualifiedName: "REPOSRC-DATA"})}, "REPOSRC"),
+  "type": new abap.types.Structure({"progname": new abap.types.Character(40, {}), "data": new abap.types.String()}, "REPOSRC"),
   "keyFields": ["PROGNAME"],
 };

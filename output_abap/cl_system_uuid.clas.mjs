@@ -1,6 +1,5 @@
 const {cx_root} = await import("./cx_root.clas.mjs");
 // cl_system_uuid.clas.abap
-const constant_4 = new abap.types.Integer().set(4);
 class cl_system_uuid {
   static INTERNAL_TYPE = 'CLAS';
   static IMPLEMENTED_INTERFACES = ["IF_SYSTEM_UUID_RFC4122_STATIC","IF_SYSTEM_UUID_STATIC"];
@@ -22,10 +21,10 @@ class cl_system_uuid {
     return cl_system_uuid.if_system_uuid_rfc4122_static$create_uuid_c36_by_version(INPUT);
   }
   static async if_system_uuid_rfc4122_static$create_uuid_c36_by_version(INPUT) {
-    let uuid = new abap.types.Character({length: 36, qualifiedName: "SYSUUID_C36"});
+    let uuid = new abap.types.Character(36, {"qualifiedName":"SYSUUID_C36"});
     let version = new abap.types.Integer({qualifiedName: "I"});
     if (INPUT && INPUT.version) {version.set(INPUT.version);}
-    abap.statements.assert(abap.compare.eq(version, constant_4));
+    abap.statements.assert(abap.compare.eq(version, new abap.types.Integer().set(4)));
     const crypto = await import("crypto");
     uuid.set(crypto.randomUUID());
     return uuid;

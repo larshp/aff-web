@@ -1,8 +1,5 @@
 const {cx_root} = await import("./cx_root.clas.mjs");
 // cl_abap_conv_in_ce.clas.abap
-const constant_1 = new abap.types.Integer().set(1);
-const constant_2 = new abap.types.Integer().set(2);
-const constant_255 = new abap.types.Integer().set(255);
 class cl_abap_conv_in_ce {
   static INTERNAL_TYPE = 'CLAS';
   static IMPLEMENTED_INTERFACES = [];
@@ -11,7 +8,7 @@ class cl_abap_conv_in_ce {
     this.me.set(this);
     this.mv_input = new abap.types.XString({qualifiedName: "XSTRING"});
     this.mv_js_encoding = new abap.types.String({qualifiedName: "STRING"});
-    this.mv_ignore_cerr = new abap.types.Character({qualifiedName: "ABAP_BOOL"});
+    this.mv_ignore_cerr = new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});
     return this;
   }
   async create(INPUT) {
@@ -19,29 +16,29 @@ class cl_abap_conv_in_ce {
   }
   static async create(INPUT) {
     let ret = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_CONV_IN_CE"});
-    let encoding = new abap.types.Character({length: 20, qualifiedName: "abap_encoding"});
+    let encoding = new abap.types.Character(20, {"qualifiedName":"abap_encoding"});
     if (INPUT && INPUT.encoding) {encoding.set(INPUT.encoding);}
-    if (INPUT === undefined || INPUT.encoding === undefined) {encoding = new abap.types.Character({length: 5}).set('UTF-8');}
+    if (INPUT === undefined || INPUT.encoding === undefined) {encoding = new abap.types.Character(5).set('UTF-8');}
     let input = new abap.types.XString({qualifiedName: "XSTRING"});
     if (INPUT && INPUT.input) {input.set(INPUT.input);}
-    let replacement = new abap.types.Character({qualifiedName: "CHAR1"});
+    let replacement = new abap.types.Character(1, {"qualifiedName":"CHAR1"});
     if (INPUT && INPUT.replacement) {replacement = INPUT.replacement;}
-    if (INPUT === undefined || INPUT.replacement === undefined) {replacement = new abap.types.Character({length: 1}).set('#');}
-    let ignore_cerr = new abap.types.Character({qualifiedName: "ABAP_BOOL"});
+    if (INPUT === undefined || INPUT.replacement === undefined) {replacement = new abap.types.Character(1).set('#');}
+    let ignore_cerr = new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});
     if (INPUT && INPUT.ignore_cerr) {ignore_cerr = INPUT.ignore_cerr;}
     if (INPUT === undefined || INPUT.ignore_cerr === undefined) {ignore_cerr = abap.builtin.abap_false;}
-    let endian = new abap.types.Character({qualifiedName: "CHAR1"});
+    let endian = new abap.types.Character(1, {"qualifiedName":"CHAR1"});
     if (INPUT && INPUT.endian) {endian = INPUT.endian;}
-    abap.statements.assert(abap.compare.eq(replacement, new abap.types.Character({length: 1}).set('#')));
+    abap.statements.assert(abap.compare.eq(replacement, new abap.types.Character(1).set('#')));
     abap.statements.assert(abap.compare.initial(endian));
     ret.set(await (new abap.Classes['CL_ABAP_CONV_IN_CE']()).constructor_());
-    let unique86 = encoding;
-    if (abap.compare.eq(unique86, new abap.types.Character({length: 5}).set('UTF-8'))) {
-      ret.get().mv_js_encoding.set(new abap.types.Character({length: 4}).set('utf8'));
-    } else if (abap.compare.eq(unique86, new abap.types.Character({length: 4}).set('4103'))) {
-      ret.get().mv_js_encoding.set(new abap.types.Character({length: 8}).set('utf-16le'));
+    let unique92 = encoding;
+    if (abap.compare.eq(unique92, new abap.types.Character(5).set('UTF-8'))) {
+      ret.get().mv_js_encoding.set(new abap.types.Character(4).set('utf8'));
+    } else if (abap.compare.eq(unique92, new abap.types.Character(4).set('4103'))) {
+      ret.get().mv_js_encoding.set(new abap.types.Character(8).set('utf-16le'));
     } else {
-      abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 13}).set('not supported')));
+      abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(13).set('not supported')));
     }
     ret.get().mv_input.set(input);
     ret.get().mv_ignore_cerr.set(ignore_cerr);
@@ -51,7 +48,7 @@ class cl_abap_conv_in_ce {
     return cl_abap_conv_in_ce.uccp(INPUT);
   }
   static async uccp(INPUT) {
-    let char_ = new abap.types.Character({length: 2, qualifiedName: "cl_abap_conv_in_ce=>ty_char2"});
+    let char_ = new abap.types.Character(2, {"qualifiedName":"cl_abap_conv_in_ce=>ty_char2"});
     let uccp = new abap.types.Character();
     if (INPUT && INPUT.uccp) {uccp = INPUT.uccp;}
     let int = new abap.types.Integer({qualifiedName: "I"});
@@ -77,9 +74,9 @@ class cl_abap_conv_in_ce {
     if (INPUT && INPUT.value) {value.set(INPUT.value);}
     let lv_hex = new abap.types.Hex({length: 2});
     let lo_in = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_CONV_IN_CE"});
-    new abap.OffsetLength(lv_hex, {length: 1}).set(abap.operators.mod(value,constant_255));
-    new abap.OffsetLength(lv_hex, {offset: 1, length: 1}).set(abap.operators.div(value,constant_255));
-    lo_in.set((await this.create({encoding: new abap.types.Character({length: 4}).set('4103')})));
+    new abap.OffsetLength(lv_hex, {length: 1}).set(abap.operators.mod(value,new abap.types.Integer().set(255)));
+    new abap.OffsetLength(lv_hex, {offset: 1, length: 1}).set(abap.operators.div(value,new abap.types.Integer().set(255)));
+    lo_in.set((await this.create({encoding: new abap.types.Character(4).set('4103')})));
     await lo_in.get().convert({input: lv_hex, data: ret});
     return ret;
   }
@@ -90,7 +87,7 @@ class cl_abap_conv_in_ce {
     if (INPUT && INPUT.n) {n.set(INPUT.n);}
     let data = new abap.types.String({qualifiedName: "STRING"});
     if (INPUT && INPUT.data) {data = INPUT.data;}
-    let lv_error = new abap.types.Character({qualifiedName: "ABAP_BOOL"});
+    let lv_error = new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});
     if (abap.compare.initial(input)) {
       return;
     }
@@ -116,5 +113,6 @@ class cl_abap_conv_in_ce {
   }
 }
 abap.Classes['CL_ABAP_CONV_IN_CE'] = cl_abap_conv_in_ce;
+cl_abap_conv_in_ce.ty_char2 = new abap.types.Character(2, {"qualifiedName":"cl_abap_conv_in_ce=>ty_char2"});
 export {cl_abap_conv_in_ce};
 //# sourceMappingURL=cl_abap_conv_in_ce.clas.mjs.map

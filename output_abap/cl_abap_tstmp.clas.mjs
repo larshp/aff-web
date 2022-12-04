@@ -1,7 +1,5 @@
 const {cx_root} = await import("./cx_root.clas.mjs");
 // cl_abap_tstmp.clas.abap
-const constant_minus_1 = new abap.types.Integer().set(-1);
-const constant_1 = new abap.types.Integer().set(1);
 class cl_abap_tstmp {
   static INTERNAL_TYPE = 'CLAS';
   static IMPLEMENTED_INTERFACES = [];
@@ -24,7 +22,7 @@ class cl_abap_tstmp {
     if (INPUT && INPUT.res_date) {res_date = INPUT.res_date;}
     let res_time = new abap.types.Time({qualifiedName: "T"});
     if (INPUT && INPUT.res_time) {res_time = INPUT.res_time;}
-    abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 4}).set('todo')));
+    abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(4).set('todo')));
   }
   async move(INPUT) {
     return cl_abap_tstmp.move(INPUT);
@@ -91,7 +89,7 @@ class cl_abap_tstmp {
     let secs = new abap.types.Integer({qualifiedName: "I"});
     if (INPUT && INPUT.secs) {secs.set(INPUT.secs);}
     let lv_secs = new abap.types.Integer({qualifiedName: "I"});
-    lv_secs.set(abap.operators.multiply(secs,constant_minus_1));
+    lv_secs.set(abap.operators.multiply(secs,new abap.types.Integer().set(-1)));
     time.set((await this.add({tstmp: tstmp, secs: lv_secs})));
     return time;
   }

@@ -4,7 +4,7 @@
     "cl_abap_objectdescr.clas.abap"
   ],
   "names": [],
-  "mappings": ";;;;AA8CA;;;;;;;;;;;;;;;;;;;;;;EACE;;;;;;IACE,oCAAS,GAAF,YAAI,kDAAM;IACnB;;EAEA;;;;IACE,oCAAS,GAAF,YAAI,kDAAM;IACnB;;EAEA;;;;QACO,0DAAmB;QACnB,wDAAmB;QACnB,wDAAmB;IAExB,YAAU,MAAM;IAEhB;IAEA,sCAAY,qBAAe,gDAAI,kBAAa,KAAK;IACjD,UAAQ,4BAAU,OAAO;IAGzB;+BAEA,cAAe,6CAAyB;IAC1C;;AACF",
+  "mappings": ";;;AA8CA;;;;;;;;;;;;;;;;;;;;;;EACE;;;;;;IACE,oCAAS,GAAF,iCAAI,wCAAM;IACnB;;EAEA;;;;IACE,oCAAS,GAAF,iCAAI,wCAAM;IACnB;;EAEA;;;;QACO,0DAAmB;QACnB,wDAAmB;QACnB,wDAAmB;IAExB,YAAU,MAAM;IAEhB;IAEA,sCAAY,qBAAe,sCAAI,kBAAa,KAAK;IACjD,UAAQ,4BAAU,OAAO;IAGzB;+BAEA,cAAe,6CAAyB;IAC1C;;AACF",
   "file": "cl_abap_objectdescr.clas.mjs",
   "sourceRoot": ""
 }

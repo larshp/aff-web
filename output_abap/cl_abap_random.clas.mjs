@@ -1,7 +1,5 @@
 const {cx_root} = await import("./cx_root.clas.mjs");
 // cl_abap_random.clas.abap
-const constant_0 = new abap.types.Integer().set(0);
-const constant_1 = new abap.types.Integer().set(1);
 class cl_abap_random {
   static INTERNAL_TYPE = 'CLAS';
   static IMPLEMENTED_INTERFACES = [];
@@ -41,8 +39,8 @@ class cl_abap_random {
     if (INPUT && INPUT.high) {high.set(INPUT.high);}
     let lv_interval = new abap.types.Integer({qualifiedName: "I"});
     abap.statements.assert(abap.compare.gt(high, low));
-    abap.statements.assert(abap.compare.ge(low, constant_0));
-    lv_interval.set(abap.operators.add(abap.operators.minus(high,low),constant_1));
+    abap.statements.assert(abap.compare.ge(low, new abap.types.Integer().set(0)));
+    lv_interval.set(abap.operators.add(abap.operators.minus(high,low),new abap.types.Integer().set(1)));
     rv_integer.set((abap.builtin.abs({val: (await this.int())})));
     rv_integer.set(abap.operators.mod(rv_integer,lv_interval));
     rv_integer.set(abap.operators.add(rv_integer,low));

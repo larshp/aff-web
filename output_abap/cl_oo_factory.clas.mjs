@@ -28,7 +28,7 @@ class cl_oo_factory {
   async if_oo_clif_source$get_source(INPUT) {
     let source = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     if (INPUT && INPUT.source) {source = INPUT.source;}
-    let ls_data = new abap.types.Structure({progname: new abap.types.Character({length: 40, qualifiedName: "REPOSRC-PROGNAME"}), data: new abap.types.String({qualifiedName: "REPOSRC-DATA"})}, "REPOSRC");
+    let ls_data = new abap.types.Structure({"progname": new abap.types.Character(40, {}), "data": new abap.types.String()}, "REPOSRC");
     await abap.statements.select(ls_data, {select: "SELECT * FROM reposrc WHERE progname = '" + this.mv_name.get() + "' UP TO 1 ROWS", primaryKey: ["progname"]});
     abap.statements.split({source: ls_data.get().data, at: new abap.types.String().set(`\n`), table: source});
   }

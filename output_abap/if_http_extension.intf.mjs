@@ -1,6 +1,4 @@
 // if_http_extension.intf.abap
-const constant_0 = new abap.types.Integer().set(0);
-const constant_2 = new abap.types.Integer().set(2);
 class if_http_extension {
   static INTERNAL_TYPE = 'INTF';
   static IMPLEMENTED_INTERFACES = [];

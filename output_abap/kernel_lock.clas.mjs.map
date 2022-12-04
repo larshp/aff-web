@@ -4,7 +4,7 @@
     "kernel_lock.clas.abap"
   ],
   "names": [],
-  "mappings": ";;;AAcA;;;;;;;;EAEE;;;;;;IAEE,eAAE,OAAC,UAAQ,UAAC;IACd;;EAEA;;;;;;IAEE,eAAE,OAAC,UAAQ,UAAC;EACd;AAEF",
+  "mappings": ";;AAcA;;;;;;;;EAEE;;;;;;IAEE,eAAE,MAAC,WAAQ,+BAAC;IACd;;EAEA;;;;;;IAEE,eAAE,MAAC,WAAQ,+BAAC;EACd;AAEF",
   "file": "kernel_lock.clas.mjs",
   "sourceRoot": ""
 }

@@ -1,11 +1,5 @@
 const {cx_root} = await import("./cx_root.clas.mjs");
 // cl_gui_frontend_services.clas.abap
-const constant_1 = new abap.types.Integer().set(1);
-const constant_2 = new abap.types.Integer().set(2);
-const constant_3 = new abap.types.Integer().set(3);
-const constant_4 = new abap.types.Integer().set(4);
-const constant_5 = new abap.types.Integer().set(5);
-const constant_6 = new abap.types.Integer().set(6);
 class cl_gui_frontend_services {
   static INTERNAL_TYPE = 'CLAS';
   static IMPLEMENTED_INTERFACES = [];
@@ -27,10 +21,10 @@ class cl_gui_frontend_services {
     return cl_gui_frontend_services.directory_exist(INPUT);
   }
   static async directory_exist(INPUT) {
-    let result = new abap.types.Character({qualifiedName: "ABAP_BOOL"});
+    let result = new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});
     let directory = new abap.types.String({qualifiedName: "STRING"});
     if (INPUT && INPUT.directory) {directory.set(INPUT.directory);}
-    abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 29}).set('directory_exist not supported')));
+    abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(29).set('directory_exist not supported')));
     return result;
   }
   async get_sapgui_workdir(INPUT) {
@@ -39,16 +33,16 @@ class cl_gui_frontend_services {
   static async get_sapgui_workdir(INPUT) {
     let sapworkdir = new abap.types.String({qualifiedName: "STRING"});
     if (INPUT && INPUT.sapworkdir) {sapworkdir = INPUT.sapworkdir;}
-    abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 32}).set('get_sapgui_workdir not supported')));
+    abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(32).set('get_sapgui_workdir not supported')));
   }
   async file_exist(INPUT) {
     return cl_gui_frontend_services.file_exist(INPUT);
   }
   static async file_exist(INPUT) {
-    let result = new abap.types.Character({qualifiedName: "ABAP_BOOL"});
+    let result = new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});
     let file = new abap.types.String({qualifiedName: "STRING"});
     if (INPUT && INPUT.file) {file.set(INPUT.file);}
-    abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 24}).set('file_exist not supported')));
+    abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(24).set('file_exist not supported')));
     return result;
   }
   async file_delete(INPUT) {
@@ -59,17 +53,17 @@ class cl_gui_frontend_services {
     if (INPUT && INPUT.filename) {filename.set(INPUT.filename);}
     let rc = new abap.types.Integer({qualifiedName: "I"});
     if (INPUT && INPUT.rc) {rc = INPUT.rc;}
-    abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 25}).set('file_delete not supported')));
+    abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(25).set('file_delete not supported')));
   }
   async clipboard_import(INPUT) {
     return cl_gui_frontend_services.clipboard_import(INPUT);
   }
   static async clipboard_import(INPUT) {
-    let data = new abap.types.Table(new abap.types.Character({length: 4}), {"withHeader":false});
+    let data = new abap.types.Table(new abap.types.Character(4), {"withHeader":false});
     if (INPUT && INPUT.data) {data = INPUT.data;}
     let length = new abap.types.Integer({qualifiedName: "I"});
     if (INPUT && INPUT.length) {length = INPUT.length;}
-    abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 30}).set('clipboard_import not supported')));
+    abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(30).set('clipboard_import not supported')));
   }
   async directory_list_files(INPUT) {
     return cl_gui_frontend_services.directory_list_files(INPUT);
@@ -77,11 +71,11 @@ class cl_gui_frontend_services {
   static async directory_list_files(INPUT) {
     let directory = new abap.types.String({qualifiedName: "STRING"});
     if (INPUT && INPUT.directory) {directory.set(INPUT.directory);}
-    let file_table = new abap.types.Character({length: 4});
+    let file_table = new abap.types.Character(4);
     if (INPUT && INPUT.file_table) {file_table = INPUT.file_table;}
     let count = new abap.types.Integer({qualifiedName: "I"});
     if (INPUT && INPUT.count) {count = INPUT.count;}
-    abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 34}).set('directory_list_files not supported')));
+    abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(34).set('directory_list_files not supported')));
   }
   async directory_create(INPUT) {
     return cl_gui_frontend_services.directory_create(INPUT);
@@ -91,7 +85,7 @@ class cl_gui_frontend_services {
     if (INPUT && INPUT.directory) {directory.set(INPUT.directory);}
     let rc = new abap.types.Integer({qualifiedName: "I"});
     if (INPUT && INPUT.rc) {rc = INPUT.rc;}
-    abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 30}).set('directory_create not supported')));
+    abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(30).set('directory_create not supported')));
   }
   async gui_download(INPUT) {
     return cl_gui_frontend_services.gui_download(INPUT);
@@ -103,13 +97,13 @@ class cl_gui_frontend_services {
     if (INPUT && INPUT.filename) {filename.set(INPUT.filename);}
     let filetype = new abap.types.String({qualifiedName: "STRING"});
     if (INPUT && INPUT.filetype) {filetype.set(INPUT.filetype);}
-    let write_lf = new abap.types.Character({qualifiedName: "ABAP_BOOL"});
+    let write_lf = new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});
     if (INPUT && INPUT.write_lf) {write_lf = INPUT.write_lf;}
-    let write_field_separator = new abap.types.Character({qualifiedName: "CHAR1"});
+    let write_field_separator = new abap.types.Character(1, {"qualifiedName":"CHAR1"});
     if (INPUT && INPUT.write_field_separator) {write_field_separator = INPUT.write_field_separator;}
-    let data_tab = new abap.types.Character({length: 4});
+    let data_tab = new abap.types.Character(4);
     if (INPUT && INPUT.data_tab) {data_tab = INPUT.data_tab;}
-    abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 26}).set('gui_download not supported')));
+    abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(26).set('gui_download not supported')));
   }
   async get_file_separator(INPUT) {
     return cl_gui_frontend_services.get_file_separator(INPUT);
@@ -117,7 +111,7 @@ class cl_gui_frontend_services {
   static async get_file_separator(INPUT) {
     let file_separator = new abap.types.String({qualifiedName: "STRING"});
     if (INPUT && INPUT.file_separator) {file_separator = INPUT.file_separator;}
-    abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 32}).set('get_file_separator not supported')));
+    abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(32).set('get_file_separator not supported')));
   }
   async execute(INPUT) {
     return cl_gui_frontend_services.execute(INPUT);
@@ -139,8 +133,8 @@ class cl_gui_frontend_services {
     if (INPUT && INPUT.synchronous) {synchronous.set(INPUT.synchronous);}
     let operation = new abap.types.String({qualifiedName: "STRING"});
     if (INPUT && INPUT.operation) {operation.set(INPUT.operation);}
-    if (INPUT === undefined || INPUT.operation === undefined) {operation = new abap.types.Character({length: 4}).set('OPEN');}
-    abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 21}).set('execute not supported')));
+    if (INPUT === undefined || INPUT.operation === undefined) {operation = new abap.types.Character(4).set('OPEN');}
+    abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(21).set('execute not supported')));
   }
   async directory_browse(INPUT) {
     return cl_gui_frontend_services.directory_browse(INPUT);
@@ -152,7 +146,7 @@ class cl_gui_frontend_services {
     if (INPUT && INPUT.initial_folder) {initial_folder.set(INPUT.initial_folder);}
     let selected_folder = new abap.types.String({qualifiedName: "STRING"});
     if (INPUT && INPUT.selected_folder) {selected_folder = INPUT.selected_folder;}
-    abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 30}).set('directory_browse not supported')));
+    abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(30).set('directory_browse not supported')));
   }
   async gui_upload(INPUT) {
     return cl_gui_frontend_services.gui_upload(INPUT);
@@ -164,9 +158,9 @@ class cl_gui_frontend_services {
     if (INPUT && INPUT.filetype) {filetype.set(INPUT.filetype);}
     let filelength = new abap.types.Integer({qualifiedName: "I"});
     if (INPUT && INPUT.filelength) {filelength = INPUT.filelength;}
-    let data_tab = new abap.types.Character({length: 4});
+    let data_tab = new abap.types.Character(4);
     if (INPUT && INPUT.data_tab) {data_tab = INPUT.data_tab;}
-    abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 24}).set('gui_upload not supported')));
+    abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(24).set('gui_upload not supported')));
   }
   async file_open_dialog(INPUT) {
     return cl_gui_frontend_services.file_open_dialog(INPUT);
@@ -176,17 +170,17 @@ class cl_gui_frontend_services {
     if (INPUT && INPUT.window_title) {window_title.set(INPUT.window_title);}
     let default_filename = new abap.types.String({qualifiedName: "STRING"});
     if (INPUT && INPUT.default_filename) {default_filename.set(INPUT.default_filename);}
-    let multiselection = new abap.types.Character({qualifiedName: "ABAP_BOOL"});
+    let multiselection = new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});
     if (INPUT && INPUT.multiselection) {multiselection = INPUT.multiselection;}
     let file_filter = new abap.types.String({qualifiedName: "STRING"});
     if (INPUT && INPUT.file_filter) {file_filter.set(INPUT.file_filter);}
-    let file_table = new abap.types.Table(new abap.types.Structure({filename: new abap.types.Character({length: 1024, qualifiedName: "FILE_TABLE-FILENAME"})}, "FILE_TABLE"), {"withHeader":false}, "FILETABLE");
+    let file_table = new abap.types.Table(new abap.types.Structure({"filename": new abap.types.Character(1024, {})}, "FILE_TABLE"), {"withHeader":false}, "FILETABLE");
     if (INPUT && INPUT.file_table) {file_table = INPUT.file_table;}
     let rc = new abap.types.Integer({qualifiedName: "I"});
     if (INPUT && INPUT.rc) {rc = INPUT.rc;}
     let user_action = new abap.types.Integer({qualifiedName: "I"});
     if (INPUT && INPUT.user_action) {user_action = INPUT.user_action;}
-    abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 30}).set('file_open_dialog not supported')));
+    abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(30).set('file_open_dialog not supported')));
   }
   async file_save_dialog(INPUT) {
     return cl_gui_frontend_services.file_save_dialog(INPUT);
@@ -208,7 +202,7 @@ class cl_gui_frontend_services {
     if (INPUT && INPUT.fullpath) {fullpath = INPUT.fullpath;}
     let user_action = new abap.types.Integer({qualifiedName: "I"});
     if (INPUT && INPUT.user_action) {user_action = INPUT.user_action;}
-    abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 30}).set('file_save_dialog not supported')));
+    abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(30).set('file_save_dialog not supported')));
   }
   async get_platform() {
     return cl_gui_frontend_services.get_platform();
@@ -222,13 +216,13 @@ class cl_gui_frontend_services {
     return cl_gui_frontend_services.clipboard_export(INPUT);
   }
   static async clipboard_export(INPUT) {
-    let no_auth_check = new abap.types.Character({qualifiedName: "ABAP_BOOL"});
+    let no_auth_check = new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});
     if (INPUT && INPUT.no_auth_check) {no_auth_check = INPUT.no_auth_check;}
-    let data = new abap.types.Character({length: 4});
+    let data = new abap.types.Character(4);
     if (INPUT && INPUT.data) {data = INPUT.data;}
     let rc = new abap.types.Integer({qualifiedName: "I"});
     if (INPUT && INPUT.rc) {rc = INPUT.rc;}
-    abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 30}).set('clipboard_export not supported')));
+    abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(30).set('clipboard_export not supported')));
   }
   async get_system_directory(INPUT) {
     return cl_gui_frontend_services.get_system_directory(INPUT);
@@ -236,17 +230,17 @@ class cl_gui_frontend_services {
   static async get_system_directory(INPUT) {
     let system_directory = new abap.types.String({qualifiedName: "STRING"});
     if (INPUT && INPUT.system_directory) {system_directory = INPUT.system_directory;}
-    abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 34}).set('get_system_directory not supported')));
+    abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(34).set('get_system_directory not supported')));
   }
   async get_gui_version(INPUT) {
     return cl_gui_frontend_services.get_gui_version(INPUT);
   }
   static async get_gui_version(INPUT) {
-    let version_table = new abap.types.Table(new abap.types.Structure({filename: new abap.types.Character({length: 1024, qualifiedName: "FILE_TABLE-FILENAME"})}, "FILE_TABLE"), {"withHeader":false}, "FILETABLE");
+    let version_table = new abap.types.Table(new abap.types.Structure({"filename": new abap.types.Character(1024, {})}, "FILE_TABLE"), {"withHeader":false}, "FILETABLE");
     if (INPUT && INPUT.version_table) {version_table = INPUT.version_table;}
     let rc = new abap.types.Integer({qualifiedName: "I"});
     if (INPUT && INPUT.rc) {rc = INPUT.rc;}
-    abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 29}).set('get_gui_verison not supported')));
+    abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(29).set('get_gui_verison not supported')));
   }
 }
 abap.Classes['CL_GUI_FRONTEND_SERVICES'] = cl_gui_frontend_services;

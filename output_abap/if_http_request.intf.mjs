@@ -1,5 +1,4 @@
 // if_http_request.intf.abap
-const constant_1 = new abap.types.Integer().set(1);
 class if_http_request {
   static INTERNAL_TYPE = 'INTF';
   static IMPLEMENTED_INTERFACES = ["IF_HTTP_ENTITY"];

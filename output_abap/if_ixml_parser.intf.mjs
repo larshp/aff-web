@@ -1,5 +1,4 @@
 // if_ixml_parser.intf.abap
-const constant_0 = new abap.types.Integer().set(0);
 class if_ixml_parser {
   static INTERNAL_TYPE = 'INTF';
   static IMPLEMENTED_INTERFACES = [];

@@ -4,7 +4,7 @@
     "cl_abap_random.clas.abap"
   ],
   "names": [],
-  "mappings": ";;;;AAkBA;;;;;;;;EACE;;;;;;;;IAEA;;EAEA;;IAEE;IACF;;EAEA;;;;;IACE;IACF;;EAEA;;;;;;QAEO,0DAAkB;IACvB,oCAAY,GAAL,MAAO,IAAG;IACjB,oCAAW,GAAJ,KAAO,WAAC;IACf,gBAAyB,mBAAN,qBAAL,KAAO,KAAM,WAAC;IAC5B,gBAAa,wBAAK,oBAAQ;IAC1B,eAAwB,mBAAX,WAAe,YAAW;IACvC,eAAwB,mBAAX,WAAa,IAAG;IAC/B;;AACF",
+  "mappings": ";;AAkBA;;;;;;;;EACE;;;;;;;;IAEA;;EAEA;;IAEE;IACF;;EAEA;;;;;IACE;IACF;;EAEA;;;;;;QAEO,0DAAkB;IACvB,oCAAY,GAAL,MAAO,IAAG;IACjB,oCAAW,GAAJ,KAAO,gCAAC;IACf,gBAAyB,mBAAN,qBAAL,KAAO,KAAM,gCAAC;IAC5B,gBAAa,wBAAK,oBAAQ;IAC1B,eAAwB,mBAAX,WAAe,YAAW;IACvC,eAAwB,mBAAX,WAAa,IAAG;IAC/B;;AACF",
   "file": "cl_abap_random.clas.mjs",
   "sourceRoot": ""
 }

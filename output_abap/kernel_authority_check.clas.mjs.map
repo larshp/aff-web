@@ -4,7 +4,7 @@
     "kernel_authority_check.clas.abap"
   ],
   "names": [],
-  "mappings": ";;;AAMA;;;;;;;;EAEE;;;;IAEE,eAAE,OAAC,UAAQ,UAAC;EACd;AAEF",
+  "mappings": ";;AAMA;;;;;;;;EAEE;;;;IAEE,eAAE,MAAC,WAAQ,+BAAC;EACd;AAEF",
   "file": "kernel_authority_check.clas.mjs",
   "sourceRoot": ""
 }

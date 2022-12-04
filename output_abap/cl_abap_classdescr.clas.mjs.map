@@ -4,7 +4,7 @@
     "cl_abap_classdescr.clas.abap"
   ],
   "names": [],
-  "mappings": ";;;;AAeA;;;;;;;;;EACE;;;;;;;IACE,oCAAS,GAAF,YAAI,kDAAM;IACnB;;EAEA;;IACE,oCAAS,GAAF,YAAI,kDAAM;IACnB;;AACF",
+  "mappings": ";;;AAeA;;;;;;;;;EACE;;;;;;;IACE,oCAAS,GAAF,iCAAI,wCAAM;IACnB;;EAEA;;IACE,oCAAS,GAAF,iCAAI,wCAAM;IACnB;;AACF",
   "file": "cl_abap_classdescr.clas.mjs",
   "sourceRoot": ""
 }

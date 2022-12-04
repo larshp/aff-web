@@ -20,7 +20,7 @@ class cl_run {
     let string_tab = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let type_name = new abap.types.String({qualifiedName: "STRING"});
     let schema_id = new abap.types.String({qualifiedName: "STRING"});
-    let ref = new abap.types.DataReference(new abap.types.Character({length: 4}));
+    let ref = new abap.types.DataReference(new abap.types.Character(4));
     let fs_row_ = new abap.types.FieldSymbol(new abap.types.String());
     schema_id.set(new abap.types.String().set(`https://github.com/SAP/abap-file-formats/blob/main/file-formats/${abap.templateFormatting(abap.builtin.to_lower({val: object_type}))}/${abap.templateFormatting(abap.builtin.to_lower({val: object_type}))}-v1.json`));
     type_name.set(abap.builtin.to_upper({val: new abap.types.String().set(`ZIF_AFF_${abap.templateFormatting(object_type)}_V1=>TY_MAIN`)}));
@@ -30,8 +30,8 @@ class cl_run {
     string_tab.set((await generator.get().generate_type({data: (ref).getPointer()})));
     for await (const unique1 of abap.statements.loop(string_tab)) {
       fs_row_.assign(unique1);
-      if (abap.compare.cp(abap.builtin.condense({val: fs_row_}), new abap.types.Character({length: 13}).set('"interface_"*'))) {
-        abap.statements.replace({target:fs_row_, all:false, with: new abap.types.Character({length: 11}).set('"interface"'),of: new abap.types.Character({length: 12}).set('"interface_"')});
+      if (abap.compare.cp(abap.builtin.condense({val: fs_row_}), new abap.types.Character(13).set('"interface_"*'))) {
+        abap.statements.replace({target: fs_row_, all: false, with: new abap.types.Character(11).set('"interface"'), of: new abap.types.Character(12).set('"interface_"')});
       }
     }
     abap.statements.concatenate({source: [string_tab], target: result, separatedBy: new abap.types.String().set(`\n`), lines: true});

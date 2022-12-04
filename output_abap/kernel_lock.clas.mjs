@@ -1,6 +1,5 @@
 const {cx_root} = await import("./cx_root.clas.mjs");
 // kernel_lock.clas.abap
-const constant_0 = new abap.types.Integer().set(0);
 class kernel_lock {
   static INTERNAL_TYPE = 'CLAS';
   static IMPLEMENTED_INTERFACES = [];
@@ -13,18 +12,18 @@ class kernel_lock {
     return kernel_lock.enqueue(INPUT);
   }
   static async enqueue(INPUT) {
-    let input = new abap.types.Character({length: 4});
+    let input = new abap.types.Character(4);
     if (INPUT && INPUT.input) {input = INPUT.input;}
-    abap.builtin.sy.get().subrc.set(constant_0);
+    abap.builtin.sy.get().subrc.set(new abap.types.Integer().set(0));
     abap.builtin.sy.get().subrc.set(0);
   }
   async dequeue(INPUT) {
     return kernel_lock.dequeue(INPUT);
   }
   static async dequeue(INPUT) {
-    let input = new abap.types.Character({length: 4});
+    let input = new abap.types.Character(4);
     if (INPUT && INPUT.input) {input = INPUT.input;}
-    abap.builtin.sy.get().subrc.set(constant_0);
+    abap.builtin.sy.get().subrc.set(new abap.types.Integer().set(0));
   }
 }
 abap.Classes['KERNEL_LOCK'] = kernel_lock;

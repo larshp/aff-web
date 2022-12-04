@@ -1,15 +1,6 @@
 const {zcl_aff_writer} = await import("./zcl_aff_writer.clas.mjs");
 const {cx_root} = await import("./cx_root.clas.mjs");
 // zcl_aff_writer_json_schema.clas.abap
-const constant_0 = new abap.types.Integer().set(0);
-const constant_1 = new abap.types.Integer().set(1);
-const constant_119 = new abap.types.Integer().set(119);
-const constant_122 = new abap.types.Integer().set(122);
-const constant_125 = new abap.types.Integer().set(125);
-const constant_2 = new abap.types.Integer().set(2);
-const constant_253 = new abap.types.Integer().set(253);
-const constant_6 = new abap.types.Integer().set(6);
-const constant_8 = new abap.types.Integer().set(8);
 class zcl_aff_writer_json_schema extends zcl_aff_writer {
   static INTERNAL_TYPE = 'CLAS';
   static IMPLEMENTED_INTERFACES = [];
@@ -17,10 +8,10 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
     this.me = new abap.types.ABAPObject();
     this.me.set(this);
     this.schema_id = new abap.types.String({qualifiedName: "STRING"});
-    this.structure_buffer = new abap.types.Table(new abap.types.Structure({name: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NAME"}), number_brackets: new abap.types.Integer({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NUMBER_BRACKETS"})}, "zcl_aff_writer_json_schema=>ty_buffer"), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "zcl_aff_writer_json_schema=>tt_buffer");
-    this.table_buffer = new abap.types.Table(new abap.types.Structure({name: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NAME"}), number_brackets: new abap.types.Integer({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NUMBER_BRACKETS"})}, "zcl_aff_writer_json_schema=>ty_buffer"), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "zcl_aff_writer_json_schema=>tt_buffer");
-    this.ignore_next_elements = new abap.types.Character({qualifiedName: "ABAP_BOOLEAN"});
-    this.stack_of_required_tabs = new abap.types.Table(new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE"), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "");
+    this.structure_buffer = new abap.types.Table(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NAME"}), "number_brackets": new abap.types.Integer({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NUMBER_BRACKETS"})}, "zcl_aff_writer_json_schema=>ty_buffer"), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "zcl_aff_writer_json_schema=>tt_buffer");
+    this.table_buffer = new abap.types.Table(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NAME"}), "number_brackets": new abap.types.Integer({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NUMBER_BRACKETS"})}, "zcl_aff_writer_json_schema=>ty_buffer"), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "zcl_aff_writer_json_schema=>tt_buffer");
+    this.ignore_next_elements = new abap.types.Character(1, {"qualifiedName":"ABAP_BOOLEAN","ddicName":"ABAP_BOOLEAN"});
+    this.stack_of_required_tabs = new abap.types.Table(new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE"), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "");
     this.format_version = new abap.types.Integer({qualifiedName: "I"});
     this.c_schema_specification = zcl_aff_writer_json_schema.c_schema_specification;
     this.c_link_to_repository = zcl_aff_writer_json_schema.c_link_to_repository;
@@ -30,7 +21,7 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
     if (INPUT && INPUT.schema_id) {schema_id.set(INPUT.schema_id);}
     let format_version = new abap.types.Integer({qualifiedName: "I"});
     if (INPUT && INPUT.format_version) {format_version.set(INPUT.format_version);}
-    if (INPUT === undefined || INPUT.format_version === undefined) {format_version = constant_1;}
+    if (INPUT === undefined || INPUT.format_version === undefined) {format_version = new abap.types.Integer().set(1);}
     await super.constructor_();
     this.me.get().schema_id.set(schema_id);
     this.me.get().format_version.set(format_version);
@@ -46,8 +37,8 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
     let splitted_prev_name = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let fs_table1_ = new abap.types.FieldSymbol(new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE"));
     let callback_class = new abap.types.String({qualifiedName: "STRING"});
-    let enum_properties = new abap.types.Structure({values: new abap.types.Table(new abap.types.Structure({value: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-VALUE"}), overwritten_value: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-OVERWRITTEN_VALUE"})}, "zcl_aff_writer_json_schema=>ty_enum_value"), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "zcl_aff_writer_json_schema=>ty_enum_properties-values"), titles: new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE"), descriptions: new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE")}, "zcl_aff_writer_json_schema=>ty_enum_properties");
-    let check_not_needed = new abap.types.Character({qualifiedName: "ABAP_BOOL"});
+    let enum_properties = new abap.types.Structure({"values": new abap.types.Table(new abap.types.Structure({"value": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-VALUE"}), "overwritten_value": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-OVERWRITTEN_VALUE"})}, "zcl_aff_writer_json_schema=>ty_enum_value"), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "zcl_aff_writer_json_schema=>ty_enum_properties-values"), "titles": new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE"), "descriptions": new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE")}, "zcl_aff_writer_json_schema=>ty_enum_properties");
+    let check_not_needed = new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});
     let temp1 = new abap.types.String();
     let temp2 = new abap.types.Integer();
     let format = new abap.types.String({qualifiedName: "STRING"});
@@ -65,8 +56,8 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
     formatted_name.set((await this.format_name({name: element_name})));
     splitted_prev_name.set((await this.get_splitted_absolute_name({absolute_name: element_description.get().absolute_name})));
     await this.set_abapdoc_fullname_element({element_description: element_description, element_name: element_name, splitted_prev_name: splitted_prev_name});
-    if (abap.compare.eq(this.abap_doc.get().required, abap.builtin.abap_true) && abap.compare.ge(abap.builtin.lines({val: this.stack_of_required_tabs}), constant_1)) {
-      abap.statements.readTable(this.stack_of_required_tabs,{index: constant_1,assigning: fs_table1_});
+    if (abap.compare.eq(this.abap_doc.get().required, abap.builtin.abap_true) && abap.compare.ge(abap.builtin.lines({val: this.stack_of_required_tabs}), new abap.types.Integer().set(1))) {
+      abap.statements.readTable(this.stack_of_required_tabs,{index: new abap.types.Integer().set(1),assigning: fs_table1_});
       abap.statements.append({source: formatted_name, target: fs_table1_});
     }
     callback_class.set(abap.builtin.to_upper({val: this.abap_doc.get().callback_class}));
@@ -92,12 +83,12 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
     }
     check_not_needed.set(abap.builtin.abap_false);
     temp2.set(abap.builtin.sy.get().tabix);
-    abap.statements.readTable(splitted_prev_name,{index: constant_2,into: temp1});
+    abap.statements.readTable(splitted_prev_name,{index: new abap.types.Integer().set(2),into: temp1});
     abap.builtin.sy.get().tabix.set(temp2);
-    if (abap.compare.ne(abap.builtin.sy.get().subrc, constant_0)) {
+    if (abap.compare.ne(abap.builtin.sy.get().subrc, new abap.types.Integer().set(0))) {
       throw await (new abap.Classes['CX_SY_ITAB_LINE_NOT_FOUND']()).constructor_();
     }
-    if (abap.compare.eq((await this.last_operation()), abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$operation.get().open_table) && abap.compare.eq(abap.builtin.lines({val: splitted_prev_name}), constant_2) && abap.compare.eq(temp1, element_name)) {
+    if (abap.compare.eq((await this.last_operation()), abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$operation.get().open_table) && abap.compare.eq(abap.builtin.lines({val: splitted_prev_name}), new abap.types.Integer().set(2)) && abap.compare.eq(temp1, element_name)) {
       check_not_needed.set(abap.builtin.abap_true);
     }
     await this.write_title_and_description({type_description: element_description, check_not_needed: check_not_needed});
@@ -131,17 +122,17 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
       temp5.set(abap.builtin.sy.get().tabix);
       abap.statements.readTable(this.content,{index: abap.builtin.lines({val: this.content}),into: temp3});
       abap.builtin.sy.get().tabix.set(temp5);
-      if (abap.compare.ne(abap.builtin.sy.get().subrc, constant_0)) {
+      if (abap.compare.ne(abap.builtin.sy.get().subrc, new abap.types.Integer().set(0))) {
         throw await (new abap.Classes['CX_SY_ITAB_LINE_NOT_FOUND']()).constructor_();
       }
       last_line.set(temp3);
       temp4.set(abap.builtin.sy.get().tabix);
       abap.statements.readTable(this.content,{index: abap.builtin.lines({val: this.content}),assigning: fs_temp3_});
       abap.builtin.sy.get().tabix.set(temp4);
-      if (abap.compare.ne(abap.builtin.sy.get().subrc, constant_0)) {
+      if (abap.compare.ne(abap.builtin.sy.get().subrc, new abap.types.Integer().set(0))) {
         throw await (new abap.Classes['CX_SY_ITAB_LINE_NOT_FOUND']()).constructor_();
       }
-      fs_temp3_.set(abap.builtin.substring({val: last_line, off: constant_0, len: abap.operators.minus(abap.builtin.strlen({val: last_line}),constant_1)}));
+      fs_temp3_.set(abap.builtin.substring({val: last_line, off: new abap.types.Integer().set(0), len: abap.operators.minus(abap.builtin.strlen({val: last_line}),new abap.types.Integer().set(1))}));
     }
     if (abap.compare.ne((await this.last_operation()), abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$operation.get().open_table)) {
       await this.write_closing_tag({line: new abap.types.String().set(`}`)});
@@ -150,7 +141,7 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
   async write_title_and_description(INPUT) {
     let type_description = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TYPEDESCR"});
     if (INPUT && INPUT.type_description) {type_description.set(INPUT.type_description);}
-    let check_not_needed = new abap.types.Character({qualifiedName: "ABAP_BOOLEAN"});
+    let check_not_needed = new abap.types.Character(1, {"qualifiedName":"ABAP_BOOLEAN","ddicName":"ABAP_BOOLEAN"});
     if (INPUT && INPUT.check_not_needed) {check_not_needed = INPUT.check_not_needed;}
     if (INPUT === undefined || INPUT.check_not_needed === undefined) {check_not_needed = abap.builtin.abap_false;}
     let title = new abap.types.String({qualifiedName: "STRING"});
@@ -170,14 +161,14 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
   async handle_enums(INPUT) {
     let element_description = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_ELEMDESCR"});
     if (INPUT && INPUT.element_description) {element_description.set(INPUT.element_description);}
-    let enum_properties = new abap.types.Structure({values: new abap.types.Table(new abap.types.Structure({value: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-VALUE"}), overwritten_value: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-OVERWRITTEN_VALUE"})}, "zcl_aff_writer_json_schema=>ty_enum_value"), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "zcl_aff_writer_json_schema=>ty_enum_properties-values"), titles: new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE"), descriptions: new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE")}, "zcl_aff_writer_json_schema=>ty_enum_properties");
+    let enum_properties = new abap.types.Structure({"values": new abap.types.Table(new abap.types.Structure({"value": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-VALUE"}), "overwritten_value": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-OVERWRITTEN_VALUE"})}, "zcl_aff_writer_json_schema=>ty_enum_value"), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "zcl_aff_writer_json_schema=>ty_enum_properties-values"), "titles": new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE"), "descriptions": new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE")}, "zcl_aff_writer_json_schema=>ty_enum_properties");
     if (INPUT && INPUT.enum_properties) {enum_properties.set(INPUT.enum_properties);}
     let enum_values = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
-    let fs_enum_value_ = new abap.types.FieldSymbol(new abap.types.Structure({value: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-VALUE"}), overwritten_value: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-OVERWRITTEN_VALUE"})}, "zcl_aff_writer_json_schema=>ty_enum_value"));
+    let fs_enum_value_ = new abap.types.FieldSymbol(new abap.types.Structure({"value": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-VALUE"}), "overwritten_value": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-OVERWRITTEN_VALUE"})}, "zcl_aff_writer_json_schema=>ty_enum_value"));
     let enum_descr = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     await this.write_tag({line: new abap.types.String().set(`"enum": [`)});
-    for await (const unique50 of abap.statements.loop(enum_properties.get().values)) {
-      fs_enum_value_.assign(unique50);
+    for await (const unique56 of abap.statements.loop(enum_properties.get().values)) {
+      fs_enum_value_.assign(unique56);
       if (abap.compare.initial(fs_enum_value_.get().overwritten_value)) {
         abap.statements.insertInternal({data: fs_enum_value_.get().value, table: enum_values});
       } else {
@@ -197,16 +188,16 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
     let property_table = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     if (INPUT && INPUT.property_table) {property_table.set(INPUT.property_table);}
     let fs_value_ = new abap.types.FieldSymbol(new abap.types.String());
-    this.indent_level.set(abap.operators.add(this.indent_level,constant_1));
-    for await (const unique51 of abap.statements.loop(property_table)) {
-      fs_value_.assign(unique51);
+    this.indent_level.set(abap.operators.add(this.indent_level,new abap.types.Integer().set(1)));
+    for await (const unique57 of abap.statements.loop(property_table)) {
+      fs_value_.assign(unique57);
       if (abap.compare.lt(abap.builtin.sy.get().tabix, abap.builtin.lines({val: property_table}))) {
         await this.write_tag({line: new abap.types.String().set(`"${abap.templateFormatting(fs_value_)}",`)});
       } else {
         await this.write_tag({line: new abap.types.String().set(`"${abap.templateFormatting(fs_value_)}"`)});
       }
     }
-    this.indent_level.set(abap.operators.minus(this.indent_level,constant_1));
+    this.indent_level.set(abap.operators.minus(this.indent_level,new abap.types.Integer().set(1)));
     await this.write_tag({line: new abap.types.String().set(`],`)});
   }
   async handle_string(INPUT) {
@@ -241,8 +232,8 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
     multiple_of.set(this.abap_doc.get().multiple_of);
     if (abap.compare.initial(multiple_of) && abap.compare.eq(element_description.get().type_kind, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_packed)) {
       decimals.set(element_description.get().decimals);
-      if (abap.compare.gt(decimals, constant_0)) {
-        multiple_of.set(new abap.types.String().set(`0.${abap.templateFormatting(abap.builtin.repeat({val: new abap.types.String().set(`0`), occ: abap.operators.minus(decimals,constant_1)}))}1`));
+      if (abap.compare.gt(decimals, new abap.types.Integer().set(0))) {
+        multiple_of.set(new abap.types.String().set(`0.${abap.templateFormatting(abap.builtin.repeat({val: new abap.types.String().set(`0`), occ: abap.operators.minus(decimals,new abap.types.Integer().set(1))}))}1`));
       }
     }
     exclusive_minimum.set(this.abap_doc.get().exclusive_minimum);
@@ -278,35 +269,35 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
     if (INPUT && INPUT.element_description) {element_description.set(INPUT.element_description);}
     let json_type = new abap.types.String({qualifiedName: "STRING"});
     if (INPUT && INPUT.json_type) {json_type.set(INPUT.json_type);}
-    let enum_properties = new abap.types.Structure({values: new abap.types.Table(new abap.types.Structure({value: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-VALUE"}), overwritten_value: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-OVERWRITTEN_VALUE"})}, "zcl_aff_writer_json_schema=>ty_enum_value"), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "zcl_aff_writer_json_schema=>ty_enum_properties-values"), titles: new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE"), descriptions: new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE")}, "zcl_aff_writer_json_schema=>ty_enum_properties");
+    let enum_properties = new abap.types.Structure({"values": new abap.types.Table(new abap.types.Structure({"value": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-VALUE"}), "overwritten_value": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-OVERWRITTEN_VALUE"})}, "zcl_aff_writer_json_schema=>ty_enum_value"), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "zcl_aff_writer_json_schema=>ty_enum_properties-values"), "titles": new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE"), "descriptions": new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE")}, "zcl_aff_writer_json_schema=>ty_enum_properties");
     if (INPUT && INPUT.enum_properties) {enum_properties.set(INPUT.enum_properties);}
     let default_ = new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-DEFAULT_"});
-    let fs_entry_ = new abap.types.FieldSymbol(new abap.types.Structure({value: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-VALUE"}), overwritten_value: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-OVERWRITTEN_VALUE"})}, "zcl_aff_writer_json_schema=>ty_enum_value"));
+    let fs_entry_ = new abap.types.FieldSymbol(new abap.types.Structure({"value": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-VALUE"}), "overwritten_value": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-OVERWRITTEN_VALUE"})}, "zcl_aff_writer_json_schema=>ty_enum_value"));
     default_.set(this.abap_doc.get().default_);
-    if (abap.compare.cs(this.abap_doc.get().default_, new abap.types.Character({length: 5}).set('@link'))) {
+    if (abap.compare.cs(this.abap_doc.get().default_, new abap.types.Character(5).set('@link'))) {
       default_.set((await this.get_default_from_link({link: this.abap_doc.get().default_, fullname_of_type: this.fullname_of_type, element_type: element_description.get().type_kind})));
       if (abap.compare.initial(default_)) {
         return;
       }
       abap.statements.readTable(enum_properties.get().values,{assigning: fs_entry_,withKey: (i) => {return abap.compare.eq(i.value, default_);}});
-      if (abap.compare.eq(abap.builtin.sy.get().subrc, constant_0) && abap.compare.initial(fs_entry_.get().overwritten_value) === false) {
+      if (abap.compare.eq(abap.builtin.sy.get().subrc, new abap.types.Integer().set(0)) && abap.compare.initial(fs_entry_.get().overwritten_value) === false) {
         default_.set(fs_entry_.get().overwritten_value);
       }
       default_.set(new abap.types.String().set(`"${abap.templateFormatting(default_)}"`));
     } else if (abap.compare.initial((await this.is_default_value_valid({element_description: element_description, default_value: default_, fullname_of_type: this.fullname_of_type}))) === false) {
       if (abap.compare.eq(json_type, abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$type_info.get().numeric) || abap.compare.eq(json_type, abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$type_info.get().boolean)) {
-        abap.statements.replace({target:default_, all:true, with: new abap.types.String().set(``),of: new abap.types.String().set(`"`)});
+        abap.statements.replace({target: default_, all: true, with: new abap.types.String().set(``), of: new abap.types.String().set(`"`)});
       } else if (abap.compare.eq(json_type, abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$type_info.get().date_time)) {
         default_.set(abap.operators.concat(new abap.types.String().set(`"`),abap.operators.concat((await this.date_time_from_abap_to_json({date_time_abap: default_, element_description: element_description})),new abap.types.String().set(`"`))));
       }
       if (abap.compare.eq(json_type, abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$type_info.get().numeric)) {
-        abap.statements.replace({target:default_, all:false, with: new abap.types.String().set(`e`),of: new abap.types.String().set(`E`)});
+        abap.statements.replace({target: default_, all: false, with: new abap.types.String().set(`e`), of: new abap.types.String().set(`E`)});
       }
       if (abap.compare.eq(json_type, abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$type_info.get().boolean)) {
-        if (abap.compare.eq(default_, new abap.types.Character({length: 1}).set('X')) || abap.compare.eq(default_, new abap.types.Character({length: 9}).set('abap_true'))) {
-          default_.set(new abap.types.Character({length: 4}).set('true'));
+        if (abap.compare.eq(default_, new abap.types.Character(1).set('X')) || abap.compare.eq(default_, new abap.types.Character(9).set('abap_true'))) {
+          default_.set(new abap.types.Character(4).set('true'));
         } else {
-          default_.set(new abap.types.Character({length: 5}).set('false'));
+          default_.set(new abap.types.Character(5).set('false'));
         }
       }
     } else {
@@ -319,26 +310,26 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
     if (INPUT && INPUT.structure_name) {structure_name.set(INPUT.structure_name);}
     let structure_description = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TYPEDESCR"});
     if (INPUT && INPUT.structure_description) {structure_description.set(INPUT.structure_description);}
-    let temp5 = new abap.types.Structure({name: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER=>TY_STRUCTURE_STACK-NAME"}), absolute_name: new abap.types.Character({length: 200, qualifiedName: "abap_abstypename"})}, "zcl_aff_writer=>ty_structure_stack");
-    let temp6 = new abap.types.Structure({name: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NAME"}), number_brackets: new abap.types.Integer({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NUMBER_BRACKETS"})}, "zcl_aff_writer_json_schema=>ty_buffer");
+    let temp5 = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER=>TY_STRUCTURE_STACK-NAME"}), "absolute_name": new abap.types.Character(200, {"qualifiedName":"abap_abstypename"})}, "zcl_aff_writer=>ty_structure_stack");
+    let temp6 = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NAME"}), "number_brackets": new abap.types.Integer({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NUMBER_BRACKETS"})}, "zcl_aff_writer_json_schema=>ty_buffer");
     let formatted_name = new abap.types.String({qualifiedName: "STRING"});
     let callback_class = new abap.types.String({qualifiedName: "STRING"});
-    let temp7 = new abap.types.Structure({name: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER=>TY_STRUCTURE_STACK-NAME"}), absolute_name: new abap.types.Character({length: 200, qualifiedName: "abap_abstypename"})}, "zcl_aff_writer=>ty_structure_stack");
-    let temp8 = new abap.types.Structure({name: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NAME"}), number_brackets: new abap.types.Integer({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NUMBER_BRACKETS"})}, "zcl_aff_writer_json_schema=>ty_buffer");
-    let temp9 = new abap.types.Structure({name: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NAME"}), number_brackets: new abap.types.Integer({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NUMBER_BRACKETS"})}, "zcl_aff_writer_json_schema=>ty_buffer");
+    let temp7 = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER=>TY_STRUCTURE_STACK-NAME"}), "absolute_name": new abap.types.Character(200, {"qualifiedName":"abap_abstypename"})}, "zcl_aff_writer=>ty_structure_stack");
+    let temp8 = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NAME"}), "number_brackets": new abap.types.Integer({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NUMBER_BRACKETS"})}, "zcl_aff_writer_json_schema=>ty_buffer");
+    let temp9 = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NAME"}), "number_brackets": new abap.types.Integer({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NUMBER_BRACKETS"})}, "zcl_aff_writer_json_schema=>ty_buffer");
     let fs_table1_ = new abap.types.FieldSymbol(new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE"));
     await this.clear_type_specifics();
     if (abap.compare.eq((await this.last_operation()), abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$operation.get().initial)) {
       abap.statements.clear(temp5);
       temp5.get().name.set(structure_name);
       temp5.get().absolute_name.set(structure_description.get().absolute_name);
-      abap.statements.insertInternal({data: temp5, index: constant_1, table: this.me.get().stack_of_structure});
+      abap.statements.insertInternal({data: temp5, index: new abap.types.Integer().set(1), table: this.me.get().stack_of_structure});
       await this.add_required_table_to_stack();
       await this.open_json_schema_for_structure({structure_name: structure_name, structure_description: structure_description});
       abap.statements.clear(temp6);
       temp6.get().name.set(structure_name);
-      temp6.get().number_brackets.set(constant_2);
-      abap.statements.insertInternal({data: temp6, index: constant_1, table: this.me.get().structure_buffer});
+      temp6.get().number_brackets.set(new abap.types.Integer().set(2));
+      abap.statements.insertInternal({data: temp6, index: new abap.types.Integer().set(1), table: this.me.get().structure_buffer});
       return;
     }
     await this.append_comma_to_prev_line();
@@ -351,22 +342,22 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
     abap.statements.clear(temp7);
     temp7.get().name.set(structure_name);
     temp7.get().absolute_name.set(structure_description.get().absolute_name);
-    abap.statements.insertInternal({data: temp7, index: constant_1, table: this.me.get().stack_of_structure});
+    abap.statements.insertInternal({data: temp7, index: new abap.types.Integer().set(1), table: this.me.get().stack_of_structure});
     if (abap.compare.ne((await this.last_operation()), abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$operation.get().open_table)) {
       await this.write_open_tag({line: new abap.types.String().set(`"${abap.templateFormatting(formatted_name)}": \{`)});
       abap.statements.clear(temp8);
       temp8.get().name.set(structure_name);
-      temp8.get().number_brackets.set(constant_2);
-      abap.statements.insertInternal({data: temp8, index: constant_1, table: this.me.get().structure_buffer});
+      temp8.get().number_brackets.set(new abap.types.Integer().set(2));
+      abap.statements.insertInternal({data: temp8, index: new abap.types.Integer().set(1), table: this.me.get().structure_buffer});
     } else {
       abap.statements.clear(temp9);
       temp9.get().name.set(structure_name);
-      temp9.get().number_brackets.set(constant_1);
-      abap.statements.insertInternal({data: temp9, index: constant_1, table: this.me.get().structure_buffer});
+      temp9.get().number_brackets.set(new abap.types.Integer().set(1));
+      abap.statements.insertInternal({data: temp9, index: new abap.types.Integer().set(1), table: this.me.get().structure_buffer});
     }
     await this.write_title_and_description({type_description: structure_description});
     if (abap.compare.eq(this.abap_doc.get().required, abap.builtin.abap_true)) {
-      abap.statements.readTable(this.stack_of_required_tabs,{index: constant_1,assigning: fs_table1_});
+      abap.statements.readTable(this.stack_of_required_tabs,{index: new abap.types.Integer().set(1),assigning: fs_table1_});
       abap.statements.append({source: formatted_name, target: fs_table1_});
     }
     await this.write_tag({line: new abap.types.String().set(`"type": "object",`)});
@@ -378,43 +369,45 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
     if (INPUT && INPUT.structure_name) {structure_name.set(INPUT.structure_name);}
     let structure_description = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TYPEDESCR"});
     if (INPUT && INPUT.structure_description) {structure_description.set(INPUT.structure_description);}
-    let temp10 = new abap.types.Structure({name: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NAME"}), number_brackets: new abap.types.Integer({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NUMBER_BRACKETS"})}, "zcl_aff_writer_json_schema=>ty_buffer");
+    let temp10 = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NAME"}), "number_brackets": new abap.types.Integer({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NUMBER_BRACKETS"})}, "zcl_aff_writer_json_schema=>ty_buffer");
     let temp11 = new abap.types.Integer();
-    let temp12 = new abap.types.Structure({name: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NAME"}), number_brackets: new abap.types.Integer({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NUMBER_BRACKETS"})}, "zcl_aff_writer_json_schema=>ty_buffer");
+    let temp12 = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NAME"}), "number_brackets": new abap.types.Integer({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NUMBER_BRACKETS"})}, "zcl_aff_writer_json_schema=>ty_buffer");
     let temp13 = new abap.types.Integer();
-    let temp14 = new abap.types.Structure({name: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NAME"}), number_brackets: new abap.types.Integer({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NUMBER_BRACKETS"})}, "zcl_aff_writer_json_schema=>ty_buffer");
+    let temp14 = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NAME"}), "number_brackets": new abap.types.Integer({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NUMBER_BRACKETS"})}, "zcl_aff_writer_json_schema=>ty_buffer");
     let temp15 = new abap.types.Integer();
     await this.delete_first_of_struc_stack();
     temp11.set(abap.builtin.sy.get().tabix);
-    abap.statements.readTable(this.me.get().structure_buffer,{index: constant_1,into: temp10});
+    abap.statements.readTable(this.me.get().structure_buffer,{index: new abap.types.Integer().set(1),into: temp10});
     abap.builtin.sy.get().tabix.set(temp11);
-    if (abap.compare.ne(abap.builtin.sy.get().subrc, constant_0)) {
+    if (abap.compare.ne(abap.builtin.sy.get().subrc, new abap.types.Integer().set(0))) {
       throw await (new abap.Classes['CX_SY_ITAB_LINE_NOT_FOUND']()).constructor_();
     }
-    const unique52 = temp10.get().number_brackets.get();
-    for (let unique53 = 0; unique53 < unique52; unique53++) {
-      abap.builtin.sy.get().index.set(unique53 + 1);
+    const indexBackup1 = abap.builtin.sy.get().index.get();
+    const unique58 = temp10.get().number_brackets.get();
+    for (let unique59 = 0; unique59 < unique58; unique59++) {
+      abap.builtin.sy.get().index.set(unique59 + 1);
       temp13.set(abap.builtin.sy.get().tabix);
-      abap.statements.readTable(this.me.get().structure_buffer,{index: constant_1,into: temp12});
+      abap.statements.readTable(this.me.get().structure_buffer,{index: new abap.types.Integer().set(1),into: temp12});
       abap.builtin.sy.get().tabix.set(temp13);
-      if (abap.compare.ne(abap.builtin.sy.get().subrc, constant_0)) {
+      if (abap.compare.ne(abap.builtin.sy.get().subrc, new abap.types.Integer().set(0))) {
         throw await (new abap.Classes['CX_SY_ITAB_LINE_NOT_FOUND']()).constructor_();
       }
-      if (abap.compare.eq(temp12.get().number_brackets, constant_2) && abap.compare.eq(abap.builtin.sy.get().index, constant_2)) {
+      if (abap.compare.eq(temp12.get().number_brackets, new abap.types.Integer().set(2)) && abap.compare.eq(abap.builtin.sy.get().index, new abap.types.Integer().set(2))) {
         await this.write_req_and_add_props();
       }
       await this.write_closing_tag({line: new abap.types.String().set(`}`)});
       temp15.set(abap.builtin.sy.get().tabix);
-      abap.statements.readTable(this.me.get().structure_buffer,{index: constant_1,into: temp14});
+      abap.statements.readTable(this.me.get().structure_buffer,{index: new abap.types.Integer().set(1),into: temp14});
       abap.builtin.sy.get().tabix.set(temp15);
-      if (abap.compare.ne(abap.builtin.sy.get().subrc, constant_0)) {
+      if (abap.compare.ne(abap.builtin.sy.get().subrc, new abap.types.Integer().set(0))) {
         throw await (new abap.Classes['CX_SY_ITAB_LINE_NOT_FOUND']()).constructor_();
       }
-      if (abap.compare.eq(temp14.get().number_brackets, constant_1)) {
+      if (abap.compare.eq(temp14.get().number_brackets, new abap.types.Integer().set(1))) {
         await this.write_req_and_add_props();
       }
     }
-    await abap.statements.deleteInternal(this.me.get().structure_buffer,{index: constant_1});
+    abap.builtin.sy.get().index.set(indexBackup1);
+    await abap.statements.deleteInternal(this.me.get().structure_buffer,{index: new abap.types.Integer().set(1)});
     await this.reset_indent_level_tag();
   }
   async open_table(INPUT) {
@@ -423,12 +416,12 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
     let table_description = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TYPEDESCR"});
     if (INPUT && INPUT.table_description) {table_description.set(INPUT.table_description);}
     let temp16 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TABLEDESCR"});
-    let temp17 = new abap.types.Structure({name: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NAME"}), number_brackets: new abap.types.Integer({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NUMBER_BRACKETS"})}, "zcl_aff_writer_json_schema=>ty_buffer");
+    let temp17 = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NAME"}), "number_brackets": new abap.types.Integer({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NUMBER_BRACKETS"})}, "zcl_aff_writer_json_schema=>ty_buffer");
     let formatted_name = new abap.types.String({qualifiedName: "STRING"});
     let fs_table1_ = new abap.types.FieldSymbol(new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE"));
     let callback_class = new abap.types.String({qualifiedName: "STRING"});
-    let temp18 = new abap.types.Structure({name: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NAME"}), number_brackets: new abap.types.Integer({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NUMBER_BRACKETS"})}, "zcl_aff_writer_json_schema=>ty_buffer");
-    let temp19 = new abap.types.Structure({name: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NAME"}), number_brackets: new abap.types.Integer({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NUMBER_BRACKETS"})}, "zcl_aff_writer_json_schema=>ty_buffer");
+    let temp18 = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NAME"}), "number_brackets": new abap.types.Integer({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NUMBER_BRACKETS"})}, "zcl_aff_writer_json_schema=>ty_buffer");
+    let temp19 = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NAME"}), "number_brackets": new abap.types.Integer({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NUMBER_BRACKETS"})}, "zcl_aff_writer_json_schema=>ty_buffer");
     let temp20 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TABLEDESCR"});
     await this.clear_type_specifics();
     if (abap.compare.eq((await this.last_operation()), abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$operation.get().initial)) {
@@ -436,15 +429,15 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
       await this.open_json_schema_for_table({table_name: table_name, table_description: temp16});
       abap.statements.clear(temp17);
       temp17.get().name.set(table_name);
-      temp17.get().number_brackets.set(constant_2);
+      temp17.get().number_brackets.set(new abap.types.Integer().set(2));
       abap.statements.insertInternal({data: temp17, table: this.me.get().table_buffer});
       return;
     }
     await this.append_comma_to_prev_line();
     formatted_name.set((await this.format_name({name: table_name})));
     await this.set_abapdoc_fullname_struc_tab({type_description: table_description, type_name: table_name});
-    if (abap.compare.eq(this.abap_doc.get().required, abap.builtin.abap_true) && abap.compare.ge(abap.builtin.lines({val: this.stack_of_required_tabs}), constant_1)) {
-      abap.statements.readTable(this.stack_of_required_tabs,{index: constant_1,assigning: fs_table1_});
+    if (abap.compare.eq(this.abap_doc.get().required, abap.builtin.abap_true) && abap.compare.ge(abap.builtin.lines({val: this.stack_of_required_tabs}), new abap.types.Integer().set(1))) {
+      abap.statements.readTable(this.stack_of_required_tabs,{index: new abap.types.Integer().set(1),assigning: fs_table1_});
       abap.statements.append({source: formatted_name, target: fs_table1_});
     }
     callback_class.set(abap.builtin.to_upper({val: this.abap_doc.get().callback_class}));
@@ -455,12 +448,12 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
       await this.write_open_tag({line: new abap.types.String().set(`"${abap.templateFormatting(formatted_name)}": \{`)});
       abap.statements.clear(temp18);
       temp18.get().name.set(table_name);
-      temp18.get().number_brackets.set(constant_2);
+      temp18.get().number_brackets.set(new abap.types.Integer().set(2));
       abap.statements.insertInternal({data: temp18, table: this.me.get().table_buffer});
     } else {
       abap.statements.clear(temp19);
       temp19.get().name.set(table_name);
-      temp19.get().number_brackets.set(constant_1);
+      temp19.get().number_brackets.set(new abap.types.Integer().set(1));
       abap.statements.insertInternal({data: temp19, table: this.me.get().table_buffer});
     }
     await this.write_title_and_description({type_description: table_description});
@@ -476,20 +469,22 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
     if (INPUT && INPUT.table_name) {table_name.set(INPUT.table_name);}
     let table_description = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TYPEDESCR"});
     if (INPUT && INPUT.table_description) {table_description.set(INPUT.table_description);}
-    let temp21 = new abap.types.Structure({name: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NAME"}), number_brackets: new abap.types.Integer({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NUMBER_BRACKETS"})}, "zcl_aff_writer_json_schema=>ty_buffer");
+    let temp21 = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NAME"}), "number_brackets": new abap.types.Integer({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NUMBER_BRACKETS"})}, "zcl_aff_writer_json_schema=>ty_buffer");
     let temp22 = new abap.types.Integer();
     temp22.set(abap.builtin.sy.get().tabix);
     abap.statements.readTable(this.me.get().table_buffer,{into: temp21,withKey: (i) => {return abap.compare.eq(i.name, table_name);}});
     abap.builtin.sy.get().tabix.set(temp22);
-    if (abap.compare.ne(abap.builtin.sy.get().subrc, constant_0)) {
+    if (abap.compare.ne(abap.builtin.sy.get().subrc, new abap.types.Integer().set(0))) {
       throw await (new abap.Classes['CX_SY_ITAB_LINE_NOT_FOUND']()).constructor_();
     }
-    const unique54 = temp21.get().number_brackets.get();
-    for (let unique55 = 0; unique55 < unique54; unique55++) {
-      abap.builtin.sy.get().index.set(unique55 + 1);
+    const indexBackup1 = abap.builtin.sy.get().index.get();
+    const unique60 = temp21.get().number_brackets.get();
+    for (let unique61 = 0; unique61 < unique60; unique61++) {
+      abap.builtin.sy.get().index.set(unique61 + 1);
       await this.write_closing_tag({line: new abap.types.String().set(`}`)});
     }
-    await abap.statements.deleteInternal(this.me.get().table_buffer,{where: (i) => {return abap.compare.eq(i.name, table_name);}});
+    abap.builtin.sy.get().index.set(indexBackup1);
+    await abap.statements.deleteInternal(this.me.get().table_buffer,{where: (I) => {return abap.compare.eq(I.name, table_name);}});
     await this.reset_indent_level_tag();
   }
   async append_comma_to_prev_line() {
@@ -510,22 +505,22 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
     let source = new abap.types.String();
     let temp8 = new abap.types.String();
     let temp9 = new abap.types.Integer();
-    let already_found = new abap.types.Character({qualifiedName: "ABAP_BOOL"});
-    let abap_doc_second = new abap.types.Structure({required: new abap.types.Character({qualifiedName: "ABAP_BOOL"}), showalways: new abap.types.Character({qualifiedName: "ABAP_BOOL"}), title: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-TITLE"}), description: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-DESCRIPTION"}), enumvalues_link: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-ENUMVALUES_LINK"}), minimum: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MINIMUM"}), maximum: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MAXIMUM"}), exclusive_minimum: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-EXCLUSIVE_MINIMUM"}), exclusive_maximum: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-EXCLUSIVE_MAXIMUM"}), multiple_of: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MULTIPLE_OF"}), default_: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-DEFAULT_"}), min_length: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MIN_LENGTH"}), max_length: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MAX_LENGTH"}), callback_class: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-CALLBACK_CLASS"}), enum_value: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-ENUM_VALUE"})}, "zcl_aff_abap_doc_parser=>abap_doc");
+    let already_found = new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});
+    let abap_doc_second = new abap.types.Structure({"required": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "showalways": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "title": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-TITLE"}), "description": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-DESCRIPTION"}), "enumvalues_link": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-ENUMVALUES_LINK"}), "minimum": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MINIMUM"}), "maximum": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MAXIMUM"}), "exclusive_minimum": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-EXCLUSIVE_MINIMUM"}), "exclusive_maximum": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-EXCLUSIVE_MAXIMUM"}), "multiple_of": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MULTIPLE_OF"}), "default_": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-DEFAULT_"}), "min_length": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MIN_LENGTH"}), "max_length": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MAX_LENGTH"}), "callback_class": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-CALLBACK_CLASS"}), "enum_value": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-ENUM_VALUE"})}, "zcl_aff_abap_doc_parser=>abap_doc");
     if (abap.compare.eq((await this.last_operation()), abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$operation.get().open_table)) {
       absolute_name.set(type_description.get().absolute_name);
       splitted_absolute_name.set((await this.get_splitted_absolute_name({absolute_name: absolute_name})));
       temp7.set(abap.builtin.sy.get().tabix);
-      abap.statements.readTable(splitted_absolute_name,{index: constant_1,into: temp6});
+      abap.statements.readTable(splitted_absolute_name,{index: new abap.types.Integer().set(1),into: temp6});
       abap.builtin.sy.get().tabix.set(temp7);
-      if (abap.compare.ne(abap.builtin.sy.get().subrc, constant_0)) {
+      if (abap.compare.ne(abap.builtin.sy.get().subrc, new abap.types.Integer().set(0))) {
         throw await (new abap.Classes['CX_SY_ITAB_LINE_NOT_FOUND']()).constructor_();
       }
       source_type.set(temp6);
       temp9.set(abap.builtin.sy.get().tabix);
-      abap.statements.readTable(splitted_absolute_name,{index: constant_2,into: temp8});
+      abap.statements.readTable(splitted_absolute_name,{index: new abap.types.Integer().set(2),into: temp8});
       abap.builtin.sy.get().tabix.set(temp9);
-      if (abap.compare.ne(abap.builtin.sy.get().subrc, constant_0)) {
+      if (abap.compare.ne(abap.builtin.sy.get().subrc, new abap.types.Integer().set(0))) {
         throw await (new abap.Classes['CX_SY_ITAB_LINE_NOT_FOUND']()).constructor_();
       }
       source.set(temp8);
@@ -534,7 +529,7 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
     } else {
       await this.get_all_path_information({name: type_name, source_type: source_type, source: source, fullname_of_type: this.fullname_of_type});
     }
-    if (abap.compare.eq(source_type, new abap.types.Character({length: 5}).set('CLASS')) || abap.compare.eq(source_type, new abap.types.Character({length: 9}).set('INTERFACE'))) {
+    if (abap.compare.eq(source_type, new abap.types.Character(5).set('CLASS')) || abap.compare.eq(source_type, new abap.types.Character(9).set('INTERFACE'))) {
       this.abap_doc.set((await this.call_reader_and_decode({name_of_source: source, element_name: this.fullname_of_type})));
     }
     if (abap.compare.eq(already_found, abap.builtin.abap_false)) {
@@ -556,29 +551,29 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
     let temp24 = new abap.types.Integer();
     let temp25 = new abap.types.String();
     let temp26 = new abap.types.Integer();
-    let already_searched = new abap.types.Character({qualifiedName: "ABAP_BOOL"});
-    let abap_doc_second = new abap.types.Structure({required: new abap.types.Character({qualifiedName: "ABAP_BOOL"}), showalways: new abap.types.Character({qualifiedName: "ABAP_BOOL"}), title: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-TITLE"}), description: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-DESCRIPTION"}), enumvalues_link: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-ENUMVALUES_LINK"}), minimum: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MINIMUM"}), maximum: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MAXIMUM"}), exclusive_minimum: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-EXCLUSIVE_MINIMUM"}), exclusive_maximum: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-EXCLUSIVE_MAXIMUM"}), multiple_of: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MULTIPLE_OF"}), default_: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-DEFAULT_"}), min_length: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MIN_LENGTH"}), max_length: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MAX_LENGTH"}), callback_class: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-CALLBACK_CLASS"}), enum_value: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-ENUM_VALUE"})}, "zcl_aff_abap_doc_parser=>abap_doc");
-    if (abap.compare.gt(abap.builtin.lines({val: this.stack_of_structure}), constant_0)) {
+    let already_searched = new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});
+    let abap_doc_second = new abap.types.Structure({"required": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "showalways": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "title": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-TITLE"}), "description": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-DESCRIPTION"}), "enumvalues_link": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-ENUMVALUES_LINK"}), "minimum": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MINIMUM"}), "maximum": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MAXIMUM"}), "exclusive_minimum": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-EXCLUSIVE_MINIMUM"}), "exclusive_maximum": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-EXCLUSIVE_MAXIMUM"}), "multiple_of": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MULTIPLE_OF"}), "default_": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-DEFAULT_"}), "min_length": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MIN_LENGTH"}), "max_length": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MAX_LENGTH"}), "callback_class": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-CALLBACK_CLASS"}), "enum_value": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-ENUM_VALUE"})}, "zcl_aff_abap_doc_parser=>abap_doc");
+    if (abap.compare.gt(abap.builtin.lines({val: this.stack_of_structure}), new abap.types.Integer().set(0))) {
       await this.get_all_path_information({name: element_name, source_type: source_type, source: source, fullname_of_type: this.fullname_of_type});
-    } else if (abap.compare.eq(abap.builtin.lines({val: this.stack_of_structure}), constant_0)) {
+    } else if (abap.compare.eq(abap.builtin.lines({val: this.stack_of_structure}), new abap.types.Integer().set(0))) {
       this.fullname_of_type.set(element_name);
       temp24.set(abap.builtin.sy.get().tabix);
-      abap.statements.readTable(splitted_prev_name,{index: constant_1,into: temp23});
+      abap.statements.readTable(splitted_prev_name,{index: new abap.types.Integer().set(1),into: temp23});
       abap.builtin.sy.get().tabix.set(temp24);
-      if (abap.compare.ne(abap.builtin.sy.get().subrc, constant_0)) {
+      if (abap.compare.ne(abap.builtin.sy.get().subrc, new abap.types.Integer().set(0))) {
         throw await (new abap.Classes['CX_SY_ITAB_LINE_NOT_FOUND']()).constructor_();
       }
       source_type.set(temp23);
       temp26.set(abap.builtin.sy.get().tabix);
-      abap.statements.readTable(splitted_prev_name,{index: constant_2,into: temp25});
+      abap.statements.readTable(splitted_prev_name,{index: new abap.types.Integer().set(2),into: temp25});
       abap.builtin.sy.get().tabix.set(temp26);
-      if (abap.compare.ne(abap.builtin.sy.get().subrc, constant_0)) {
+      if (abap.compare.ne(abap.builtin.sy.get().subrc, new abap.types.Integer().set(0))) {
         throw await (new abap.Classes['CX_SY_ITAB_LINE_NOT_FOUND']()).constructor_();
       }
       source.set(temp25);
       already_searched.set(abap.builtin.abap_true);
     }
-    if (abap.compare.eq(source_type, new abap.types.Character({length: 5}).set('CLASS')) || abap.compare.eq(source_type, new abap.types.Character({length: 9}).set('INTERFACE'))) {
+    if (abap.compare.eq(source_type, new abap.types.Character(5).set('CLASS')) || abap.compare.eq(source_type, new abap.types.Character(9).set('INTERFACE'))) {
       this.abap_doc.set((await this.call_reader_and_decode({name_of_source: source, element_name: this.fullname_of_type})));
     }
     if (abap.compare.eq(already_searched, abap.builtin.abap_false)) {
@@ -594,12 +589,12 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
     let json_type = new abap.types.String({qualifiedName: "STRING"});
     if (INPUT && INPUT.json_type) {json_type.set(INPUT.json_type);}
     if (abap.compare.eq(json_type, abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$type_info.get().numeric)) {
-      result.set(new abap.types.Character({length: 6}).set('number'));
+      result.set(new abap.types.Character(6).set('number'));
       if (abap.compare.eq((await this.type_is_integer({element_description: element_description})), abap.builtin.abap_true)) {
-        result.set(new abap.types.Character({length: 7}).set('integer'));
+        result.set(new abap.types.Character(7).set('integer'));
       }
     } else if (abap.compare.eq(json_type, abap.Classes['ZIF_AFF_WRITER'].zif_aff_writer$type_info.get().date_time)) {
-      result.set(new abap.types.Character({length: 6}).set('string'));
+      result.set(new abap.types.Character(6).set('string'));
     } else {
       result.set(abap.builtin.to_lower({val: json_type}));
     }
@@ -610,8 +605,8 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
     if (INPUT && INPUT.structure_name) {structure_name.set(INPUT.structure_name);}
     let structure_description = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TYPEDESCR"});
     if (INPUT && INPUT.structure_description) {structure_description.set(INPUT.structure_description);}
-    let absolute_name = new abap.types.Character({length: 200, qualifiedName: "abap_abstypename"});
-    let temp10 = new abap.types.Structure({name: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER=>TY_STRUCTURE_STACK-NAME"}), absolute_name: new abap.types.Character({length: 200, qualifiedName: "abap_abstypename"})}, "zcl_aff_writer=>ty_structure_stack");
+    let absolute_name = new abap.types.Character(200, {"qualifiedName":"abap_abstypename"});
+    let temp10 = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER=>TY_STRUCTURE_STACK-NAME"}), "absolute_name": new abap.types.Character(200, {"qualifiedName":"abap_abstypename"})}, "zcl_aff_writer=>ty_structure_stack");
     let temp11 = new abap.types.Integer();
     let splitted_absolute_name = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
     let source_type = new abap.types.String();
@@ -622,25 +617,25 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
     let temp15 = new abap.types.Integer();
     let callback_class = new abap.types.String({qualifiedName: "STRING"});
     temp11.set(abap.builtin.sy.get().tabix);
-    abap.statements.readTable(this.stack_of_structure,{index: constant_1,into: temp10});
+    abap.statements.readTable(this.stack_of_structure,{index: new abap.types.Integer().set(1),into: temp10});
     abap.builtin.sy.get().tabix.set(temp11);
-    if (abap.compare.ne(abap.builtin.sy.get().subrc, constant_0)) {
+    if (abap.compare.ne(abap.builtin.sy.get().subrc, new abap.types.Integer().set(0))) {
       throw await (new abap.Classes['CX_SY_ITAB_LINE_NOT_FOUND']()).constructor_();
     }
     absolute_name.set(temp10.get().absolute_name);
     splitted_absolute_name.set((await this.get_splitted_absolute_name({absolute_name: absolute_name})));
     temp13.set(abap.builtin.sy.get().tabix);
-    abap.statements.readTable(splitted_absolute_name,{index: constant_1,into: temp12});
+    abap.statements.readTable(splitted_absolute_name,{index: new abap.types.Integer().set(1),into: temp12});
     abap.builtin.sy.get().tabix.set(temp13);
-    if (abap.compare.ne(abap.builtin.sy.get().subrc, constant_0)) {
+    if (abap.compare.ne(abap.builtin.sy.get().subrc, new abap.types.Integer().set(0))) {
       throw await (new abap.Classes['CX_SY_ITAB_LINE_NOT_FOUND']()).constructor_();
     }
     source_type.set(temp12);
-    if (abap.compare.eq(source_type, new abap.types.Character({length: 5}).set('CLASS')) || abap.compare.eq(source_type, new abap.types.Character({length: 9}).set('INTERFACE'))) {
+    if (abap.compare.eq(source_type, new abap.types.Character(5).set('CLASS')) || abap.compare.eq(source_type, new abap.types.Character(9).set('INTERFACE'))) {
       temp15.set(abap.builtin.sy.get().tabix);
-      abap.statements.readTable(splitted_absolute_name,{index: constant_2,into: temp14});
+      abap.statements.readTable(splitted_absolute_name,{index: new abap.types.Integer().set(2),into: temp14});
       abap.builtin.sy.get().tabix.set(temp15);
-      if (abap.compare.ne(abap.builtin.sy.get().subrc, constant_0)) {
+      if (abap.compare.ne(abap.builtin.sy.get().subrc, new abap.types.Integer().set(0))) {
         throw await (new abap.Classes['CX_SY_ITAB_LINE_NOT_FOUND']()).constructor_();
       }
       source.set(temp14);
@@ -648,7 +643,7 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
     }
     this.fullname_of_type.set(structure_name);
     await this.check_redundant_annotations();
-    await this.write_open_tag({line: new abap.types.Character({length: 1}).set('{')});
+    await this.write_open_tag({line: new abap.types.Character(1).set('{')});
     await this.write_tag({line: new abap.types.String().set(`"$comment": "This file is autogenerated, do not edit manually, see ${abap.templateFormatting(zcl_aff_writer_json_schema.c_link_to_repository)} for more information.",`)});
     await this.write_tag({line: new abap.types.String().set(`"$schema": "${abap.templateFormatting(zcl_aff_writer_json_schema.c_schema_specification)}",`)});
     await this.write_tag({line: new abap.types.String().set(`"$id": "${abap.templateFormatting(this.me.get().schema_id)}",`)});
@@ -657,8 +652,8 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
       await this.write_subschema({callback_class: callback_class});
     }
     await this.write_title_and_description({type_description: structure_description});
-    await this.write_tag({line: new abap.types.Character({length: 17}).set('"type": "object",')});
-    await this.write_open_tag({line: new abap.types.Character({length: 15}).set('"properties": {')});
+    await this.write_tag({line: new abap.types.Character(17).set('"type": "object",')});
+    await this.write_open_tag({line: new abap.types.Character(15).set('"properties": {')});
   }
   async open_json_schema_for_table(INPUT) {
     let table_name = new abap.types.String({qualifiedName: "STRING"});
@@ -677,17 +672,17 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
     absolute_name.set(table_description.get().absolute_name);
     splitted_absolute_name.set((await this.get_splitted_absolute_name({absolute_name: absolute_name})));
     temp17.set(abap.builtin.sy.get().tabix);
-    abap.statements.readTable(splitted_absolute_name,{index: constant_1,into: temp16});
+    abap.statements.readTable(splitted_absolute_name,{index: new abap.types.Integer().set(1),into: temp16});
     abap.builtin.sy.get().tabix.set(temp17);
-    if (abap.compare.ne(abap.builtin.sy.get().subrc, constant_0)) {
+    if (abap.compare.ne(abap.builtin.sy.get().subrc, new abap.types.Integer().set(0))) {
       throw await (new abap.Classes['CX_SY_ITAB_LINE_NOT_FOUND']()).constructor_();
     }
     source_type.set(temp16);
-    if (abap.compare.eq(source_type, new abap.types.Character({length: 5}).set('CLASS')) || abap.compare.eq(source_type, new abap.types.Character({length: 9}).set('INTERFACE'))) {
+    if (abap.compare.eq(source_type, new abap.types.Character(5).set('CLASS')) || abap.compare.eq(source_type, new abap.types.Character(9).set('INTERFACE'))) {
       temp19.set(abap.builtin.sy.get().tabix);
-      abap.statements.readTable(splitted_absolute_name,{index: constant_2,into: temp18});
+      abap.statements.readTable(splitted_absolute_name,{index: new abap.types.Integer().set(2),into: temp18});
       abap.builtin.sy.get().tabix.set(temp19);
-      if (abap.compare.ne(abap.builtin.sy.get().subrc, constant_0)) {
+      if (abap.compare.ne(abap.builtin.sy.get().subrc, new abap.types.Integer().set(0))) {
         throw await (new abap.Classes['CX_SY_ITAB_LINE_NOT_FOUND']()).constructor_();
       }
       source.set(temp18);
@@ -695,7 +690,7 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
     }
     this.fullname_of_type.set(table_name);
     await this.check_redundant_annotations();
-    await this.write_open_tag({line: new abap.types.Character({length: 1}).set('{')});
+    await this.write_open_tag({line: new abap.types.Character(1).set('{')});
     await this.write_tag({line: new abap.types.String().set(`"$comment": "This file is autogenerated, do not edit manually, see ${abap.templateFormatting(zcl_aff_writer_json_schema.c_link_to_repository)} for more information.",`)});
     await this.write_tag({line: new abap.types.String().set(`"$schema": "${abap.templateFormatting(zcl_aff_writer_json_schema.c_schema_specification)}",`)});
     await this.write_tag({line: new abap.types.String().set(`"$id": "${abap.templateFormatting(this.me.get().schema_id)}",`)});
@@ -704,11 +699,11 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
       await this.write_subschema({callback_class: callback_class});
     }
     await this.write_title_and_description({type_description: table_description});
-    await this.write_tag({line: new abap.types.Character({length: 16}).set('"type": "array",')});
+    await this.write_tag({line: new abap.types.Character(16).set('"type": "array",')});
     if (abap.compare.eq(table_description.get().has_unique_key, abap.builtin.abap_true)) {
-      await this.write_tag({line: new abap.types.Character({length: 20}).set('"uniqueItems": true,')});
+      await this.write_tag({line: new abap.types.Character(20).set('"uniqueItems": true,')});
     }
-    await this.write_open_tag({line: new abap.types.Character({length: 10}).set('"items": {')});
+    await this.write_open_tag({line: new abap.types.Character(10).set('"items": {')});
   }
   async write_subschema(INPUT) {
     let callback_class = new abap.types.String({qualifiedName: "STRING"});
@@ -719,8 +714,8 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
       if (abap.Classes[callback_class.get()] === undefined && abap.Classes['CX_SY_DYN_CALL_ILLEGAL_CLASS'] === undefined) { throw "CX_SY_DYN_CALL_ILLEGAL_CLASS not found"; }
       if (abap.Classes[callback_class.get()] === undefined) { throw new abap.Classes['CX_SY_DYN_CALL_ILLEGAL_CLASS'](); }
       subschema.set(await abap.Classes[callback_class.get()].get_subschema());
-      for await (const unique56 of abap.statements.loop(subschema)) {
-        fs_line_.assign(unique56);
+      for await (const unique62 of abap.statements.loop(subschema)) {
+        fs_line_.assign(unique62);
         await this.write_tag({line: fs_line_});
       }
       this.ignore_til_indent_level.set(this.indent_level);
@@ -732,7 +727,7 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
     }
   }
   async open_json_schema_for_element() {
-    await this.write_open_tag({line: new abap.types.Character({length: 1}).set('{')});
+    await this.write_open_tag({line: new abap.types.Character(1).set('{')});
     await this.write_tag({line: new abap.types.String().set(`"$comment": "This file is autogenerated, do not edit manually, see ${abap.templateFormatting(zcl_aff_writer_json_schema.c_link_to_repository)} for more information.",`)});
     await this.write_tag({line: new abap.types.String().set(`"$schema": "${abap.templateFormatting(zcl_aff_writer_json_schema.c_schema_specification)}",`)});
     await this.write_tag({line: new abap.types.String().set(`"$id": "${abap.templateFormatting(this.me.get().schema_id)}",`)});
@@ -743,7 +738,7 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
     if (INPUT && INPUT.type_description) {type_description.set(INPUT.type_description);}
     let element_description = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_ELEMDESCR"});
     let temp27 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_ELEMDESCR"});
-    let ddic_field = new abap.types.Structure({tabname: new abap.types.Character({length: 30, qualifiedName: "DFIES-TABNAME"}), fieldname: new abap.types.Character({length: 30, qualifiedName: "DFIES-FIELDNAME"}), langu: new abap.types.Character({qualifiedName: "DFIES-LANGU"}), position: new abap.types.Numc({length: 4, qualifiedName: "DFIES-POSITION"}), offset: new abap.types.Numc({length: 6, qualifiedName: "DFIES-OFFSET"}), domname: new abap.types.Character({length: 30, qualifiedName: "DFIES-DOMNAME"}), rollname: new abap.types.Character({length: 30, qualifiedName: "DFIES-ROLLNAME"}), checktable: new abap.types.Character({qualifiedName: "DFIES-CHECKTABLE"}), leng: new abap.types.Numc({length: 6, qualifiedName: "DFIES-LENG"}), intlen: new abap.types.Numc({length: 6, qualifiedName: "DFIES-INTLEN"}), outputlen: new abap.types.Numc({length: 6, qualifiedName: "DFIES-OUTPUTLEN"}), decimals: new abap.types.Numc({length: 6, qualifiedName: "DFIES-DECIMALS"}), datatype: new abap.types.Character({qualifiedName: "DFIES-DATATYPE"}), inttype: new abap.types.Character({qualifiedName: "DFIES-INTTYPE"}), reftable: new abap.types.Character({qualifiedName: "DFIES-REFTABLE"}), reffield: new abap.types.Character({qualifiedName: "DFIES-REFFIELD"}), precfield: new abap.types.Character({qualifiedName: "DFIES-PRECFIELD"}), authorid: new abap.types.Character({qualifiedName: "DFIES-AUTHORID"}), memoryid: new abap.types.Character({qualifiedName: "DFIES-MEMORYID"}), logflag: new abap.types.Character({qualifiedName: "DFIES-LOGFLAG"}), mask: new abap.types.Character({qualifiedName: "DFIES-MASK"}), masklen: new abap.types.Character({qualifiedName: "DFIES-MASKLEN"}), convexit: new abap.types.Character({qualifiedName: "DFIES-CONVEXIT"}), headlen: new abap.types.Character({qualifiedName: "DFIES-HEADLEN"}), scrlen1: new abap.types.Character({qualifiedName: "DFIES-SCRLEN1"}), scrlen2: new abap.types.Character({qualifiedName: "DFIES-SCRLEN2"}), scrlen3: new abap.types.Character({qualifiedName: "DFIES-SCRLEN3"}), fieldtext: new abap.types.Character({qualifiedName: "DFIES-FIELDTEXT"}), reptext: new abap.types.Character({qualifiedName: "DFIES-REPTEXT"}), scrtext_s: new abap.types.Character({qualifiedName: "DFIES-SCRTEXT_S"}), scrtext_m: new abap.types.Character({qualifiedName: "DFIES-SCRTEXT_M"}), scrtext_l: new abap.types.Character({qualifiedName: "DFIES-SCRTEXT_L"}), keyflag: new abap.types.Character({qualifiedName: "DFIES-KEYFLAG"}), lowercase: new abap.types.Character({qualifiedName: "DFIES-LOWERCASE"}), mac: new abap.types.Character({qualifiedName: "DFIES-MAC"}), genkey: new abap.types.Character({qualifiedName: "DFIES-GENKEY"}), noforkey: new abap.types.Character({qualifiedName: "DFIES-NOFORKEY"}), valexi: new abap.types.Character({qualifiedName: "DFIES-VALEXI"}), noauthch: new abap.types.Character({qualifiedName: "DFIES-NOAUTHCH"}), sign: new abap.types.Character({qualifiedName: "DFIES-SIGN"}), dynpfld: new abap.types.Character({qualifiedName: "DFIES-DYNPFLD"}), f4availabl: new abap.types.Character({qualifiedName: "DFIES-F4AVAILABL"}), comptype: new abap.types.Character({qualifiedName: "DFIES-COMPTYPE"}), outputstyle: new abap.types.Character({qualifiedName: "DFIES-OUTPUTSTYLE"}), lfieldname: new abap.types.Character({length: 132, qualifiedName: "DFIES-LFIELDNAME"})}, "DFIES");
+    let ddic_field = new abap.types.Structure({"tabname": new abap.types.Character(30, {}), "fieldname": new abap.types.Character(30, {}), "langu": new abap.types.Character(1, {}), "position": new abap.types.Numc({length: 4}), "offset": new abap.types.Numc({length: 6}), "domname": new abap.types.Character(30, {}), "rollname": new abap.types.Character(30, {}), "checktable": new abap.types.Character(1, {}), "leng": new abap.types.Numc({length: 6}), "intlen": new abap.types.Numc({length: 6}), "outputlen": new abap.types.Numc({length: 6}), "decimals": new abap.types.Numc({length: 6}), "datatype": new abap.types.Character(1, {}), "inttype": new abap.types.Character(1, {}), "reftable": new abap.types.Character(1, {}), "reffield": new abap.types.Character(1, {}), "precfield": new abap.types.Character(1, {}), "authorid": new abap.types.Character(1, {}), "memoryid": new abap.types.Character(1, {}), "logflag": new abap.types.Character(1, {}), "mask": new abap.types.Character(1, {}), "masklen": new abap.types.Character(1, {}), "convexit": new abap.types.Character(1, {}), "headlen": new abap.types.Character(1, {}), "scrlen1": new abap.types.Character(1, {}), "scrlen2": new abap.types.Character(1, {}), "scrlen3": new abap.types.Character(1, {}), "fieldtext": new abap.types.Character(1, {}), "reptext": new abap.types.Character(1, {}), "scrtext_s": new abap.types.Character(1, {}), "scrtext_m": new abap.types.Character(1, {}), "scrtext_l": new abap.types.Character(1, {}), "keyflag": new abap.types.Character(1, {}), "lowercase": new abap.types.Character(1, {}), "mac": new abap.types.Character(1, {}), "genkey": new abap.types.Character(1, {}), "noforkey": new abap.types.Character(1, {}), "valexi": new abap.types.Character(1, {}), "noauthch": new abap.types.Character(1, {}), "sign": new abap.types.Character(1, {}), "dynpfld": new abap.types.Character(1, {}), "f4availabl": new abap.types.Character(1, {}), "comptype": new abap.types.Character(1, {}), "outputstyle": new abap.types.Character(1, {}), "lfieldname": new abap.types.Character(132, {})}, "DFIES");
     if (abap.compare.initial(this.abap_doc.get().description) === false) {
       result.set(this.abap_doc.get().description);
     } else if (INPUT && INPUT.type_description) {
@@ -758,7 +753,7 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
         }
       }
       try {
-        ddic_field.set(await element_description.get().get_ddic_field({p_langu: new abap.types.Character({length: 1}).set('E')}));
+        ddic_field.set(await element_description.get().get_ddic_field({p_langu: new abap.types.Character(1).set('E')}));
         abap.builtin.sy.get().subrc.set(0);
       } catch (e) {
         if (e.classic) {
@@ -776,13 +771,13 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
       return result;
     }
     async get_enum_properties(INPUT) {
-      let result = new abap.types.Structure({values: new abap.types.Table(new abap.types.Structure({value: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-VALUE"}), overwritten_value: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-OVERWRITTEN_VALUE"})}, "zcl_aff_writer_json_schema=>ty_enum_value"), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "zcl_aff_writer_json_schema=>ty_enum_properties-values"), titles: new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE"), descriptions: new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE")}, "zcl_aff_writer_json_schema=>ty_enum_properties");
+      let result = new abap.types.Structure({"values": new abap.types.Table(new abap.types.Structure({"value": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-VALUE"}), "overwritten_value": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-OVERWRITTEN_VALUE"})}, "zcl_aff_writer_json_schema=>ty_enum_value"), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "zcl_aff_writer_json_schema=>ty_enum_properties-values"), "titles": new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE"), "descriptions": new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE")}, "zcl_aff_writer_json_schema=>ty_enum_properties");
       let element_description = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_ELEMDESCR"});
       if (INPUT && INPUT.element_description) {element_description.set(INPUT.element_description);}
-      let ddic_fixed_values = new abap.types.Table(new abap.types.Structure({low: new abap.types.Character({length: 10, qualifiedName: "cl_abap_elemdescr=>fixvalue-low"}), high: new abap.types.Character({length: 10, qualifiedName: "cl_abap_elemdescr=>fixvalue-high"}), option: new abap.types.Character({length: 2, qualifiedName: "cl_abap_elemdescr=>fixvalue-option"}), ddlanguage: new abap.types.Character({qualifiedName: "cl_abap_elemdescr=>fixvalue-ddlanguage"}), ddtext: new abap.types.Character({length: 60, qualifiedName: "cl_abap_elemdescr=>fixvalue-ddtext"})}, "cl_abap_elemdescr=>fixvalue"), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "cl_abap_elemdescr=>fixvalues");
-      let fs_value_ = new abap.types.FieldSymbol(new abap.types.Structure({low: new abap.types.Character({length: 10, qualifiedName: "cl_abap_elemdescr=>fixvalue-low"}), high: new abap.types.Character({length: 10, qualifiedName: "cl_abap_elemdescr=>fixvalue-high"}), option: new abap.types.Character({length: 2, qualifiedName: "cl_abap_elemdescr=>fixvalue-option"}), ddlanguage: new abap.types.Character({qualifiedName: "cl_abap_elemdescr=>fixvalue-ddlanguage"}), ddtext: new abap.types.Character({length: 60, qualifiedName: "cl_abap_elemdescr=>fixvalue-ddtext"})}, "cl_abap_elemdescr=>fixvalue"));
+      let ddic_fixed_values = new abap.types.Table(new abap.types.Structure({"low": new abap.types.Character(10, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-low"}), "high": new abap.types.Character(10, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-high"}), "option": new abap.types.Character(2, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-option"}), "ddlanguage": new abap.types.Character(1, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-ddlanguage"}), "ddtext": new abap.types.Character(60, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-ddtext"})}, "cl_abap_elemdescr=>fixvalue"), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "cl_abap_elemdescr=>fixvalues");
+      let fs_value_ = new abap.types.FieldSymbol(new abap.types.Structure({"low": new abap.types.Character(10, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-low"}), "high": new abap.types.Character(10, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-high"}), "option": new abap.types.Character(2, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-option"}), "ddlanguage": new abap.types.Character(1, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-ddlanguage"}), "ddtext": new abap.types.Character(60, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-ddtext"})}, "cl_abap_elemdescr=>fixvalue"));
       let text = new abap.types.String({qualifiedName: "STRING"});
-      let temp28 = new abap.types.Structure({value: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-VALUE"}), overwritten_value: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-OVERWRITTEN_VALUE"})}, "zcl_aff_writer_json_schema=>ty_enum_value");
+      let temp28 = new abap.types.Structure({"value": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-VALUE"}), "overwritten_value": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-OVERWRITTEN_VALUE"})}, "zcl_aff_writer_json_schema=>ty_enum_value");
       if (abap.compare.initial(this.abap_doc.get().enumvalues_link) === false) {
         result.set((await this.get_properties_from_structure({enum_type: element_description.get().type_kind})));
       } else {
@@ -804,10 +799,10 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
           if (abap.compare.initial(ddic_fixed_values)) {
             return result;
           }
-          for await (const unique57 of abap.statements.loop(ddic_fixed_values)) {
-            fs_value_.assign(unique57);
+          for await (const unique63 of abap.statements.loop(ddic_fixed_values)) {
+            fs_value_.assign(unique63);
             text.set(fs_value_.get().ddtext);
-            abap.statements.replace({target:text, all:true, with: new abap.types.Character({length: 1}).set('_'),regex: new abap.types.Character({length: 2}).set('\\s')});
+            abap.statements.replace({target: text, all: true, with: new abap.types.Character(1).set('_'), regex: new abap.types.Character(2).set('\\s')});
             abap.statements.clear(temp28);
             temp28.get().value.set((await this.format_to_camel_case({name: text})));
             abap.statements.insertInternal({data: temp28, table: result.get().values});
@@ -819,10 +814,10 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
         let result = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
         let element_description = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_ELEMDESCR"});
         if (INPUT && INPUT.element_description) {element_description.set(INPUT.element_description);}
-        let enum_properties = new abap.types.Structure({values: new abap.types.Table(new abap.types.Structure({value: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-VALUE"}), overwritten_value: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-OVERWRITTEN_VALUE"})}, "zcl_aff_writer_json_schema=>ty_enum_value"), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "zcl_aff_writer_json_schema=>ty_enum_properties-values"), titles: new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE"), descriptions: new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE")}, "zcl_aff_writer_json_schema=>ty_enum_properties");
+        let enum_properties = new abap.types.Structure({"values": new abap.types.Table(new abap.types.Structure({"value": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-VALUE"}), "overwritten_value": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-OVERWRITTEN_VALUE"})}, "zcl_aff_writer_json_schema=>ty_enum_value"), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "zcl_aff_writer_json_schema=>ty_enum_properties-values"), "titles": new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE"), "descriptions": new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE")}, "zcl_aff_writer_json_schema=>ty_enum_properties");
         if (INPUT && INPUT.enum_properties) {enum_properties.set(INPUT.enum_properties);}
-        let ddic_fixed_values = new abap.types.Table(new abap.types.Structure({low: new abap.types.Character({length: 10, qualifiedName: "cl_abap_elemdescr=>fixvalue-low"}), high: new abap.types.Character({length: 10, qualifiedName: "cl_abap_elemdescr=>fixvalue-high"}), option: new abap.types.Character({length: 2, qualifiedName: "cl_abap_elemdescr=>fixvalue-option"}), ddlanguage: new abap.types.Character({qualifiedName: "cl_abap_elemdescr=>fixvalue-ddlanguage"}), ddtext: new abap.types.Character({length: 60, qualifiedName: "cl_abap_elemdescr=>fixvalue-ddtext"})}, "cl_abap_elemdescr=>fixvalue"), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "cl_abap_elemdescr=>fixvalues");
-        let fs_value_ = new abap.types.FieldSymbol(new abap.types.Structure({low: new abap.types.Character({length: 10, qualifiedName: "cl_abap_elemdescr=>fixvalue-low"}), high: new abap.types.Character({length: 10, qualifiedName: "cl_abap_elemdescr=>fixvalue-high"}), option: new abap.types.Character({length: 2, qualifiedName: "cl_abap_elemdescr=>fixvalue-option"}), ddlanguage: new abap.types.Character({qualifiedName: "cl_abap_elemdescr=>fixvalue-ddlanguage"}), ddtext: new abap.types.Character({length: 60, qualifiedName: "cl_abap_elemdescr=>fixvalue-ddtext"})}, "cl_abap_elemdescr=>fixvalue"));
+        let ddic_fixed_values = new abap.types.Table(new abap.types.Structure({"low": new abap.types.Character(10, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-low"}), "high": new abap.types.Character(10, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-high"}), "option": new abap.types.Character(2, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-option"}), "ddlanguage": new abap.types.Character(1, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-ddlanguage"}), "ddtext": new abap.types.Character(60, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-ddtext"})}, "cl_abap_elemdescr=>fixvalue"), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "cl_abap_elemdescr=>fixvalues");
+        let fs_value_ = new abap.types.FieldSymbol(new abap.types.Structure({"low": new abap.types.Character(10, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-low"}), "high": new abap.types.Character(10, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-high"}), "option": new abap.types.Character(2, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-option"}), "ddlanguage": new abap.types.Character(1, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-ddlanguage"}), "ddtext": new abap.types.Character(60, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-ddtext"})}, "cl_abap_elemdescr=>fixvalue"));
         if (abap.compare.initial(this.abap_doc.get().enumvalues_link) === false) {
           result.set(enum_properties.get().descriptions);
         } else {
@@ -839,8 +834,8 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
               }
             }
             if (abap.compare.initial(ddic_fixed_values) === false) {
-              for await (const unique58 of abap.statements.loop(ddic_fixed_values)) {
-                fs_value_.assign(unique58);
+              for await (const unique64 of abap.statements.loop(ddic_fixed_values)) {
+                fs_value_.assign(unique64);
                 abap.statements.append({source: fs_value_.get().ddtext, target: result});
               }
             }
@@ -848,7 +843,7 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
           return result;
         }
         async type_is_integer(INPUT) {
-          let result = new abap.types.Character({qualifiedName: "ABAP_BOOL"});
+          let result = new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});
           let element_description = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_ELEMDESCR"});
           if (INPUT && INPUT.element_description) {element_description.set(INPUT.element_description);}
           result.set(abap.builtin.abap_false);
@@ -858,33 +853,33 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
           return result;
         }
         async get_properties_from_structure(INPUT) {
-          let result = new abap.types.Structure({values: new abap.types.Table(new abap.types.Structure({value: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-VALUE"}), overwritten_value: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-OVERWRITTEN_VALUE"})}, "zcl_aff_writer_json_schema=>ty_enum_value"), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "zcl_aff_writer_json_schema=>ty_enum_properties-values"), titles: new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE"), descriptions: new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE")}, "zcl_aff_writer_json_schema=>ty_enum_properties");
-          let enum_type = new abap.types.Character({qualifiedName: "abap_typekind"});
+          let result = new abap.types.Structure({"values": new abap.types.Table(new abap.types.Structure({"value": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-VALUE"}), "overwritten_value": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-OVERWRITTEN_VALUE"})}, "zcl_aff_writer_json_schema=>ty_enum_value"), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "zcl_aff_writer_json_schema=>ty_enum_properties-values"), "titles": new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE"), "descriptions": new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE")}, "zcl_aff_writer_json_schema=>ty_enum_properties");
+          let enum_type = new abap.types.Character(1, {"qualifiedName":"abap_typekind"});
           if (INPUT && INPUT.enum_type) {enum_type = INPUT.enum_type;}
           let structure_of_values = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_STRUCTDESCR"});
           let name_of_source = new abap.types.String({qualifiedName: "STRING"});
           let name_of_constant = new abap.types.String({qualifiedName: "STRING"});
-          let fs_component_ = new abap.types.FieldSymbol(new abap.types.Structure({length: new abap.types.Integer({qualifiedName: "LENGTH"}), decimals: new abap.types.Integer({qualifiedName: "DECIMALS"}), type_kind: new abap.types.Character({qualifiedName: "abap_typekind"}), name: new abap.types.Character({length: 30, qualifiedName: "abap_compname"})}, "abap_compdescr"));
-          let temp29 = new abap.types.Character({length: 50, qualifiedName: "SYMSGV"});
-          let temp20 = new abap.types.Character({length: 50, qualifiedName: "SYMSGV"});
+          let fs_component_ = new abap.types.FieldSymbol(new abap.types.Structure({"length": new abap.types.Integer({qualifiedName: "LENGTH"}), "decimals": new abap.types.Integer({qualifiedName: "DECIMALS"}), "type_kind": new abap.types.Character(1, {"qualifiedName":"abap_typekind"}), "name": new abap.types.Character(30, {"qualifiedName":"abap_compname"})}, "abap_compdescr"));
+          let temp29 = new abap.types.Character(50, {"qualifiedName":"SYMSGV"});
+          let temp20 = new abap.types.Character(50, {"qualifiedName":"SYMSGV"});
           let msg = new abap.types.String({qualifiedName: "STRING"});
           let temp30 = new abap.types.ABAPObject({qualifiedName: "ZCX_AFF_TOOLS"});
           let fullname_of_value = new abap.types.String({qualifiedName: "STRING"});
-          let abap_doc_of_component = new abap.types.Structure({required: new abap.types.Character({qualifiedName: "ABAP_BOOL"}), showalways: new abap.types.Character({qualifiedName: "ABAP_BOOL"}), title: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-TITLE"}), description: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-DESCRIPTION"}), enumvalues_link: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-ENUMVALUES_LINK"}), minimum: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MINIMUM"}), maximum: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MAXIMUM"}), exclusive_minimum: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-EXCLUSIVE_MINIMUM"}), exclusive_maximum: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-EXCLUSIVE_MAXIMUM"}), multiple_of: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MULTIPLE_OF"}), default_: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-DEFAULT_"}), min_length: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MIN_LENGTH"}), max_length: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MAX_LENGTH"}), callback_class: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-CALLBACK_CLASS"}), enum_value: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-ENUM_VALUE"})}, "zcl_aff_abap_doc_parser=>abap_doc");
-          let temp31 = new abap.types.Structure({value: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-VALUE"}), overwritten_value: new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-OVERWRITTEN_VALUE"})}, "zcl_aff_writer_json_schema=>ty_enum_value");
+          let abap_doc_of_component = new abap.types.Structure({"required": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "showalways": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "title": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-TITLE"}), "description": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-DESCRIPTION"}), "enumvalues_link": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-ENUMVALUES_LINK"}), "minimum": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MINIMUM"}), "maximum": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MAXIMUM"}), "exclusive_minimum": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-EXCLUSIVE_MINIMUM"}), "exclusive_maximum": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-EXCLUSIVE_MAXIMUM"}), "multiple_of": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MULTIPLE_OF"}), "default_": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-DEFAULT_"}), "min_length": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MIN_LENGTH"}), "max_length": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MAX_LENGTH"}), "callback_class": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-CALLBACK_CLASS"}), "enum_value": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-ENUM_VALUE"})}, "zcl_aff_abap_doc_parser=>abap_doc");
+          let temp31 = new abap.types.Structure({"value": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-VALUE"}), "overwritten_value": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-OVERWRITTEN_VALUE"})}, "zcl_aff_writer_json_schema=>ty_enum_value");
           let temp21 = new abap.types.String({qualifiedName: "STRING"});
           await this.get_structure_of_enum_values({link_to_values: this.abap_doc.get().enumvalues_link, fullname_of_type: this.fullname_of_type, structure_of_values: structure_of_values, name_of_source: name_of_source, name_of_constant: name_of_constant});
           if (abap.compare.initial(structure_of_values) === false) {
-            for await (const unique59 of abap.statements.loop(structure_of_values.get().components)) {
-              fs_component_.assign(unique59);
+            for await (const unique65 of abap.statements.loop(structure_of_values.get().components)) {
+              fs_component_.assign(unique65);
               if (abap.compare.ne(fs_component_.get().type_kind, enum_type)) {
                 temp29.set(name_of_constant);
                 temp20.set(this.fullname_of_type);
-                msg.set((await this.log.get().zif_aff_log$get_message_text({msgno: constant_122, msgv1: temp29, msgv2: temp20})));
+                msg.set((await this.log.get().zif_aff_log$get_message_text({msgno: new abap.types.Integer().set(122), msgv1: temp29, msgv2: temp20})));
                 temp30.set(await (new abap.Classes['ZCX_AFF_TOOLS']()).constructor_({message: msg}));
                 throw temp30.get();
               }
-              fullname_of_value.set(abap.operators.concat(name_of_constant,abap.operators.concat(new abap.types.Character({length: 1}).set('-'),fs_component_.get().name)));
+              fullname_of_value.set(abap.operators.concat(name_of_constant,abap.operators.concat(new abap.types.Character(1).set('-'),fs_component_.get().name)));
               abap_doc_of_component.set((await this.call_reader_and_decode({name_of_source: name_of_source, element_name: fullname_of_value})));
               abap.statements.clear(temp31);
               temp21.set(fs_component_.get().name);
@@ -904,11 +899,11 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
         async add_required_table_to_stack() {
           let temp32 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
           abap.statements.clear(temp32);
-          abap.statements.insertInternal({data: temp32, index: constant_1, table: this.stack_of_required_tabs});
+          abap.statements.insertInternal({data: temp32, index: new abap.types.Integer().set(1), table: this.stack_of_required_tabs});
         }
         async delete_first_tab_of_req_stack() {
           if (abap.compare.initial(this.stack_of_required_tabs) === false) {
-            await abap.statements.deleteInternal(this.stack_of_required_tabs,{index: constant_1});
+            await abap.statements.deleteInternal(this.stack_of_required_tabs,{index: new abap.types.Integer().set(1)});
           }
         }
         async write_req_and_add_props() {
@@ -933,57 +928,57 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
             temp34.set(abap.builtin.sy.get().tabix);
             abap.statements.readTable(this.content,{index: abap.builtin.lines({val: this.content}),assigning: fs_temp33_});
             abap.builtin.sy.get().tabix.set(temp34);
-            if (abap.compare.ne(abap.builtin.sy.get().subrc, constant_0)) {
+            if (abap.compare.ne(abap.builtin.sy.get().subrc, new abap.types.Integer().set(0))) {
               throw await (new abap.Classes['CX_SY_ITAB_LINE_NOT_FOUND']()).constructor_();
             }
             temp23.set(abap.builtin.sy.get().tabix);
             abap.statements.readTable(this.content,{index: abap.builtin.lines({val: this.content}),into: temp22});
             abap.builtin.sy.get().tabix.set(temp23);
-            if (abap.compare.ne(abap.builtin.sy.get().subrc, constant_0)) {
+            if (abap.compare.ne(abap.builtin.sy.get().subrc, new abap.types.Integer().set(0))) {
               throw await (new abap.Classes['CX_SY_ITAB_LINE_NOT_FOUND']()).constructor_();
             }
             fs_temp33_.set(abap.operators.concat(temp22,new abap.types.String().set(`,`)));
             await this.write_tag({line: new abap.types.String().set(`"additionalProperties": false`)});
             temp36.set(abap.builtin.sy.get().tabix);
-            abap.statements.readTable(this.stack_of_required_tabs,{index: constant_1,into: temp35});
+            abap.statements.readTable(this.stack_of_required_tabs,{index: new abap.types.Integer().set(1),into: temp35});
             abap.builtin.sy.get().tabix.set(temp36);
-            if (abap.compare.ne(abap.builtin.sy.get().subrc, constant_0)) {
+            if (abap.compare.ne(abap.builtin.sy.get().subrc, new abap.types.Integer().set(0))) {
               throw await (new abap.Classes['CX_SY_ITAB_LINE_NOT_FOUND']()).constructor_();
             }
             if (abap.compare.initial(temp35) === false) {
               temp38.set(abap.builtin.sy.get().tabix);
               abap.statements.readTable(this.content,{index: abap.builtin.lines({val: this.content}),assigning: fs_temp37_});
               abap.builtin.sy.get().tabix.set(temp38);
-              if (abap.compare.ne(abap.builtin.sy.get().subrc, constant_0)) {
+              if (abap.compare.ne(abap.builtin.sy.get().subrc, new abap.types.Integer().set(0))) {
                 throw await (new abap.Classes['CX_SY_ITAB_LINE_NOT_FOUND']()).constructor_();
               }
               temp25.set(abap.builtin.sy.get().tabix);
               abap.statements.readTable(this.content,{index: abap.builtin.lines({val: this.content}),into: temp24});
               abap.builtin.sy.get().tabix.set(temp25);
-              if (abap.compare.ne(abap.builtin.sy.get().subrc, constant_0)) {
+              if (abap.compare.ne(abap.builtin.sy.get().subrc, new abap.types.Integer().set(0))) {
                 throw await (new abap.Classes['CX_SY_ITAB_LINE_NOT_FOUND']()).constructor_();
               }
               fs_temp37_.set(abap.operators.concat(temp24,new abap.types.String().set(`,`)));
               await this.write_tag({line: new abap.types.String().set(`"required": [`)});
-              this.indent_level.set(abap.operators.add(this.indent_level,constant_1));
+              this.indent_level.set(abap.operators.add(this.indent_level,new abap.types.Integer().set(1)));
               temp27.set(abap.builtin.sy.get().tabix);
-              abap.statements.readTable(this.stack_of_required_tabs,{index: constant_1,into: temp26});
+              abap.statements.readTable(this.stack_of_required_tabs,{index: new abap.types.Integer().set(1),into: temp26});
               abap.builtin.sy.get().tabix.set(temp27);
-              if (abap.compare.ne(abap.builtin.sy.get().subrc, constant_0)) {
+              if (abap.compare.ne(abap.builtin.sy.get().subrc, new abap.types.Integer().set(0))) {
                 throw await (new abap.Classes['CX_SY_ITAB_LINE_NOT_FOUND']()).constructor_();
               }
               temp29.set(abap.builtin.sy.get().tabix);
-              abap.statements.readTable(this.stack_of_required_tabs,{index: constant_1,into: temp28});
+              abap.statements.readTable(this.stack_of_required_tabs,{index: new abap.types.Integer().set(1),into: temp28});
               abap.builtin.sy.get().tabix.set(temp29);
-              if (abap.compare.ne(abap.builtin.sy.get().subrc, constant_0)) {
+              if (abap.compare.ne(abap.builtin.sy.get().subrc, new abap.types.Integer().set(0))) {
                 throw await (new abap.Classes['CX_SY_ITAB_LINE_NOT_FOUND']()).constructor_();
               }
-              for await (const unique60 of abap.statements.loop(temp28)) {
-                fs_required_comp_.assign(unique60);
+              for await (const unique66 of abap.statements.loop(temp28)) {
+                fs_required_comp_.assign(unique66);
                 temp40.set(abap.builtin.sy.get().tabix);
-                abap.statements.readTable(this.stack_of_required_tabs,{index: constant_1,into: temp39});
+                abap.statements.readTable(this.stack_of_required_tabs,{index: new abap.types.Integer().set(1),into: temp39});
                 abap.builtin.sy.get().tabix.set(temp40);
-                if (abap.compare.ne(abap.builtin.sy.get().subrc, constant_0)) {
+                if (abap.compare.ne(abap.builtin.sy.get().subrc, new abap.types.Integer().set(0))) {
                   throw await (new abap.Classes['CX_SY_ITAB_LINE_NOT_FOUND']()).constructor_();
                 }
                 if (abap.compare.lt(abap.builtin.sy.get().tabix, abap.builtin.lines({val: temp39}))) {
@@ -992,7 +987,7 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
                   await this.write_tag({line: new abap.types.String().set(`"${abap.templateFormatting(fs_required_comp_)}"`)});
                 }
               }
-              this.indent_level.set(abap.operators.minus(this.indent_level,constant_1));
+              this.indent_level.set(abap.operators.minus(this.indent_level,new abap.types.Integer().set(1)));
               await this.write_tag({line: new abap.types.String().set(`]`)});
             }
           }
@@ -1025,11 +1020,11 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
           let abap_date = new abap.types.String({qualifiedName: "STRING"});
           let difference = new abap.types.Integer({qualifiedName: "I"});
           abap_date.set(date_time_abap);
-          abap.statements.replace({target:abap_date, all:true, with: new abap.types.String().set(``),of: new abap.types.String().set(`"`)});
+          abap.statements.replace({target: abap_date, all: true, with: new abap.types.String().set(``), of: new abap.types.String().set(`"`)});
           if (abap.compare.eq(element_description.get().type_kind, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_date)) {
-            if (abap.compare.eq(abap.builtin.strlen({val: abap_date}), constant_8)) {
+            if (abap.compare.eq(abap.builtin.strlen({val: abap_date}), new abap.types.Integer().set(8))) {
               date_time_json.set(abap.operators.concat(abap_date.getOffset({offset: 0, length: 4}),abap.operators.concat(new abap.types.String().set(`-`),abap.operators.concat(abap_date.getOffset({offset: 4, length: 2}),abap.operators.concat(new abap.types.String().set(`-`),abap_date.getOffset({offset: 6, length: 2}))))));
-            } else if (abap.compare.eq(abap.builtin.strlen({val: abap_date}), constant_6)) {
+            } else if (abap.compare.eq(abap.builtin.strlen({val: abap_date}), new abap.types.Integer().set(6))) {
               date_time_json.set(abap.operators.concat(abap_date.getOffset({offset: 0, length: 4}),abap.operators.concat(new abap.types.String().set(`-`),abap_date.getOffset({offset: 4, length: 2}))));
             } else {
               date_time_json.set(abap_date);
@@ -1037,9 +1032,9 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
           } else if (abap.compare.eq(element_description.get().type_kind, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_utclong)) {
             date_time_json.set(abap.operators.concat(abap_date.getOffset({offset: 0, length: 19}),new abap.types.String().set(`+00:00`)));
           } else if (abap.compare.eq(element_description.get().type_kind, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_time)) {
-            difference.set(abap.operators.minus(constant_6,abap.builtin.strlen({val: abap_date})));
-            if (abap.compare.gt(difference, constant_0)) {
-              abap_date.set(abap.operators.concat(abap_date,abap.builtin.repeat({val: new abap.types.Character({length: 1}).set('0'), occ: difference})));
+            difference.set(abap.operators.minus(new abap.types.Integer().set(6),abap.builtin.strlen({val: abap_date})));
+            if (abap.compare.gt(difference, new abap.types.Integer().set(0))) {
+              abap_date.set(abap.operators.concat(abap_date,abap.builtin.repeat({val: new abap.types.Character(1).set('0'), occ: difference})));
             }
             date_time_json.set(abap.operators.concat(abap_date.getOffset({offset: 0, length: 2}),abap.operators.concat(new abap.types.String().set(`:`),abap.operators.concat(abap_date.getOffset({offset: 2, length: 2}),abap.operators.concat(new abap.types.String().set(`:`),abap_date.getOffset({offset: 4, length: 2}))))));
           }
@@ -1054,29 +1049,29 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
           abap.statements.append({source: new abap.types.String().set(``), target: this.output});
         }
         async check_title_and_description(INPUT) {
-          let abap_doc_to_check = new abap.types.Structure({required: new abap.types.Character({qualifiedName: "ABAP_BOOL"}), showalways: new abap.types.Character({qualifiedName: "ABAP_BOOL"}), title: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-TITLE"}), description: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-DESCRIPTION"}), enumvalues_link: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-ENUMVALUES_LINK"}), minimum: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MINIMUM"}), maximum: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MAXIMUM"}), exclusive_minimum: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-EXCLUSIVE_MINIMUM"}), exclusive_maximum: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-EXCLUSIVE_MAXIMUM"}), multiple_of: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MULTIPLE_OF"}), default_: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-DEFAULT_"}), min_length: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MIN_LENGTH"}), max_length: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MAX_LENGTH"}), callback_class: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-CALLBACK_CLASS"}), enum_value: new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-ENUM_VALUE"})}, "zcl_aff_abap_doc_parser=>abap_doc");
+          let abap_doc_to_check = new abap.types.Structure({"required": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "showalways": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "title": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-TITLE"}), "description": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-DESCRIPTION"}), "enumvalues_link": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-ENUMVALUES_LINK"}), "minimum": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MINIMUM"}), "maximum": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MAXIMUM"}), "exclusive_minimum": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-EXCLUSIVE_MINIMUM"}), "exclusive_maximum": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-EXCLUSIVE_MAXIMUM"}), "multiple_of": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MULTIPLE_OF"}), "default_": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-DEFAULT_"}), "min_length": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MIN_LENGTH"}), "max_length": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-MAX_LENGTH"}), "callback_class": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-CALLBACK_CLASS"}), "enum_value": new abap.types.String({qualifiedName: "ZCL_AFF_ABAP_DOC_PARSER=>ABAP_DOC-ENUM_VALUE"})}, "zcl_aff_abap_doc_parser=>abap_doc");
           if (INPUT && INPUT.abap_doc_to_check) {abap_doc_to_check.set(INPUT.abap_doc_to_check);}
           let fullname_of_checked_type = new abap.types.String({qualifiedName: "STRING"});
           if (INPUT && INPUT.fullname_of_checked_type) {fullname_of_checked_type.set(INPUT.fullname_of_checked_type);}
           let msg = new abap.types.String({qualifiedName: "STRING"});
-          let temp42 = new abap.types.Character({length: 50, qualifiedName: "SYMSGV"});
+          let temp42 = new abap.types.Character(50, {"qualifiedName":"SYMSGV"});
           if (abap.compare.initial(this.ignore_til_indent_level) || abap.compare.gt(this.ignore_til_indent_level, this.indent_level)) {
             if (abap.compare.initial(abap_doc_to_check.get().title)) {
-              msg.set((await this.log.get().zif_aff_log$get_message_text({msgno: constant_119, msgv1: new abap.types.String().set(`Title`)})));
+              msg.set((await this.log.get().zif_aff_log$get_message_text({msgno: new abap.types.Integer().set(119), msgv1: new abap.types.String().set(`Title`)})));
               await this.log.get().zif_aff_log$add_info({message_text: msg, component_name: fullname_of_checked_type});
             }
             if (abap.compare.initial(abap_doc_to_check.get().description)) {
-              msg.set((await this.log.get().zif_aff_log$get_message_text({msgno: constant_119, msgv1: new abap.types.String().set(`Description`)})));
+              msg.set((await this.log.get().zif_aff_log$get_message_text({msgno: new abap.types.Integer().set(119), msgv1: new abap.types.String().set(`Description`)})));
               await this.log.get().zif_aff_log$add_info({message_text: msg, component_name: fullname_of_checked_type});
             } else if (abap.compare.gt(abap.builtin.strlen({val: abap_doc_to_check.get().description}), zcl_aff_writer_json_schema.c_max_length_of_description)) {
               temp42.set(zcl_aff_writer_json_schema.c_max_length_of_description);
-              msg.set((await this.log.get().zif_aff_log$get_message_text({msgno: constant_125, msgv1: temp42})));
+              msg.set((await this.log.get().zif_aff_log$get_message_text({msgno: new abap.types.Integer().set(125), msgv1: temp42})));
               await this.log.get().zif_aff_log$add_warning({message_text: msg, component_name: fullname_of_checked_type});
             }
           }
         }
         async zif_aff_writer$validate(INPUT) {
-          let result = new abap.types.Character({qualifiedName: "ABAP_BOOL"});
+          let result = new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});
           let source = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
           if (INPUT && INPUT.source) {source.set(INPUT.source);}
           let log = new abap.types.ABAPObject({qualifiedName: "ZIF_AFF_LOG"});
@@ -1115,7 +1110,7 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
           let temp43 = new abap.types.Integer({qualifiedName: "I"});
           let length = new abap.types.Integer({qualifiedName: "I"});
           let length_as_string = new abap.types.String({qualifiedName: "STRING"});
-          if (abap.compare.gt(element_description.get().output_length, constant_0)) {
+          if (abap.compare.gt(element_description.get().output_length, new abap.types.Integer().set(0))) {
             if (abap.compare.gt(abap.operators.divide(element_description.get().length,abap.Classes['CL_ABAP_CHAR_UTILITIES'].charsize), element_description.get().output_length)) {
               temp43.set(abap.operators.divide(element_description.get().length,abap.Classes['CL_ABAP_CHAR_UTILITIES'].charsize));
             } else {
@@ -1135,12 +1130,12 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
           if (INPUT && INPUT.max) {max = INPUT.max;}
           let min = new abap.types.String({qualifiedName: "STRING"});
           if (INPUT && INPUT.min) {min = INPUT.min;}
-          let r_field = new abap.types.DataReference(new abap.types.Character({length: 4}));
-          let fs_field_ = new abap.types.FieldSymbol(new abap.types.Character({length: 4}));
-          let max_val = new abap.types.DataReference(new abap.types.Character({length: 4}));
-          let fs_max_ = new abap.types.FieldSymbol(new abap.types.Character({length: 4}));
-          let min_val = new abap.types.DataReference(new abap.types.Character({length: 4}));
-          let fs_min_ = new abap.types.FieldSymbol(new abap.types.Character({length: 4}));
+          let r_field = new abap.types.DataReference(new abap.types.Character(4));
+          let fs_field_ = new abap.types.FieldSymbol(new abap.types.Character(4));
+          let max_val = new abap.types.DataReference(new abap.types.Character(4));
+          let fs_max_ = new abap.types.FieldSymbol(new abap.types.Character(4));
+          let min_val = new abap.types.DataReference(new abap.types.Character(4));
+          let fs_min_ = new abap.types.FieldSymbol(new abap.types.Character(4));
           let min_str = new abap.types.String({qualifiedName: "STRING"});
           let length = new abap.types.Integer({qualifiedName: "I"});
           let front = new abap.types.String({qualifiedName: "STRING"});
@@ -1152,29 +1147,29 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
           abap.statements.assign({target: fs_max_, source: (max_val).getPointer()});
           if (abap.compare.assigned(fs_max_)) {
             max.set(fs_max_);
-            abap.statements.replace({target:max, all:true, with: new abap.types.Character({length: 1}).set('e'),of: new abap.types.Character({length: 1}).set('E')});
-            abap.statements.replace({target:max, all:true, with: new abap.types.Character({length: 0}).set(''),of: new abap.types.Character({length: 1}).set('+')});
+            abap.statements.replace({target: max, all: true, with: new abap.types.Character(1).set('e'), of: new abap.types.Character(1).set('E')});
+            abap.statements.replace({target: max, all: true, with: new abap.types.Character(0).set(''), of: new abap.types.Character(1).set('+')});
             await this.remove_leading_trailing_spaces({string_to_work_on: max});
           }
           if (abap.compare.eq(element_description.get().type_kind, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_decfloat) || abap.compare.eq(element_description.get().type_kind, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_decfloat16) || abap.compare.eq(element_description.get().type_kind, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_decfloat34)) {
             if (abap.compare.assigned(fs_max_)) {
-              min.set(abap.operators.concat(new abap.types.Character({length: 1}).set('-'),max));
+              min.set(abap.operators.concat(new abap.types.Character(1).set('-'),max));
             }
           } else {
             min_val.set((await abap.Classes['CL_ABAP_EXCEPTIONAL_VALUES'].get_min_value({in_: fs_field_})));
             abap.statements.assign({target: fs_min_, source: (min_val).getPointer()});
             if (abap.compare.assigned(fs_min_)) {
               min_str.set(fs_min_);
-              length.set(abap.operators.minus(abap.builtin.strlen({val: min_str}),constant_1));
-              front.set(abap.builtin.substring({val: min_str, off: constant_0, len: length}));
-              back.set(abap.builtin.substring({val: min_str, off: length, len: constant_1}));
-              if (abap.compare.eq(back, new abap.types.Character({length: 1}).set('-'))) {
+              length.set(abap.operators.minus(abap.builtin.strlen({val: min_str}),new abap.types.Integer().set(1)));
+              front.set(abap.builtin.substring({val: min_str, off: new abap.types.Integer().set(0), len: length}));
+              back.set(abap.builtin.substring({val: min_str, off: length, len: new abap.types.Integer().set(1)}));
+              if (abap.compare.eq(back, new abap.types.Character(1).set('-'))) {
                 min.set(abap.operators.concat(back,front));
               } else {
                 min.set(min_str);
               }
-              abap.statements.replace({target:min, all:true, with: new abap.types.Character({length: 1}).set('e'),of: new abap.types.Character({length: 1}).set('E')});
-              abap.statements.replace({target:min, all:true, with: new abap.types.Character({length: 0}).set(''),of: new abap.types.Character({length: 1}).set('+')});
+              abap.statements.replace({target: min, all: true, with: new abap.types.Character(1).set('e'), of: new abap.types.Character(1).set('E')});
+              abap.statements.replace({target: min, all: true, with: new abap.types.Character(0).set(''), of: new abap.types.Character(1).set('+')});
               await this.remove_leading_trailing_spaces({string_to_work_on: min});
             }
           }
@@ -1189,5 +1184,9 @@ class zcl_aff_writer_json_schema extends zcl_aff_writer {
       zcl_aff_writer_json_schema.c_format_version.set('FORMAT_VERSION');
       zcl_aff_writer_json_schema.c_max_length_of_description = new abap.types.Integer({qualifiedName: "I"});
       zcl_aff_writer_json_schema.c_max_length_of_description.set(253);
+      zcl_aff_writer_json_schema.ty_buffer = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NAME"}), "number_brackets": new abap.types.Integer({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NUMBER_BRACKETS"})}, "zcl_aff_writer_json_schema=>ty_buffer");
+      zcl_aff_writer_json_schema.tt_buffer = new abap.types.Table(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NAME"}), "number_brackets": new abap.types.Integer({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_BUFFER-NUMBER_BRACKETS"})}, "zcl_aff_writer_json_schema=>ty_buffer"), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "zcl_aff_writer_json_schema=>tt_buffer");
+      zcl_aff_writer_json_schema.ty_enum_value = new abap.types.Structure({"value": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-VALUE"}), "overwritten_value": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-OVERWRITTEN_VALUE"})}, "zcl_aff_writer_json_schema=>ty_enum_value");
+      zcl_aff_writer_json_schema.ty_enum_properties = new abap.types.Structure({"values": new abap.types.Table(new abap.types.Structure({"value": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-VALUE"}), "overwritten_value": new abap.types.String({qualifiedName: "ZCL_AFF_WRITER_JSON_SCHEMA=>TY_ENUM_VALUE-OVERWRITTEN_VALUE"})}, "zcl_aff_writer_json_schema=>ty_enum_value"), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "zcl_aff_writer_json_schema=>ty_enum_properties-values"), "titles": new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE"), "descriptions": new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE")}, "zcl_aff_writer_json_schema=>ty_enum_properties");
 export {zcl_aff_writer_json_schema};
 //# sourceMappingURL=zcl_aff_writer_json_schema.clas.mjs.map

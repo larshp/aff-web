@@ -1,6 +1,5 @@
 const {cx_root} = await import("./cx_root.clas.mjs");
 // cl_cam_address_bcs.clas.abap
-const constant_1 = new abap.types.Integer().set(1);
 class cl_cam_address_bcs {
   static INTERNAL_TYPE = 'CLAS';
   static IMPLEMENTED_INTERFACES = ["IF_RECIPIENT_BCS","IF_SENDER_BCS"];
@@ -18,9 +17,9 @@ class cl_cam_address_bcs {
     if (INPUT && INPUT.i_address_string) {i_address_string = INPUT.i_address_string;}
     let i_address_name = new abap.types.Character();
     if (INPUT && INPUT.i_address_name) {i_address_name = INPUT.i_address_name;}
-    let i_incl_sapuser = new abap.types.Character({qualifiedName: "ABAP_BOOL"});
+    let i_incl_sapuser = new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});
     if (INPUT && INPUT.i_incl_sapuser) {i_incl_sapuser = INPUT.i_incl_sapuser;}
-    abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 4}).set('todo')));
+    abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(4).set('todo')));
     return result;
   }
 }

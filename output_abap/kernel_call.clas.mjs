@@ -12,12 +12,12 @@ class kernel_call {
     return kernel_call.call(INPUT);
   }
   static async call(INPUT) {
-    let input = new abap.types.Character({length: 4});
+    let input = new abap.types.Character(4);
     if (INPUT && INPUT.input) {input = INPUT.input;}
     let uuid = new abap.types.Hex({length: 16});
     let name = new abap.types.String({qualifiedName: "STRING"});
     name.set(INPUT.name);
-    if (abap.compare.eq(name, new abap.types.Character({length: 10}).set('RFCControl'))) {
+    if (abap.compare.eq(name, new abap.types.Character(10).set('RFCControl'))) {
       uuid.set((await abap.Classes['CL_SYSTEM_UUID'].if_system_uuid_static$create_uuid_x16()));
       INPUT.uuid.set(uuid);
     }

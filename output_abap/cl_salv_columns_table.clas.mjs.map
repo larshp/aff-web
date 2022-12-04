@@ -4,7 +4,7 @@
     "cl_salv_columns_table.clas.abap"
   ],
   "names": [],
-  "mappings": ";;;AAeA;;;;;;;;EACE;;;;IACE,oCAAS,GAAF,YAAI,kDAAM;IACnB;;EAEA;;;IACE,oCAAS,GAAF,YAAI,kDAAM;EACnB;EAEA;;;;IACE,oCAAS,GAAF,YAAI,kDAAM;EACnB;EAEA;;IACE,oCAAS,GAAF,YAAI,kDAAM;IACnB;;EAEA;;;IACE,oCAAS,GAAF,YAAI,kDAAM;EACnB;AACF",
+  "mappings": ";;AAeA;;;;;;;;EACE;;;;IACE,oCAAS,GAAF,iCAAI,wCAAM;IACnB;;EAEA;;;IACE,oCAAS,GAAF,iCAAI,wCAAM;EACnB;EAEA;;;;IACE,oCAAS,GAAF,iCAAI,wCAAM;EACnB;EAEA;;IACE,oCAAS,GAAF,iCAAI,wCAAM;IACnB;;EAEA;;;IACE,oCAAS,GAAF,iCAAI,wCAAM;EACnB;AACF",
   "file": "cl_salv_columns_table.clas.mjs",
   "sourceRoot": ""
 }

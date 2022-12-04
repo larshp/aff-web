@@ -1,7 +1,6 @@
 const {cl_abap_objectdescr} = await import("./cl_abap_objectdescr.clas.mjs");
 const {cx_root} = await import("./cx_root.clas.mjs");
 // cl_abap_classdescr.clas.abap
-const constant_1 = new abap.types.Integer().set(1);
 class cl_abap_classdescr extends cl_abap_objectdescr {
   static INTERNAL_TYPE = 'CLAS';
   static IMPLEMENTED_INTERFACES = [];
@@ -15,15 +14,15 @@ class cl_abap_classdescr extends cl_abap_objectdescr {
     return cl_abap_classdescr.get_class_name(INPUT);
   }
   static async get_class_name(INPUT) {
-    let p_name = new abap.types.Character({length: 200, qualifiedName: "abap_abstypename"});
+    let p_name = new abap.types.Character(200, {"qualifiedName":"abap_abstypename"});
     let p_object = new abap.types.ABAPObject();
     if (INPUT && INPUT.p_object) {p_object = INPUT.p_object;}
-    abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 4}).set('todo')));
+    abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(4).set('todo')));
     return p_name;
   }
   async get_super_class_type() {
     let p_descr_ref = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_CLASSDESCR"});
-    abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 4}).set('todo')));
+    abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(4).set('todo')));
     return p_descr_ref;
   }
 }

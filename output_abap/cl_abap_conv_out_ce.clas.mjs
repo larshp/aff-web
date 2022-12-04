@@ -1,8 +1,5 @@
 const {cx_root} = await import("./cx_root.clas.mjs");
 // cl_abap_conv_out_ce.clas.abap
-const constant_1 = new abap.types.Integer().set(1);
-const constant_2 = new abap.types.Integer().set(2);
-const constant_255 = new abap.types.Integer().set(255);
 class cl_abap_conv_out_ce {
   static INTERNAL_TYPE = 'CLAS';
   static IMPLEMENTED_INTERFACES = [];
@@ -18,9 +15,9 @@ class cl_abap_conv_out_ce {
   }
   static async create(INPUT) {
     let ret = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_CONV_OUT_CE"});
-    let encoding = new abap.types.Character({length: 20, qualifiedName: "abap_encoding"});
+    let encoding = new abap.types.Character(20, {"qualifiedName":"abap_encoding"});
     if (INPUT && INPUT.encoding) {encoding.set(INPUT.encoding);}
-    let ignore_cerr = new abap.types.Character({qualifiedName: "ABAP_BOOL"});
+    let ignore_cerr = new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});
     if (INPUT && INPUT.ignore_cerr) {ignore_cerr = INPUT.ignore_cerr;}
     if (INPUT === undefined || INPUT.ignore_cerr === undefined) {ignore_cerr = abap.builtin.abap_false;}
     let endian = new abap.types.String({qualifiedName: "STRING"});
@@ -28,13 +25,13 @@ class cl_abap_conv_out_ce {
     let replacement = new abap.types.String({qualifiedName: "STRING"});
     if (INPUT && INPUT.replacement) {replacement.set(INPUT.replacement);}
     ret.set(await (new abap.Classes['CL_ABAP_CONV_OUT_CE']()).constructor_());
-    let unique87 = encoding;
-    if (abap.compare.eq(unique87, new abap.types.Character({length: 5}).set('UTF-8')) || abap.compare.eq(unique87, new abap.types.Character({length: 0}).set(''))) {
-      ret.get().mv_js_encoding.set(new abap.types.Character({length: 4}).set('utf8'));
-    } else if (abap.compare.eq(unique87, new abap.types.Character({length: 4}).set('4103'))) {
-      ret.get().mv_js_encoding.set(new abap.types.Character({length: 7}).set('utf16le'));
+    let unique93 = encoding;
+    if (abap.compare.eq(unique93, new abap.types.Character(5).set('UTF-8')) || abap.compare.eq(unique93, new abap.types.Character(0).set(''))) {
+      ret.get().mv_js_encoding.set(new abap.types.Character(4).set('utf8'));
+    } else if (abap.compare.eq(unique93, new abap.types.Character(4).set('4103'))) {
+      ret.get().mv_js_encoding.set(new abap.types.Character(7).set('utf16le'));
     } else {
-      abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 13}).set('not supported')));
+      abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(13).set('not supported')));
     }
     return ret;
   }
@@ -47,11 +44,11 @@ class cl_abap_conv_out_ce {
     if (INPUT && INPUT.value) {value.set(INPUT.value);}
     let lo_out = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_CONV_OUT_CE"});
     let lv_hex = new abap.types.XString({qualifiedName: "XSTRING"});
-    lo_out.set((await this.create({encoding: new abap.types.Character({length: 4}).set('4103')})));
+    lo_out.set((await this.create({encoding: new abap.types.Character(4).set('4103')})));
     await lo_out.get().convert({data: value, buffer: lv_hex});
-    abap.statements.assert(abap.compare.eq(abap.builtin.xstrlen({val: lv_hex}), constant_2));
+    abap.statements.assert(abap.compare.eq(abap.builtin.xstrlen({val: lv_hex}), new abap.types.Integer().set(2)));
     ret.set(lv_hex.getOffset({length: 1}));
-    ret.set(abap.operators.add(ret,abap.operators.multiply(lv_hex.getOffset({offset: 1, length: 1}),constant_255)));
+    ret.set(abap.operators.add(ret,abap.operators.multiply(lv_hex.getOffset({offset: 1, length: 1}),new abap.types.Integer().set(255))));
     return ret;
   }
   async write(INPUT) {

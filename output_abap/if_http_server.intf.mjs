@@ -1,8 +1,4 @@
 // if_http_server.intf.abap
-const constant_0 = new abap.types.Integer().set(0);
-const constant_1 = new abap.types.Integer().set(1);
-const constant_2 = new abap.types.Integer().set(2);
-const constant_4 = new abap.types.Integer().set(4);
 class if_http_server {
   static INTERNAL_TYPE = 'INTF';
   static IMPLEMENTED_INTERFACES = [];
@@ -16,9 +12,9 @@ if_http_server.if_http_server$co_disabled = new abap.types.Integer({qualifiedNam
 if_http_server.if_http_server$co_disabled.set(0);
 if_http_server.if_http_server$co_enabled = new abap.types.Integer({qualifiedName: "I"});
 if_http_server.if_http_server$co_enabled.set(1);
-if_http_server.if_http_server$co_page_error_type = new abap.types.Character();
+if_http_server.if_http_server$co_page_error_type = new abap.types.Character(1, {});
 if_http_server.if_http_server$co_page_error_type.set('1');
-if_http_server.if_http_server$co_response_page_option = new abap.types.Character();
+if_http_server.if_http_server$co_response_page_option = new abap.types.Character(1, {});
 if_http_server.if_http_server$co_response_page_option.set(' ');
 export {if_http_server};
 //# sourceMappingURL=if_http_server.intf.mjs.map

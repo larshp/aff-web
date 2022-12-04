@@ -4,7 +4,7 @@
     "cl_bcs_convert.clas.abap"
   ],
   "names": [],
-  "mappings": ";;;AAiBA;;;;;;;;EAEE;;;;;;;IACE,oCAAS,GAAF,YAAI,kDAAM;IACnB;;EAEA;;;;;;;IACE,oCAAS,GAAF,YAAI,kDAAM;IACnB;;AAEF",
+  "mappings": ";;AAiBA;;;;;;;;EAEE;;;;;;;IACE,oCAAS,GAAF,iCAAI,wCAAM;IACnB;;EAEA;;;;;;;IACE,oCAAS,GAAF,iCAAI,wCAAM;IACnB;;AAEF",
   "file": "cl_bcs_convert.clas.mjs",
   "sourceRoot": ""
 }

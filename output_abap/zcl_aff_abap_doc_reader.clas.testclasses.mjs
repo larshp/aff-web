@@ -123,28 +123,28 @@ class ltcl_abap_doc_reader {
   }
   async get_abap_doc_4_element_types() {
     let result = new abap.types.String({qualifiedName: "STRING"});
-    result.set((await this.test_obj.get().get_abap_doc_for_element({element_name: new abap.types.Character({length: 16}).set('ty_pub_structure')})));
-    await abap.Classes['CL_ABAP_UNIT_ASSERT'].assert_equals({exp: new abap.types.Character({length: 42}).set('abap doc comment begin of ty_pub_structure'), act: result});
+    result.set((await this.test_obj.get().get_abap_doc_for_element({element_name: new abap.types.Character(16).set('ty_pub_structure')})));
+    await abap.Classes['CL_ABAP_UNIT_ASSERT'].assert_equals({exp: new abap.types.Character(42).set('abap doc comment begin of ty_pub_structure'), act: result});
   }
   async get_abap_doc_4_element_data() {
     let result = new abap.types.String({qualifiedName: "STRING"});
-    result.set((await this.test_obj.get().get_abap_doc_for_element({element_name: new abap.types.Character({length: 3}).set('ABC')})));
-    await abap.Classes['CL_ABAP_UNIT_ASSERT'].assert_equals({exp: new abap.types.Character({length: 16}).set('Just simple data'), act: result});
+    result.set((await this.test_obj.get().get_abap_doc_for_element({element_name: new abap.types.Character(3).set('ABC')})));
+    await abap.Classes['CL_ABAP_UNIT_ASSERT'].assert_equals({exp: new abap.types.Character(16).set('Just simple data'), act: result});
   }
   async get_abap_doc_4_sub_elem_types() {
     let result = new abap.types.String({qualifiedName: "STRING"});
-    result.set((await this.test_obj.get().get_abap_doc_for_element({element_name: new abap.types.Character({length: 24}).set('ty_pub_structure-field_a')})));
-    await abap.Classes['CL_ABAP_UNIT_ASSERT'].assert_equals({exp: new abap.types.Character({length: 41}).set('ABAP Doc This is field A of the structure'), act: result});
+    result.set((await this.test_obj.get().get_abap_doc_for_element({element_name: new abap.types.Character(24).set('ty_pub_structure-field_a')})));
+    await abap.Classes['CL_ABAP_UNIT_ASSERT'].assert_equals({exp: new abap.types.Character(41).set('ABAP Doc This is field A of the structure'), act: result});
   }
   async get_abap_doc_4_wrong_elem_name() {
     try {
-      await this.test_obj.get().get_abap_doc_for_element({element_name: new abap.types.Character({length: 18}).set('ty_nicht_vorhanden')});
-      await abap.Classes['CL_ABAP_UNIT_ASSERT'].fail({msg: new abap.types.Character({length: 62}).set('Expected exception reporting wrong element name was not raised')});
+      await this.test_obj.get().get_abap_doc_for_element({element_name: new abap.types.Character(18).set('ty_nicht_vorhanden')});
+      await abap.Classes['CL_ABAP_UNIT_ASSERT'].fail({msg: new abap.types.Character(62).set('Expected exception reporting wrong element name was not raised')});
     } catch (e) {
       if (e instanceof abap.Classes['ZCX_AFF_TOOLS']) {
         return;
       } else if (e instanceof abap.Classes['CX_ROOT']) {
-        await abap.Classes['CL_ABAP_UNIT_ASSERT'].fail({msg: new abap.types.Character({length: 36}).set('Unexpected exception type was raised')});
+        await abap.Classes['CL_ABAP_UNIT_ASSERT'].fail({msg: new abap.types.Character(36).set('Unexpected exception type was raised')});
       } else {
         throw e;
       }
@@ -152,13 +152,13 @@ class ltcl_abap_doc_reader {
   }
   async get_abap_doc_4_elem_wo_adoc() {
     try {
-      await this.test_obj.get().get_abap_doc_for_element({element_name: new abap.types.Character({length: 5}).set('SUBRC')});
-      await abap.Classes['CL_ABAP_UNIT_ASSERT'].fail({msg: new abap.types.Character({length: 62}).set('Expected exception reporting wrong element name was not raised')});
+      await this.test_obj.get().get_abap_doc_for_element({element_name: new abap.types.Character(5).set('SUBRC')});
+      await abap.Classes['CL_ABAP_UNIT_ASSERT'].fail({msg: new abap.types.Character(62).set('Expected exception reporting wrong element name was not raised')});
     } catch (e) {
       if (e instanceof abap.Classes['ZCX_AFF_TOOLS']) {
         return;
       } else if (e instanceof abap.Classes['CX_ROOT']) {
-        await abap.Classes['CL_ABAP_UNIT_ASSERT'].fail({msg: new abap.types.Character({length: 36}).set('Unexpected exception type was raised')});
+        await abap.Classes['CL_ABAP_UNIT_ASSERT'].fail({msg: new abap.types.Character(36).set('Unexpected exception type was raised')});
       } else {
         throw e;
       }
@@ -188,8 +188,8 @@ class ltcl_abap_doc_reader {
     temp44.set(new abap.types.String().set(`ENDCLASS.`));
     abap.statements.append({source: temp44, target: temp43});
     source.set(temp43);
-    result.set((await (await abap.Classes['ZCL_AFF_ABAP_DOC_READER'].create_instance({source: source})).get().get_abap_doc_for_element({element_name: new abap.types.Character({length: 18}).set('UNKNOWN_ANNOTATION')})));
-    await abap.Classes['CL_ABAP_UNIT_ASSERT'].assert_equals({exp: new abap.types.Character({length: 10}).set('$hiddenabc'), act: result});
+    result.set((await (await abap.Classes['ZCL_AFF_ABAP_DOC_READER'].create_instance({source: source})).get().get_abap_doc_for_element({element_name: new abap.types.Character(18).set('UNKNOWN_ANNOTATION')})));
+    await abap.Classes['CL_ABAP_UNIT_ASSERT'].assert_equals({exp: new abap.types.Character(10).set('$hiddenabc'), act: result});
   }
   async get_structure() {
     let temp50 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
@@ -236,12 +236,12 @@ class ltcl_abap_doc_reader {
     temp58.set(new abap.types.String().set(`      END OF my_structure.`));
     abap.statements.append({source: temp58, target: temp50});
     source.set(temp50);
-    result.set((await (await abap.Classes['ZCL_AFF_ABAP_DOC_READER'].create_instance({source: source})).get().get_abap_doc_for_element({element_name: new abap.types.Character({length: 12}).set('MY_STRUCTURE')})));
-    await abap.Classes['CL_ABAP_UNIT_ASSERT'].assert_equals({exp: new abap.types.Character({length: 7}).set('foo bar'), act: result});
-    result.set((await (await abap.Classes['ZCL_AFF_ABAP_DOC_READER'].create_instance({source: source})).get().get_abap_doc_for_element({element_name: new abap.types.Character({length: 29}).set('MY_STRUCTURE-MY_FIRST_ELEMENT')})));
-    await abap.Classes['CL_ABAP_UNIT_ASSERT'].assert_equals({exp: new abap.types.Character({length: 8}).set('l1 l2 l3'), act: result});
-    result.set((await (await abap.Classes['ZCL_AFF_ABAP_DOC_READER'].create_instance({source: source})).get().get_abap_doc_for_element({element_name: new abap.types.Character({length: 30}).set('MY_STRUCTURE-MY_SECOND_ELEMENT')})));
-    await abap.Classes['CL_ABAP_UNIT_ASSERT'].assert_equals({exp: new abap.types.Character({length: 5}).set('l4 l5'), act: result});
+    result.set((await (await abap.Classes['ZCL_AFF_ABAP_DOC_READER'].create_instance({source: source})).get().get_abap_doc_for_element({element_name: new abap.types.Character(12).set('MY_STRUCTURE')})));
+    await abap.Classes['CL_ABAP_UNIT_ASSERT'].assert_equals({exp: new abap.types.Character(7).set('foo bar'), act: result});
+    result.set((await (await abap.Classes['ZCL_AFF_ABAP_DOC_READER'].create_instance({source: source})).get().get_abap_doc_for_element({element_name: new abap.types.Character(29).set('MY_STRUCTURE-MY_FIRST_ELEMENT')})));
+    await abap.Classes['CL_ABAP_UNIT_ASSERT'].assert_equals({exp: new abap.types.Character(8).set('l1 l2 l3'), act: result});
+    result.set((await (await abap.Classes['ZCL_AFF_ABAP_DOC_READER'].create_instance({source: source})).get().get_abap_doc_for_element({element_name: new abap.types.Character(30).set('MY_STRUCTURE-MY_SECOND_ELEMENT')})));
+    await abap.Classes['CL_ABAP_UNIT_ASSERT'].assert_equals({exp: new abap.types.Character(5).set('l4 l5'), act: result});
   }
   async structure_and_fields() {
     let temp64 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
@@ -279,10 +279,10 @@ class ltcl_abap_doc_reader {
     temp69.set(new abap.types.String().set(`      END OF structure2.`));
     abap.statements.append({source: temp69, target: temp64});
     source.set(temp64);
-    result.set((await (await abap.Classes['ZCL_AFF_ABAP_DOC_READER'].create_instance({source: source})).get().get_abap_doc_for_element({element_name: new abap.types.Character({length: 20}).set('STRUCTURE1-SAME_NAME')})));
-    await abap.Classes['CL_ABAP_UNIT_ASSERT'].assert_equals({exp: new abap.types.Character({length: 5}).set('text1'), act: result});
-    result.set((await (await abap.Classes['ZCL_AFF_ABAP_DOC_READER'].create_instance({source: source})).get().get_abap_doc_for_element({element_name: new abap.types.Character({length: 20}).set('STRUCTURE2-SAME_NAME')})));
-    await abap.Classes['CL_ABAP_UNIT_ASSERT'].assert_equals({exp: new abap.types.Character({length: 5}).set('text2'), act: result});
+    result.set((await (await abap.Classes['ZCL_AFF_ABAP_DOC_READER'].create_instance({source: source})).get().get_abap_doc_for_element({element_name: new abap.types.Character(20).set('STRUCTURE1-SAME_NAME')})));
+    await abap.Classes['CL_ABAP_UNIT_ASSERT'].assert_equals({exp: new abap.types.Character(5).set('text1'), act: result});
+    result.set((await (await abap.Classes['ZCL_AFF_ABAP_DOC_READER'].create_instance({source: source})).get().get_abap_doc_for_element({element_name: new abap.types.Character(20).set('STRUCTURE2-SAME_NAME')})));
+    await abap.Classes['CL_ABAP_UNIT_ASSERT'].assert_equals({exp: new abap.types.Character(5).set('text2'), act: result});
   }
   async get_structure_types() {
     let temp75 = new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE");
@@ -305,8 +305,8 @@ class ltcl_abap_doc_reader {
     temp74.set(new abap.types.String().set(`    END OF ty_descriptions.`));
     abap.statements.append({source: temp74, target: temp75});
     source.set(temp75);
-    result.set((await (await abap.Classes['ZCL_AFF_ABAP_DOC_READER'].create_instance({source: source})).get().get_abap_doc_for_element({element_name: new abap.types.Character({length: 21}).set('TY_DESCRIPTIONS-TYPES')})));
-    await abap.Classes['CL_ABAP_UNIT_ASSERT'].assert_equals({exp: new abap.types.Character({length: 5}).set('hello'), act: result});
+    result.set((await (await abap.Classes['ZCL_AFF_ABAP_DOC_READER'].create_instance({source: source})).get().get_abap_doc_for_element({element_name: new abap.types.Character(21).set('TY_DESCRIPTIONS-TYPES')})));
+    await abap.Classes['CL_ABAP_UNIT_ASSERT'].assert_equals({exp: new abap.types.Character(5).set('hello'), act: result});
   }
 }
 abap.Classes['CLAS-ZCL_AFF_ABAP_DOC_READER-LTCL_ABAP_DOC_READER'] = ltcl_abap_doc_reader;

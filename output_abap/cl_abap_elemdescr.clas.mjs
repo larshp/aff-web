@@ -1,10 +1,6 @@
 const {cl_abap_datadescr} = await import("./cl_abap_datadescr.clas.mjs");
 const {cx_root} = await import("./cx_root.clas.mjs");
 // cl_abap_elemdescr.clas.abap
-const constant_1 = new abap.types.Integer().set(1);
-const constant_10 = new abap.types.Integer().set(10);
-const constant_2 = new abap.types.Integer().set(2);
-const constant_60 = new abap.types.Integer().set(60);
 class cl_abap_elemdescr extends cl_abap_datadescr {
   static INTERNAL_TYPE = 'CLAS';
   static IMPLEMENTED_INTERFACES = [];
@@ -13,8 +9,8 @@ class cl_abap_elemdescr extends cl_abap_datadescr {
     this.me = new abap.types.ABAPObject();
     this.me.set(this);
     this.output_length = new abap.types.Integer({qualifiedName: "I"});
-    this.edit_mask = new abap.types.Character({length: 7, qualifiedName: "abap_editmask"});
-    this.help_id = new abap.types.Character({length: 62, qualifiedName: "abap_helpid"});
+    this.edit_mask = new abap.types.Character(7, {"qualifiedName":"abap_editmask"});
+    this.help_id = new abap.types.Character(62, {"qualifiedName":"abap_helpid"});
     return this;
   }
   async get_p(INPUT) {
@@ -26,7 +22,7 @@ class cl_abap_elemdescr extends cl_abap_datadescr {
     if (INPUT && INPUT.p_length) {p_length.set(INPUT.p_length);}
     let p_decimals = new abap.types.Integer({qualifiedName: "I"});
     if (INPUT && INPUT.p_decimals) {p_decimals.set(INPUT.p_decimals);}
-    abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 4}).set('todo')));
+    abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(4).set('todo')));
     return p_result;
   }
   async get_n(INPUT) {
@@ -36,7 +32,7 @@ class cl_abap_elemdescr extends cl_abap_datadescr {
     let p_result = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_ELEMDESCR"});
     let p_length = new abap.types.Integer({qualifiedName: "I"});
     if (INPUT && INPUT.p_length) {p_length.set(INPUT.p_length);}
-    abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 4}).set('todo')));
+    abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(4).set('todo')));
     return p_result;
   }
   async get_x(INPUT) {
@@ -46,7 +42,7 @@ class cl_abap_elemdescr extends cl_abap_datadescr {
     let p_result = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_ELEMDESCR"});
     let p_length = new abap.types.Integer({qualifiedName: "I"});
     if (INPUT && INPUT.p_length) {p_length.set(INPUT.p_length);}
-    abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 4}).set('todo')));
+    abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(4).set('todo')));
     return p_result;
   }
   async get_xstring() {
@@ -54,18 +50,18 @@ class cl_abap_elemdescr extends cl_abap_datadescr {
   }
   static async get_xstring() {
     let p_result = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_ELEMDESCR"});
-    abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 4}).set('todo')));
+    abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(4).set('todo')));
     return p_result;
   }
   async get_ddic_field(INPUT) {
-    let p_flddescr = new abap.types.Structure({tabname: new abap.types.Character({length: 30, qualifiedName: "DFIES-TABNAME"}), fieldname: new abap.types.Character({length: 30, qualifiedName: "DFIES-FIELDNAME"}), langu: new abap.types.Character({qualifiedName: "DFIES-LANGU"}), position: new abap.types.Numc({length: 4, qualifiedName: "DFIES-POSITION"}), offset: new abap.types.Numc({length: 6, qualifiedName: "DFIES-OFFSET"}), domname: new abap.types.Character({length: 30, qualifiedName: "DFIES-DOMNAME"}), rollname: new abap.types.Character({length: 30, qualifiedName: "DFIES-ROLLNAME"}), checktable: new abap.types.Character({qualifiedName: "DFIES-CHECKTABLE"}), leng: new abap.types.Numc({length: 6, qualifiedName: "DFIES-LENG"}), intlen: new abap.types.Numc({length: 6, qualifiedName: "DFIES-INTLEN"}), outputlen: new abap.types.Numc({length: 6, qualifiedName: "DFIES-OUTPUTLEN"}), decimals: new abap.types.Numc({length: 6, qualifiedName: "DFIES-DECIMALS"}), datatype: new abap.types.Character({qualifiedName: "DFIES-DATATYPE"}), inttype: new abap.types.Character({qualifiedName: "DFIES-INTTYPE"}), reftable: new abap.types.Character({qualifiedName: "DFIES-REFTABLE"}), reffield: new abap.types.Character({qualifiedName: "DFIES-REFFIELD"}), precfield: new abap.types.Character({qualifiedName: "DFIES-PRECFIELD"}), authorid: new abap.types.Character({qualifiedName: "DFIES-AUTHORID"}), memoryid: new abap.types.Character({qualifiedName: "DFIES-MEMORYID"}), logflag: new abap.types.Character({qualifiedName: "DFIES-LOGFLAG"}), mask: new abap.types.Character({qualifiedName: "DFIES-MASK"}), masklen: new abap.types.Character({qualifiedName: "DFIES-MASKLEN"}), convexit: new abap.types.Character({qualifiedName: "DFIES-CONVEXIT"}), headlen: new abap.types.Character({qualifiedName: "DFIES-HEADLEN"}), scrlen1: new abap.types.Character({qualifiedName: "DFIES-SCRLEN1"}), scrlen2: new abap.types.Character({qualifiedName: "DFIES-SCRLEN2"}), scrlen3: new abap.types.Character({qualifiedName: "DFIES-SCRLEN3"}), fieldtext: new abap.types.Character({qualifiedName: "DFIES-FIELDTEXT"}), reptext: new abap.types.Character({qualifiedName: "DFIES-REPTEXT"}), scrtext_s: new abap.types.Character({qualifiedName: "DFIES-SCRTEXT_S"}), scrtext_m: new abap.types.Character({qualifiedName: "DFIES-SCRTEXT_M"}), scrtext_l: new abap.types.Character({qualifiedName: "DFIES-SCRTEXT_L"}), keyflag: new abap.types.Character({qualifiedName: "DFIES-KEYFLAG"}), lowercase: new abap.types.Character({qualifiedName: "DFIES-LOWERCASE"}), mac: new abap.types.Character({qualifiedName: "DFIES-MAC"}), genkey: new abap.types.Character({qualifiedName: "DFIES-GENKEY"}), noforkey: new abap.types.Character({qualifiedName: "DFIES-NOFORKEY"}), valexi: new abap.types.Character({qualifiedName: "DFIES-VALEXI"}), noauthch: new abap.types.Character({qualifiedName: "DFIES-NOAUTHCH"}), sign: new abap.types.Character({qualifiedName: "DFIES-SIGN"}), dynpfld: new abap.types.Character({qualifiedName: "DFIES-DYNPFLD"}), f4availabl: new abap.types.Character({qualifiedName: "DFIES-F4AVAILABL"}), comptype: new abap.types.Character({qualifiedName: "DFIES-COMPTYPE"}), outputstyle: new abap.types.Character({qualifiedName: "DFIES-OUTPUTSTYLE"}), lfieldname: new abap.types.Character({length: 132, qualifiedName: "DFIES-LFIELDNAME"})}, "DFIES");
-    let p_langu = new abap.types.Character({qualifiedName: "sy-langu"});
+    let p_flddescr = new abap.types.Structure({"tabname": new abap.types.Character(30, {}), "fieldname": new abap.types.Character(30, {}), "langu": new abap.types.Character(1, {}), "position": new abap.types.Numc({length: 4}), "offset": new abap.types.Numc({length: 6}), "domname": new abap.types.Character(30, {}), "rollname": new abap.types.Character(30, {}), "checktable": new abap.types.Character(1, {}), "leng": new abap.types.Numc({length: 6}), "intlen": new abap.types.Numc({length: 6}), "outputlen": new abap.types.Numc({length: 6}), "decimals": new abap.types.Numc({length: 6}), "datatype": new abap.types.Character(1, {}), "inttype": new abap.types.Character(1, {}), "reftable": new abap.types.Character(1, {}), "reffield": new abap.types.Character(1, {}), "precfield": new abap.types.Character(1, {}), "authorid": new abap.types.Character(1, {}), "memoryid": new abap.types.Character(1, {}), "logflag": new abap.types.Character(1, {}), "mask": new abap.types.Character(1, {}), "masklen": new abap.types.Character(1, {}), "convexit": new abap.types.Character(1, {}), "headlen": new abap.types.Character(1, {}), "scrlen1": new abap.types.Character(1, {}), "scrlen2": new abap.types.Character(1, {}), "scrlen3": new abap.types.Character(1, {}), "fieldtext": new abap.types.Character(1, {}), "reptext": new abap.types.Character(1, {}), "scrtext_s": new abap.types.Character(1, {}), "scrtext_m": new abap.types.Character(1, {}), "scrtext_l": new abap.types.Character(1, {}), "keyflag": new abap.types.Character(1, {}), "lowercase": new abap.types.Character(1, {}), "mac": new abap.types.Character(1, {}), "genkey": new abap.types.Character(1, {}), "noforkey": new abap.types.Character(1, {}), "valexi": new abap.types.Character(1, {}), "noauthch": new abap.types.Character(1, {}), "sign": new abap.types.Character(1, {}), "dynpfld": new abap.types.Character(1, {}), "f4availabl": new abap.types.Character(1, {}), "comptype": new abap.types.Character(1, {}), "outputstyle": new abap.types.Character(1, {}), "lfieldname": new abap.types.Character(132, {})}, "DFIES");
+    let p_langu = new abap.types.Character(1, {"qualifiedName":"sy-langu","conversionExit":"ISOLA"});
     if (INPUT && INPUT.p_langu) {p_langu = INPUT.p_langu;}
     if (INPUT === undefined || INPUT.p_langu === undefined) {p_langu = abap.builtin.sy.get().langu;}
     p_flddescr.get().tabname.set(this.absolute_name);
     p_flddescr.get().inttype.set(this.type_kind);
     p_flddescr.get().langu.set(abap.builtin.sy.get().langu);
-    p_flddescr.get().position.set(constant_1);
+    p_flddescr.get().position.set(new abap.types.Integer().set(1));
     p_flddescr.get().leng.set(this.length);
     p_flddescr.get().decimals.set(this.decimals);
     return p_flddescr;
@@ -122,17 +118,17 @@ class cl_abap_elemdescr extends cl_abap_datadescr {
     let p_result = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_ELEMDESCR"});
     let p_length = new abap.types.Integer({qualifiedName: "I"});
     if (INPUT && INPUT.p_length) {p_length.set(INPUT.p_length);}
-    let foo = new abap.types.DataReference(new abap.types.Character({length: 4}));
+    let foo = new abap.types.DataReference(new abap.types.Character(4));
     abap.statements.createData(foo,{"typeName": "C","length": p_length});
     await abap.statements.cast(p_result, (await abap.Classes['CL_ABAP_TYPEDESCR'].describe_by_data_ref({p_data_ref: foo})));
     return p_result;
   }
   async get_ddic_fixed_values() {
-    let p_fixed_values = new abap.types.Table(new abap.types.Structure({low: new abap.types.Character({length: 10, qualifiedName: "cl_abap_elemdescr=>fixvalue-low"}), high: new abap.types.Character({length: 10, qualifiedName: "cl_abap_elemdescr=>fixvalue-high"}), option: new abap.types.Character({length: 2, qualifiedName: "cl_abap_elemdescr=>fixvalue-option"}), ddlanguage: new abap.types.Character({qualifiedName: "cl_abap_elemdescr=>fixvalue-ddlanguage"}), ddtext: new abap.types.Character({length: 60, qualifiedName: "cl_abap_elemdescr=>fixvalue-ddtext"})}, "cl_abap_elemdescr=>fixvalue"), {"withHeader":false,"type":"STANDARD","isUnique":false,"keyFields":[]}, "cl_abap_elemdescr=>fixvalues");
+    let p_fixed_values = new abap.types.Table(new abap.types.Structure({"low": new abap.types.Character(10, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-low"}), "high": new abap.types.Character(10, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-high"}), "option": new abap.types.Character(2, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-option"}), "ddlanguage": new abap.types.Character(1, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-ddlanguage"}), "ddtext": new abap.types.Character(60, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-ddtext"})}, "cl_abap_elemdescr=>fixvalue"), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "cl_abap_elemdescr=>fixvalues");
     let lv_dummy = new abap.types.String({qualifiedName: "STRING"});
     let lv_name = new abap.types.String({qualifiedName: "STRING"});
-    let ls_row = new abap.types.Structure({low: new abap.types.Character({length: 10, qualifiedName: "cl_abap_elemdescr=>fixvalue-low"}), high: new abap.types.Character({length: 10, qualifiedName: "cl_abap_elemdescr=>fixvalue-high"}), option: new abap.types.Character({length: 2, qualifiedName: "cl_abap_elemdescr=>fixvalue-option"}), ddlanguage: new abap.types.Character({qualifiedName: "cl_abap_elemdescr=>fixvalue-ddlanguage"}), ddtext: new abap.types.Character({length: 60, qualifiedName: "cl_abap_elemdescr=>fixvalue-ddtext"})}, "cl_abap_elemdescr=>fixvalue");
-    abap.statements.split({source: this.absolute_name, at: new abap.types.Character({length: 1}).set('='), targets: [lv_dummy,lv_name]});
+    let ls_row = new abap.types.Structure({"low": new abap.types.Character(10, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-low"}), "high": new abap.types.Character(10, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-high"}), "option": new abap.types.Character(2, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-option"}), "ddlanguage": new abap.types.Character(1, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-ddlanguage"}), "ddtext": new abap.types.Character(60, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-ddtext"})}, "cl_abap_elemdescr=>fixvalue");
+    abap.statements.split({source: this.absolute_name, at: new abap.types.Character(1).set('='), targets: [lv_dummy,lv_name]});
     for (const f of abap.DDIC[lv_name.get()]?.fixedValues || []) {
       abap.statements.clear(ls_row);
         ls_row.get().low.set(f.low || "");
@@ -146,5 +142,7 @@ class cl_abap_elemdescr extends cl_abap_datadescr {
   }
 }
 abap.Classes['CL_ABAP_ELEMDESCR'] = cl_abap_elemdescr;
+cl_abap_elemdescr.fixvalue = new abap.types.Structure({"low": new abap.types.Character(10, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-low"}), "high": new abap.types.Character(10, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-high"}), "option": new abap.types.Character(2, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-option"}), "ddlanguage": new abap.types.Character(1, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-ddlanguage"}), "ddtext": new abap.types.Character(60, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-ddtext"})}, "cl_abap_elemdescr=>fixvalue");
+cl_abap_elemdescr.fixvalues = new abap.types.Table(new abap.types.Structure({"low": new abap.types.Character(10, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-low"}), "high": new abap.types.Character(10, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-high"}), "option": new abap.types.Character(2, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-option"}), "ddlanguage": new abap.types.Character(1, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-ddlanguage"}), "ddtext": new abap.types.Character(60, {"qualifiedName":"cl_abap_elemdescr=>fixvalue-ddtext"})}, "cl_abap_elemdescr=>fixvalue"), {"withHeader":false,"primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "cl_abap_elemdescr=>fixvalues");
 export {cl_abap_elemdescr};
 //# sourceMappingURL=cl_abap_elemdescr.clas.mjs.map

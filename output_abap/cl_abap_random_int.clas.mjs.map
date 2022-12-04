@@ -4,7 +4,7 @@
     "cl_abap_random_int.clas.abap"
   ],
   "names": [],
-  "mappings": ";;;;;AAkBA;;;;;;;;EACE;;;;;;;;;;;;;IACE,oCAAS,GAAF,YAAI,kDAAM;IACnB;;EAEA;;IACE,oCAAS,GAAF,YAAI,kDAAM;IACnB;;AACF",
+  "mappings": ";;AAkBA;;;;;;;;EACE;;;;;;;;;;;;;IACE,oCAAS,GAAF,iCAAI,wCAAM;IACnB;;EAEA;;IACE,oCAAS,GAAF,iCAAI,wCAAM;IACnB;;AACF",
   "file": "cl_abap_random_int.clas.mjs",
   "sourceRoot": ""
 }

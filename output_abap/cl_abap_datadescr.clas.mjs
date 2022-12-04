@@ -1,7 +1,6 @@
 const {cl_abap_typedescr} = await import("./cl_abap_typedescr.clas.mjs");
 const {cx_root} = await import("./cx_root.clas.mjs");
 // cl_abap_datadescr.clas.abap
-const constant_1 = new abap.types.Integer().set(1);
 class cl_abap_datadescr extends cl_abap_typedescr {
   static INTERNAL_TYPE = 'CLAS';
   static IMPLEMENTED_INTERFACES = [];
@@ -15,8 +14,8 @@ class cl_abap_datadescr extends cl_abap_typedescr {
     return cl_abap_datadescr.get_data_type_kind(INPUT);
   }
   static async get_data_type_kind(INPUT) {
-    let p_type_kind = new abap.types.Character({qualifiedName: "abap_typekind"});
-    let p_data = new abap.types.Character({length: 4});
+    let p_type_kind = new abap.types.Character(1, {"qualifiedName":"abap_typekind"});
+    let p_data = new abap.types.Character(4);
     if (INPUT && INPUT.p_data) {p_data = INPUT.p_data;}
     let descr = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TYPEDESCR"});
     descr.set((await abap.Classes['CL_ABAP_TYPEDESCR'].describe_by_data({p_data: p_data})));
@@ -24,10 +23,10 @@ class cl_abap_datadescr extends cl_abap_typedescr {
     return p_type_kind;
   }
   async applies_to_data(INPUT) {
-    let p_flag = new abap.types.Character({qualifiedName: "ABAP_BOOL"});
-    let p_data = new abap.types.Character({length: 4});
+    let p_flag = new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});
+    let p_data = new abap.types.Character(4);
     if (INPUT && INPUT.p_data) {p_data = INPUT.p_data;}
-    abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 4}).set('todo')));
+    abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(4).set('todo')));
     return p_flag;
   }
 }

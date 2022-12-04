@@ -4,7 +4,7 @@
     "cl_gui_cfw.clas.abap"
   ],
   "names": [],
-  "mappings": ";;;AAaA;;;;;;;;EACE;;;;;;;;;IACE,QAAM,UAAC;IACT;;EAEA;;;;IACE;EACF;AACF",
+  "mappings": ";;AAaA;;;;;;;;EACE;;;;;;;;;IACE,QAAM,+BAAC;IACT;;EAEA;;;;IACE;EACF;AACF",
   "file": "cl_gui_cfw.clas.mjs",
   "sourceRoot": ""
 }

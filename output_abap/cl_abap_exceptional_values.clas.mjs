@@ -1,8 +1,5 @@
 const {cx_root} = await import("./cx_root.clas.mjs");
 // cl_abap_exceptional_values.clas.abap
-const constant_minus_1 = new abap.types.Integer().set(-1);
-const constant_1 = new abap.types.Integer().set(1);
-const constant_3 = new abap.types.Integer().set(3);
 class cl_abap_exceptional_values {
   static INTERNAL_TYPE = 'CLAS';
   static IMPLEMENTED_INTERFACES = [];
@@ -15,28 +12,28 @@ class cl_abap_exceptional_values {
     return cl_abap_exceptional_values.get_max_value(INPUT);
   }
   static async get_max_value(INPUT) {
-    let out = new abap.types.DataReference(new abap.types.Character({length: 4}));
-    let in_ = new abap.types.Character({length: 4});
+    let out = new abap.types.DataReference(new abap.types.Character(4));
+    let in_ = new abap.types.Character(4);
     if (INPUT && INPUT.in_) {in_ = INPUT.in_;}
-    let lv_type = new abap.types.Character();
+    let lv_type = new abap.types.Character(1, {});
     let lv_length = new abap.types.Integer({qualifiedName: "I"});
     let lv_decimals = new abap.types.Integer({qualifiedName: "I"});
-    let fs_out_ = new abap.types.FieldSymbol(new abap.types.Character({length: 4}));
+    let fs_out_ = new abap.types.FieldSymbol(new abap.types.Character(4));
     abap.statements.describe({field: in_, type: lv_type});
-    let unique71 = lv_type;
-    if (abap.compare.eq(unique71, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int)) {
+    let unique77 = lv_type;
+    if (abap.compare.eq(unique77, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int)) {
       out.assign(abap.Classes['CL_ABAP_MATH'].max_int4);
-    } else if (abap.compare.eq(unique71, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_packed)) {
-      abap.statements.describe({field: in_, length: lv_length, mode: 'BYTE'});
-      abap.statements.createData(out,{"typeName": "P","length": lv_length});
+    } else if (abap.compare.eq(unique77, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_packed)) {
+      abap.statements.describe({field: in_, length: lv_length, decimals: lv_decimals, mode: 'BYTE'});
+      abap.statements.createData(out,{"typeName": "P","length": lv_length,"decimals": lv_decimals});
       abap.statements.assign({target: fs_out_, source: (out).getPointer()});
-      if (abap.compare.eq(lv_length, constant_3) && abap.compare.eq(lv_decimals, constant_1)) {
-        fs_out_.set(new abap.types.Character({length: 6}).set('9999.9'));
+      if (abap.compare.eq(lv_length, new abap.types.Integer().set(3)) && abap.compare.eq(lv_decimals, new abap.types.Integer().set(1))) {
+        fs_out_.set(new abap.types.Character(6).set('9999.9'));
       } else {
-        abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 4}).set('todo')));
+        abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(4).set('todo')));
       }
     } else {
-      abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 4}).set('todo')));
+      abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(4).set('todo')));
     }
     return out;
   }
@@ -44,21 +41,21 @@ class cl_abap_exceptional_values {
     return cl_abap_exceptional_values.get_min_value(INPUT);
   }
   static async get_min_value(INPUT) {
-    let out = new abap.types.DataReference(new abap.types.Character({length: 4}));
-    let in_ = new abap.types.Character({length: 4});
+    let out = new abap.types.DataReference(new abap.types.Character(4));
+    let in_ = new abap.types.Character(4);
     if (INPUT && INPUT.in_) {in_ = INPUT.in_;}
-    let lv_type = new abap.types.Character();
-    let fs_out_ = new abap.types.FieldSymbol(new abap.types.Character({length: 4}));
+    let lv_type = new abap.types.Character(1, {});
+    let fs_out_ = new abap.types.FieldSymbol(new abap.types.Character(4));
     abap.statements.describe({field: in_, type: lv_type});
-    let unique72 = lv_type;
-    if (abap.compare.eq(unique72, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int)) {
+    let unique78 = lv_type;
+    if (abap.compare.eq(unique78, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int)) {
       out.assign(abap.Classes['CL_ABAP_MATH'].min_int4);
-    } else if (abap.compare.eq(unique72, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_packed)) {
+    } else if (abap.compare.eq(unique78, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_packed)) {
       out.set((await this.get_max_value({in_: in_})));
       abap.statements.assign({target: fs_out_, source: (out).getPointer()});
-      fs_out_.set(abap.operators.multiply(fs_out_,constant_minus_1));
+      fs_out_.set(abap.operators.multiply(fs_out_,new abap.types.Integer().set(-1)));
     } else {
-      abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 4}).set('todo')));
+      abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(4).set('todo')));
     }
     return out;
   }

@@ -1,9 +1,5 @@
 const {cx_root} = await import("./cx_root.clas.mjs");
 // cl_message_helper.clas.abap
-const constant_1 = new abap.types.Integer().set(1);
-const constant_100 = new abap.types.Integer().set(100);
-const constant_150 = new abap.types.Integer().set(150);
-const constant_50 = new abap.types.Integer().set(50);
 class cl_message_helper {
   static INTERNAL_TYPE = 'CLAS';
   static IMPLEMENTED_INTERFACES = [];
@@ -20,12 +16,12 @@ class cl_message_helper {
     let result = new abap.types.String({qualifiedName: "STRING"});
     let text = new abap.types.ABAPObject({qualifiedName: "IF_MESSAGE"});
     if (INPUT && INPUT.text) {text.set(INPUT.text);}
-    let lv_msgid = new abap.types.Character({length: 20, qualifiedName: "sy-msgid"});
+    let lv_msgid = new abap.types.Character(20, {"qualifiedName":"sy-msgid"});
     let lv_msgno = new abap.types.Numc({length: 3, qualifiedName: "sy-msgno"});
-    let lv_msgv1 = new abap.types.Character({length: 50, qualifiedName: "sy-msgv1"});
-    let lv_msgv2 = new abap.types.Character({length: 50, qualifiedName: "sy-msgv2"});
-    let lv_msgv3 = new abap.types.Character({length: 50, qualifiedName: "sy-msgv3"});
-    let lv_msgv4 = new abap.types.Character({length: 50, qualifiedName: "sy-msgv4"});
+    let lv_msgv1 = new abap.types.Character(50, {"qualifiedName":"sy-msgv1"});
+    let lv_msgv2 = new abap.types.Character(50, {"qualifiedName":"sy-msgv2"});
+    let lv_msgv3 = new abap.types.Character(50, {"qualifiedName":"sy-msgv3"});
+    let lv_msgv4 = new abap.types.Character(50, {"qualifiedName":"sy-msgv4"});
     if (text.get().if_t100_message$t100key === undefined) { result.set(this.gc_fallback); return result; };
     lv_msgid.set(text.get().if_t100_message$t100key.get().msgid);
     lv_msgno.set(text.get().if_t100_message$t100key.get().msgno);
@@ -33,7 +29,7 @@ class cl_message_helper {
     lv_msgv2.set(text.get()[text.get().if_t100_message$t100key.get().attr2.get().toLowerCase().replace("~", "$")] ? text.get()[text.get().if_t100_message$t100key.get().attr2.get().toLowerCase().replace("~", "$")].get() : "");
     lv_msgv3.set(text.get()[text.get().if_t100_message$t100key.get().attr3.get().toLowerCase().replace("~", "$")] ? text.get()[text.get().if_t100_message$t100key.get().attr3.get().toLowerCase().replace("~", "$")].get() : "");
     lv_msgv4.set(text.get()[text.get().if_t100_message$t100key.get().attr4.get().toLowerCase().replace("~", "$")] ? text.get()[text.get().if_t100_message$t100key.get().attr4.get().toLowerCase().replace("~", "$")].get() : "");
-    await abap.statements.message({into: result, id: lv_msgid, type: new abap.types.Character({length: 1}).set('I'), number: lv_msgno, with: [lv_msgv1,lv_msgv2,lv_msgv3,lv_msgv4]});
+    await abap.statements.message({into: result, id: lv_msgid, type: new abap.types.Character(1).set('I'), number: lv_msgno, with: [lv_msgv1,lv_msgv2,lv_msgv3,lv_msgv4]});
     return result;
   }
   async set_msg_vars_for_if_msg(INPUT) {
@@ -54,7 +50,7 @@ class cl_message_helper {
     }
     string.set((await text.get().if_message$get_text()));
     if (abap.compare.initial(string)) {
-      abap.statements.assert(abap.compare.eq(constant_1, new abap.types.Character({length: 4}).set('todo')));
+      abap.statements.assert(abap.compare.eq(new abap.types.Integer().set(1), new abap.types.Character(4).set('todo')));
     }
     await this.set_msg_vars_for_clike({text: string});
   }
@@ -64,16 +60,16 @@ class cl_message_helper {
   static async set_msg_vars_for_clike(INPUT) {
     let text = new abap.types.Character();
     if (INPUT && INPUT.text) {text = INPUT.text;}
-    abap.builtin.sy.get().msgid.set(new abap.types.Character({length: 2}).set('00'));
-    abap.builtin.sy.get().msgno.set(new abap.types.Character({length: 3}).set('001'));
+    abap.builtin.sy.get().msgid.set(new abap.types.Character(2).set('00'));
+    abap.builtin.sy.get().msgno.set(new abap.types.Character(3).set('001'));
     abap.builtin.sy.get().msgv1.set(text);
-    if (abap.compare.gt(abap.builtin.strlen({val: text}), constant_50)) {
+    if (abap.compare.gt(abap.builtin.strlen({val: text}), new abap.types.Integer().set(50))) {
       abap.builtin.sy.get().msgv2.set(text.getOffset({offset: 50}));
     }
-    if (abap.compare.gt(abap.builtin.strlen({val: text}), constant_100)) {
+    if (abap.compare.gt(abap.builtin.strlen({val: text}), new abap.types.Integer().set(100))) {
       abap.builtin.sy.get().msgv3.set(text.getOffset({offset: 100}));
     }
-    if (abap.compare.gt(abap.builtin.strlen({val: text}), constant_150)) {
+    if (abap.compare.gt(abap.builtin.strlen({val: text}), new abap.types.Integer().set(150))) {
       abap.builtin.sy.get().msgv4.set(text.getOffset({offset: 150}));
     }
   }

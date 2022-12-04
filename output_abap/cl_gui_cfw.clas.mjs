@@ -1,6 +1,5 @@
 const {cx_root} = await import("./cx_root.clas.mjs");
 // cl_gui_cfw.clas.abap
-const constant_1 = new abap.types.Integer().set(1);
 class cl_gui_cfw {
   static INTERNAL_TYPE = 'CLAS';
   static IMPLEMENTED_INTERFACES = [];
@@ -14,11 +13,11 @@ class cl_gui_cfw {
   }
   static async compute_pixel_from_metric(INPUT) {
     let val = new abap.types.Integer({qualifiedName: "I"});
-    let x_or_y = new abap.types.Character();
+    let x_or_y = new abap.types.Character(1, {});
     if (INPUT && INPUT.x_or_y) {x_or_y = INPUT.x_or_y;}
     let in_ = new abap.types.Integer({qualifiedName: "I"});
     if (INPUT && INPUT.in_) {in_.set(INPUT.in_);}
-    val.set(constant_1);
+    val.set(new abap.types.Integer().set(1));
     return val;
   }
   async flush() {
