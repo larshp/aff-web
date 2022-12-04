@@ -14,16 +14,19 @@ global.MonacoEnvironment = {
 
 import "./index.css";
 import * as monaco from "monaco-editor";
-import {ABAP} from "@abaplint/runtime";
 import * as abaplint from "@abaplint/core";
 import * as abapMonaco from "@abaplint/monaco";
 import Split from "split-grid";
-
-import initSqlJs from "sql.js";
-initSqlJs().then(() => console.dir("sql inited"));
-
 import * as init from "../output_abap/_init.mjs";
-//init.then((j) => j.initializeABAP().then(() => console.dir("initialized")));
+import initSqlJs from "sql.js";
+
+initSqlJs().then(() => {
+  console.dir("sql inited");
+  init.then((j) => j.initializeABAP().then(() => {
+    console.dir("abap initialized");
+    abapChanged();
+  }));
+});
 
 const reg = new abaplint.Registry();
 abapMonaco.registerABAP(reg);
@@ -116,7 +119,6 @@ const editor2 = monaco.editor.create(document.getElementById("container2"), {
   language: "json",
 });
 
-/*
 function updateEditorLayouts() {
   editor1.layout();
   editor2.layout();
@@ -138,50 +140,38 @@ observer.observe(document.getElementById("horizon"), {
 });
 
 window.addEventListener("resize", updateEditorLayouts);
-*/
-// see https://github.com/SimulatedGREG/electron-vue/issues/777
-// see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/AsyncFunction
-//const AsyncFunction = new Function(`return Object.getPrototypeOf(async function(){}).constructor`)();
 
-async function jsChanged() {
-/*
-  const makeGlobal = "abap = abapLocal;\n";
-  const js = makeGlobal + editor2.getValue();
-  try {
-    abap.console.clear();
-    try {
-      const f = new AsyncFunction("abapLocal", js);
-      await f(abap);
-    } catch(e) {
-      // write all errors to runtime result
-      editor2.setValue("An error was thrown: " + e.toString());
-    }
-  } catch (error) {
-    editor2.setValue(error.message);
-    console.dir(error);
-  }
-  */
+function escape(value: string): string {
+  let ret = value.replace(/\'/g, "''");
+  // statements are inside a javascript string stemplate
+  ret = ret.replace(/\\/g, "\\\\");
+  ret = ret.replace(/`/g, "\\`");
+  ret = ret.replace(/\${/g, "\\${");
+  return ret;
 }
 
 async function abapChanged() {
-  /*
-  try {
-    const contents = editor1.getValue();
-    const file = new abaplint.MemoryFile(filename, contents);
-    reg.updateFile(file);
-    reg.parse();
-    abapMonaco.updateMarkers(reg, model1);
+  console.dir("ABAP changed");
+  const contents = editor1.getValue();
 
-    const res = await new Transpiler().runRaw([{filename, contents}]);
-    editor2.setValue(res.objects[0].chunk.getCode() || "");
+  // @ts-ignore
+  console.dir(abap.Classes["ZCL_AFF_ABAP_DOC_READER"].cache);
+  // @ts-ignore
+  abap.Classes["ZCL_AFF_ABAP_DOC_READER"].cache.value = [];
+
+  // @ts-ignore
+  await abap.context.databaseConnections["DEFAULT"].execute(`UPDATE reposrc SET data = '${escape(contents)}' WHERE progname = 'ZIF_AFF_INTF_V1'`);
+  console.dir("database updated changed");
+
+  try {
+    // @ts-ignore
+    const result = await abap.Classes["CL_RUN"].run({object_type: new abap.types.String().set("INTF")});
+    editor2.setValue(result.get() || "");
   } catch (error) {
     editor2.setValue(error.message);
     console.dir(error);
   }
-  */
 }
 
 editor1.onDidChangeModelContent(abapChanged);
-abapChanged();
 editor1.focus();
-const abap = new ABAP();
