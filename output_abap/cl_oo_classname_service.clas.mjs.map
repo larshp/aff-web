@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "..\\downport\\cl_oo_classname_service.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;AAiBA;;;;;;;;EACE;;;;;;;IACE,oCAAS,GAAF,iCAAI,wCAAM;IACnB;;AACF",
+  "file": "cl_oo_classname_service.clas.mjs",
+  "sourceRoot": ""
+}

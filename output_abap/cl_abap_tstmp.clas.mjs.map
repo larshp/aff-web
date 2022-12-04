@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "cl_abap_tstmp.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;AA8CA;;;;;;;;EAEE;;;;;;;;;;;;;;IACE,oCAAS,GAAF,iCAAI,wCAAM;EACnB;EAEA;;;;;;;;IAEE,cAAY,SAAS;EAEvB;EAEA;;;;;;;;;;IAEE,uHAAwC;EAC1C;EAEA;;;;;;;;;QACO,sDAAe;IACpB,6FAAkC;IAClC;IACA,6FAAkC;IAClC;IACA;IACF;;EAEA;;;;;;;;;QACO,sDAAe;IACpB,4FAAiC;IACjC;IACA;IACA;IACF;;EAEA;;;;;;;;;QACO,sDAAc;IACnB,YAAe,wBAAL,KAAO,iCAAE;IACnB,UAAO,8CAEY;IACrB;;AACF",
+  "file": "cl_abap_tstmp.clas.mjs",
+  "sourceRoot": ""
+}

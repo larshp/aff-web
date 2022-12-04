@@ -1,0 +1,5 @@
+abap.DDIC["ABAP_CALLSTACK_LINE"] = {
+  "objectType": "TABL",
+  "type": new abap.types.Structure({"mainprogram": new abap.types.Character(40, {}), "include": new abap.types.Character(40, {}), "line": new abap.types.Integer(), "blockname": new abap.types.String()}, "ABAP_CALLSTACK_LINE"),
+  "keyFields": [],
+};

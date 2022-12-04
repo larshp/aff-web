@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "cl_shm_service.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;AAgCA;;;;;;;;EAEE;;;;;;;;;;IACE,oCAAS,GAAF,iCAAI,wCAAM;EACnB;EAEA;;;;;;;IACE,oCAAS,GAAF,iCAAI,wCAAM;IACnB;;EAEA;;;;;;;IAEE;IACF;;EAEA;;;;;;;IACE,oCAAS,GAAF,iCAAI,wCAAM;IACnB;;AAEF",
+  "file": "cl_shm_service.clas.mjs",
+  "sourceRoot": ""
+}

@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "cl_http_utility.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;AA2DA;;;;;;;;;;;;EAEE;;;;;;;;IACE,oCAAS,GAAF,iCAAI,wCAAM;EACnB;EAEA;;;;;;;;;;IACE,oCAAS,GAAF,iCAAI,wCAAM;IACnB;;EAEA;;;;;;;;;;IACE,oCAAS,GAAF,iCAAI,wCAAM;IACnB;;EAEA;;;;;;;IACE,oCAAS,GAAF,iCAAI,wCAAM;IACnB;;EAEA;;;;;;;QACO,2MAAiC;QACjC,sDAAoB;QACpB,oHAA4B;IAEjC;;;MAEE;MACA,gCAAO,kBAAY,MAAM;IAC3B;IACF;;EAEA;;;;;;;;gIACuD;EACvD;EAEA;;;;;;;QACO,2MAAiC;QACjC,sDAAe;QACf,oHAA4B;;;MAG/B,8BAAM,QAAQ,MAAC,4BAAQ,qCAAO,QAAQ,MAAC,QAAK;MAC5C,gCAAO,aAAO,GAAG;IACnB;IACA,WAAS,8BAAiB,OAAQ,KAAI,KAAM,sCAAK;IACnD;;EAEA;;;;;;;IACE;IACA;IACF;;EAEA;;;;;;;IACE;IACA;IACF;;EAEA;;;;;;;;;IACE;IACA;IACF;;EAEA;;;;;;;IACE;IACF;;EAEA;;;;;;;IACE;IACA;IACF;;AACF",
+  "file": "cl_http_utility.clas.mjs",
+  "sourceRoot": ""
+}

@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "cx_no_check.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;AASA;;;EAEE;;;;;kDAC2C;IAC3C;;AAEF",
+  "file": "cx_no_check.clas.mjs",
+  "sourceRoot": ""
+}
