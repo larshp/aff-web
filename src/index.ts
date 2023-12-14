@@ -92,7 +92,7 @@ ENDINTERFACE.`,
   "abap",
   monaco.Uri.parse(filename),
 );
-reg.addFile(new abaplint.MemoryFile(filename, ""));
+reg.addFile(new abaplint.MemoryFile(filename, model1.getValue() ));
 
 
 Split({
