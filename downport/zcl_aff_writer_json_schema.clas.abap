@@ -62,12 +62,13 @@ CLASS zcl_aff_writer_json_schema DEFINITION
       c_format_version            TYPE string VALUE 'FORMAT_VERSION',
       c_max_length_of_description TYPE i VALUE 253.
 
+    TYPES temp1_44ba95addc TYPE STANDARD TABLE OF string_table.
     DATA:
       schema_id              TYPE string,
       structure_buffer       TYPE tt_buffer,
       table_buffer           TYPE tt_buffer,
       ignore_next_elements   TYPE abap_boolean,
-      stack_of_required_tabs TYPE STANDARD TABLE OF string_table,
+      stack_of_required_tabs TYPE temp1_44ba95addc,
       format_version         TYPE i.
 
     METHODS: append_comma_to_prev_line,
@@ -174,16 +175,17 @@ CLASS zcl_aff_writer_json_schema DEFINITION
         IMPORTING abap_doc_to_check        TYPE zcl_aff_abap_doc_parser=>abap_doc
                   fullname_of_checked_type TYPE string,
 
-
       write_title_and_description
         IMPORTING
           type_description TYPE REF TO cl_abap_typedescr
           check_not_needed TYPE abap_boolean DEFAULT abap_false,
+
       set_abapdoc_fullname_element
         IMPORTING
           element_description TYPE REF TO cl_abap_elemdescr
           element_name        TYPE string
           splitted_prev_name  TYPE string_table,
+
       set_abapdoc_fullname_struc_tab
         IMPORTING
           type_description TYPE REF TO cl_abap_typedescr
@@ -192,10 +194,26 @@ CLASS zcl_aff_writer_json_schema DEFINITION
       get_max_length
         IMPORTING element_description TYPE REF TO cl_abap_elemdescr
         RETURNING VALUE(result)       TYPE string,
+
       get_extrema
         IMPORTING element_description TYPE REF TO cl_abap_elemdescr
         EXPORTING VALUE(max)          TYPE string
-                  VALUE(min)          TYPE string.
+                  VALUE(min)          TYPE string,
+
+      is_content_encoding_valid
+        IMPORTING content_encoding TYPE string
+        RETURNING VALUE(result)    TYPE abap_boolean,
+
+      write_content_encoding
+        IMPORTING json_type TYPE string,
+
+      write_content_media_type
+        IMPORTING json_type TYPE string,
+      is_element_descr_kind_int
+        IMPORTING
+          element_description TYPE REF TO cl_abap_elemdescr
+        RETURNING
+          VALUE(result)       TYPE abap_bool.
 ENDCLASS.
 
 
@@ -305,6 +323,10 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
       IF enum_properties IS NOT INITIAL.
         handle_enums( element_description = element_description enum_properties = enum_properties ).
       ELSE. "non- enum
+
+        write_content_encoding( json_type ).
+        write_content_media_type( json_type ).
+
         IF json_type = zif_aff_writer=>type_info-numeric.
           handle_extrema( element_description ).
         ELSEIF json_type = zif_aff_writer=>type_info-string AND NOT ( element_description->type_kind = cl_abap_typedescr=>typekind_date OR element_description->type_kind = cl_abap_typedescr=>typekind_time OR
@@ -350,6 +372,49 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
     ENDIF.
   ENDMETHOD.
 
+  METHOD write_content_encoding.
+    IF abap_doc-content_encoding IS INITIAL.
+      RETURN.
+    ENDIF.
+
+    IF json_type <> zif_aff_writer=>type_info-string.
+      log->add_warning( message_text = zif_aff_log=>co_msg132 component_name = fullname_of_type ).
+      RETURN.
+    ENDIF.
+
+    IF NOT is_content_encoding_valid( abap_doc-content_encoding ) IS NOT INITIAL.
+      log->add_warning( message_text = zif_aff_log=>co_msg133 component_name = fullname_of_type ).
+      RETURN.
+    ENDIF.
+
+    write_tag( |"contentEncoding": "{ abap_doc-content_encoding }",| ).
+  ENDMETHOD.
+
+  METHOD write_content_media_type.
+    IF abap_doc-content_media_type IS INITIAL.
+      RETURN.
+    ENDIF.
+
+    IF json_type <> zif_aff_writer=>type_info-string.
+      log->add_warning( message_text = zif_aff_log=>co_msg132 component_name = fullname_of_type ).
+      RETURN.
+    ENDIF.
+
+    write_tag( |"contentMediaType": "{ abap_doc-content_media_type }",| ).
+  ENDMETHOD.
+
+  METHOD is_content_encoding_valid.
+    IF content_encoding = '7bit' OR
+      content_encoding = '8bit' OR
+      content_encoding = 'binary' OR
+      content_encoding = 'quoted-printable' OR
+      content_encoding = 'base16' OR
+      content_encoding = 'base32' OR
+      content_encoding = 'base64'.
+      result = abap_true.
+    ENDIF.
+  ENDMETHOD.
+
 
   METHOD write_title_and_description.
     DATA title TYPE string.
@@ -374,6 +439,7 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
     DATA enum_values TYPE string_table.
     FIELD-SYMBOLS <enum_value> LIKE LINE OF enum_properties-values.
     DATA enum_descr TYPE string_table.
+    DATA lt_copy LIKE enum_descr.
     write_tag( `"enum": [` ).
 
 
@@ -393,8 +459,13 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
 
 
     enum_descr = get_enum_descriptions( element_description = element_description enum_properties = enum_properties ).
-    write_tag( `"enumDescriptions": [` ).
-    write_enum_properties( enum_descr ).
+
+    lt_copy = enum_descr.
+    DELETE lt_copy WHERE table_line = ''.
+    IF lines( lt_copy ) > 0.
+      write_tag( `"enumDescriptions": [` ).
+      write_enum_properties( enum_descr ).
+    ENDIF.
   ENDMETHOD.
 
 
@@ -438,7 +509,6 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
     DATA max_value TYPE string.
     DATA min_value TYPE string.
     DATA multiple_of LIKE abap_doc-multiple_of.
-    DATA decimals LIKE element_description->decimals.
     DATA exclusive_minimum LIKE abap_doc-exclusive_minimum.
     DATA exclusive_maximum LIKE abap_doc-exclusive_maximum.
     get_extrema(
@@ -450,12 +520,8 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
 
     multiple_of = abap_doc-multiple_of.
 
-    IF multiple_of IS INITIAL AND element_description->type_kind = cl_abap_typedescr=>typekind_packed.
-
-      decimals = element_description->decimals.
-      IF decimals > 0.
-        multiple_of = |0.{ repeat( val = `0`  occ = decimals - 1 ) }1|.
-      ENDIF.
+    IF multiple_of IS NOT INITIAL AND is_element_descr_kind_int( element_description ) = abap_false.
+      log->add_warning( message_text = zif_aff_log=>co_msg129 component_name = fullname_of_type ).
     ENDIF.
 
 
@@ -488,11 +554,16 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
       write_tag( |"exclusiveMaximum": { exclusive_maximum },| ).
     ENDIF.
 
-    IF multiple_of IS NOT INITIAL.
+    IF multiple_of IS NOT INITIAL AND is_element_descr_kind_int( element_description ) = abap_true.
       write_tag( |"multipleOf": { multiple_of },| ).
     ENDIF.
   ENDMETHOD.
 
+  METHOD is_element_descr_kind_int.
+    DATA temp1 TYPE xsdboolean.
+    temp1 = boolc( element_description->type_kind = cl_abap_typedescr=>typekind_int OR element_description->type_kind = cl_abap_typedescr=>typekind_int1 OR element_description->type_kind = cl_abap_typedescr=>typekind_int2 OR element_description->type_kind = cl_abap_typedescr=>typekind_int8 ).
+    result = temp1.
+  ENDMETHOD.
 
   METHOD handle_default.
     DATA default LIKE abap_doc-default.
@@ -699,13 +770,13 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
       CLEAR temp18.
       temp18-name = table_name.
       temp18-number_brackets = 2.
-      INSERT temp18 INTO TABLE me->table_buffer.
+      INSERT temp18 INTO me->table_buffer INDEX 1.
     ELSE.
 
       CLEAR temp19.
       temp19-name = table_name.
       temp19-number_brackets = 1.
-      INSERT temp19 INTO TABLE me->table_buffer.
+      INSERT temp19 INTO me->table_buffer INDEX 1.
     ENDIF.
 
     write_title_and_description( table_description ).
@@ -723,6 +794,7 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
   METHOD close_table.
     DATA temp21 LIKE LINE OF me->table_buffer.
     DATA temp22 LIKE sy-tabix.
+    DATA temp23 LIKE sy-subrc.
     temp22 = sy-tabix.
     READ TABLE me->table_buffer WITH KEY name = table_name INTO temp21.
     sy-tabix = temp22.
@@ -732,7 +804,10 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
     DO temp21-number_brackets TIMES.
       write_closing_tag( `}` ).
     ENDDO.
-    DELETE me->table_buffer WHERE name = table_name.
+
+    READ TABLE me->table_buffer WITH KEY name = table_name TRANSPORTING NO FIELDS.
+    temp23 = sy-tabix.
+    DELETE me->table_buffer INDEX temp23.
     reset_indent_level_tag( ).
   ENDMETHOD.
 
@@ -813,10 +888,10 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
   METHOD set_abapdoc_fullname_element.
     DATA source_type TYPE string.
     DATA source TYPE string.
-    DATA temp23 LIKE LINE OF splitted_prev_name.
-    DATA temp24 LIKE sy-tabix.
-    DATA temp25 LIKE LINE OF splitted_prev_name.
-    DATA temp26 LIKE sy-tabix.
+    DATA temp24 LIKE LINE OF splitted_prev_name.
+    DATA temp25 LIKE sy-tabix.
+    DATA temp26 LIKE LINE OF splitted_prev_name.
+    DATA temp27 LIKE sy-tabix.
     DATA already_searched LIKE abap_true.
     DATA abap_doc_second TYPE zcl_aff_abap_doc_parser=>abap_doc.
 * Simple Component of a structure, defined in the structure definition
@@ -836,22 +911,22 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
       fullname_of_type = element_name.
 
 
-      temp24 = sy-tabix.
-      READ TABLE splitted_prev_name INDEX 1 INTO temp23.
-      sy-tabix = temp24.
+      temp25 = sy-tabix.
+      READ TABLE splitted_prev_name INDEX 1 INTO temp24.
+      sy-tabix = temp25.
       IF sy-subrc <> 0.
         RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
       ENDIF.
-      source_type = temp23.
+      source_type = temp24.
 
 
-      temp26 = sy-tabix.
-      READ TABLE splitted_prev_name INDEX 2 INTO temp25.
-      sy-tabix = temp26.
+      temp27 = sy-tabix.
+      READ TABLE splitted_prev_name INDEX 2 INTO temp26.
+      sy-tabix = temp27.
       IF sy-subrc <> 0.
         RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
       ENDIF.
-      source = temp25.
+      source = temp26.
 
       already_searched = abap_true.
     ENDIF.
@@ -1037,7 +1112,7 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
 
   METHOD get_description.
     DATA element_description TYPE REF TO cl_abap_elemdescr.
-    DATA temp27 TYPE REF TO cl_abap_elemdescr.
+    DATA temp28 TYPE REF TO cl_abap_elemdescr.
     DATA ddic_field TYPE dfies.
     IF abap_doc-description IS NOT INITIAL.
       result = abap_doc-description.
@@ -1045,8 +1120,8 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
 
       TRY.
 
-          temp27 ?= type_description.
-          element_description = temp27.
+          temp28 ?= type_description.
+          element_description = temp28.
         CATCH cx_sy_move_cast_error.
           RETURN.
       ENDTRY.
@@ -1069,7 +1144,7 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
     DATA ddic_fixed_values TYPE cl_abap_elemdescr=>fixvalues.
     FIELD-SYMBOLS <value> LIKE LINE OF ddic_fixed_values.
     DATA text TYPE string.
-    DATA temp28 TYPE zcl_aff_writer_json_schema=>ty_enum_value.
+    DATA temp29 TYPE zcl_aff_writer_json_schema=>ty_enum_value.
     IF abap_doc-enumvalues_link IS NOT INITIAL.
       result = get_properties_from_structure( element_description->type_kind ).
     ELSE.
@@ -1089,11 +1164,11 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
       LOOP AT ddic_fixed_values ASSIGNING <value>.
 
         text = <value>-ddtext.
-        REPLACE ALL OCCURRENCES OF REGEX '\s' IN text WITH '_'  ##REGEX_POSIX.
+        REPLACE ALL OCCURRENCES OF PCRE '\s' IN text WITH '_'.
 
-        CLEAR temp28.
-        temp28-value = format_to_camel_case( text ).
-        INSERT temp28 INTO TABLE result-values.
+        CLEAR temp29.
+        temp29-value = format_to_camel_case( text ).
+        INSERT temp29 INTO TABLE result-values.
       ENDLOOP.
     ENDIF.
   ENDMETHOD.
@@ -1137,13 +1212,13 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
     DATA name_of_source TYPE string.
     DATA name_of_constant TYPE string.
     FIELD-SYMBOLS <component> LIKE LINE OF structure_of_values->components.
-    DATA temp29 TYPE symsgv.
+    DATA temp30 TYPE symsgv.
     DATA temp20 TYPE symsgv.
     DATA msg TYPE string.
-    DATA temp30 TYPE REF TO zcx_aff_tools.
+    DATA temp31 TYPE REF TO zcx_aff_tools.
     DATA fullname_of_value TYPE string.
     DATA abap_doc_of_component TYPE zcl_aff_abap_doc_parser=>abap_doc.
-    DATA temp31 TYPE ty_enum_value.
+    DATA temp32 TYPE ty_enum_value.
     DATA temp21 TYPE string.
     get_structure_of_enum_values(
       EXPORTING
@@ -1159,14 +1234,14 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
       LOOP AT structure_of_values->components ASSIGNING <component>.
         IF <component>-type_kind <> enum_type.
 
-          temp29 = name_of_constant.
+          temp30 = name_of_constant.
 
           temp20 = fullname_of_type.
 
-          msg = log->get_message_text( msgno = 122 msgv1 = temp29 msgv2 = temp20 ).
+          msg = log->get_message_text( msgno = 122 msgv1 = temp30 msgv2 = temp20 ).
 
-          CREATE OBJECT temp30 TYPE zcx_aff_tools EXPORTING message = msg.
-          RAISE EXCEPTION temp30.
+          CREATE OBJECT temp31 TYPE zcx_aff_tools EXPORTING message = msg.
+          RAISE EXCEPTION temp31.
         ENDIF.
 
 
@@ -1175,12 +1250,12 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
         abap_doc_of_component = call_reader_and_decode( name_of_source = name_of_source element_name = fullname_of_value ).
 
 
-        CLEAR temp31.
+        CLEAR temp32.
 
         temp21 = <component>-name.
-        temp31-value = format_to_camel_case( temp21 ).
-        temp31-overwritten_value = abap_doc_of_component-enum_value.
-        APPEND temp31 TO result-values.
+        temp32-value = format_to_camel_case( temp21 ).
+        temp32-overwritten_value = abap_doc_of_component-enum_value.
+        APPEND temp32 TO result-values.
         APPEND abap_doc_of_component-description TO result-descriptions.
         APPEND abap_doc_of_component-title TO result-titles.
 
@@ -1194,9 +1269,9 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
 
 
   METHOD add_required_table_to_stack.
-    DATA temp32 TYPE string_table.
-    CLEAR temp32.
-    INSERT temp32 INTO stack_of_required_tabs INDEX 1.
+    DATA temp33 TYPE string_table.
+    CLEAR temp33.
+    INSERT temp33 INTO stack_of_required_tabs INDEX 1.
   ENDMETHOD.
 
 
@@ -1208,14 +1283,14 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
 
 
   METHOD write_req_and_add_props.
-    FIELD-SYMBOLS <temp33> LIKE LINE OF content.
-    DATA temp34 LIKE sy-tabix.
+    FIELD-SYMBOLS <temp34> LIKE LINE OF content.
+    DATA temp35 LIKE sy-tabix.
     DATA temp22 LIKE LINE OF content.
     DATA temp23 LIKE sy-tabix.
-    DATA temp35 LIKE LINE OF stack_of_required_tabs.
-    DATA temp36 LIKE sy-tabix.
-    FIELD-SYMBOLS <temp37> LIKE LINE OF content.
-    DATA temp38 LIKE sy-tabix.
+    DATA temp36 LIKE LINE OF stack_of_required_tabs.
+    DATA temp37 LIKE sy-tabix.
+    FIELD-SYMBOLS <temp38> LIKE LINE OF content.
+    DATA temp39 LIKE sy-tabix.
     DATA temp24 LIKE LINE OF content.
     DATA temp25 LIKE sy-tabix.
     DATA temp26 LIKE LINE OF stack_of_required_tabs.
@@ -1223,14 +1298,14 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
     FIELD-SYMBOLS <required_comp> LIKE LINE OF temp26.
     DATA temp28 LIKE LINE OF stack_of_required_tabs.
     DATA temp29 LIKE sy-tabix.
-    DATA temp39 LIKE LINE OF stack_of_required_tabs.
-    DATA temp40 LIKE sy-tabix.
+    DATA temp40 LIKE LINE OF stack_of_required_tabs.
+    DATA temp41 LIKE sy-tabix.
     IF ignore_til_indent_level > indent_level OR ignore_til_indent_level IS INITIAL.
 
 
-      temp34 = sy-tabix.
-      READ TABLE content INDEX lines( content ) ASSIGNING <temp33>.
-      sy-tabix = temp34.
+      temp35 = sy-tabix.
+      READ TABLE content INDEX lines( content ) ASSIGNING <temp34>.
+      sy-tabix = temp35.
       IF sy-subrc <> 0.
         RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
       ENDIF.
@@ -1242,22 +1317,22 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
       IF sy-subrc <> 0.
         RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
       ENDIF.
-      <temp33> = temp22 && `,`.
+      <temp34> = temp22 && `,`.
       write_tag( `"additionalProperties": false` ).
 
 
-      temp36 = sy-tabix.
-      READ TABLE stack_of_required_tabs INDEX 1 INTO temp35.
-      sy-tabix = temp36.
+      temp37 = sy-tabix.
+      READ TABLE stack_of_required_tabs INDEX 1 INTO temp36.
+      sy-tabix = temp37.
       IF sy-subrc <> 0.
         RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
       ENDIF.
-      IF temp35 IS NOT INITIAL.
+      IF temp36 IS NOT INITIAL.
 
 
-        temp38 = sy-tabix.
-        READ TABLE content INDEX lines( content ) ASSIGNING <temp37>.
-        sy-tabix = temp38.
+        temp39 = sy-tabix.
+        READ TABLE content INDEX lines( content ) ASSIGNING <temp38>.
+        sy-tabix = temp39.
         IF sy-subrc <> 0.
           RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
         ENDIF.
@@ -1269,7 +1344,7 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
         IF sy-subrc <> 0.
           RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
         ENDIF.
-        <temp37> = temp24 && `,`.
+        <temp38> = temp24 && `,`.
         write_tag( `"required": [` ).
         indent_level = indent_level + 1.
 
@@ -1292,13 +1367,13 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
         LOOP AT temp28 ASSIGNING <required_comp>.
 
 
-          temp40 = sy-tabix.
-          READ TABLE stack_of_required_tabs INDEX 1 INTO temp39.
-          sy-tabix = temp40.
+          temp41 = sy-tabix.
+          READ TABLE stack_of_required_tabs INDEX 1 INTO temp40.
+          sy-tabix = temp41.
           IF sy-subrc <> 0.
             RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
           ENDIF.
-          IF sy-tabix < lines( temp39 ).
+          IF sy-tabix < lines( temp40 ).
             write_tag( |"{ <required_comp> }",| ).
           ELSE.
             write_tag( |"{ <required_comp> }"| ).
@@ -1322,11 +1397,11 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
 
 
   METHOD write_tag.
-    DATA temp41 LIKE LINE OF content.
+    DATA temp42 LIKE LINE OF content.
     IF ignore_til_indent_level IS INITIAL OR ignore_til_indent_level > indent_level.
 
-      temp41 = |{ repeat( val = ` ` occ = indent_level * c_indent_number_characters ) }{ line }|.
-      APPEND temp41 TO content.
+      temp42 = |{ repeat( val = ` ` occ = indent_level * c_indent_number_characters ) }{ line }|.
+      APPEND temp42 TO content.
     ENDIF.
   ENDMETHOD.
 
@@ -1371,7 +1446,7 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
 
   METHOD check_title_and_description.
     DATA msg TYPE string.
-    DATA temp42 TYPE symsgv.
+    DATA temp43 TYPE symsgv.
 
     IF ignore_til_indent_level IS INITIAL OR ignore_til_indent_level > indent_level. "Only write message if no callback class provided
       IF abap_doc_to_check-title IS INITIAL.
@@ -1384,8 +1459,8 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
         log->add_info( message_text = msg component_name = fullname_of_checked_type ).
       ELSEIF strlen( abap_doc_to_check-description ) > c_max_length_of_description.
 
-        temp42 = c_max_length_of_description.
-        msg = log->get_message_text( msgno = 125 msgv1 = temp42 ).
+        temp43 = c_max_length_of_description.
+        msg = log->get_message_text( msgno = 125 msgv1 = temp43 ).
         log->add_warning( message_text = msg component_name = fullname_of_checked_type ).
       ENDIF.
     ENDIF.
@@ -1417,24 +1492,22 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
 
   METHOD handle_language_field.
     write_tag( `"minLength": 2,` ).
-    write_tag( `"maxLength": 2,` ).
-    write_tag( `"pattern": "^[a-z]+$",` ).
   ENDMETHOD.
 
 
   METHOD get_max_length.
-    DATA temp43 TYPE i.
-    DATA length LIKE temp43.
+    DATA temp44 TYPE i.
+    DATA length LIKE temp44.
     DATA length_as_string TYPE string.
     IF element_description->output_length > 0.
 
       IF ( element_description->length / cl_abap_char_utilities=>charsize ) > element_description->output_length.
-        temp43 = element_description->length / cl_abap_char_utilities=>charsize.
+        temp44 = element_description->length / cl_abap_char_utilities=>charsize.
       ELSE.
-        temp43 = element_description->output_length.
+        temp44 = element_description->output_length.
       ENDIF.
 
-      length = temp43.
+      length = temp44.
 
       length_as_string = length.
       remove_leading_trailing_spaces( CHANGING string_to_work_on = length_as_string ).
@@ -1446,10 +1519,10 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
   METHOD get_extrema.
     DATA r_field TYPE REF TO data.
     FIELD-SYMBOLS <field> TYPE any.
-    DATA max_val TYPE REF TO any.
-    FIELD-SYMBOLS <max> TYPE any.
-    DATA min_val TYPE REF TO any.
-    FIELD-SYMBOLS <min> TYPE any.
+    DATA max_val TYPE REF TO data.
+    FIELD-SYMBOLS <max> TYPE data.
+    DATA min_val TYPE REF TO data.
+    FIELD-SYMBOLS <min> TYPE data.
     DATA min_str TYPE string.
     DATA length TYPE i.
     DATA front TYPE string.

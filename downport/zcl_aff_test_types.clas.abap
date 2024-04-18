@@ -10,6 +10,36 @@ CLASS zcl_aff_test_types DEFINITION
       unknown_annotation TYPE string.
 
     TYPES:
+      "! $contentEncoding 'base64'
+      content_encoded_string TYPE string.
+
+    TYPES:
+      "! $contentEncoding 'unknown'
+      unknown_content_encoded_string TYPE string.
+
+    TYPES:
+      "! $contentEncoding 'base64'
+      content_encoded_integer TYPE i.
+
+    TYPES:
+      "! $contentMediaType 'text/html'
+      content_media_type_string TYPE string.
+
+    TYPES:
+      "! $contentMediaType 'text/html'
+      content_media_type_integer TYPE i.
+
+    TYPES:
+       "! $contentMediaType 'text/html'
+       "! $contentEncoding 'base64'
+      media_type_content_ecoding TYPE string.
+
+    TYPES:
+      BEGIN OF struc_with_type_encoding,
+        component TYPE media_type_content_ecoding,
+      END OF struc_with_type_encoding.
+
+    TYPES:
       "! <p class="shorttext">title</p>
       "! description
       "! <p class="shorttext2">Title</p>
@@ -228,13 +258,13 @@ CLASS zcl_aff_test_types DEFINITION
     CONSTANTS:
       "! <p class="shorttext">Interface Category</p>
       "! Interface category
-      BEGIN OF enum_values,
+      BEGIN OF enum_values ##NEEDED,
         "! <p class="shorttext">generalCategory</p>
         "! General interface
         general      TYPE category VALUE '00',
         "! Interface definition of a classic BAdI
         classic_badi TYPE category VALUE '01',
-      END OF enum_values ##NEEDED.
+      END OF enum_values.
 
 * type with enum values without initial:
     TYPES:
@@ -246,14 +276,14 @@ CLASS zcl_aff_test_types DEFINITION
     CONSTANTS:
       "! <p class="shorttext">Interface Category</p>
       "! Interface category
-      BEGIN OF enum_values_no_initial,
+      BEGIN OF enum_values_no_initial ##NEEDED,
         "! <p class="shorttext">Component 1</p>
         "! Component 1
         component_1 TYPE category_no_initial VALUE '01',
         "! <p class="shorttext">Component 2</p>
         "! Component 2
         component_2 TYPE category_no_initial VALUE '02',
-      END OF enum_values_no_initial ##NEEDED.
+      END OF enum_values_no_initial.
 
     TYPES:
       "! <p class="shorttext">Structure with Different Enum Types</p>
@@ -361,6 +391,16 @@ CLASS zcl_aff_test_types DEFINITION
         field3 TYPE c LENGTH 2,
       END OF list.
 
+* deep nested structure, simple
+    TYPES:
+      BEGIN OF nsimple,
+        BEGIN OF list1,
+          "! <p class="shorttext">Inner Element</p>
+          "! sdfsdf
+          "! $required
+          element TYPE string,
+        END OF list1,
+      END OF nsimple.
 
 * nested structure with table
     TYPES:
@@ -499,12 +539,12 @@ CLASS zcl_aff_test_types DEFINITION
         "! $exclusiveMaximum:100.9
         "! $minimum: -0.42
         float                   TYPE decfloat16,
-        "! <p class="shorttext">Packed Number With Given Multiple</p>
-        "! Packed number with given multiple
-        "! $multipleOf: 0.1
+        "! <p class="shorttext">Integer With Given Multiple</p>
+        "! Integer with given multiple
         "! $exclusiveMinimum: 0
-        "! $maximum: 99999.90
-        packed_with_multiple    TYPE p LENGTH 4 DECIMALS 2,
+        "! $maximum: 99999
+        "! $multipleOf: 1
+        integer_with_multiple    TYPE i,
         "! <p class="shorttext">Packed Number With No Given Multiple</p>
         "! Packed number with no given multiple
         "! $exclusiveMinimum: 0
@@ -517,6 +557,28 @@ CLASS zcl_aff_test_types DEFINITION
         "! $maximum: 42
         integer_out_with_doc    TYPE integer_outside,
       END OF structure_with_numbers.
+
+
+    TYPES:
+      "! <p class="shorttext">Structure With Multiple Of Warning</p>
+      "! This is a structure with not allowed multiple of value
+      BEGIN OF structure_multiple_of_warning,
+        "! <p class="shorttext">Integer With Maximum </p>
+        "! Integer with maximum
+        "! $maximum: 10
+        integer                 TYPE i,
+        "! <p class="shorttext">Integer With Given Multiple</p>
+        "! Integer with given multiple
+        "! $exclusiveMinimum: 0
+        "! $maximum: 99999
+        "! $multipleOf: 1
+        integer_with_multiple    TYPE i,
+        "! <p class="shorttext">Packed Number With Multiple</p>
+        "! Packed number with given multiple
+        "! $exclusiveMinimum: 0
+        "! $multipleOf: 0.1
+        packed_with_multiple TYPE p LENGTH 4 DECIMALS 1,
+      END OF structure_multiple_of_warning.
 
 
 * Types for default annotations

@@ -89,7 +89,6 @@ CLASS zcl_aff_writer_xslt DEFINITION
       write_enum_value_mappings
         IMPORTING
           element_description TYPE REF TO cl_abap_elemdescr
-          json_type           TYPE string
           element_name        TYPE string
           enum_values         TYPE tt_enum_values
         RAISING
@@ -198,7 +197,17 @@ CLASS zcl_aff_writer_xslt DEFINITION
       set_abapdoc_fullname_element
         IMPORTING
           element_description TYPE REF TO cl_abap_elemdescr
-          element_name        TYPE string.
+          element_name        TYPE string,
+      write_enum_map_ext_compatible
+        IMPORTING
+          element_description TYPE REF TO cl_abap_elemdescr
+          element_name        TYPE string
+          enum_values         TYPE zcl_aff_writer_xslt=>tt_enum_values,
+      get_to_ref
+        IMPORTING
+                  name          TYPE string
+        RETURNING VALUE(result) TYPE string.
+
 
 ENDCLASS.
 
@@ -285,16 +294,20 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
   METHOD append_before_output.
     DATA temp4 LIKE LINE OF output.
     DATA temp5 LIKE LINE OF output.
+    DATA temp6 LIKE LINE OF output.
     APPEND `<?sap.transform simple?>` TO output.
     APPEND `<tt:transform xmlns:tt="http://www.sap.com/transformation-templates">` TO output.
     APPEND LINES OF st_template_imports TO output.
 
     temp4 = |<tt:root name="{ st_root_name }"/>|.
     APPEND temp4 TO output.
+
+    temp5 = |<tt:variable name="VARIABLE"/>|.
+    APPEND temp5 TO output.
     APPEND `<tt:template>` TO output.
 
-    temp5 = |<tt:ref name="{ st_root_name }">|.
-    APPEND temp5 TO output.
+    temp6 = |<tt:ref name="{ st_root_name }">|.
+    APPEND temp6 TO output.
   ENDMETHOD.
 
 
@@ -307,8 +320,8 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
 
   METHOD write_element.
     DATA enum_values TYPE zcl_aff_writer_xslt=>tt_enum_values.
-    DATA temp6 TYPE string.
-    DATA type LIKE temp6.
+    DATA temp7 TYPE string.
+    DATA type LIKE temp7.
     DATA tag TYPE string.
     CHECK ignore_next_elements = abap_false.
 
@@ -321,12 +334,12 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
     ENDIF.
 
     IF enum_values IS NOT INITIAL.
-      temp6 = zif_aff_writer=>type_info-string.
+      temp7 = zif_aff_writer=>type_info-string.
     ELSE.
-      temp6 = get_json_type_from_description( element_description ).
+      temp7 = get_json_type_from_description( element_description ).
     ENDIF.
 
-    type = temp6.
+    type = temp7.
 
 
     tag = get_tag_from_type( type ).
@@ -334,17 +347,26 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
     IF abap_doc-callback_class IS NOT INITIAL AND is_callback_class_valid( class_name = abap_doc-callback_class component_name = fullname_of_type ) IS NOT INITIAL.
       write_callback_template( element_name = element_name description = element_description tag = tag ).
     ENDIF.
-
-
     write_open_tag( |<tt:cond{ get_condition_for_element( element_name = element_name element_description = element_description enum_values = enum_values type = type ) }>| ).
     write_open_tag( |<{ tag }{ get_name( name = element_name ) }>| ).
     IF ( is_sy_langu( element_description = element_description ) IS NOT INITIAL ).
       write_iso_language_callback( element_name = element_name ).
     ELSEIF enum_values IS INITIAL.
       write_tag( |<tt:value{ get_ref( element_name ) }{ get_option( json_type = type element_description = element_description ) }/>| ).
+    ELSEIF abap_doc-default IS NOT INITIAL.
+      write_open_tag( line = |<tt:deserialize>| ).
+      write_enum_map_ext_compatible(
+        element_description = element_description
+        element_name        = element_name
+        enum_values         = enum_values ).
+      write_closing_tag( `</tt:deserialize>` ).
+      write_open_tag( |<tt:serialize>| ).
+      write_enum_value_mappings( element_description = element_description element_name = element_name enum_values = enum_values ).
+      write_closing_tag( `</tt:serialize>` ).
     ELSE.
-      write_enum_value_mappings( element_description = element_description json_type = type element_name = element_name enum_values = enum_values ).
+      write_enum_value_mappings( element_description = element_description element_name = element_name enum_values = enum_values ).
     ENDIF.
+
     write_closing_tag( |</{ tag }>| ).
     write_closing_tag( `</tt:cond>` ).
     reset_indent_level_tag( ).
@@ -444,9 +466,9 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
 
 
   METHOD get_tag_from_type.
-    DATA temp7 TYPE symsgv.
+    DATA temp8 TYPE symsgv.
     DATA msg TYPE string.
-    DATA temp8 TYPE REF TO zcx_aff_tools.
+    DATA temp9 TYPE REF TO zcx_aff_tools.
     CASE json_type.
       WHEN zif_aff_writer=>type_info-string OR zif_aff_writer=>type_info-date_time.
         result = `str`.
@@ -456,20 +478,20 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
         result = `num`.
       WHEN OTHERS.
 
-        temp7 = json_type.
+        temp8 = json_type.
 
-        msg = log->get_message_text( msgno = 102 msgv1 = temp7 ).
+        msg = log->get_message_text( msgno = 102 msgv1 = temp8 ).
 
-        CREATE OBJECT temp8 TYPE zcx_aff_tools EXPORTING message = msg.
-        RAISE EXCEPTION temp8.
+        CREATE OBJECT temp9 TYPE zcx_aff_tools EXPORTING message = msg.
+        RAISE EXCEPTION temp9.
     ENDCASE.
   ENDMETHOD.
 
 
   METHOD get_option.
-    DATA temp9 TYPE symsgv.
+    DATA temp10 TYPE symsgv.
     DATA msg TYPE string.
-    DATA temp10 TYPE REF TO zcx_aff_tools.
+    DATA temp11 TYPE REF TO zcx_aff_tools.
     IF is_sy_langu( element_description ) = abap_true.
       result = ` option="format(language)"` ##NO_TEXT.
     ELSE.
@@ -484,12 +506,12 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
           result = ` option="format(alpha)"` ##NO_TEXT.
         WHEN OTHERS.
 
-          temp9 = json_type.
+          temp10 = json_type.
 
-          msg = log->get_message_text( msgno = 102 msgv1 = temp9 ).
+          msg = log->get_message_text( msgno = 102 msgv1 = temp10 ).
 
-          CREATE OBJECT temp10 TYPE zcx_aff_tools EXPORTING message = msg.
-          RAISE EXCEPTION temp10.
+          CREATE OBJECT temp11 TYPE zcx_aff_tools EXPORTING message = msg.
+          RAISE EXCEPTION temp11.
       ENDCASE.
     ENDIF.
   ENDMETHOD.
@@ -503,7 +525,7 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
     IF lines( enum_values ) = 0.
       RETURN.
     ENDIF.
-    write_tag( |<tt:value{ get_ref( element_name ) } { get_option( json_type = json_type element_description = element_description ) }map="| ) ##NO_TEXT.
+    write_tag( |<tt:value{ get_ref( element_name ) } map="| ) ##NO_TEXT.
 
 
     index = 1.
@@ -520,8 +542,8 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
       IF index < lines( enum_values ).
         write_tag( |  val({ abap_value })=xml('{ xml_value }'),| ) ##NO_TEXT.
       ELSE.
-        write_tag( |  val({ abap_value })=xml('{ xml_value }')| ) ##NO_TEXT.
-        write_tag( `"/>` ).
+        write_tag( |  val({ abap_value })=xml('{ xml_value }')"| ) ##NO_TEXT.
+        write_tag( `/>` ).
       ENDIF.
       index = index + 1.
     ENDLOOP.
@@ -557,6 +579,12 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
     ENDIF.
   ENDMETHOD.
 
+  METHOD get_to_ref.
+    IF next_tag_without_name_and_ref = abap_false.
+      result = | to-ref="{ name }"| ##NO_TEXT.
+    ENDIF.
+  ENDMETHOD.
+
 
   METHOD get_ref_for_structure.
     IF next_tag_without_name_and_ref = abap_false.
@@ -581,7 +609,7 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
       RETURN.
     ENDIF.
 
-    IF abap_doc-default IS NOT INITIAL AND abap_doc-required = abap_false.
+    IF abap_doc-default IS NOT INITIAL AND ( abap_doc-required = abap_false OR abap_doc-enumvalues_link IS NOT INITIAL ).
 
       default = get_default( enum_values = enum_values structure_name = element_name element_description = element_description type = type ).
     ENDIF.
@@ -601,9 +629,9 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
     DATA table TYPE zcl_aff_writer_xslt=>tt_variable_default_pair.
     DATA temp5 LIKE LINE OF stack_default_comp_of_struc.
     DATA temp6 LIKE sy-tabix.
-    DATA temp11 TYPE zcl_aff_writer_xslt=>ty_variable_default_pair.
-    FIELD-SYMBOLS <temp12> LIKE LINE OF stack_default_comp_of_struc.
-    DATA temp13 LIKE sy-tabix.
+    DATA temp12 TYPE zcl_aff_writer_xslt=>ty_variable_default_pair.
+    FIELD-SYMBOLS <temp13> LIKE LINE OF stack_default_comp_of_struc.
+    DATA temp14 LIKE sy-tabix.
     default = get_default_value_from_default(
       enum_values         = enum_values
       element_description = element_description
@@ -620,19 +648,19 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
       ENDIF.
       table = temp5-table_of_defaults.
 
-      CLEAR temp11.
-      temp11-var_name = structure_name.
-      temp11-default_value = default.
-      APPEND temp11 TO table.
+      CLEAR temp12.
+      temp12-var_name = structure_name.
+      temp12-default_value = default.
+      APPEND temp12 TO table.
 
 
-      temp13 = sy-tabix.
-      READ TABLE stack_default_comp_of_struc INDEX 1 ASSIGNING <temp12>.
-      sy-tabix = temp13.
+      temp14 = sy-tabix.
+      READ TABLE stack_default_comp_of_struc INDEX 1 ASSIGNING <temp13>.
+      sy-tabix = temp14.
       IF sy-subrc <> 0.
         RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
       ENDIF.
-      <temp12>-table_of_defaults = table.
+      <temp13>-table_of_defaults = table.
     ENDIF.
   ENDMETHOD.
 
@@ -646,11 +674,11 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
     FIELD-SYMBOLS <component> LIKE LINE OF structure_of_values->components.
     DATA fullname_of_component TYPE string.
     DATA abap_doc_of_component TYPE zcl_aff_abap_doc_parser=>abap_doc.
-    DATA temp14 TYPE symsgv.
+    DATA temp15 TYPE symsgv.
     DATA temp7 TYPE symsgv.
     DATA msg TYPE string.
-    DATA temp15 TYPE REF TO zcx_aff_tools.
-    DATA temp16 TYPE zcl_aff_writer_xslt=>ty_enum_value.
+    DATA temp16 TYPE REF TO zcx_aff_tools.
+    DATA temp17 TYPE zcl_aff_writer_xslt=>ty_enum_value.
     DATA temp8 TYPE string.
     get_structure_of_enum_values(
       EXPORTING
@@ -672,24 +700,24 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
         abap_doc_of_component = call_reader_and_decode( name_of_source = name_of_source element_name = fullname_of_component ).
         IF <component>-type_kind <> enum_type.
 
-          temp14 = name_of_constant.
+          temp15 = name_of_constant.
 
           temp7 = fullname_of_type.
 
-          msg = log->get_message_text( msgno = 122 msgv1 = temp14 msgv2 = temp7 ).
+          msg = log->get_message_text( msgno = 122 msgv1 = temp15 msgv2 = temp7 ).
 
-          CREATE OBJECT temp15 TYPE zcx_aff_tools EXPORTING message = msg.
-          RAISE EXCEPTION temp15.
+          CREATE OBJECT temp16 TYPE zcx_aff_tools EXPORTING message = msg.
+          RAISE EXCEPTION temp16.
         ENDIF.
         ASSIGN COMPONENT <component>-name OF STRUCTURE <attr> TO <fs_data>.
 
-        CLEAR temp16.
-        temp16-abap_value = <fs_data>.
+        CLEAR temp17.
+        temp17-abap_value = <fs_data>.
 
         temp8 = <component>-name.
-        temp16-json_value = format_name( temp8 ).
-        temp16-overwritten_json_value = abap_doc_of_component-enum_value.
-        INSERT temp16 INTO TABLE result.
+        temp17-json_value = format_name( temp8 ).
+        temp17-overwritten_json_value = abap_doc_of_component-enum_value.
+        INSERT temp17 INTO TABLE result.
       ENDLOOP.
       IF abap_doc-required = abap_false AND abap_doc-default IS INITIAL.
         log->add_warning( message_text = zif_aff_log=>co_msg127 component_name = fullname_of_type ).
@@ -699,11 +727,11 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
 
 
   METHOD write_tag.
-    DATA temp17 LIKE LINE OF content.
+    DATA temp18 LIKE LINE OF content.
     IF ignore_til_indent_level IS INITIAL OR ignore_til_indent_level - 1 > indent_level.
 
-      temp17 = |{ repeat( val = ` ` occ = indent_level * c_indent_number_characters ) }{ line }|.
-      APPEND temp17 TO content.
+      temp18 = |{ repeat( val = ` ` occ = indent_level * c_indent_number_characters ) }{ line }|.
+      APPEND temp18 TO content.
     ENDIF.
   ENDMETHOD.
 
@@ -760,8 +788,8 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
   METHOD get_prefixed_default.
     DATA value_copy TYPE string.
     DATA message TYPE string.
-    DATA temp18 TYPE REF TO zcx_aff_tools.
     DATA temp19 TYPE REF TO zcx_aff_tools.
+    DATA temp20 TYPE REF TO zcx_aff_tools.
     CASE element_description->type_kind.
       WHEN cl_abap_typedescr=>typekind_int OR cl_abap_typedescr=>typekind_int1 OR cl_abap_typedescr=>typekind_int2.
         value_copy = value.
@@ -791,12 +819,12 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
 
         message = log->get_message_text( msgno = 117 msgv1 = `UTCLONG` ).
 
-        CREATE OBJECT temp18 TYPE zcx_aff_tools EXPORTING message = message.
-        RAISE EXCEPTION temp18.
+        CREATE OBJECT temp19 TYPE zcx_aff_tools EXPORTING message = message.
+        RAISE EXCEPTION temp19.
       WHEN OTHERS.
 
-        CREATE OBJECT temp19 TYPE zcx_aff_tools.
-        RAISE EXCEPTION temp19.
+        CREATE OBJECT temp20 TYPE zcx_aff_tools.
+        RAISE EXCEPTION temp20.
     ENDCASE.
   ENDMETHOD.
 
@@ -807,7 +835,7 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
     DATA temp10 LIKE sy-tabix.
     DATA list_of_applies LIKE content.
     FIELD-SYMBOLS <default> LIKE LINE OF actual_entry-table_of_defaults.
-    DATA temp20 LIKE LINE OF list_of_applies.
+    DATA temp21 LIKE LINE OF list_of_applies.
     temp10 = sy-tabix.
     READ TABLE me->stack_default_comp_of_struc INDEX 1 INTO temp9.
     sy-tabix = temp10.
@@ -819,8 +847,8 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
 
     LOOP AT actual_entry-table_of_defaults ASSIGNING <default>.
 
-      temp20 = |{ repeat( val = ` ` occ = ( indent_level * c_indent_number_characters ) - c_indent_number_characters ) }<tt:assign to-ref="{ <default>-var_name }" val="{ <default>-default_value }"/>|.
-      APPEND temp20 TO list_of_applies.
+      temp21 = |{ repeat( val = ` ` occ = ( indent_level * c_indent_number_characters ) - c_indent_number_characters ) }<tt:assign to-ref="{ <default>-var_name }" val="{ <default>-default_value }"/>|.
+      APPEND temp21 TO list_of_applies.
     ENDLOOP.
     INSERT LINES OF list_of_applies INTO content INDEX actual_entry-line_to_insert + 1.
     DELETE me->stack_default_comp_of_struc INDEX 1.
@@ -830,7 +858,7 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
   METHOD write_callback_template.
     DATA ref_name LIKE element_name.
     DATA calculated_tag LIKE tag.
-    DATA temp21 TYPE REF TO cl_abap_elemdescr.
+    DATA temp22 TYPE REF TO cl_abap_elemdescr.
     DATA component_start TYPE string.
     DATA component_end TYPE string.
     IF indent_level > 0.
@@ -851,8 +879,8 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
           calculated_tag = tag.
         ELSE.
 
-          temp21 ?= description.
-          calculated_tag = get_tag_from_type( get_json_type_from_description( temp21 ) ).
+          temp22 ?= description.
+          calculated_tag = get_tag_from_type( get_json_type_from_description( temp22 ) ).
         ENDIF.
 
         component_start = |<{ calculated_tag }>|.
@@ -899,7 +927,7 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
     DATA exception TYPE REF TO cx_o2_xslt_error.
     FIELD-SYMBOLS <error> LIKE LINE OF errors.
     DATA msg TYPE string.
-    DATA temp22 TYPE string.
+    DATA temp23 TYPE string.
     APPEND LINES OF source TO tsource.
     TRY.
 
@@ -919,8 +947,8 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
 
         msg = log->get_message_text( msgno = 0 msgv1 = sy-msgv1 msgv2 = sy-msgv2 msgv3 = sy-msgv3 msgv4 = sy-msgv4 ).
 
-        CLEAR temp22.
-        log->add_error( message_text = msg component_name = temp22 ).
+        CLEAR temp23.
+        log->add_error( message_text = msg component_name = temp23 ).
       ENDLOOP.
       RETURN.
     ENDIF.
@@ -937,7 +965,7 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
     DATA component LIKE LINE OF components.
     DATA formatted_name TYPE string.
     DATA tag TYPE string.
-    DATA temp23 LIKE LINE OF content.
+    DATA temp24 LIKE LINE OF content.
 
     write_open_tag( `<tt:d-cond frq="*">` ).
     write_open_tag( ` <_ tt:lax="on">` ).
@@ -965,8 +993,8 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
       write_tag( `<tt:with-parameter name="MEMBERS"` ).
       IF ignore_til_indent_level IS INITIAL OR ignore_til_indent_level - 1 > indent_level.
 
-        temp23 = |val="'{ str_comp }'"/>|.
-        APPEND temp23 TO content.
+        temp24 = |val="'{ str_comp }'"/>|.
+        APPEND temp24 TO content.
       ENDIF.
     ELSE.
       write_tag( |<tt:with-parameter name="MEMBERS" val="'{ str_comp }'"/>| ).
@@ -979,6 +1007,28 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
     write_tag( `<__/>` ).
     write_closing_tag( `</tt:d-cond>` ).
 
+  ENDMETHOD.
+
+
+  METHOD write_enum_map_ext_compatible.
+    FIELD-SYMBOLS <enum_value> LIKE LINE OF enum_values.
+    DATA abap_value TYPE string.
+    DATA xml_value LIKE <enum_value>-json_value.
+    write_tag( line = |<tt:read type="C" var="VARIABLE"/>| ).
+
+    LOOP AT enum_values ASSIGNING <enum_value>.
+
+      abap_value = get_abap_value( abap_value = <enum_value>-abap_value element_description = element_description ).
+      IF <enum_value>-overwritten_json_value IS INITIAL.
+
+        xml_value = <enum_value>-json_value.
+      ELSE.
+        xml_value = <enum_value>-overwritten_json_value.
+      ENDIF.
+      write_open_tag( |<tt:cond-var check="VARIABLE='{ xml_value }'">| ).
+      write_tag( |<tt:assign { get_to_ref( element_name ) } val="{ abap_value }"/>| ).
+      write_closing_tag( `</tt:cond-var>` ).
+    ENDLOOP.
   ENDMETHOD.
 
 ENDCLASS.

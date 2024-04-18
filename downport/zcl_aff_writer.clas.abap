@@ -26,11 +26,12 @@ CLASS zcl_aff_writer DEFINITION
     CONSTANTS:
       c_indent_number_characters TYPE i VALUE 2.
 
+    TYPES temp1_f81e03d158 TYPE STANDARD TABLE OF ty_stack_entry.
     DATA:
       output                  TYPE string_table,
       content                 TYPE string_table,
       stack_of_structure      TYPE tt_structure_stack,
-      stack                   TYPE STANDARD TABLE OF ty_stack_entry,
+      stack                   TYPE temp1_f81e03d158,
       indent_level            TYPE i VALUE 0,
       log                     TYPE REF TO zif_aff_log,
       abap_doc_parser         TYPE REF TO zcl_aff_abap_doc_parser,
@@ -287,15 +288,21 @@ CLASS zcl_aff_writer IMPLEMENTATION.
 
   METHOD is_type_boolean.
     DATA type_name TYPE string.
+    DATA temp1 TYPE xsdboolean.
     type_name = element_description->get_relative_name( ).
-    result = boolc( element_description->output_length = 1 AND ( type_name IS NOT INITIAL AND c_abap_types-boolean CS type_name ) ).
+
+    temp1 = boolc( element_description->output_length = 1 AND ( type_name IS NOT INITIAL AND c_abap_types-boolean CS type_name ) ).
+    result = temp1.
   ENDMETHOD.
 
 
   METHOD is_type_timestamp.
     DATA type_name TYPE string.
+    DATA temp2 TYPE xsdboolean.
     type_name = element_description->get_relative_name( ).
-    result = boolc( type_name IS NOT INITIAL AND c_abap_types-timestamp CS type_name ).
+
+    temp2 = boolc( type_name IS NOT INITIAL AND c_abap_types-timestamp CS type_name ).
+    result = temp2.
   ENDMETHOD.
 
 
@@ -571,15 +578,19 @@ CLASS zcl_aff_writer IMPLEMENTATION.
 
   METHOD get_splitted_absolute_name.
     DATA place_of_type LIKE absolute_name.
-    DATA splitted_in_componets TYPE STANDARD TABLE OF string WITH DEFAULT KEY.
+    TYPES temp2 TYPE STANDARD TABLE OF string WITH DEFAULT KEY.
+    DATA splitted_in_componets TYPE temp2.
     FIELD-SYMBOLS <component> LIKE LINE OF splitted_in_componets.
-    DATA splitted_in_details TYPE STANDARD TABLE OF string WITH DEFAULT KEY.
+    TYPES temp3 TYPE STANDARD TABLE OF string WITH DEFAULT KEY.
+    DATA splitted_in_details TYPE temp3.
     place_of_type = absolute_name.
+
 
     SPLIT place_of_type AT '\' INTO TABLE splitted_in_componets.
 
     LOOP AT splitted_in_componets ASSIGNING <component>.
       IF <component> IS NOT INITIAL.
+
 
         SPLIT <component> AT '=' INTO TABLE splitted_in_details.
         APPEND LINES OF splitted_in_details TO result.
@@ -680,14 +691,16 @@ CLASS zcl_aff_writer IMPLEMENTATION.
 
   METHOD get_infos_of_values_link.
     DATA link LIKE values_link.
-    DATA split_at_point TYPE STANDARD TABLE OF string WITH DEFAULT KEY.
+    TYPES temp4 TYPE STANDARD TABLE OF string WITH DEFAULT KEY.
+    DATA split_at_point TYPE temp4.
     DATA temp29 LIKE LINE OF split_at_point.
     DATA temp30 LIKE sy-tabix.
     DATA temp31 LIKE LINE OF split_at_point.
     DATA temp32 LIKE sy-tabix.
     link = values_link.
-    REPLACE ALL OCCURRENCES OF REGEX `[\s]` IN link WITH `` ##REGEX_POSIX.
+    REPLACE ALL OCCURRENCES OF PCRE `[\s]` IN link WITH ``.
     REPLACE ALL OCCURRENCES OF `data:` IN link WITH ``.
+
 
     SPLIT link AT '.' INTO TABLE split_at_point.
     IF lines( split_at_point ) = 2.
@@ -790,18 +803,26 @@ CLASS zcl_aff_writer IMPLEMENTATION.
     IF abap_doc_base-callback_class IS INITIAL.
       abap_doc_base-callback_class = abap_doc_additional-callback_class.
     ENDIF.
+    IF abap_doc_base-content_encoding IS INITIAL.
+      abap_doc_base-content_encoding = abap_doc_additional-content_encoding.
+    ENDIF.
+    IF abap_doc_base-content_media_type IS INITIAL.
+      abap_doc_base-content_media_type = abap_doc_additional-content_media_type.
+    ENDIF.
   ENDMETHOD.
 
 
   METHOD get_default_from_link.
     DATA link_to_work_on LIKE link.
-    DATA splitted TYPE STANDARD TABLE OF string WITH DEFAULT KEY.
+    TYPES temp5 TYPE STANDARD TABLE OF string WITH DEFAULT KEY.
+    DATA splitted TYPE temp5.
     DATA default_abap LIKE LINE OF splitted.
     DATA temp11 LIKE LINE OF splitted.
     DATA temp12 LIKE sy-tabix.
     link_to_work_on = link.
-    REPLACE ALL OCCURRENCES OF REGEX `(@link|data:)` IN link_to_work_on WITH `` ##REGEX_POSIX.
-    REPLACE ALL OCCURRENCES OF REGEX `[\s]` IN link_to_work_on WITH `` ##REGEX_POSIX.
+    REPLACE ALL OCCURRENCES OF PCRE `(@link|data:)` IN link_to_work_on WITH ``.
+    REPLACE ALL OCCURRENCES OF PCRE `[\s]` IN link_to_work_on WITH ``.
+
 
     SPLIT link_to_work_on AT '.' INTO TABLE splitted.
     IF validate_default_link( splitted_link = splitted fullname_of_type = fullname_of_type element_type = element_type ) = abap_true.
@@ -828,14 +849,18 @@ CLASS zcl_aff_writer IMPLEMENTATION.
     DATA temp33 TYPE string.
     DATA result TYPE cl_oo_classname_service=>ty_result.
     DATA has_method_get_subschema TYPE abap_bool.
-    DATA temp1 LIKE sy-subrc.
-    DATA temp4 TYPE cl_oo_classname_service=>ty_rowrow.
+    DATA temp13 LIKE sy-subrc.
+    DATA temp1 TYPE cl_oo_classname_service=>ty_rowrow.
+    DATA temp4 TYPE xsdboolean.
     DATA has_method_serialize TYPE abap_bool.
-    DATA temp2 LIKE sy-subrc.
-    DATA temp5 TYPE cl_oo_classname_service=>ty_rowrow.
+    DATA temp14 LIKE sy-subrc.
+    DATA temp2 TYPE cl_oo_classname_service=>ty_rowrow.
+    DATA temp5 TYPE xsdboolean.
     DATA has_method_deserialize TYPE abap_bool.
-    DATA temp3 LIKE sy-subrc.
-    DATA temp6 TYPE cl_oo_classname_service=>ty_rowrow.
+    DATA temp15 LIKE sy-subrc.
+    DATA temp3 TYPE cl_oo_classname_service=>ty_rowrow.
+    DATA temp6 TYPE xsdboolean.
+    DATA temp7 TYPE xsdboolean.
     name_of_callback_class = to_upper( class_name ).
 
     temp33 = name_of_callback_class.
@@ -851,31 +876,39 @@ CLASS zcl_aff_writer IMPLEMENTATION.
 
 
 
-      CLEAR temp4.
-      temp4-clsname = name_of_callback_class.
-      temp4-cpdname = 'GET_SUBSCHEMA'.
-      READ TABLE result WITH KEY cpdkey = temp4 TRANSPORTING NO FIELDS.
-      temp1 = sy-subrc.
-      has_method_get_subschema = boolc( temp1 = 0 ).
+      CLEAR temp1.
+      temp1-clsname = name_of_callback_class.
+      temp1-cpdname = 'GET_SUBSCHEMA'.
+      READ TABLE result WITH KEY cpdkey = temp1 TRANSPORTING NO FIELDS.
+      temp13 = sy-subrc.
+
+      temp4 = boolc( temp13 = 0 ).
+      has_method_get_subschema = temp4.
 
 
 
-      CLEAR temp5.
-      temp5-clsname = name_of_callback_class.
-      temp5-cpdname = 'SERIALIZE'.
-      READ TABLE result WITH KEY cpdkey = temp5 TRANSPORTING NO FIELDS.
-      temp2 = sy-subrc.
-      has_method_serialize = boolc( temp2 = 0 ).
+      CLEAR temp2.
+      temp2-clsname = name_of_callback_class.
+      temp2-cpdname = 'SERIALIZE'.
+      READ TABLE result WITH KEY cpdkey = temp2 TRANSPORTING NO FIELDS.
+      temp14 = sy-subrc.
+
+      temp5 = boolc( temp14 = 0 ).
+      has_method_serialize = temp5.
 
 
 
-      CLEAR temp6.
-      temp6-clsname = name_of_callback_class.
-      temp6-cpdname = 'DESERIALIZE'.
-      READ TABLE result WITH KEY cpdkey = temp6 TRANSPORTING NO FIELDS.
-      temp3 = sy-subrc.
-      has_method_deserialize = boolc( temp3 = 0 ).
-      is_valid = boolc( has_method_get_subschema = abap_true AND has_method_serialize = abap_true AND has_method_deserialize = abap_true ).
+      CLEAR temp3.
+      temp3-clsname = name_of_callback_class.
+      temp3-cpdname = 'DESERIALIZE'.
+      READ TABLE result WITH KEY cpdkey = temp3 TRANSPORTING NO FIELDS.
+      temp15 = sy-subrc.
+
+      temp6 = boolc( temp15 = 0 ).
+      has_method_deserialize = temp6.
+
+      temp7 = boolc( has_method_get_subschema = abap_true AND has_method_serialize = abap_true AND has_method_deserialize = abap_true ).
+      is_valid = temp7.
     ENDIF.
     IF is_valid = abap_false.
       log->add_warning( message_text = zif_aff_log=>co_msg106 component_name = component_name ).
@@ -885,54 +918,54 @@ CLASS zcl_aff_writer IMPLEMENTATION.
   METHOD validate_default_link.
     DATA msg TYPE string.
     DATA source_name TYPE string.
-    DATA temp13 LIKE LINE OF splitted_link.
-    DATA temp14 LIKE sy-tabix.
+    DATA temp16 LIKE LINE OF splitted_link.
+    DATA temp17 LIKE sy-tabix.
     DATA constant_name TYPE string.
-    DATA temp15 LIKE LINE OF splitted_link.
-    DATA temp16 LIKE sy-tabix.
+    DATA temp18 LIKE LINE OF splitted_link.
+    DATA temp19 LIKE sy-tabix.
     DATA component_name TYPE string.
-    DATA temp17 LIKE LINE OF splitted_link.
-    DATA temp18 LIKE sy-tabix.
+    DATA temp20 LIKE LINE OF splitted_link.
+    DATA temp21 LIKE sy-tabix.
     DATA constant_description TYPE REF TO cl_abap_structdescr.
     DATA components TYPE abap_component_tab.
     DATA temp34 TYPE abap_componentdescr.
     DATA temp35 TYPE abap_componentdescr.
     DATA row LIKE temp34.
     DATA temp36 TYPE symsgv.
-    DATA temp19 TYPE symsgv.
+    DATA temp22 TYPE symsgv.
     DATA temp37 TYPE symsgv.
-    DATA temp20 TYPE symsgv.
+    DATA temp23 TYPE symsgv.
     IF lines( splitted_link ) = 3.
 
 
 
-      temp14 = sy-tabix.
-      READ TABLE splitted_link INDEX 1 INTO temp13.
-      sy-tabix = temp14.
+      temp17 = sy-tabix.
+      READ TABLE splitted_link INDEX 1 INTO temp16.
+      sy-tabix = temp17.
       IF sy-subrc <> 0.
         RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
       ENDIF.
-      source_name = to_upper( temp13 ).
+      source_name = to_upper( temp16 ).
 
 
 
-      temp16 = sy-tabix.
-      READ TABLE splitted_link INDEX 2 INTO temp15.
-      sy-tabix = temp16.
+      temp19 = sy-tabix.
+      READ TABLE splitted_link INDEX 2 INTO temp18.
+      sy-tabix = temp19.
       IF sy-subrc <> 0.
         RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
       ENDIF.
-      constant_name = to_upper( temp15 ).
+      constant_name = to_upper( temp18 ).
 
 
 
-      temp18 = sy-tabix.
-      READ TABLE splitted_link INDEX 3 INTO temp17.
-      sy-tabix = temp18.
+      temp21 = sy-tabix.
+      READ TABLE splitted_link INDEX 3 INTO temp20.
+      sy-tabix = temp21.
       IF sy-subrc <> 0.
         RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
       ENDIF.
-      component_name = to_upper( temp17 ).
+      component_name = to_upper( temp20 ).
 
       constant_description = get_constant_as_struc(
         name_of_source   = source_name
@@ -957,16 +990,16 @@ CLASS zcl_aff_writer IMPLEMENTATION.
 
             temp36 = constant_name.
 
-            temp19 = fullname_of_type.
-            msg = log->get_message_text( msgno = 122 msgv1 = temp36 msgv2 = temp19 ).
+            temp22 = fullname_of_type.
+            msg = log->get_message_text( msgno = 122 msgv1 = temp36 msgv2 = temp22 ).
             log->add_warning( message_text = msg component_name = fullname_of_type ).
           ENDIF.
         ELSE.
 
           temp37 = component_name.
 
-          temp20 = constant_name.
-          msg = log->get_message_text( msgno = 105 msgv1 = temp37 msgv2 = temp20 ).
+          temp23 = constant_name.
+          msg = log->get_message_text( msgno = 105 msgv1 = temp37 msgv2 = temp23 ).
           log->add_warning( message_text = msg component_name = fullname_of_type ).
         ENDIF.
       ENDIF.
@@ -1013,7 +1046,7 @@ CLASS zcl_aff_writer IMPLEMENTATION.
             default = default && repeat( val = '0' occ = 6 - strlen( default ) ).
           ENDIF.
           IF element_description->type_kind = cl_abap_typedescr=>typekind_utclong.
-            REPLACE REGEX `T|t` IN default WITH ` ` ##REGEX_POSIX.
+            REPLACE PCRE `T|t` IN default WITH ` `.
           ENDIF.
           remove_leading_trailing_spaces( CHANGING string_to_work_on = string ).
           remove_leading_trailing_spaces( CHANGING string_to_work_on = default ).
@@ -1063,14 +1096,17 @@ CLASS zcl_aff_writer IMPLEMENTATION.
 
   METHOD is_sy_langu.
     DATA temp39 TYPE sy-langu.
-    DATA temp21 TYPE REF TO cl_abap_elemdescr.
-    DATA sy_langu_description LIKE temp21.
+    DATA temp24 TYPE REF TO cl_abap_elemdescr.
+    DATA sy_langu_description LIKE temp24.
+    DATA temp8 TYPE xsdboolean.
     CLEAR temp39.
 
-    temp21 ?= cl_abap_typedescr=>describe_by_data( temp39 ).
+    temp24 ?= cl_abap_typedescr=>describe_by_data( temp39 ).
 
-    sy_langu_description = temp21.
-    result = boolc( sy_langu_description->edit_mask = element_description->edit_mask ).
+    sy_langu_description = temp24.
+
+    temp8 = boolc( sy_langu_description->edit_mask = element_description->edit_mask ).
+    result = temp8.
   ENDMETHOD.
 
   METHOD clear_type_specifics.
@@ -1086,7 +1122,7 @@ CLASS zcl_aff_writer IMPLEMENTATION.
       log->add_info( message_text = msg component_name = fullname_of_type ).
     ENDIF.
 
-    IF abap_doc-required = abap_true AND abap_doc-default IS NOT INITIAL.
+    IF abap_doc-enumvalues_link IS INITIAL AND abap_doc-required = abap_true AND abap_doc-default IS NOT INITIAL.
       log->add_warning( message_text = zif_aff_log=>co_msg126 component_name = fullname_of_type ).
     ENDIF.
   ENDMETHOD.

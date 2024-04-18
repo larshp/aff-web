@@ -60,106 +60,106 @@ CLASS ltcl_abap_doc_reader IMPLEMENTATION.
     CLEAR temp8.
 
     temp3 = |class CL_EC_WITH_COMMENTED_TYPES definition|.
-    APPEND temp3 TO temp8.
+    INSERT temp3 INTO TABLE temp8.
 
     temp4 = | public|.
-    APPEND temp4 TO temp8.
+    INSERT temp4 INTO TABLE temp8.
 
     temp5 = |  final|.
-    APPEND temp5 TO temp8.
+    INSERT temp5 INTO TABLE temp8.
 
     temp6 = |  create public .|.
-    APPEND temp6 TO temp8.
+    INSERT temp6 INTO TABLE temp8.
 
     temp7 = ||.
-    APPEND temp7 TO temp8.
+    INSERT temp7 INTO TABLE temp8.
 
     temp9 = | public section.|.
-    APPEND temp9 TO temp8.
+    INSERT temp9 INTO TABLE temp8.
 
     temp10 = ||.
-    APPEND temp10 TO temp8.
+    INSERT temp10 INTO TABLE temp8.
 
     temp11 = |    types:|.
-    APPEND temp11 TO temp8.
+    INSERT temp11 INTO TABLE temp8.
 
     temp12 = |      "! abap doc comment begin of ty_pub_structure|.
-    APPEND temp12 TO temp8.
+    INSERT temp12 INTO TABLE temp8.
 
     temp13 = |      begin " inline comment|.
-    APPEND temp13 TO temp8.
+    INSERT temp13 INTO TABLE temp8.
 
     temp14 = |       of  " inline comment|.
-    APPEND temp14 TO temp8.
+    INSERT temp14 INTO TABLE temp8.
 
     temp15 = |        ty_pub_structure, " inline comment ty_pub_structure|.
-    APPEND temp15 TO temp8.
+    INSERT temp15 INTO TABLE temp8.
 
     temp16 = |          "! ABAP Doc This is field A of the structure|.
-    APPEND temp16 TO temp8.
+    INSERT temp16 INTO TABLE temp8.
 
     temp17 = |          field_a type i, " inline comment field_a|.
-    APPEND temp17 TO temp8.
+    INSERT temp17 INTO TABLE temp8.
 
     temp18 = |          "! ABAP Doc This is field B of the structure|.
-    APPEND temp18 TO temp8.
+    INSERT temp18 INTO TABLE temp8.
 
     temp19 = |          field_b type string,|.
-    APPEND temp19 TO temp8.
+    INSERT temp19 INTO TABLE temp8.
 
     temp20 = |      end of ty_pub_structure .|.
-    APPEND temp20 TO temp8.
+    INSERT temp20 INTO TABLE temp8.
 
     temp21 = |    types:|.
-    APPEND temp21 TO temp8.
+    INSERT temp21 INTO TABLE temp8.
 
     temp22 = |      "! abap doc ty_tab_of_structure|.
-    APPEND temp22 TO temp8.
+    INSERT temp22 INTO TABLE temp8.
 
     temp23 = |      ty_tab_of_pub_structure " inline comment ty_tab_of_structure (type table of )|.
-    APPEND temp23 TO temp8.
+    INSERT temp23 INTO TABLE temp8.
 
     temp24 = |     " pure inline comment line 1|.
-    APPEND temp24 TO temp8.
+    INSERT temp24 INTO TABLE temp8.
 
     temp25 = |       type  " inline|.
-    APPEND temp25 TO temp8.
+    INSERT temp25 INTO TABLE temp8.
 
     temp26 = |         table of ty_pub_structure with default key .|.
-    APPEND temp26 TO temp8.
+    INSERT temp26 INTO TABLE temp8.
 
     temp27 = | |.
-    APPEND temp27 TO temp8.
+    INSERT temp27 INTO TABLE temp8.
 
     temp28 = |     data SUBRC type SY-SUBRC read-only .|.
-    APPEND temp28 TO temp8.
+    INSERT temp28 INTO TABLE temp8.
 
     temp29 = | protected section.|.
-    APPEND temp29 TO temp8.
+    INSERT temp29 INTO TABLE temp8.
 
     temp30 = | private section.|.
-    APPEND temp30 TO temp8.
+    INSERT temp30 INTO TABLE temp8.
 
     temp31 = |  "! Just simple data|.
-    APPEND temp31 TO temp8.
+    INSERT temp31 INTO TABLE temp8.
 
     temp32 = |  data abc type i.|.
-    APPEND temp32 TO temp8.
+    INSERT temp32 INTO TABLE temp8.
 
     temp33 = |ENDCLASS.|.
-    APPEND temp33 TO temp8.
+    INSERT temp33 INTO TABLE temp8.
 
     temp34 = ||.
-    APPEND temp34 TO temp8.
+    INSERT temp34 INTO TABLE temp8.
 
     temp35 = ||.
-    APPEND temp35 TO temp8.
+    INSERT temp35 INTO TABLE temp8.
 
     temp36 = |CLASS CL_EC_WITH_COMMENTED_TYPES IMPLEMENTATION.|.
-    APPEND temp36 TO temp8.
+    INSERT temp36 INTO TABLE temp8.
 
     temp37 = |ENDCLASS.|.
-    APPEND temp37 TO temp8.
+    INSERT temp37 INTO TABLE temp8.
     lt_clif_source = temp8.
 
     test_obj = zcl_aff_abap_doc_reader=>create_instance( source = lt_clif_source ).
@@ -217,36 +217,36 @@ CLASS ltcl_abap_doc_reader IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD get_simple.
-    DATA temp43 TYPE string_table.
-    DATA temp38 LIKE LINE OF temp43.
-    DATA temp39 LIKE LINE OF temp43.
-    DATA temp40 LIKE LINE OF temp43.
-    DATA temp41 LIKE LINE OF temp43.
-    DATA temp42 LIKE LINE OF temp43.
-    DATA temp44 LIKE LINE OF temp43.
-    DATA source LIKE temp43.
+    DATA temp10 TYPE string_table.
+    DATA temp38 LIKE LINE OF temp10.
+    DATA temp39 LIKE LINE OF temp10.
+    DATA temp40 LIKE LINE OF temp10.
+    DATA temp41 LIKE LINE OF temp10.
+    DATA temp42 LIKE LINE OF temp10.
+    DATA temp43 LIKE LINE OF temp10.
+    DATA source LIKE temp10.
     DATA result TYPE string.
-    CLEAR temp43.
+    CLEAR temp10.
 
     temp38 = |CLASS zcl_aff_test_types DEFINITION PUBLIC FINAL CREATE PUBLIC.|.
-    APPEND temp38 TO temp43.
+    INSERT temp38 INTO TABLE temp10.
 
     temp39 = |PUBLIC SECTION.|.
-    APPEND temp39 TO temp43.
+    INSERT temp39 INTO TABLE temp10.
 
     temp40 = |  TYPES:|.
-    APPEND temp40 TO temp43.
+    INSERT temp40 INTO TABLE temp10.
 
     temp41 = |    "! $hiddenabc|.
-    APPEND temp41 TO temp43.
+    INSERT temp41 INTO TABLE temp10.
 
     temp42 = |    unknown_annotation TYPE string.|.
-    APPEND temp42 TO temp43.
+    INSERT temp42 INTO TABLE temp10.
 
-    temp44 = |ENDCLASS.|.
-    APPEND temp44 TO temp43.
+    temp43 = |ENDCLASS.|.
+    INSERT temp43 INTO TABLE temp10.
 
-    source = temp43.
+    source = temp10.
 
 
     result = zcl_aff_abap_doc_reader=>create_instance( source )->get_abap_doc_for_element( 'UNKNOWN_ANNOTATION' ).
@@ -258,64 +258,64 @@ CLASS ltcl_abap_doc_reader IMPLEMENTATION.
 
   METHOD get_structure.
 
-    DATA temp50 TYPE string_table.
-    DATA temp45 LIKE LINE OF temp50.
-    DATA temp46 LIKE LINE OF temp50.
-    DATA temp47 LIKE LINE OF temp50.
-    DATA temp48 LIKE LINE OF temp50.
-    DATA temp49 LIKE LINE OF temp50.
-    DATA temp51 LIKE LINE OF temp50.
-    DATA temp52 LIKE LINE OF temp50.
-    DATA temp53 LIKE LINE OF temp50.
-    DATA temp54 LIKE LINE OF temp50.
-    DATA temp55 LIKE LINE OF temp50.
-    DATA temp56 LIKE LINE OF temp50.
-    DATA temp57 LIKE LINE OF temp50.
-    DATA temp58 LIKE LINE OF temp50.
-    DATA source LIKE temp50.
+    DATA temp12 TYPE string_table.
+    DATA temp44 LIKE LINE OF temp12.
+    DATA temp45 LIKE LINE OF temp12.
+    DATA temp46 LIKE LINE OF temp12.
+    DATA temp47 LIKE LINE OF temp12.
+    DATA temp48 LIKE LINE OF temp12.
+    DATA temp49 LIKE LINE OF temp12.
+    DATA temp50 LIKE LINE OF temp12.
+    DATA temp51 LIKE LINE OF temp12.
+    DATA temp52 LIKE LINE OF temp12.
+    DATA temp53 LIKE LINE OF temp12.
+    DATA temp54 LIKE LINE OF temp12.
+    DATA temp55 LIKE LINE OF temp12.
+    DATA temp56 LIKE LINE OF temp12.
+    DATA source LIKE temp12.
     DATA result TYPE string.
-    CLEAR temp50.
+    CLEAR temp12.
 
-    temp45 = |* simple structure|.
-    APPEND temp45 TO temp50.
+    temp44 = |* simple structure|.
+    INSERT temp44 INTO TABLE temp12.
 
-    temp46 = |    TYPES:|.
-    APPEND temp46 TO temp50.
+    temp45 = |    TYPES:|.
+    INSERT temp45 INTO TABLE temp12.
 
-    temp47 = |      "! foo|.
-    APPEND temp47 TO temp50.
+    temp46 = |      "! foo|.
+    INSERT temp46 INTO TABLE temp12.
 
-    temp48 = |      "! bar|.
-    APPEND temp48 TO temp50.
+    temp47 = |      "! bar|.
+    INSERT temp47 INTO TABLE temp12.
 
-    temp49 = |      BEGIN OF my_structure,|.
-    APPEND temp49 TO temp50.
+    temp48 = |      BEGIN OF my_structure,|.
+    INSERT temp48 INTO TABLE temp12.
 
-    temp51 = |        "! l1|.
-    APPEND temp51 TO temp50.
+    temp49 = |        "! l1|.
+    INSERT temp49 INTO TABLE temp12.
 
-    temp52 = |        "! l2|.
-    APPEND temp52 TO temp50.
+    temp50 = |        "! l2|.
+    INSERT temp50 INTO TABLE temp12.
 
-    temp53 = |        "! l3|.
-    APPEND temp53 TO temp50.
+    temp51 = |        "! l3|.
+    INSERT temp51 INTO TABLE temp12.
 
-    temp54 = |        my_first_element  TYPE mystring,|.
-    APPEND temp54 TO temp50.
+    temp52 = |        my_first_element  TYPE mystring,|.
+    INSERT temp52 INTO TABLE temp12.
 
-    temp55 = |        "! l4|.
-    APPEND temp55 TO temp50.
+    temp53 = |        "! l4|.
+    INSERT temp53 INTO TABLE temp12.
 
-    temp56 = |        "! l5|.
-    APPEND temp56 TO temp50.
+    temp54 = |        "! l5|.
+    INSERT temp54 INTO TABLE temp12.
 
-    temp57 = |        my_second_element TYPE i,|.
-    APPEND temp57 TO temp50.
+    temp55 = |        my_second_element TYPE i,|.
+    INSERT temp55 INTO TABLE temp12.
 
-    temp58 = |      END OF my_structure.|.
-    APPEND temp58 TO temp50.
+    temp56 = |      END OF my_structure.|.
+    INSERT temp56 INTO TABLE temp12.
 
-    source = temp50.
+    source = temp12.
 
 
     result = zcl_aff_abap_doc_reader=>create_instance( source )->get_abap_doc_for_element( 'MY_STRUCTURE' ).
@@ -337,52 +337,52 @@ CLASS ltcl_abap_doc_reader IMPLEMENTATION.
 
   METHOD structure_and_fields.
 
-    DATA temp64 TYPE string_table.
-    DATA temp59 LIKE LINE OF temp64.
-    DATA temp60 LIKE LINE OF temp64.
-    DATA temp61 LIKE LINE OF temp64.
-    DATA temp62 LIKE LINE OF temp64.
-    DATA temp63 LIKE LINE OF temp64.
-    DATA temp65 LIKE LINE OF temp64.
-    DATA temp66 LIKE LINE OF temp64.
-    DATA temp67 LIKE LINE OF temp64.
-    DATA temp68 LIKE LINE OF temp64.
-    DATA temp69 LIKE LINE OF temp64.
-    DATA source LIKE temp64.
+    DATA temp14 TYPE string_table.
+    DATA temp57 LIKE LINE OF temp14.
+    DATA temp58 LIKE LINE OF temp14.
+    DATA temp59 LIKE LINE OF temp14.
+    DATA temp60 LIKE LINE OF temp14.
+    DATA temp61 LIKE LINE OF temp14.
+    DATA temp62 LIKE LINE OF temp14.
+    DATA temp63 LIKE LINE OF temp14.
+    DATA temp64 LIKE LINE OF temp14.
+    DATA temp65 LIKE LINE OF temp14.
+    DATA temp66 LIKE LINE OF temp14.
+    DATA source LIKE temp14.
     DATA result TYPE string.
-    CLEAR temp64.
+    CLEAR temp14.
 
-    temp59 = |    TYPES:|.
-    APPEND temp59 TO temp64.
+    temp57 = |    TYPES:|.
+    INSERT temp57 INTO TABLE temp14.
 
-    temp60 = |      BEGIN OF structure1,|.
-    APPEND temp60 TO temp64.
+    temp58 = |      BEGIN OF structure1,|.
+    INSERT temp58 INTO TABLE temp14.
 
-    temp61 = |        "! text1|.
-    APPEND temp61 TO temp64.
+    temp59 = |        "! text1|.
+    INSERT temp59 INTO TABLE temp14.
 
-    temp62 = |        same_name TYPE i,|.
-    APPEND temp62 TO temp64.
+    temp60 = |        same_name TYPE i,|.
+    INSERT temp60 INTO TABLE temp14.
 
-    temp63 = |      END OF structure1.|.
-    APPEND temp63 TO temp64.
+    temp61 = |      END OF structure1.|.
+    INSERT temp61 INTO TABLE temp14.
 
-    temp65 = |    TYPES:|.
-    APPEND temp65 TO temp64.
+    temp62 = |    TYPES:|.
+    INSERT temp62 INTO TABLE temp14.
 
-    temp66 = |      BEGIN OF structure2,|.
-    APPEND temp66 TO temp64.
+    temp63 = |      BEGIN OF structure2,|.
+    INSERT temp63 INTO TABLE temp14.
 
-    temp67 = |        "! text2|.
-    APPEND temp67 TO temp64.
+    temp64 = |        "! text2|.
+    INSERT temp64 INTO TABLE temp14.
 
-    temp68 = |        same_name TYPE i,|.
-    APPEND temp68 TO temp64.
+    temp65 = |        same_name TYPE i,|.
+    INSERT temp65 INTO TABLE temp14.
 
-    temp69 = |      END OF structure2.|.
-    APPEND temp69 TO temp64.
+    temp66 = |      END OF structure2.|.
+    INSERT temp66 INTO TABLE temp14.
 
-    source = temp64.
+    source = temp14.
 
 
     result = zcl_aff_abap_doc_reader=>create_instance( source )->get_abap_doc_for_element( 'STRUCTURE1-SAME_NAME' ).
@@ -399,32 +399,32 @@ CLASS ltcl_abap_doc_reader IMPLEMENTATION.
 
   METHOD get_structure_types.
 
-    DATA temp75 TYPE string_table.
-    DATA temp70 LIKE LINE OF temp75.
-    DATA temp71 LIKE LINE OF temp75.
-    DATA temp72 LIKE LINE OF temp75.
-    DATA temp73 LIKE LINE OF temp75.
-    DATA temp74 LIKE LINE OF temp75.
-    DATA source LIKE temp75.
+    DATA temp16 TYPE string_table.
+    DATA temp67 LIKE LINE OF temp16.
+    DATA temp68 LIKE LINE OF temp16.
+    DATA temp69 LIKE LINE OF temp16.
+    DATA temp70 LIKE LINE OF temp16.
+    DATA temp71 LIKE LINE OF temp16.
+    DATA source LIKE temp16.
     DATA result TYPE string.
-    CLEAR temp75.
+    CLEAR temp16.
 
-    temp70 = |  TYPES:|.
-    APPEND temp70 TO temp75.
+    temp67 = |  TYPES:|.
+    INSERT temp67 INTO TABLE temp16.
 
-    temp71 = |    BEGIN OF ty_descriptions,|.
-    APPEND temp71 TO temp75.
+    temp68 = |    BEGIN OF ty_descriptions,|.
+    INSERT temp68 INTO TABLE temp16.
 
-    temp72 = |      "! hello|.
-    APPEND temp72 TO temp75.
+    temp69 = |      "! hello|.
+    INSERT temp69 INTO TABLE temp16.
 
-    temp73 = |      types      TYPE string,|.
-    APPEND temp73 TO temp75.
+    temp70 = |      types      TYPE string,|.
+    INSERT temp70 INTO TABLE temp16.
 
-    temp74 = |    END OF ty_descriptions.|.
-    APPEND temp74 TO temp75.
+    temp71 = |    END OF ty_descriptions.|.
+    INSERT temp71 INTO TABLE temp16.
 
-    source = temp75.
+    source = temp16.
 
 
     result = zcl_aff_abap_doc_reader=>create_instance( source )->get_abap_doc_for_element( 'TY_DESCRIPTIONS-TYPES' ).

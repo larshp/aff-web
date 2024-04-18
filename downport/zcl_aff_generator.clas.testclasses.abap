@@ -110,20 +110,34 @@ INTERFACE lif_test_types.
   TYPES END OF ty_class_properties.
 
   TYPES:
-    BEGIN OF ty_abap_type,
+    BEGIN OF ty_abap_type_structure,
       format_version  TYPE string,
       header          TYPE ty_header,
-      other_component TYPE i,
-    END OF ty_abap_type.
+      other_component TYPE ty_component,
+    END OF ty_abap_type_structure.
+  TYPES:
+    BEGIN OF ty_abap_type_table,
+      format_version  TYPE string,
+      header          TYPE ty_header,
+      other_component TYPE table_structure,
+    END OF ty_abap_type_table.
+  TYPES:
+    BEGIN OF ty_simple_component,
+      format_version   TYPE string,
+      header           TYPE ty_header,
+      simple_component TYPE i,
+      struc_component  TYPE ty_component,
+      tabl_component   TYPE table_structure,
+    END OF ty_simple_component.
   TYPES:
     BEGIN OF ty_abap_type_no_header,
       format_version  TYPE string,
-      other_component TYPE i,
+      other_component TYPE ty_component,
     END OF ty_abap_type_no_header.
   TYPES:
     BEGIN OF ty_abap_type_no_format,
       header          TYPE ty_header,
-      other_component TYPE i,
+      other_component TYPE ty_component,
     END OF ty_abap_type_no_format.
 
 ENDINTERFACE.
@@ -149,36 +163,36 @@ ENDCLASS.
 CLASS ltcl_unit_test_writer IMPLEMENTATION.
 
   METHOD write_element.
-    DATA temp11 LIKE LINE OF output.
-    temp11 = |{ repeat( val = ` ` occ = 4 * depth ) }{ element_name } : { element_description->type_kind }|.
-    APPEND temp11 TO output.
+    DATA temp12 LIKE LINE OF output.
+    temp12 = |{ repeat( val = ` ` occ = 4 * depth ) }{ element_name } : { element_description->type_kind }|.
+    APPEND temp12 TO output.
   ENDMETHOD.
 
   METHOD close_structure.
-    DATA temp12 LIKE LINE OF output.
-    temp12 = |{ repeat( val = ` ` occ = 4 * ( depth - 1 ) ) }CLOSE_STRUCTURE { structure_name }|.
-    APPEND temp12 TO output.
-    depth = depth - 1.
-  ENDMETHOD.
-
-  METHOD close_table.
     DATA temp13 LIKE LINE OF output.
-    temp13 = |{ repeat( val = ` ` occ = 4 * ( depth - 1 ) ) }CLOSE_TABLE { table_name }|.
+    temp13 = |{ repeat( val = ` ` occ = 4 * ( depth - 1 ) ) }CLOSE_STRUCTURE { structure_name }|.
     APPEND temp13 TO output.
     depth = depth - 1.
   ENDMETHOD.
 
-  METHOD open_structure.
+  METHOD close_table.
     DATA temp14 LIKE LINE OF output.
-    temp14 = |{ repeat( val = ` ` occ = 4 * depth ) }OPEN_STRUCTURE { structure_name }|.
+    temp14 = |{ repeat( val = ` ` occ = 4 * ( depth - 1 ) ) }CLOSE_TABLE { table_name }|.
     APPEND temp14 TO output.
+    depth = depth - 1.
+  ENDMETHOD.
+
+  METHOD open_structure.
+    DATA temp15 LIKE LINE OF output.
+    temp15 = |{ repeat( val = ` ` occ = 4 * depth ) }OPEN_STRUCTURE { structure_name }|.
+    APPEND temp15 TO output.
     depth = depth + 1.
   ENDMETHOD.
 
   METHOD open_table.
-    DATA temp15 LIKE LINE OF output.
-    temp15 = |{ repeat( val = ` ` occ = 4 * depth ) }OPEN_TABLE { table_name }|.
-    APPEND temp15 TO output.
+    DATA temp16 LIKE LINE OF output.
+    temp16 = |{ repeat( val = ` ` occ = 4 * depth ) }OPEN_TABLE { table_name }|.
+    APPEND temp16 TO output.
     depth = depth + 1.
   ENDMETHOD.
 
@@ -197,7 +211,7 @@ CLASS ltcl_type_generator DEFINITION FINAL FOR TESTING
 
   PRIVATE SECTION.
     DATA:
-      cut        TYPE REF TO zcl_aff_generator,
+      cut        TYPE REF TO zif_aff_generator,
       exp_result TYPE string_table.
 
     METHODS:
@@ -214,10 +228,12 @@ CLASS ltcl_type_generator DEFINITION FINAL FOR TESTING
       struc_tab_struc_tab FOR TESTING RAISING cx_static_check,
       unsupported_type FOR TESTING RAISING cx_static_check,
       complex_structure_aff_class FOR TESTING RAISING cx_static_check,
-      mandatory_fields FOR TESTING RAISING cx_static_check,
+      simple_component_on_top_level FOR TESTING RAISING cx_static_check,
       no_header FOR TESTING RAISING cx_static_check,
       no_format_version FOR TESTING RAISING cx_static_check,
       no_structure FOR TESTING RAISING cx_static_check,
+      structure_on_top_level FOR TESTING RAISING cx_static_check,
+      table_on_top_level FOR TESTING RAISING cx_static_check,
       setup,
       assert_output_equals
         IMPORTING
@@ -238,83 +254,83 @@ CLASS ltcl_type_generator IMPLEMENTATION.
   METHOD element.
     DATA test_data TYPE lif_test_types=>element.
     DATA act_result TYPE string_table.
-    DATA temp16 TYPE string_table.
+    DATA temp17 TYPE string_table.
     act_result = cut->generate_type( test_data ).
 
 
-    CLEAR temp16.
-    APPEND `ELEMENT : g` TO temp16.
-    exp_result = temp16.
+    CLEAR temp17.
+    INSERT `ELEMENT : g` INTO TABLE temp17.
+    exp_result = temp17.
     assert_output_equals( exp = exp_result act = act_result ).
   ENDMETHOD.
 
   METHOD structure.
     DATA test_data TYPE lif_test_types=>structure.
     DATA act_result TYPE string_table.
-    DATA temp18 TYPE string_table.
+    DATA temp19 TYPE string_table.
     act_result = cut->generate_type( test_data ).
 
 
-    CLEAR temp18.
-    APPEND `OPEN_STRUCTURE STRUCTURE` TO temp18.
-    APPEND `    ELEMENT_1 : I` TO temp18.
-    APPEND `    ELEMENT_2 : g` TO temp18.
-    APPEND `CLOSE_STRUCTURE STRUCTURE` TO temp18.
-    exp_result = temp18.
+    CLEAR temp19.
+    INSERT `OPEN_STRUCTURE STRUCTURE` INTO TABLE temp19.
+    INSERT `    ELEMENT_1 : I` INTO TABLE temp19.
+    INSERT `    ELEMENT_2 : g` INTO TABLE temp19.
+    INSERT `CLOSE_STRUCTURE STRUCTURE` INTO TABLE temp19.
+    exp_result = temp19.
     assert_output_equals( exp = exp_result act = act_result ).
   ENDMETHOD.
 
   METHOD include.
     DATA test_data TYPE lif_test_types=>structure_with_include.
     DATA act_result TYPE string_table.
-    DATA temp23 TYPE string_table.
+    DATA temp21 TYPE string_table.
     act_result = cut->generate_type( test_data ).
 
 
-    CLEAR temp23.
-    APPEND `OPEN_STRUCTURE STRUCTURE_WITH_INCLUDE` TO temp23.
-    APPEND `    INCLUDE_ELEMENT_1 : g` TO temp23.
-    APPEND `    INCLUDE_ELEMENT_2 : I` TO temp23.
-    APPEND `    ELEMENT_1 : I` TO temp23.
-    APPEND `    ELEMENT_2 : g` TO temp23.
-    APPEND `CLOSE_STRUCTURE STRUCTURE_WITH_INCLUDE` TO temp23.
-    exp_result = temp23.
+    CLEAR temp21.
+    INSERT `OPEN_STRUCTURE STRUCTURE_WITH_INCLUDE` INTO TABLE temp21.
+    INSERT `    INCLUDE_ELEMENT_1 : g` INTO TABLE temp21.
+    INSERT `    INCLUDE_ELEMENT_2 : I` INTO TABLE temp21.
+    INSERT `    ELEMENT_1 : I` INTO TABLE temp21.
+    INSERT `    ELEMENT_2 : g` INTO TABLE temp21.
+    INSERT `CLOSE_STRUCTURE STRUCTURE_WITH_INCLUDE` INTO TABLE temp21.
+    exp_result = temp21.
     assert_output_equals( exp = exp_result act = act_result ).
   ENDMETHOD.
 
   METHOD include_in_include.
     DATA test_data TYPE lif_test_types=>structure_include_in_include.
     DATA act_result TYPE string_table.
-    DATA temp30 TYPE string_table.
+    DATA temp23 TYPE string_table.
     act_result = cut->generate_type( test_data ).
 
 
-    CLEAR temp30.
-    APPEND `OPEN_STRUCTURE STRUCTURE_INCLUDE_IN_INCLUDE` TO temp30.
-    APPEND `    INCLUDE_ELEMENT_1 : g` TO temp30.
-    APPEND `    INCLUDE_ELEMENT_2 : I` TO temp30.
-    APPEND `    ELEMENT : g` TO temp30.
-    APPEND `CLOSE_STRUCTURE STRUCTURE_INCLUDE_IN_INCLUDE` TO temp30.
-    exp_result = temp30.
+    CLEAR temp23.
+    INSERT `OPEN_STRUCTURE STRUCTURE_INCLUDE_IN_INCLUDE` INTO TABLE temp23.
+    INSERT `    INCLUDE_ELEMENT_1 : g` INTO TABLE temp23.
+    INSERT `    INCLUDE_ELEMENT_2 : I` INTO TABLE temp23.
+    INSERT `    ELEMENT : g` INTO TABLE temp23.
+    INSERT `CLOSE_STRUCTURE STRUCTURE_INCLUDE_IN_INCLUDE` INTO TABLE temp23.
+    exp_result = temp23.
     assert_output_equals( exp = exp_result act = act_result ).
   ENDMETHOD.
 
   METHOD structure_in_structure.
     DATA test_data TYPE lif_test_types=>structure_in_structure.
     DATA act_result TYPE string_table.
-    DATA temp36 TYPE string_table.
+    DATA temp25 TYPE string_table.
     act_result = cut->generate_type( test_data ).
 
 
-    CLEAR temp36.
-    APPEND `OPEN_STRUCTURE STRUCTURE_IN_STRUCTURE` TO temp36.
-    APPEND `    OPEN_STRUCTURE STRUCTURE` TO temp36.
-    APPEND `        ELEMENT_1 : I` TO temp36.
-    APPEND `        ELEMENT_2 : g` TO temp36.
-    APPEND `    CLOSE_STRUCTURE STRUCTURE` TO temp36.
-    APPEND `    ELEMENT : g` TO temp36.
-    APPEND `CLOSE_STRUCTURE STRUCTURE_IN_STRUCTURE` TO temp36.
-    exp_result = temp36.
+    CLEAR temp25.
+    INSERT `OPEN_STRUCTURE STRUCTURE_IN_STRUCTURE` INTO TABLE temp25.
+    INSERT `    OPEN_STRUCTURE STRUCTURE` INTO TABLE temp25.
+    INSERT `        ELEMENT_1 : I` INTO TABLE temp25.
+    INSERT `        ELEMENT_2 : g` INTO TABLE temp25.
+    INSERT `    CLOSE_STRUCTURE STRUCTURE` INTO TABLE temp25.
+    INSERT `    ELEMENT : g` INTO TABLE temp25.
+    INSERT `CLOSE_STRUCTURE STRUCTURE_IN_STRUCTURE` INTO TABLE temp25.
+    exp_result = temp25.
     assert_output_equals( exp = exp_result act = act_result ).
   ENDMETHOD.
 
@@ -322,112 +338,112 @@ CLASS ltcl_type_generator IMPLEMENTATION.
     DATA table_build_in_type TYPE lif_test_types=>table_build_in_type.
 
     DATA act_result TYPE string_table.
-    DATA temp44 TYPE string_table.
+    DATA temp27 TYPE string_table.
     act_result = cut->generate_type( table_build_in_type ).
 
 
-    CLEAR temp44.
-    APPEND `OPEN_TABLE TABLE_BUILD_IN_TYPE` TO temp44.
-    APPEND `    STRING : g` TO temp44.
-    APPEND `CLOSE_TABLE TABLE_BUILD_IN_TYPE` TO temp44.
-    exp_result = temp44.
+    CLEAR temp27.
+    INSERT `OPEN_TABLE TABLE_BUILD_IN_TYPE` INTO TABLE temp27.
+    INSERT `    STRING : g` INTO TABLE temp27.
+    INSERT `CLOSE_TABLE TABLE_BUILD_IN_TYPE` INTO TABLE temp27.
+    exp_result = temp27.
     assert_output_equals( exp = exp_result act = act_result ).
   ENDMETHOD.
 
   METHOD table_structure.
     DATA table_structure TYPE lif_test_types=>table_structure.
     DATA act_result TYPE string_table.
-    DATA temp48 TYPE string_table.
+    DATA temp29 TYPE string_table.
     act_result = cut->generate_type( table_structure ).
 
 
-    CLEAR temp48.
-    APPEND `OPEN_TABLE TABLE_STRUCTURE` TO temp48.
-    APPEND `    OPEN_STRUCTURE STRUCTURE` TO temp48.
-    APPEND `        ELEMENT_1 : I` TO temp48.
-    APPEND `        ELEMENT_2 : g` TO temp48.
-    APPEND `    CLOSE_STRUCTURE STRUCTURE` TO temp48.
-    APPEND `CLOSE_TABLE TABLE_STRUCTURE` TO temp48.
-    exp_result = temp48.
+    CLEAR temp29.
+    INSERT `OPEN_TABLE TABLE_STRUCTURE` INTO TABLE temp29.
+    INSERT `    OPEN_STRUCTURE STRUCTURE` INTO TABLE temp29.
+    INSERT `        ELEMENT_1 : I` INTO TABLE temp29.
+    INSERT `        ELEMENT_2 : g` INTO TABLE temp29.
+    INSERT `    CLOSE_STRUCTURE STRUCTURE` INTO TABLE temp29.
+    INSERT `CLOSE_TABLE TABLE_STRUCTURE` INTO TABLE temp29.
+    exp_result = temp29.
     assert_output_equals( exp = exp_result act = act_result ).
   ENDMETHOD.
 
   METHOD structure_with_table.
     DATA structure_with_table TYPE lif_test_types=>structure_with_table.
     DATA act_result TYPE string_table.
-    DATA temp55 TYPE string_table.
+    DATA temp31 TYPE string_table.
     act_result = cut->generate_type( structure_with_table ).
 
 
-    CLEAR temp55.
-    APPEND `OPEN_STRUCTURE STRUCTURE_WITH_TABLE` TO temp55.
-    APPEND `    OPEN_TABLE TABLE` TO temp55.
-    APPEND `        OPEN_STRUCTURE STRUCTURE` TO temp55.
-    APPEND `            ELEMENT_1 : I` TO temp55.
-    APPEND `            ELEMENT_2 : g` TO temp55.
-    APPEND `        CLOSE_STRUCTURE STRUCTURE` TO temp55.
-    APPEND `    CLOSE_TABLE TABLE` TO temp55.
-    APPEND `CLOSE_STRUCTURE STRUCTURE_WITH_TABLE` TO temp55.
-    exp_result = temp55.
+    CLEAR temp31.
+    INSERT `OPEN_STRUCTURE STRUCTURE_WITH_TABLE` INTO TABLE temp31.
+    INSERT `    OPEN_TABLE TABLE` INTO TABLE temp31.
+    INSERT `        OPEN_STRUCTURE STRUCTURE` INTO TABLE temp31.
+    INSERT `            ELEMENT_1 : I` INTO TABLE temp31.
+    INSERT `            ELEMENT_2 : g` INTO TABLE temp31.
+    INSERT `        CLOSE_STRUCTURE STRUCTURE` INTO TABLE temp31.
+    INSERT `    CLOSE_TABLE TABLE` INTO TABLE temp31.
+    INSERT `CLOSE_STRUCTURE STRUCTURE_WITH_TABLE` INTO TABLE temp31.
+    exp_result = temp31.
     assert_output_equals( exp = exp_result act = act_result ).
   ENDMETHOD.
 
   METHOD include_table.
     DATA include_table TYPE lif_test_types=>include_table.
     DATA act_result TYPE string_table.
-    DATA temp64 TYPE string_table.
+    DATA temp33 TYPE string_table.
     act_result = cut->generate_type( include_table ).
 
 
-    CLEAR temp64.
-    APPEND `OPEN_STRUCTURE INCLUDE_TABLE` TO temp64.
-    APPEND `    OPEN_TABLE TABLE` TO temp64.
-    APPEND `        OPEN_STRUCTURE STRUCTURE` TO temp64.
-    APPEND `            ELEMENT_1 : I` TO temp64.
-    APPEND `            ELEMENT_2 : g` TO temp64.
-    APPEND `        CLOSE_STRUCTURE STRUCTURE` TO temp64.
-    APPEND `    CLOSE_TABLE TABLE` TO temp64.
-    APPEND `    INCLUDE_ELEMENT_1 : I` TO temp64.
-    APPEND `CLOSE_STRUCTURE INCLUDE_TABLE` TO temp64.
-    exp_result = temp64.
+    CLEAR temp33.
+    INSERT `OPEN_STRUCTURE INCLUDE_TABLE` INTO TABLE temp33.
+    INSERT `    OPEN_TABLE TABLE` INTO TABLE temp33.
+    INSERT `        OPEN_STRUCTURE STRUCTURE` INTO TABLE temp33.
+    INSERT `            ELEMENT_1 : I` INTO TABLE temp33.
+    INSERT `            ELEMENT_2 : g` INTO TABLE temp33.
+    INSERT `        CLOSE_STRUCTURE STRUCTURE` INTO TABLE temp33.
+    INSERT `    CLOSE_TABLE TABLE` INTO TABLE temp33.
+    INSERT `    INCLUDE_ELEMENT_1 : I` INTO TABLE temp33.
+    INSERT `CLOSE_STRUCTURE INCLUDE_TABLE` INTO TABLE temp33.
+    exp_result = temp33.
     assert_output_equals( exp = exp_result act = act_result ).
   ENDMETHOD.
 
   METHOD table_in_table.
     DATA table_in_table TYPE lif_test_types=>table_in_table.
     DATA act_result TYPE string_table.
-    DATA temp74 TYPE string_table.
+    DATA temp35 TYPE string_table.
     act_result = cut->generate_type( table_in_table ).
 
 
-    CLEAR temp74.
-    APPEND `OPEN_TABLE TABLE_IN_TABLE` TO temp74.
-    APPEND `    OPEN_TABLE TABLE_BUILD_IN_TYPE` TO temp74.
-    APPEND `        STRING : g` TO temp74.
-    APPEND `    CLOSE_TABLE TABLE_BUILD_IN_TYPE` TO temp74.
-    APPEND `CLOSE_TABLE TABLE_IN_TABLE` TO temp74.
-    exp_result = temp74.
+    CLEAR temp35.
+    INSERT `OPEN_TABLE TABLE_IN_TABLE` INTO TABLE temp35.
+    INSERT `    OPEN_TABLE TABLE_BUILD_IN_TYPE` INTO TABLE temp35.
+    INSERT `        STRING : g` INTO TABLE temp35.
+    INSERT `    CLOSE_TABLE TABLE_BUILD_IN_TYPE` INTO TABLE temp35.
+    INSERT `CLOSE_TABLE TABLE_IN_TABLE` INTO TABLE temp35.
+    exp_result = temp35.
     assert_output_equals( exp = exp_result act = act_result ).
   ENDMETHOD.
 
   METHOD struc_tab_struc_tab.
     DATA struc_tab_struc_tab TYPE lif_test_types=>struc_tab_struc_tab.
     DATA act_result TYPE string_table.
-    DATA temp80 TYPE string_table.
+    DATA temp37 TYPE string_table.
     act_result = cut->generate_type( struc_tab_struc_tab ).
 
 
-    CLEAR temp80.
-    APPEND `OPEN_STRUCTURE STRUC_TAB_STRUC_TAB` TO temp80.
-    APPEND `    OPEN_TABLE FIRST_TABLE` TO temp80.
-    APPEND `        OPEN_STRUCTURE NESTED_TABLE` TO temp80.
-    APPEND `            OPEN_TABLE SECOND_TABLE` TO temp80.
-    APPEND `                STRING : g` TO temp80.
-    APPEND `            CLOSE_TABLE SECOND_TABLE` TO temp80.
-    APPEND `        CLOSE_STRUCTURE NESTED_TABLE` TO temp80.
-    APPEND `    CLOSE_TABLE FIRST_TABLE` TO temp80.
-    APPEND `CLOSE_STRUCTURE STRUC_TAB_STRUC_TAB` TO temp80.
-    exp_result = temp80.
+    CLEAR temp37.
+    INSERT `OPEN_STRUCTURE STRUC_TAB_STRUC_TAB` INTO TABLE temp37.
+    INSERT `    OPEN_TABLE FIRST_TABLE` INTO TABLE temp37.
+    INSERT `        OPEN_STRUCTURE NESTED_TABLE` INTO TABLE temp37.
+    INSERT `            OPEN_TABLE SECOND_TABLE` INTO TABLE temp37.
+    INSERT `                STRING : g` INTO TABLE temp37.
+    INSERT `            CLOSE_TABLE SECOND_TABLE` INTO TABLE temp37.
+    INSERT `        CLOSE_STRUCTURE NESTED_TABLE` INTO TABLE temp37.
+    INSERT `    CLOSE_TABLE FIRST_TABLE` INTO TABLE temp37.
+    INSERT `CLOSE_STRUCTURE STRUC_TAB_STRUC_TAB` INTO TABLE temp37.
+    exp_result = temp37.
     assert_output_equals( exp = exp_result act = act_result ).
   ENDMETHOD.
 
@@ -444,73 +460,94 @@ CLASS ltcl_type_generator IMPLEMENTATION.
     DATA aff_class TYPE lif_test_types=>ty_class_properties.
 
     DATA act_result TYPE string_table.
-    DATA temp90 TYPE string_table.
+    DATA temp39 TYPE string_table.
     act_result = cut->generate_type( aff_class ).
 
 
-    CLEAR temp90.
-    APPEND `OPEN_STRUCTURE TY_CLASS_PROPERTIES` TO temp90.
-    APPEND `    FORMAT_VERSION : g` TO temp90.
-    APPEND `    OPEN_STRUCTURE HEADER` TO temp90.
-    APPEND `        DESCRIPTION : C` TO temp90.
-    APPEND `    CLOSE_STRUCTURE HEADER` TO temp90.
-    APPEND `    CATEGORY : N` TO temp90.
-    APPEND `    FIXPT : C` TO temp90.
-    APPEND `    MSG_ID : C` TO temp90.
-    APPEND `    OPEN_TABLE ATTRIBUTES` TO temp90.
-    APPEND `        OPEN_STRUCTURE TY_COMPONENT` TO temp90.
-    APPEND `            NAME : C` TO temp90.
-    APPEND `            DESCRIPTION : C` TO temp90.
-    APPEND `        CLOSE_STRUCTURE TY_COMPONENT` TO temp90.
-    APPEND `    CLOSE_TABLE ATTRIBUTES` TO temp90.
-    APPEND `    OPEN_TABLE METHODS` TO temp90.
-    APPEND `        OPEN_STRUCTURE TY_METHOD` TO temp90.
-    APPEND `            NAME : C` TO temp90.
-    APPEND `            DESCRIPTION : C` TO temp90.
-    APPEND `            OPEN_TABLE PARAMETERS` TO temp90.
-    APPEND `                OPEN_STRUCTURE TY_COMPONENT` TO temp90.
-    APPEND `                    NAME : C` TO temp90.
-    APPEND `                    DESCRIPTION : C` TO temp90.
-    APPEND `                CLOSE_STRUCTURE TY_COMPONENT` TO temp90.
-    APPEND `            CLOSE_TABLE PARAMETERS` TO temp90.
-    APPEND `            OPEN_TABLE EXCEPTIONS` TO temp90.
-    APPEND `                OPEN_STRUCTURE TY_COMPONENT` TO temp90.
-    APPEND `                    NAME : C` TO temp90.
-    APPEND `                    DESCRIPTION : C` TO temp90.
-    APPEND `                CLOSE_STRUCTURE TY_COMPONENT` TO temp90.
-    APPEND `            CLOSE_TABLE EXCEPTIONS` TO temp90.
-    APPEND `        CLOSE_STRUCTURE TY_METHOD` TO temp90.
-    APPEND `    CLOSE_TABLE METHODS` TO temp90.
-    APPEND `    OPEN_TABLE EVENTS` TO temp90.
-    APPEND `        OPEN_STRUCTURE TY_EVENT` TO temp90.
-    APPEND `            NAME : C` TO temp90.
-    APPEND `            DESCRIPTION : C` TO temp90.
-    APPEND `            OPEN_TABLE PARAMETERS` TO temp90.
-    APPEND `                OPEN_STRUCTURE TY_COMPONENT` TO temp90.
-    APPEND `                    NAME : C` TO temp90.
-    APPEND `                    DESCRIPTION : C` TO temp90.
-    APPEND `                CLOSE_STRUCTURE TY_COMPONENT` TO temp90.
-    APPEND `            CLOSE_TABLE PARAMETERS` TO temp90.
-    APPEND `        CLOSE_STRUCTURE TY_EVENT` TO temp90.
-    APPEND `    CLOSE_TABLE EVENTS` TO temp90.
-    APPEND `    OPEN_TABLE TYPES` TO temp90.
-    APPEND `        OPEN_STRUCTURE TY_COMPONENT` TO temp90.
-    APPEND `            NAME : C` TO temp90.
-    APPEND `            DESCRIPTION : C` TO temp90.
-    APPEND `        CLOSE_STRUCTURE TY_COMPONENT` TO temp90.
-    APPEND `    CLOSE_TABLE TYPES` TO temp90.
-    APPEND `CLOSE_STRUCTURE TY_CLASS_PROPERTIES` TO temp90.
-    exp_result = temp90.
+    CLEAR temp39.
+    INSERT `OPEN_STRUCTURE TY_CLASS_PROPERTIES` INTO TABLE temp39.
+    INSERT `    FORMAT_VERSION : g` INTO TABLE temp39.
+    INSERT `    OPEN_STRUCTURE HEADER` INTO TABLE temp39.
+    INSERT `        DESCRIPTION : C` INTO TABLE temp39.
+    INSERT `    CLOSE_STRUCTURE HEADER` INTO TABLE temp39.
+    INSERT `    CATEGORY : N` INTO TABLE temp39.
+    INSERT `    FIXPT : C` INTO TABLE temp39.
+    INSERT `    MSG_ID : C` INTO TABLE temp39.
+    INSERT `    OPEN_TABLE ATTRIBUTES` INTO TABLE temp39.
+    INSERT `        OPEN_STRUCTURE TY_COMPONENT` INTO TABLE temp39.
+    INSERT `            NAME : C` INTO TABLE temp39.
+    INSERT `            DESCRIPTION : C` INTO TABLE temp39.
+    INSERT `        CLOSE_STRUCTURE TY_COMPONENT` INTO TABLE temp39.
+    INSERT `    CLOSE_TABLE ATTRIBUTES` INTO TABLE temp39.
+    INSERT `    OPEN_TABLE METHODS` INTO TABLE temp39.
+    INSERT `        OPEN_STRUCTURE TY_METHOD` INTO TABLE temp39.
+    INSERT `            NAME : C` INTO TABLE temp39.
+    INSERT `            DESCRIPTION : C` INTO TABLE temp39.
+    INSERT `            OPEN_TABLE PARAMETERS` INTO TABLE temp39.
+    INSERT `                OPEN_STRUCTURE TY_COMPONENT` INTO TABLE temp39.
+    INSERT `                    NAME : C` INTO TABLE temp39.
+    INSERT `                    DESCRIPTION : C` INTO TABLE temp39.
+    INSERT `                CLOSE_STRUCTURE TY_COMPONENT` INTO TABLE temp39.
+    INSERT `            CLOSE_TABLE PARAMETERS` INTO TABLE temp39.
+    INSERT `            OPEN_TABLE EXCEPTIONS` INTO TABLE temp39.
+    INSERT `                OPEN_STRUCTURE TY_COMPONENT` INTO TABLE temp39.
+    INSERT `                    NAME : C` INTO TABLE temp39.
+    INSERT `                    DESCRIPTION : C` INTO TABLE temp39.
+    INSERT `                CLOSE_STRUCTURE TY_COMPONENT` INTO TABLE temp39.
+    INSERT `            CLOSE_TABLE EXCEPTIONS` INTO TABLE temp39.
+    INSERT `        CLOSE_STRUCTURE TY_METHOD` INTO TABLE temp39.
+    INSERT `    CLOSE_TABLE METHODS` INTO TABLE temp39.
+    INSERT `    OPEN_TABLE EVENTS` INTO TABLE temp39.
+    INSERT `        OPEN_STRUCTURE TY_EVENT` INTO TABLE temp39.
+    INSERT `            NAME : C` INTO TABLE temp39.
+    INSERT `            DESCRIPTION : C` INTO TABLE temp39.
+    INSERT `            OPEN_TABLE PARAMETERS` INTO TABLE temp39.
+    INSERT `                OPEN_STRUCTURE TY_COMPONENT` INTO TABLE temp39.
+    INSERT `                    NAME : C` INTO TABLE temp39.
+    INSERT `                    DESCRIPTION : C` INTO TABLE temp39.
+    INSERT `                CLOSE_STRUCTURE TY_COMPONENT` INTO TABLE temp39.
+    INSERT `            CLOSE_TABLE PARAMETERS` INTO TABLE temp39.
+    INSERT `        CLOSE_STRUCTURE TY_EVENT` INTO TABLE temp39.
+    INSERT `    CLOSE_TABLE EVENTS` INTO TABLE temp39.
+    INSERT `    OPEN_TABLE TYPES` INTO TABLE temp39.
+    INSERT `        OPEN_STRUCTURE TY_COMPONENT` INTO TABLE temp39.
+    INSERT `            NAME : C` INTO TABLE temp39.
+    INSERT `            DESCRIPTION : C` INTO TABLE temp39.
+    INSERT `        CLOSE_STRUCTURE TY_COMPONENT` INTO TABLE temp39.
+    INSERT `    CLOSE_TABLE TYPES` INTO TABLE temp39.
+    INSERT `CLOSE_STRUCTURE TY_CLASS_PROPERTIES` INTO TABLE temp39.
+    exp_result = temp39.
     assert_output_equals( exp = exp_result act = act_result ).
   ENDMETHOD.
 
-  METHOD mandatory_fields.
-    DATA abap_type TYPE lif_test_types=>ty_abap_type.
+  METHOD structure_on_top_level.
+    DATA abap_type TYPE lif_test_types=>ty_abap_type_structure.
     DATA log TYPE REF TO zif_aff_log.
     cut->generate_type( abap_type ).
 
     log = cut->get_log( ).
     zcl_aff_tools_unit_test_helper=>assert_log_has_no_message( log ).
+  ENDMETHOD.
+
+  METHOD table_on_top_level.
+    DATA abap_type TYPE lif_test_types=>ty_abap_type_table.
+    DATA log TYPE REF TO zif_aff_log.
+    cut->generate_type( abap_type ).
+
+    log = cut->get_log( ).
+    zcl_aff_tools_unit_test_helper=>assert_log_has_no_message( log ).
+  ENDMETHOD.
+
+  METHOD simple_component_on_top_level.
+    DATA abap_type TYPE lif_test_types=>ty_simple_component.
+    DATA log TYPE REF TO zif_aff_log.
+    cut->generate_type( abap_type ).
+
+    log = cut->get_log( ).
+    zcl_aff_tools_unit_test_helper=>assert_log_contains_text( log                = log
+                                                              exp_text           = zif_aff_log=>co_msg128
+                                                              exp_component_name = `TY_SIMPLE_COMPONENT`
+                                                              exp_type           = zif_aff_log=>c_message_type-warning ).
   ENDMETHOD.
 
   METHOD no_header.
