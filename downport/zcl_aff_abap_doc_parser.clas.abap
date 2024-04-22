@@ -5,42 +5,38 @@ CLASS zcl_aff_abap_doc_parser DEFINITION
 
   PUBLIC SECTION.
     CONSTANTS: BEGIN OF abap_doc_annotation,
-                 callback_class     TYPE string VALUE `$callbackClass`,
-                 default            TYPE string VALUE `$default`,
-                 values             TYPE string VALUE `$values`,
-                 required           TYPE string VALUE `$required`,
-                 show_always        TYPE string VALUE `$showAlways`,
-                 minimum            TYPE string VALUE `$minimum`,
-                 maximum            TYPE string VALUE `$maximum`,
-                 exclusive_minimum  TYPE string VALUE `$exclusiveMinimum`,
-                 exclusive_maximum  TYPE string VALUE `$exclusiveMaximum`,
-                 max_length         TYPE string VALUE `$maxLength`,
-                 min_length         TYPE string VALUE `$minLength`,
-                 multiple_of        TYPE string VALUE `$multipleOf`,
-                 content_media_type TYPE string VALUE `$contentMediaType`,
-                 content_encoding   TYPE string VALUE `$contentEncoding`,
-                 enum_value         TYPE string VALUE `$enumValue`,
+                 callback_class    TYPE string VALUE `$callbackClass`,
+                 default           TYPE string VALUE `$default`,
+                 values            TYPE string VALUE `$values`,
+                 required          TYPE string VALUE `$required`,
+                 show_always       TYPE string VALUE `$showAlways`,
+                 minimum           TYPE string VALUE `$minimum`,
+                 maximum           TYPE string VALUE `$maximum`,
+                 exclusive_minimum TYPE string VALUE `$exclusiveMinimum`,
+                 exclusive_maximum TYPE string VALUE `$exclusiveMaximum`,
+                 max_length        TYPE string VALUE `$maxLength`,
+                 min_length        TYPE string VALUE `$minLength`,
+                 multiple_of       TYPE string VALUE `$multipleOf`,
+                 enum_value        TYPE string VALUE `$enumValue`,
                END OF abap_doc_annotation.
 
     TYPES:
       BEGIN OF abap_doc,
-        required           TYPE abap_bool,
-        showalways         TYPE abap_bool,
-        title              TYPE string,
-        description        TYPE string,
-        enumvalues_link    TYPE string,
-        minimum            TYPE string,
-        maximum            TYPE string,
-        exclusive_minimum  TYPE string,
-        exclusive_maximum  TYPE string,
-        multiple_of        TYPE string,
-        default            TYPE string,
-        min_length         TYPE string,
-        max_length         TYPE string,
-        callback_class     TYPE string,
-        content_media_type TYPE string,
-        content_encoding   TYPE string,
-        enum_value         TYPE string,
+        required          TYPE abap_bool,
+        showalways        TYPE abap_bool,
+        title             TYPE string,
+        description       TYPE string,
+        enumvalues_link   TYPE string,
+        minimum           TYPE string,
+        maximum           TYPE string,
+        exclusive_minimum TYPE string,
+        exclusive_maximum TYPE string,
+        multiple_of       TYPE string,
+        default           TYPE string,
+        min_length        TYPE string,
+        max_length        TYPE string,
+        callback_class    TYPE string,
+        enum_value        TYPE string,
       END OF abap_doc.
 
     METHODS: parse
@@ -88,8 +84,6 @@ CLASS zcl_aff_abap_doc_parser DEFINITION
       parse_default,
       parse_enum_values,
       parse_required,
-      parse_content_encoding,
-      parse_content_media_type,
       parse_show_always,
       parse_number_annotations
         IMPORTING
@@ -133,9 +127,9 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
 
 
   METHOD parse_title.
-    REPLACE ALL OCCURRENCES OF PCRE `[\s]*(<p[\s]+class="shorttext([\s]+synchronized)?"([\s]+lang="[a-zA-Z]{2}")?[\s]*>)[\s]*`
-        IN abap_doc_string WITH `<p class="shorttext">` ##NO_TEXT.
-    decoded_abap_doc-title = substring_after( val = abap_doc_string pcre = co_shorttext_tag_open ).
+    REPLACE ALL OCCURRENCES OF REGEX `[\s]*(<p[\s]+class="shorttext([\s]+synchronized)?"([\s]+lang="[a-zA-Z]{2}")?[\s]*>)[\s]*`
+        IN abap_doc_string WITH `<p class="shorttext">` ##NO_TEXT ##REGEX_POSIX.
+    decoded_abap_doc-title = substring_after( val = abap_doc_string regex = co_shorttext_tag_open ) ##REGEX_POSIX.
     IF ( decoded_abap_doc-title IS NOT INITIAL ).
       decoded_abap_doc-title = substring_before( val = decoded_abap_doc-title sub = '</p>' ).
       remove_leading_trailing_spaces( CHANGING string_to_work_on = decoded_abap_doc-title ).
@@ -147,12 +141,12 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
 
   METHOD check_title_positions.
     DATA msg TYPE string.
-    IF ( count( val = abap_doc_string pcre = co_shorttext_tag_open ) > 1 ).
+    IF ( count( val = abap_doc_string regex = co_shorttext_tag_open ) > 1 ) ##REGEX_POSIX.
 
       msg = parser_log->get_message_text( msgno = 107 msgv1 = `'Title'` ).
       parser_log->add_info( message_text   = msg component_name = component_name ).
     ENDIF.
-    IF ( find( val = abap_doc_string pcre = co_shorttext_tag_open ) > 0 ).
+    IF ( find( val = abap_doc_string regex = co_shorttext_tag_open ) > 0 ) ##REGEX_POSIX.
       parser_log->add_info( message_text   = zif_aff_log=>co_msg113 component_name = component_name ).
     ENDIF.
   ENDMETHOD.
@@ -160,9 +154,9 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
 
   METHOD workaround_remove_titles.
     DATA start_offset TYPE i.
-    WHILE ( boolc( matches( val = abap_doc_string pcre = `.*[\s]*<p\sclass="shorttext">.*` ) ) = abap_true ).
+    WHILE ( boolc( matches( val = abap_doc_string regex = `.*[\s]*<p\sclass="shorttext">.*` ) ) = abap_true ) ##REGEX_POSIX.
 
-      start_offset = find( val = abap_doc_string pcre = co_shorttext_tag_open occ = 1 ).
+      start_offset = find( val = abap_doc_string regex = co_shorttext_tag_open occ = 1 ) ##REGEX_POSIX.
       abap_doc_string = abap_doc_string(start_offset) && substring_after( val = abap_doc_string+start_offset sub = `</p>` ).
     ENDWHILE.
   ENDMETHOD.
@@ -170,8 +164,8 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
   METHOD parse_description.
     DATA offset TYPE i.
     DATA description TYPE string.
-    FIND FIRST OCCURRENCE OF PCRE `(\$callbackClass|\$default|\$values|\$required|\$showAlways|\$minimum|\$maximum|\$exclusiveMinimum|\$exclusiveMaximum|\$multipleOf|\$maxLength|\$minLength|\$enumValue|\$contentMediaType|\$contentEncoding)`
-      IN abap_doc_string MATCH OFFSET offset.
+    FIND FIRST OCCURRENCE OF REGEX `(\$callbackClass|\$default|\$values|\$required|\$showAlways|\$minimum|\$maximum|\$exclusiveMinimum|\$exclusiveMaximum|\$multipleOf|\$maxLength|\$minLength|\$enumValue)`
+      IN abap_doc_string MATCH OFFSET offset ##REGEX_POSIX.
     IF sy-subrc = 0.
 
       description = abap_doc_string+0(offset).
@@ -193,7 +187,7 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
     DATA key_word TYPE string.
     DATA temp1 TYPE symsgv.
     DATA msg TYPE string.
-    FIND ALL OCCURRENCES OF PCRE `\$[a-zA-Z]+` IN abap_doc_string RESULTS result_table ##NO_TEXT.
+    FIND ALL OCCURRENCES OF REGEX `\$[a-zA-Z]+` IN abap_doc_string RESULTS result_table ##REGEX_POSIX ##NO_TEXT.
 
     modified_abap_doc_string = abap_doc_string.
 
@@ -220,10 +214,6 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
           parse_number_annotations( key_word = key_word ).
         WHEN abap_doc_annotation-enum_value.
           parse_enum_value( ).
-        WHEN abap_doc_annotation-content_encoding.
-          parse_content_encoding( ).
-        WHEN abap_doc_annotation-content_media_type.
-          parse_content_media_type( ).
         WHEN OTHERS.
           REPLACE key_word IN modified_abap_doc_string WITH ''.
 
@@ -253,9 +243,9 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
     ENDIF.
 
     string_to_parse = abap_doc_string.
-    REPLACE ALL OCCURRENCES OF PCRE `\$callbackClass[\s]*(:[\s]*)?\{[\s]*@link` IN string_to_parse WITH `\$callbackClass\{@link`.
+    REPLACE ALL OCCURRENCES OF REGEX `\$callbackClass[\s]*(:[\s]*)?\{[\s]*@link` IN string_to_parse WITH `\$callbackClass\{@link` ##REGEX_POSIX.
 
-    FIND ALL OCCURRENCES OF PCRE `\$callbackClass\{@link[^\}]+\}` IN string_to_parse RESULTS result_table.
+    FIND ALL OCCURRENCES OF REGEX `\$callbackClass\{@link[^\}]+\}` IN string_to_parse RESULTS result_table ##REGEX_POSIX.
     IF lines( result_table ) = 0.
 
       temp2 = abap_doc_annotation-callback_class.
@@ -331,13 +321,13 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
     ENDIF.
 
     string_to_parse = abap_doc_string.
-    REPLACE ALL OCCURRENCES OF PCRE `\$default[\s]*(:[\s]*)?'` IN string_to_parse WITH `\$default'`.
-    REPLACE ALL OCCURRENCES OF PCRE `\$default[\s]*(:[\s]*)?\{[\s]*@link` IN string_to_parse WITH `\$default\{@link`.
+    REPLACE ALL OCCURRENCES OF REGEX `\$default[\s]*(:[\s]*)?'` IN string_to_parse WITH `\$default'` ##REGEX_POSIX.
+    REPLACE ALL OCCURRENCES OF REGEX `\$default[\s]*(:[\s]*)?\{[\s]*@link` IN string_to_parse WITH `\$default\{@link` ##REGEX_POSIX.
 
 
-    FIND ALL OCCURRENCES OF PCRE `\$default'[^']*'` IN string_to_parse RESULTS result_table_value.
+    FIND ALL OCCURRENCES OF REGEX `\$default'[^']*'` IN string_to_parse RESULTS result_table_value ##REGEX_POSIX.
 
-    FIND ALL OCCURRENCES OF PCRE `\$default\{@link[^\}]+\}` IN string_to_parse RESULTS result_table_link.
+    FIND ALL OCCURRENCES OF REGEX `\$default\{@link[^\}]+\}` IN string_to_parse RESULTS result_table_link ##REGEX_POSIX.
 
 
 
@@ -385,8 +375,8 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
         link = get_annotation_value( length = <entry>-length - 1 offset = <entry>-offset to_decode = string_to_parse length_of_annotation = 9 remove_whitespaces = abap_true ).
 
         link_for_testing = link.
-        REPLACE ALL OCCURRENCES OF PCRE `\s` IN link_for_testing WITH ``.
-        REPLACE ALL OCCURRENCES OF PCRE `(@link|data:)` IN link_for_testing WITH ``.
+        REPLACE ALL OCCURRENCES OF REGEX `\s` IN link_for_testing WITH `` ##REGEX_POSIX.
+        REPLACE ALL OCCURRENCES OF REGEX `(@link|data:)` IN link_for_testing WITH `` ##REGEX_POSIX.
 
         SPLIT link_for_testing AT '.' INTO TABLE splitted.
         IF lines( splitted ) = 3.
@@ -422,9 +412,9 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
     ENDIF.
 
     string_to_parse = abap_doc_string.
-    REPLACE ALL OCCURRENCES OF PCRE `\$values[\s]*(:[\s]*)?\{[\s]*@link` IN string_to_parse WITH `\$values\{@link`.
+    REPLACE ALL OCCURRENCES OF REGEX `\$values[\s]*(:[\s]*)?\{[\s]*@link` IN string_to_parse WITH `\$values\{@link` ##REGEX_POSIX.
 
-    FIND ALL OCCURRENCES OF PCRE `\$values\{@link([^\}]+)\}` IN string_to_parse RESULTS result_table.
+    FIND ALL OCCURRENCES OF REGEX `\$values\{@link([^\}]+)\}` IN string_to_parse RESULTS result_table ##REGEX_POSIX.
     IF lines( result_table ) = 0.
 
       temp8 = abap_doc_annotation-values.
@@ -447,8 +437,8 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
       check_next_word( offset = offset_found + length_found text_to_check = string_to_parse ).
 
       link_for_testing = link.
-      REPLACE ALL OCCURRENCES OF PCRE `\s` IN link_for_testing WITH ``.
-      REPLACE ALL OCCURRENCES OF PCRE `data:` IN link_for_testing WITH ``.
+      REPLACE ALL OCCURRENCES OF REGEX `\s` IN link_for_testing WITH `` ##REGEX_POSIX.
+      REPLACE ALL OCCURRENCES OF REGEX `data:` IN link_for_testing WITH `` ##REGEX_POSIX.
 
       SPLIT link_for_testing AT '.' INTO TABLE splitted.
       IF lines( splitted ) = 2 AND decoded_abap_doc-enumvalues_link IS INITIAL.
@@ -478,96 +468,6 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
     LOOP AT result_table ASSIGNING <entry>.
       check_next_word( offset = <entry>-offset + <entry>-length text_to_check = abap_doc_string ).
     ENDLOOP.
-  ENDMETHOD.
-
-
-  METHOD parse_content_encoding.
-    DATA abap_doc LIKE abap_doc_string.
-    DATA result_table TYPE match_result_tab.
-    DATA content_encoding_occurrences TYPE match_result.
-    DATA match LIKE content_encoding_occurrences-submatches.
-    DATA first_match LIKE LINE OF match.
-    DATA temp6 LIKE LINE OF match.
-    DATA temp7 LIKE sy-tabix.
-    DATA temp10 TYPE symsgv.
-    DATA msg TYPE string.
-    abap_doc = abap_doc_string.
-    IF decoded_abap_doc-content_encoding IS NOT INITIAL.
-      RETURN.
-    ENDIF.
-
-    FIND ALL OCCURRENCES OF abap_doc_annotation-content_encoding IN abap_doc_string RESULTS result_table.
-    write_log_for_multiple_entries( result_table = result_table annotaion = abap_doc_annotation-content_encoding ).
-
-    REPLACE FIRST OCCURRENCE OF PCRE `\$contentEncoding[\s]*'` IN abap_doc WITH `\$contentEncoding'`.
-
-    FIND FIRST OCCURRENCE OF PCRE `\$contentEncoding'([^']*)'` IN abap_doc RESULTS content_encoding_occurrences.
-
-    match = content_encoding_occurrences-submatches.
-    IF lines( match ) >= 1.
-
-
-
-      temp7 = sy-tabix.
-      READ TABLE match INDEX 1 INTO temp6.
-      sy-tabix = temp7.
-      IF sy-subrc <> 0.
-        RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
-      ENDIF.
-      first_match = temp6.
-      decoded_abap_doc-content_encoding = abap_doc+first_match-offset(first_match-length).
-    ELSE.
-
-      temp10 = abap_doc_annotation-content_encoding.
-
-      msg = parser_log->get_message_text( msgno = 109 msgv1 = temp10 ).
-      parser_log->add_warning( message_text = msg component_name = component_name ).
-    ENDIF.
-  ENDMETHOD.
-
-
-  METHOD parse_content_media_type.
-    DATA abap_doc LIKE abap_doc_string.
-    DATA result_table TYPE match_result_tab.
-    DATA content_media_type_occurrences TYPE match_result.
-    DATA match LIKE content_media_type_occurrences-submatches.
-    DATA first_match LIKE LINE OF match.
-    DATA temp8 LIKE LINE OF match.
-    DATA temp9 LIKE sy-tabix.
-    DATA temp11 TYPE symsgv.
-    DATA msg TYPE string.
-    abap_doc = abap_doc_string.
-    IF decoded_abap_doc-content_media_type IS NOT INITIAL.
-      RETURN.
-    ENDIF.
-
-    FIND ALL OCCURRENCES OF abap_doc_annotation-content_media_type IN abap_doc RESULTS result_table.
-    write_log_for_multiple_entries( result_table = result_table annotaion = abap_doc_annotation-content_media_type ).
-
-    REPLACE FIRST OCCURRENCE OF PCRE `\$contentMediaType[\s]*'` IN abap_doc WITH `\$contentMediaType'`.
-
-    FIND FIRST OCCURRENCE OF PCRE `\$contentMediaType'([^']*)'` IN abap_doc RESULTS content_media_type_occurrences.
-
-    match = content_media_type_occurrences-submatches.
-    IF lines( match ) >= 1.
-
-
-
-      temp9 = sy-tabix.
-      READ TABLE match INDEX 1 INTO temp8.
-      sy-tabix = temp9.
-      IF sy-subrc <> 0.
-        RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
-      ENDIF.
-      first_match = temp8.
-      decoded_abap_doc-content_media_type = abap_doc+first_match-offset(first_match-length).
-    ELSE.
-
-      temp11 = abap_doc_annotation-content_media_type.
-
-      msg = parser_log->get_message_text( msgno = 109 msgv1 = temp11 ).
-      parser_log->add_warning( message_text = msg component_name = component_name ).
-    ENDIF.
   ENDMETHOD.
 
 
@@ -626,10 +526,10 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
     DATA abap_doc LIKE abap_doc_string.
     DATA dummy_annotation TYPE string.
     DATA result_table TYPE match_result_tab.
-    DATA temp12 TYPE symsgv.
+    DATA temp10 TYPE symsgv.
     DATA msg TYPE string.
     DATA annotation_length TYPE i.
-    DATA pcre_of_number_expressions TYPE REF TO cl_abap_regex.
+    DATA regex_of_number_expressions TYPE REF TO cl_abap_regex.
     DATA warning_written LIKE abap_false.
     FIELD-SYMBOLS <entry> LIKE LINE OF result_table.
     DATA offset_found LIKE <entry>-offset.
@@ -639,19 +539,19 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
     DATA number_candidate TYPE string.
     DATA matcher TYPE REF TO cl_abap_matcher.
     DATA match TYPE abap_bool.
-    DATA temp13 TYPE symsgv.
+    DATA temp11 TYPE symsgv.
     abap_doc = abap_doc_string.
 
     dummy_annotation = `$dummyannotation`.
     REPLACE ALL OCCURRENCES OF annotation_name IN abap_doc WITH dummy_annotation.
-    REPLACE ALL OCCURRENCES OF PCRE `\$dummyannotation[\s]*(:[\s]*)?` IN abap_doc WITH `\$dummyannotation`.
+    REPLACE ALL OCCURRENCES OF REGEX  `\$dummyannotation[\s]*(:[\s]*)?` IN abap_doc WITH `\$dummyannotation` ##REGEX_POSIX.
 
-    FIND ALL OCCURRENCES OF PCRE `\$dummyannotation[^\s]+` IN abap_doc RESULTS result_table.
+    FIND ALL OCCURRENCES OF REGEX `\$dummyannotation[^\s]+` IN abap_doc RESULTS result_table ##REGEX_POSIX.
     IF lines( result_table ) = 0.
 
-      temp12 = abap_doc_annotation-values.
+      temp10 = abap_doc_annotation-values.
 
-      msg = parser_log->get_message_text( msgno = 109 msgv1 = temp12 ).
+      msg = parser_log->get_message_text( msgno = 109 msgv1 = temp10 ).
       parser_log->add_warning( message_text = msg component_name = component_name ).
       RETURN.
     ENDIF.
@@ -659,8 +559,8 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
 
     annotation_length = strlen( dummy_annotation ).
 
-    pcre_of_number_expressions = cl_abap_regex=>create_pcre( pattern     = `(\+|-)?[0-9]+(.[0-9]+)?(e(\+|-)?[0-9]+)?`
-                                                                    ignore_case = abap_true ).
+    CREATE OBJECT regex_of_number_expressions TYPE cl_abap_regex EXPORTING pattern = `(\+|-)?[0-9]+(.[0-9]+)?(e(\+|-)?[0-9]+)?` ignore_case = abap_true.
+
 
     warning_written = abap_false.
 
@@ -677,7 +577,7 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
       number_candidate = abap_doc+begin_of_number(length_of_number).
       remove_leading_trailing_spaces( CHANGING string_to_work_on = number_candidate ).
 
-      matcher = pcre_of_number_expressions->create_matcher( text = number_candidate ).
+      matcher = regex_of_number_expressions->create_matcher( text = number_candidate ).
 
       match = matcher->match( ).
       check_next_word( offset = offset_found + length_found text_to_check = abap_doc ).
@@ -685,8 +585,8 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
         number = number_candidate.
       ELSEIF match = abap_false AND warning_written = abap_false.
 
-        temp13 = annotation_name.
-        msg = parser_log->get_message_text( msgno = 110 msgv1 = temp13 ).
+        temp11 = annotation_name.
+        msg = parser_log->get_message_text( msgno = 110 msgv1 = temp11 ).
         parser_log->add_warning( message_text = msg component_name = component_name ).
         warning_written = abap_true.
       ENDIF.
@@ -696,28 +596,28 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
   METHOD parse_enum_value.
     DATA string_to_parse LIKE abap_doc_string.
     DATA result_table TYPE match_result_tab.
-    DATA temp14 TYPE symsgv.
+    DATA temp12 TYPE symsgv.
     DATA msg TYPE string.
     DATA offset_found TYPE i.
-    DATA temp10 LIKE LINE OF result_table.
-    DATA temp11 LIKE sy-tabix.
+    DATA temp6 LIKE LINE OF result_table.
+    DATA temp7 LIKE sy-tabix.
     DATA length_found TYPE i.
-    DATA temp12 LIKE LINE OF result_table.
-    DATA temp13 LIKE sy-tabix.
+    DATA temp8 LIKE LINE OF result_table.
+    DATA temp9 LIKE sy-tabix.
     FIELD-SYMBOLS <entry> LIKE LINE OF result_table.
     IF decoded_abap_doc-enum_value IS NOT INITIAL.
       RETURN.
     ENDIF.
 
     string_to_parse = abap_doc_string.
-    REPLACE ALL OCCURRENCES OF PCRE `\$enumValue[\s]*(:[\s]*)?'` IN string_to_parse WITH `\$enumValue'`.
+    REPLACE ALL OCCURRENCES OF REGEX `\$enumValue[\s]*(:[\s]*)?'` IN string_to_parse WITH `\$enumValue'` ##REGEX_POSIX.
 
-    FIND ALL OCCURRENCES OF PCRE `\$enumValue'[^']*'` IN string_to_parse RESULTS result_table.
+    FIND ALL OCCURRENCES OF REGEX `\$enumValue'[^']*'` IN string_to_parse RESULTS result_table ##REGEX_POSIX.
     IF lines( result_table ) = 0.
 
-      temp14 = abap_doc_annotation-enum_value.
+      temp12 = abap_doc_annotation-enum_value.
 
-      msg = parser_log->get_message_text( msgno = 109 msgv1 = temp14 ).
+      msg = parser_log->get_message_text( msgno = 109 msgv1 = temp12 ).
       parser_log->add_warning( message_text = msg component_name = component_name ).
       RETURN.
     ENDIF.
@@ -725,23 +625,23 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
 
 
 
-    temp11 = sy-tabix.
-    READ TABLE result_table INDEX 1 INTO temp10.
-    sy-tabix = temp11.
+    temp7 = sy-tabix.
+    READ TABLE result_table INDEX 1 INTO temp6.
+    sy-tabix = temp7.
     IF sy-subrc <> 0.
       RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
     ENDIF.
-    offset_found = temp10-offset.
+    offset_found = temp6-offset.
 
 
 
-    temp13 = sy-tabix.
-    READ TABLE result_table INDEX 1 INTO temp12.
-    sy-tabix = temp13.
+    temp9 = sy-tabix.
+    READ TABLE result_table INDEX 1 INTO temp8.
+    sy-tabix = temp9.
     IF sy-subrc <> 0.
       RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
     ENDIF.
-    length_found = temp12-length.
+    length_found = temp8-length.
     decoded_abap_doc-enum_value = get_annotation_value( length = length_found - 1 offset = offset_found to_decode = string_to_parse length_of_annotation = 11 remove_whitespaces = abap_true ).
 
     LOOP AT result_table ASSIGNING <entry>.
@@ -759,7 +659,7 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
     DATA current_offset LIKE offset.
     DATA next_word TYPE string.
     DATA next_char TYPE c.
-    DATA pcre_of_letter TYPE REF TO cl_abap_regex.
+    DATA regex_of_letter TYPE REF TO cl_abap_regex.
     IF description_warning_is_needed = abap_true.
       RETURN.
     ENDIF.
@@ -777,12 +677,12 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
       RETURN.
     ENDIF.
 
-    pcre_of_letter = cl_abap_regex=>create_pcre( pattern = `[a-zA-Z]` ) ##NO_TEXT.
+    CREATE OBJECT regex_of_letter TYPE cl_abap_regex EXPORTING pattern = `[a-zA-Z]` ignore_case = abap_false.
     DO.
       next_char = text_to_check+current_offset(1).
       current_offset = current_offset + 1.
       next_word = next_word && next_char.
-      IF pcre_of_letter->create_matcher( text = next_char )->match( ) = abap_false OR current_offset >= strlen( text_to_check ).
+      IF regex_of_letter->create_matcher( text = next_char )->match( ) = abap_false OR current_offset >= strlen( text_to_check ).
         EXIT.
       ENDIF.
     ENDDO.
@@ -802,13 +702,13 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD write_log_for_multiple_entries.
-    DATA temp15 TYPE symsgv.
+    DATA temp13 TYPE symsgv.
     DATA msg TYPE string.
     IF lines( result_table ) > 1.
 
-      temp15 = annotaion.
+      temp13 = annotaion.
 
-      msg = parser_log->get_message_text( msgno = 107 msgv1 = temp15 ).
+      msg = parser_log->get_message_text( msgno = 107 msgv1 = temp13 ).
       parser_log->add_info( message_text = msg component_name = component_name ).
     ENDIF.
   ENDMETHOD.

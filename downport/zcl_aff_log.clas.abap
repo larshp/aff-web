@@ -297,9 +297,7 @@ CLASS ZCL_AFF_LOG IMPLEMENTATION.
 
 
   METHOD zif_aff_log~has_messages.
-    DATA temp1 TYPE xsdboolean.
-    temp1 = boolc( me->messages IS NOT INITIAL ).
-    has_messages = temp1.
+    has_messages = boolc( me->messages IS NOT INITIAL ).
   ENDMETHOD.
 
 

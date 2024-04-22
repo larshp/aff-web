@@ -4,10 +4,21 @@ CLASS zcl_aff_generator DEFINITION
   CREATE PUBLIC.
 
   PUBLIC SECTION.
-    INTERFACES zif_aff_generator.
     METHODS constructor
       IMPORTING
         writer TYPE REF TO zif_aff_writer.
+
+    METHODS generate_type
+      IMPORTING
+        data          TYPE data
+      RETURNING
+        VALUE(result) TYPE string_table
+      RAISING
+        zcx_aff_tools.
+
+    METHODS get_log
+      RETURNING
+        VALUE(log) TYPE REF TO zif_aff_log.
 
   PRIVATE SECTION.
     DATA:
@@ -54,9 +65,6 @@ CLASS zcl_aff_generator DEFINITION
           zcx_aff_tools,
       check_mandatory_fields
         IMPORTING
-          structure_description TYPE REF TO cl_abap_structdescr,
-      check_top_level_fields
-        IMPORTING
           structure_description TYPE REF TO cl_abap_structdescr.
 
 ENDCLASS.
@@ -69,7 +77,7 @@ CLASS zcl_aff_generator IMPLEMENTATION.
     CREATE OBJECT log TYPE zcl_aff_log.
   ENDMETHOD.
 
-  METHOD zif_aff_generator~generate_type.
+  METHOD generate_type.
     DATA type_description TYPE REF TO cl_abap_typedescr.
     type_description = cl_abap_typedescr=>describe_by_data( data ).
     check_input( type_description ).
@@ -87,7 +95,6 @@ CLASS zcl_aff_generator IMPLEMENTATION.
 
         structure_description = temp1.
         check_mandatory_fields( structure_description ).
-        check_top_level_fields( structure_description ).
       CATCH cx_sy_move_cast_error.
         log->add_warning( message_text = zif_aff_log=>co_msg123 component_name = type_description->get_relative_name( ) ).
     ENDTRY.
@@ -110,76 +117,63 @@ CLASS zcl_aff_generator IMPLEMENTATION.
     ENDIF.
   ENDMETHOD.
 
-  METHOD check_top_level_fields.
-    DATA temp3 TYPE abap_component_tab.
-    FIELD-SYMBOLS <component> LIKE LINE OF temp3.
-    temp3 = structure_description->get_components( ).
-
-    LOOP AT temp3 ASSIGNING <component>.
-      IF <component>-name <> 'FORMAT_VERSION' AND <component>-type->kind <> cl_abap_typedescr=>kind_struct AND <component>-type->kind <> cl_abap_typedescr=>kind_table.
-        log->add_warning( message_text = zif_aff_log=>co_msg128 component_name = structure_description->get_relative_name( ) ).
-        EXIT.
-      ENDIF.
-    ENDLOOP.
-  ENDMETHOD.
-
   METHOD process_type_description.
-    DATA temp4 TYPE REF TO cl_abap_elemdescr.
-    DATA temp5 TYPE REF TO cl_abap_structdescr.
-    DATA temp6 TYPE REF TO cl_abap_tabledescr.
-    DATA temp7 TYPE REF TO zcx_aff_tools.
+    DATA temp3 TYPE REF TO cl_abap_elemdescr.
+    DATA temp4 TYPE REF TO cl_abap_structdescr.
+    DATA temp5 TYPE REF TO cl_abap_tabledescr.
+    DATA temp6 TYPE REF TO zcx_aff_tools.
     CASE type_description->kind.
       WHEN cl_abap_typedescr=>kind_elem.
 
-        temp4 ?= type_description.
+        temp3 ?= type_description.
         process_element(
           element_name        = type_name
-          element_description = temp4 ).
+          element_description = temp3 ).
       WHEN cl_abap_typedescr=>kind_struct.
 
-        temp5 ?= type_description.
+        temp4 ?= type_description.
         process_structure(
           structure_name        = type_name
-          structure_description = temp5 ).
+          structure_description = temp4 ).
       WHEN cl_abap_typedescr=>kind_table.
 
-        temp6 ?= type_description.
+        temp5 ?= type_description.
         process_table(
           table_name        = type_name
-          table_description = temp6 ).
+          table_description = temp5 ).
       WHEN OTHERS.
 
-        CREATE OBJECT temp7 TYPE zcx_aff_tools.
-        RAISE EXCEPTION temp7.
+        CREATE OBJECT temp6 TYPE zcx_aff_tools.
+        RAISE EXCEPTION temp6.
     ENDCASE.
   ENDMETHOD.
 
   METHOD process_element.
-    DATA temp8 TYPE string.
-    DATA name LIKE temp8.
+    DATA temp7 TYPE string.
+    DATA name LIKE temp7.
     IF element_name IS NOT INITIAL.
-      temp8 = element_name.
+      temp7 = element_name.
     ELSE.
-      temp8 = element_description->get_relative_name( ).
+      temp7 = element_description->get_relative_name( ).
     ENDIF.
 
-    name = temp8.
+    name = temp7.
     writer->write_element(
       element_name        = name
       element_description = element_description ).
   ENDMETHOD.
 
   METHOD process_structure.
-    DATA temp9 TYPE string.
-    DATA name LIKE temp9.
+    DATA temp8 TYPE string.
+    DATA name LIKE temp8.
     DATA components TYPE abap_component_tab.
     IF structure_name IS NOT INITIAL.
-      temp9 = structure_name.
+      temp8 = structure_name.
     ELSE.
-      temp9 = structure_description->get_relative_name( ).
+      temp8 = structure_description->get_relative_name( ).
     ENDIF.
 
-    name = temp9.
+    name = temp8.
     writer->open_node(
       node_name        = name
       node_description = structure_description ).
@@ -201,12 +195,12 @@ CLASS zcl_aff_generator IMPLEMENTATION.
 
   METHOD process_components.
     FIELD-SYMBOLS <component> LIKE LINE OF components.
-    DATA temp10 TYPE REF TO cl_abap_structdescr.
+    DATA temp9 TYPE REF TO cl_abap_structdescr.
     LOOP AT components ASSIGNING <component>.
       IF <component>-as_include = abap_true.
 
-        temp10 ?= <component>-type.
-        process_include( temp10 ).
+        temp9 ?= <component>-type.
+        process_include( temp9 ).
       ELSE.
         process_type_description(
           type_name        = <component>-name
@@ -216,16 +210,16 @@ CLASS zcl_aff_generator IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD process_table.
-    DATA temp11 TYPE string.
-    DATA name LIKE temp11.
+    DATA temp10 TYPE string.
+    DATA name LIKE temp10.
     DATA line_description TYPE REF TO cl_abap_datadescr.
     IF table_name IS NOT INITIAL.
-      temp11 = table_name.
+      temp10 = table_name.
     ELSE.
-      temp11 = table_description->get_relative_name( ).
+      temp10 = table_description->get_relative_name( ).
     ENDIF.
 
-    name = temp11.
+    name = temp10.
     writer->open_node(
       node_name        = name
       node_description = table_description ).
@@ -237,7 +231,8 @@ CLASS zcl_aff_generator IMPLEMENTATION.
       node_description = table_description ).
   ENDMETHOD.
 
-  METHOD zif_aff_generator~get_log.
+
+  METHOD get_log.
     log = me->log.
   ENDMETHOD.
 

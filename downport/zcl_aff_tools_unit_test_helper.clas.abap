@@ -61,8 +61,8 @@ CLASS zcl_aff_tools_unit_test_helper IMPLEMENTATION.
     DATA act_messages TYPE zif_aff_log=>tt_log_out.
     DATA temp1 TYPE symsg.
     DATA msg LIKE temp1.
-    DATA temp3 LIKE sy-subrc.
     DATA temp2 LIKE sy-subrc.
+    DATA temp3 LIKE sy-subrc.
     act_messages = log->get_messages( ).
 
     CLEAR temp1.
@@ -75,9 +75,6 @@ CLASS zcl_aff_tools_unit_test_helper IMPLEMENTATION.
     temp1-msgv4 = exp_message-attr4.
 
     msg = temp1.
-
-    READ TABLE act_messages WITH KEY type = exp_type message = msg TRANSPORTING NO FIELDS.
-    temp3 = sy-subrc.
     IF exp_component_name IS SUPPLIED.
 
       READ TABLE act_messages WITH KEY type = exp_type message = msg component_name = exp_component_name TRANSPORTING NO FIELDS.
@@ -85,6 +82,9 @@ CLASS zcl_aff_tools_unit_test_helper IMPLEMENTATION.
       IF NOT temp2 = 0.
         cl_abap_unit_assert=>fail( msg = 'The expected message is not contained in the log' ).
       ENDIF.
+
+      READ TABLE act_messages WITH KEY type = exp_type message = msg TRANSPORTING NO FIELDS.
+      temp3 = sy-subrc.
     ELSEIF NOT temp3 = 0.
       cl_abap_unit_assert=>fail( msg = 'The expected message is not contained in the log' ).
     ENDIF.
@@ -93,12 +93,9 @@ CLASS zcl_aff_tools_unit_test_helper IMPLEMENTATION.
 
   METHOD assert_log_contains_text.
     DATA act_messages TYPE zif_aff_log=>tt_log_out.
-    DATA temp5 LIKE sy-subrc.
     DATA temp4 LIKE sy-subrc.
+    DATA temp5 LIKE sy-subrc.
     act_messages = log->get_messages( ).
-
-    READ TABLE act_messages WITH KEY type = exp_type message_text = exp_text TRANSPORTING NO FIELDS.
-    temp5 = sy-subrc.
     IF exp_component_name IS SUPPLIED.
 
       READ TABLE act_messages WITH KEY type = exp_type message_text = exp_text component_name = exp_component_name TRANSPORTING NO FIELDS.
@@ -106,6 +103,9 @@ CLASS zcl_aff_tools_unit_test_helper IMPLEMENTATION.
       IF NOT temp4 = 0.
         cl_abap_unit_assert=>fail( msg = 'The expected message is not contained in the log' ).
       ENDIF.
+
+      READ TABLE act_messages WITH KEY type = exp_type message_text = exp_text TRANSPORTING NO FIELDS.
+      temp5 = sy-subrc.
     ELSEIF NOT temp5 = 0.
       cl_abap_unit_assert=>fail( msg = 'The expected message is not contained in the log' ).
     ENDIF.
@@ -115,59 +115,59 @@ CLASS zcl_aff_tools_unit_test_helper IMPLEMENTATION.
   METHOD assert_log_has_no_message.
     DATA types_to_report TYPE STANDARD TABLE OF symsgty.
     DATA temp6 LIKE types_to_report.
-    DATA temp8 LIKE types_to_report.
     DATA temp10 LIKE types_to_report.
-    DATA temp12 LIKE types_to_report.
+    DATA temp13 LIKE types_to_report.
+    DATA temp15 LIKE types_to_report.
     DATA max_severity TYPE symsgty.
-    DATA temp14 LIKE sy-subrc.
+    DATA temp19 LIKE sy-subrc.
     DATA detail TYPE string.
-    DATA temp15 TYPE zif_aff_log=>tt_log_out.
-    FIELD-SYMBOLS <message> LIKE LINE OF temp15.
-    DATA temp16 LIKE sy-subrc.
+    DATA temp20 TYPE zif_aff_log=>tt_log_out.
+    FIELD-SYMBOLS <message> LIKE LINE OF temp20.
+    DATA temp21 LIKE sy-subrc.
 
     CASE message_severity_threshold.
       WHEN zif_aff_log=>c_message_type-info.
 
         CLEAR temp6.
-        INSERT zif_aff_log=>c_message_type-info INTO TABLE temp6.
-        INSERT zif_aff_log=>c_message_type-warning INTO TABLE temp6.
-        INSERT zif_aff_log=>c_message_type-error INTO TABLE temp6.
+        APPEND zif_aff_log=>c_message_type-info TO temp6.
+        APPEND zif_aff_log=>c_message_type-warning TO temp6.
+        APPEND zif_aff_log=>c_message_type-error TO temp6.
         types_to_report = temp6.
       WHEN zif_aff_log=>c_message_type-warning.
 
-        CLEAR temp8.
-        INSERT zif_aff_log=>c_message_type-warning INTO TABLE temp8.
-        INSERT zif_aff_log=>c_message_type-error INTO TABLE temp8.
-        types_to_report = temp8.
+        CLEAR temp10.
+        APPEND zif_aff_log=>c_message_type-warning TO temp10.
+        APPEND zif_aff_log=>c_message_type-error TO temp10.
+        types_to_report = temp10.
       WHEN zif_aff_log=>c_message_type-error.
 
-        CLEAR temp10.
-        INSERT zif_aff_log=>c_message_type-error INTO TABLE temp10.
-        types_to_report = temp10.
+        CLEAR temp13.
+        APPEND zif_aff_log=>c_message_type-error TO temp13.
+        types_to_report = temp13.
       WHEN OTHERS.
 
-        CLEAR temp12.
-        INSERT zif_aff_log=>c_message_type-info INTO TABLE temp12.
-        INSERT zif_aff_log=>c_message_type-warning INTO TABLE temp12.
-        INSERT zif_aff_log=>c_message_type-error INTO TABLE temp12.
-        types_to_report = temp12.
+        CLEAR temp15.
+        APPEND zif_aff_log=>c_message_type-info TO temp15.
+        APPEND zif_aff_log=>c_message_type-warning TO temp15.
+        APPEND zif_aff_log=>c_message_type-error TO temp15.
+        types_to_report = temp15.
     ENDCASE.
 
 
     max_severity = log->get_max_severity( ).
 
     READ TABLE types_to_report WITH KEY table_line = max_severity TRANSPORTING NO FIELDS.
-    temp14 = sy-subrc.
-    IF temp14 = 0.
+    temp19 = sy-subrc.
+    IF temp19 = 0.
 
 
-      temp15 = log->get_messages( ).
+      temp20 = log->get_messages( ).
 
-      LOOP AT temp15 ASSIGNING <message>.
+      LOOP AT temp20 ASSIGNING <message>.
 
         READ TABLE types_to_report WITH KEY table_line = <message>-type TRANSPORTING NO FIELDS.
-        temp16 = sy-subrc.
-        IF temp16 = 0.
+        temp21 = sy-subrc.
+        IF temp21 = 0.
           detail = detail && <message>-message_text && cl_abap_char_utilities=>newline.
         ENDIF.
       ENDLOOP.
