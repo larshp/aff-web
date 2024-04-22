@@ -3,17 +3,11 @@ const {cx_root} = await import("./cx_root.clas.mjs");
 // cx_shm_version_limit_exceeded.clas.abap
 class cx_shm_version_limit_exceeded extends cx_shm_attach_error {
   static INTERNAL_TYPE = 'CLAS';
-  static INTERNAL_NAME = 'CX_SHM_VERSION_LIMIT_EXCEEDED';
-  static IMPLEMENTED_INTERFACES = ["IF_MESSAGE","IF_MESSAGE","IF_MESSAGE","IF_MESSAGE","IF_MESSAGE","IF_MESSAGE","IF_MESSAGE","IF_MESSAGE"];
-  static ATTRIBUTES = {};
-  static METHODS = {};
-  constructor() {
-    super();
+  static IMPLEMENTED_INTERFACES = [];
+  async constructor_(INPUT) {
+    await super.constructor_(INPUT);
     this.me = new abap.types.ABAPObject();
     this.me.set(this);
-  }
-  async constructor_(INPUT) {
-    if (super.constructor_) { await super.constructor_(INPUT); }
     return this;
   }
 }

@@ -4,7 +4,7 @@
     "cl_abap_refdescr.clas.abap"
   ],
   "names": [],
-  "mappings": ";;;AAaA;;;;;;;;;;;;;;;;;EACE;;IACE,SAAO,eAAU;IACnB;;EAEA;;;;;QACO,+DAAoB;+BACzB,WAAY,wEAA0C;IACxD;;AACF",
+  "mappings": ";;;AAUA;;;;;;;;;EACE;;+BACE,MAAQ,OAAE;IACZ;;EAEA;;;;;IACE,oCAAS,GAAF,iCAAI,wCAAM;IACnB;;AACF",
   "file": "cl_abap_refdescr.clas.mjs",
   "sourceRoot": ""
 }

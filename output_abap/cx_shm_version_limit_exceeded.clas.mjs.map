@@ -4,7 +4,7 @@
     "cx_shm_version_limit_exceeded.clas.abap"
   ],
   "names": [],
-  "mappings": ";;;AAIA;;;;;;;;;;;;;;;AAEA",
+  "mappings": ";;;AAIA;;;;;;;;;AAEA",
   "file": "cx_shm_version_limit_exceeded.clas.mjs",
   "sourceRoot": ""
 }

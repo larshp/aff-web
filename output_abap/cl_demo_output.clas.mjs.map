@@ -4,7 +4,7 @@
     "cl_demo_output.clas.abap"
   ],
   "names": [],
-  "mappings": ";;AAeA;;;;;;;;;;;;;;;;EACE;;;;;;;IACE,oCAAS,GAAF,4BAAI,kDAAe;EAC5B;EAEA;;;;IACE,oCAAS,GAAF,4BAAI,kDAAe;EAC5B;EAEA;;;;;;;IACE,oCAAS,GAAF,4BAAI,kDAAe;EAC5B;AACF",
+  "mappings": ";;AAaA;;;;;;;;EACE;;;;;;;;IACE,oCAAS,GAAF,iCAAI,kDAAe;EAC5B;EAEA;;;;IACE,oCAAS,GAAF,iCAAI,kDAAe;EAC5B;EAEA;;;;;;;;IACE,oCAAS,GAAF,iCAAI,kDAAe;EAC5B;AACF",
   "file": "cl_demo_output.clas.mjs",
   "sourceRoot": ""
 }

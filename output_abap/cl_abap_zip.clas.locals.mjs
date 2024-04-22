@@ -2,29 +2,16 @@ const {cx_root} = await import("./cx_root.clas.mjs");
 // cl_abap_zip.clas.locals_imp.abap
 class lcl_stream {
   static INTERNAL_TYPE = 'CLAS';
-  static INTERNAL_NAME = 'CLAS-CL_ABAP_ZIP-LCL_STREAM';
   static IMPLEMENTED_INTERFACES = [];
-  static ATTRIBUTES = {"CRC32_MAP": {"type": () => {return new abap.types.XString({qualifiedName: "XSTRING"});}, "visibility": "I", "is_constant": " ", "is_class": "X"},
-  "MV_XSTR": {"type": () => {return new abap.types.XString({qualifiedName: "XSTRING"});}, "visibility": "I", "is_constant": " ", "is_class": " "}};
-  static METHODS = {"APPEND": {"visibility": "U", "parameters": {"IV_XSTR": {"type": () => {return new abap.types.Hex();}, "is_optional": " "}}},
-  "GET": {"visibility": "U", "parameters": {"RV_XSTR": {"type": () => {return new abap.types.XString({qualifiedName: "XSTRING"});}, "is_optional": " "}}},
-  "APPEND_DATE": {"visibility": "U", "parameters": {"IV_DATE": {"type": () => {return new abap.types.Date({qualifiedName: "D"});}, "is_optional": " "}}},
-  "APPEND_TIME": {"visibility": "U", "parameters": {"IV_TIME": {"type": () => {return new abap.types.Time({qualifiedName: "T"});}, "is_optional": " "}}},
-  "APPEND_INT4": {"visibility": "U", "parameters": {"IV_INT": {"type": () => {return new abap.types.Integer({qualifiedName: "I"});}, "is_optional": " "}}},
-  "APPEND_INT2": {"visibility": "U", "parameters": {"IV_INT": {"type": () => {return new abap.types.Integer({qualifiedName: "I"});}, "is_optional": " "}}},
-  "APPEND_CRC": {"visibility": "U", "parameters": {"RV_CRC": {"type": () => {return new abap.types.XString({qualifiedName: "XSTRING"});}, "is_optional": " "}, "IV_LITTLE_ENDIAN": {"type": () => {return new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});}, "is_optional": " "}, "IV_XSTRING": {"type": () => {return new abap.types.XString({qualifiedName: "XSTRING"});}, "is_optional": " "}}}};
-  constructor() {
+  async constructor_(INPUT) {
     this.me = new abap.types.ABAPObject();
     this.me.set(this);
-    this.crc32_map = lcl_stream.crc32_map;
     this.mv_xstr = new abap.types.XString({qualifiedName: "XSTRING"});
-  }
-  async constructor_(INPUT) {
-    if (super.constructor_) { await super.constructor_(INPUT); }
     return this;
   }
   async append(INPUT) {
-    let iv_xstr = INPUT?.iv_xstr;
+    let iv_xstr = new abap.types.Hex();
+    if (INPUT && INPUT.iv_xstr) {iv_xstr = INPUT.iv_xstr;}
     abap.statements.concatenate({source: [this.mv_xstr, iv_xstr], target: this.mv_xstr});
   }
   async get() {
@@ -33,43 +20,31 @@ class lcl_stream {
     return rv_xstr;
   }
   async append_date(INPUT) {
-    let iv_date = INPUT?.iv_date;
-    if (iv_date?.getQualifiedName === undefined || iv_date.getQualifiedName() !== "D") { iv_date = undefined; }
-    if (iv_date === undefined) { iv_date = new abap.types.Date({qualifiedName: "D"}).set(INPUT.iv_date); }
-    abap.statements.assert(abap.compare.eq(abap.IntegerFactory.get(1), new abap.types.Character(4).set('todo')));
+    let iv_date = new abap.types.Date({qualifiedName: "D"});
+    if (INPUT && INPUT.iv_date) {iv_date.set(INPUT.iv_date);}
   }
   async append_time(INPUT) {
-    let iv_time = INPUT?.iv_time;
-    if (iv_time?.getQualifiedName === undefined || iv_time.getQualifiedName() !== "T") { iv_time = undefined; }
-    if (iv_time === undefined) { iv_time = new abap.types.Time({qualifiedName: "T"}).set(INPUT.iv_time); }
-    abap.statements.assert(abap.compare.eq(abap.IntegerFactory.get(1), new abap.types.Character(4).set('todo')));
+    let iv_time = new abap.types.Time({qualifiedName: "T"});
+    if (INPUT && INPUT.iv_time) {iv_time.set(INPUT.iv_time);}
   }
   async append_int2(INPUT) {
-    let iv_int = INPUT?.iv_int;
-    if (iv_int?.getQualifiedName === undefined || iv_int.getQualifiedName() !== "I") { iv_int = undefined; }
-    if (iv_int === undefined) { iv_int = new abap.types.Integer({qualifiedName: "I"}).set(INPUT.iv_int); }
-    let lv_hex = new abap.types.Hex({length: 2});
+    let iv_int = new abap.types.Integer({qualifiedName: "I"});
+    if (INPUT && INPUT.iv_int) {iv_int.set(INPUT.iv_int);}
+    let lv_hex = new abap.types.Hex();
     lv_hex.set(iv_int);
-    abap.statements.shift(lv_hex, {direction: 'LEFT',circular: true,mode: 'BYTE'});
     await this.append({iv_xstr: lv_hex});
   }
   async append_int4(INPUT) {
-    let iv_int = INPUT?.iv_int;
-    if (iv_int?.getQualifiedName === undefined || iv_int.getQualifiedName() !== "I") { iv_int = undefined; }
-    if (iv_int === undefined) { iv_int = new abap.types.Integer({qualifiedName: "I"}).set(INPUT.iv_int); }
-    let lv_hex = new abap.types.Hex({length: 4});
+    let iv_int = new abap.types.Integer({qualifiedName: "I"});
+    if (INPUT && INPUT.iv_int) {iv_int.set(INPUT.iv_int);}
+    let lv_hex = new abap.types.Hex({length: 2});
     lv_hex.set(iv_int);
-    abap.statements.concatenate({source: [lv_hex.getOffset({offset: 3, length: 1}), lv_hex.getOffset({offset: 2, length: 1}), lv_hex.getOffset({offset: 1, length: 1}), lv_hex.getOffset({length: 1})], target: lv_hex});
     await this.append({iv_xstr: lv_hex});
   }
   async append_crc(INPUT) {
     let rv_crc = new abap.types.XString({qualifiedName: "XSTRING"});
-    let iv_little_endian = INPUT?.iv_little_endian;
-    if (iv_little_endian?.getQualifiedName === undefined || iv_little_endian.getQualifiedName() !== "ABAP_BOOL") { iv_little_endian = undefined; }
-    if (iv_little_endian === undefined) { iv_little_endian = new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}).set(INPUT.iv_little_endian); }
-    let iv_xstring = INPUT?.iv_xstring;
-    if (iv_xstring?.getQualifiedName === undefined || iv_xstring.getQualifiedName() !== "XSTRING") { iv_xstring = undefined; }
-    if (iv_xstring === undefined) { iv_xstring = new abap.types.XString({qualifiedName: "XSTRING"}).set(INPUT.iv_xstring); }
+    let iv_xstring = new abap.types.XString({qualifiedName: "XSTRING"});
+    if (INPUT && INPUT.iv_xstring) {iv_xstring.set(INPUT.iv_xstring);}
     let magic_nr = new abap.types.Hex({length: 4});
     magic_nr.set('EDB88320');
     let mffffffff = new abap.types.Hex({length: 4});
@@ -90,19 +65,19 @@ class lcl_stream {
     crc.set(mffffffff);
     let x4 = new abap.types.Hex({length: 4});
     let idx = new abap.types.Hex({length: 4});
-    if (abap.compare.eq(abap.builtin.xstrlen({val: lcl_stream.crc32_map}), abap.IntegerFactory.get(0))) {
+    if (abap.compare.eq(abap.builtin.xstrlen({val: lcl_stream.crc32_map}), new abap.types.Integer().set(0))) {
       const indexBackup1 = abap.builtin.sy.get().index.get();
-      const unique152 = new abap.types.Integer().set(256).get();
-      for (let unique153 = 0; unique153 < unique152; unique153++) {
-        abap.builtin.sy.get().index.set(unique153 + 1);
-        cindex.set(abap.operators.minus(abap.builtin.sy.get().index,abap.IntegerFactory.get(1)));
+      const unique79 = new abap.types.Integer().set(256).get();
+      for (let unique80 = 0; unique80 < unique79; unique80++) {
+        abap.builtin.sy.get().index.set(unique80 + 1);
+        cindex.set(abap.operators.minus(abap.builtin.sy.get().index,new abap.types.Integer().set(1)));
         const indexBackup2 = abap.builtin.sy.get().index.get();
-        const unique154 = abap.IntegerFactory.get(8).get();
-        for (let unique155 = 0; unique155 < unique154; unique155++) {
-          abap.builtin.sy.get().index.set(unique155 + 1);
+        const unique81 = new abap.types.Integer().set(8).get();
+        for (let unique82 = 0; unique82 < unique81; unique82++) {
+          abap.builtin.sy.get().index.set(unique82 + 1);
           low_bit.set(new abap.types.Character(8).set('00000001'));
           low_bit.set(abap.operators.bitand(cindex,low_bit));
-          cindex.set(abap.operators.div(cindex,abap.IntegerFactory.get(2)));
+          cindex.set(abap.operators.div(cindex,new abap.types.Integer().set(2)));
           cindex.set(abap.operators.bitand(cindex,m7fffffff));
           if (abap.compare.initial(low_bit) === false) {
             cindex.set(abap.operators.bitxor(cindex,magic_nr));
@@ -115,13 +90,13 @@ class lcl_stream {
     }
     len.set(abap.builtin.xstrlen({val: iv_xstring}));
     const indexBackup3 = abap.builtin.sy.get().index.get();
-    const unique156 = len.get();
-    for (let unique157 = 0; unique157 < unique156; unique157++) {
-      abap.builtin.sy.get().index.set(unique157 + 1);
-      nindex.set(abap.operators.minus(abap.builtin.sy.get().index,abap.IntegerFactory.get(1)));
+    const unique83 = len.get();
+    for (let unique84 = 0; unique84 < unique83; unique84++) {
+      abap.builtin.sy.get().index.set(unique84 + 1);
+      nindex.set(abap.operators.minus(abap.builtin.sy.get().index,new abap.types.Integer().set(1)));
       abap.statements.concatenate({source: [m000000, iv_xstring.getOffset({offset: nindex, length: 1})], target: idx});
       idx.set(abap.operators.bitand(abap.operators.bitxor(crc,idx),m000000ff));
-      idx.set(abap.operators.multiply(idx,abap.IntegerFactory.get(4)));
+      idx.set(abap.operators.multiply(idx,new abap.types.Integer().set(4)));
       x4.set(lcl_stream.crc32_map.getOffset({offset: idx, length: 4}));
       crc.set(abap.operators.div(crc,new abap.types.Integer().set(256)));
       crc.set(abap.operators.bitand(crc,m00ffffff));
@@ -129,9 +104,6 @@ class lcl_stream {
     }
     abap.builtin.sy.get().index.set(indexBackup3);
     crc.set(abap.operators.bitxor(crc,mffffffff));
-    if (abap.compare.eq(iv_little_endian, abap.builtin.abap_true)) {
-      abap.statements.concatenate({source: [crc.getOffset({offset: 3, length: 1}), crc.getOffset({offset: 2, length: 1}), crc.getOffset({offset: 1, length: 1}), crc.getOffset({length: 1})], target: crc});
-    }
     rv_crc.set(crc);
     await this.append({iv_xstr: rv_crc});
     return rv_crc;

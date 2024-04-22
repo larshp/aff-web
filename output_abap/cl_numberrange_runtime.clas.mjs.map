@@ -4,7 +4,7 @@
     "cl_numberrange_runtime.clas.abap"
   ],
   "names": [],
-  "mappings": ";;AAiBA;;;;;;;;;;;;;;EAEE;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MAiBE,iBAAY,GAAT,eAAE,MAAC,QAAS,2BAAC;QACd;MACF;IAEF;EAEF",
+  "mappings": ";;AAiBA;;;;;;;;EAEE;;;;;;;;;;;IAiBE,iBAAY,GAAT,eAAE,MAAC,QAAS,gCAAC;MACd;IACF;EAEF;AAEF",
   "file": "cl_numberrange_runtime.clas.mjs",
   "sourceRoot": ""
 }

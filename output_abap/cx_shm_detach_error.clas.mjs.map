@@ -4,7 +4,7 @@
     "cx_shm_detach_error.clas.abap"
   ],
   "names": [],
-  "mappings": ";;;AAIA;;;;;;;;;;;;;;;AAEA",
+  "mappings": ";;;AAIA;;;;;;;;;AAEA",
   "file": "cx_shm_detach_error.clas.mjs",
   "sourceRoot": ""
 }

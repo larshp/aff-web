@@ -3,17 +3,11 @@ const {cx_root} = await import("./cx_root.clas.mjs");
 // cx_shm_completion_error.clas.abap
 class cx_shm_completion_error extends cx_shm_detach_error {
   static INTERNAL_TYPE = 'CLAS';
-  static INTERNAL_NAME = 'CX_SHM_COMPLETION_ERROR';
-  static IMPLEMENTED_INTERFACES = ["IF_MESSAGE","IF_MESSAGE","IF_MESSAGE","IF_MESSAGE"];
-  static ATTRIBUTES = {};
-  static METHODS = {};
-  constructor() {
-    super();
+  static IMPLEMENTED_INTERFACES = [];
+  async constructor_(INPUT) {
+    await super.constructor_(INPUT);
     this.me = new abap.types.ABAPObject();
     this.me.set(this);
-  }
-  async constructor_(INPUT) {
-    if (super.constructor_) { await super.constructor_(INPUT); }
     return this;
   }
 }

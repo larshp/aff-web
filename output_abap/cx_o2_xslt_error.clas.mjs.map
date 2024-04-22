@@ -1,10 +1,10 @@
 {
   "version": 3,
   "sources": [
-    "../downport/cx_o2_xslt_error.clas.abap"
+    "..\\downport\\cx_o2_xslt_error.clas.abap"
   ],
   "names": [],
-  "mappings": ";;;AAIA;;;;;;;;;;;;;;;AAEA",
+  "mappings": ";;;AAIA;;;;;;;;;AAEA",
   "file": "cx_o2_xslt_error.clas.mjs",
   "sourceRoot": ""
 }

@@ -4,7 +4,7 @@
     "cx_sy_move_cast_error.clas.abap"
   ],
   "names": [],
-  "mappings": ";;;AAOA;;;;;;;;;;;;;;;EAEE;;IACE,WAAS,wEAAsC;IACjD;;AAEF",
+  "mappings": ";;;AAIA;;;;;;;;;AAEA",
   "file": "cx_sy_move_cast_error.clas.mjs",
   "sourceRoot": ""
 }

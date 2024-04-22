@@ -4,7 +4,7 @@
     "cl_abap_regex.clas.abap"
   ],
   "names": [],
-  "mappings": ";;AA2BA;;;;;;;;;;;;;;;EAEE;;;;;IACE,oBAAa,OAAO;IACpB,wBAAiB,WAAW;IAC9B;;EAEA;;;;;;;;;;IAKA;;EAEA;;;;IAMA;;AAEF",
+  "mappings": ";;AA2BA;;;EAEE;;;;;;;;;;IACE,oBAAa,OAAO;IACpB,wBAAiB,WAAW;IAC9B;;EAEA;;;;;;;;;;IACE,oCAAS,GAAF,iCAAI,wCAAM;IACnB;;EAEA;;;;;IAMA;;AAEF",
   "file": "cl_abap_regex.clas.mjs",
   "sourceRoot": ""
 }

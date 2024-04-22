@@ -4,7 +4,7 @@
     "cx_shm_exclusive_lock_active.clas.abap"
   ],
   "names": [],
-  "mappings": ";;;AAIA;;;;;;;;;;;;;;;AAEA",
+  "mappings": ";;;AAIA;;;;;;;;;AAEA",
   "file": "cx_shm_exclusive_lock_active.clas.mjs",
   "sourceRoot": ""
 }

@@ -4,7 +4,7 @@
     "cl_ixml.clas.abap"
   ],
   "names": [],
-  "mappings": ";;;AASA;;;;;;;;;;;;;;EACE;;;;;;IAEA;;EAEA;;;;;;;;;IAEA;;EAEA;;;IAEA;;EAEA;;;IAEA;;EAEA;;;;;;;;;IAKA;;EAEA;;;;;;;;;;;;IAKA;;AAEF",
+  "mappings": ";;;AASA;;;;;;;;EACE;;;;;;IAEA;;EAEA;;;;;;;IAEA;;EAEA;;;IAEA;;EAEA;;;IAEA;;EAEA;;;;;;;IAKA;;EAEA;;;;;;;;;IAKA;;AAEF",
   "file": "cl_ixml.clas.mjs",
   "sourceRoot": ""
 }

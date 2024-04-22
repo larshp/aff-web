@@ -15,19 +15,19 @@ async function run() {
   let meth;
   try {
 // --------------------------------------------
-    clas = unit.addObject("ZCL_AFF_GENERATOR");
-    {
-        const {ltcl_unit_test_writer} = await import("./zcl_aff_generator.clas.testclasses.mjs");
-        locl = clas.addTestClass("ltcl_unit_test_writer");
-        if (ltcl_unit_test_writer.class_setup) await ltcl_unit_test_writer.class_setup();
-      if (ltcl_unit_test_writer.class_teardown) await ltcl_unit_test_writer.class_teardown();
-    }
+    clas = unit.addObject("CL_O2_API_XSLTDESC");
+// --------------------------------------------
+    clas = unit.addObject("CL_OO_CLASSNAME_SERVICE");
+// --------------------------------------------
+    clas = unit.addObject("CL_RUN");
+// --------------------------------------------
+    clas = unit.addObject("CX_O2_XSLT_ERROR");
 // --------------------------------------------
     clas = unit.addObject("ZCL_AFF_ABAP_DOC_PARSER");
     {
-        const {ltcl_aff_abap_doc_parser} = await import("./zcl_aff_abap_doc_parser.clas.testclasses.mjs");
-        locl = clas.addTestClass("ltcl_aff_abap_doc_parser");
-        if (ltcl_aff_abap_doc_parser.class_setup) await ltcl_aff_abap_doc_parser.class_setup();
+      const {ltcl_aff_abap_doc_parser} = await import("./zcl_aff_abap_doc_parser.clas.testclasses.mjs");
+      locl = clas.addTestClass("ltcl_aff_abap_doc_parser");
+      if (ltcl_aff_abap_doc_parser.class_setup) await ltcl_aff_abap_doc_parser.class_setup();
       {
         const test = await (new ltcl_aff_abap_doc_parser()).constructor_();
         if (test.setup) await test.setup();
@@ -262,68 +262,14 @@ async function run() {
         meth.pass();
         if (test.teardown) await test.teardown();
       }
-      {
-        const test = await (new ltcl_aff_abap_doc_parser()).constructor_();
-        if (test.setup) await test.setup();
-        console.log("ZCL_AFF_ABAP_DOC_PARSER: running ltcl_aff_abap_doc_parser->content_media_type");
-        meth = locl.addMethod("content_media_type");
-        await test.content_media_type();
-        meth.pass();
-        if (test.teardown) await test.teardown();
-      }
-      {
-        const test = await (new ltcl_aff_abap_doc_parser()).constructor_();
-        if (test.setup) await test.setup();
-        console.log("ZCL_AFF_ABAP_DOC_PARSER: running ltcl_aff_abap_doc_parser->content_encoding");
-        meth = locl.addMethod("content_encoding");
-        await test.content_encoding();
-        meth.pass();
-        if (test.teardown) await test.teardown();
-      }
-      {
-        const test = await (new ltcl_aff_abap_doc_parser()).constructor_();
-        if (test.setup) await test.setup();
-        console.log("ZCL_AFF_ABAP_DOC_PARSER: running ltcl_aff_abap_doc_parser->content_encod_multiple_entries");
-        meth = locl.addMethod("content_encod_multiple_entries");
-        await test.content_encod_multiple_entries();
-        meth.pass();
-        if (test.teardown) await test.teardown();
-      }
-      {
-        const test = await (new ltcl_aff_abap_doc_parser()).constructor_();
-        if (test.setup) await test.setup();
-        console.log("ZCL_AFF_ABAP_DOC_PARSER: running ltcl_aff_abap_doc_parser->content_media_multiple_entries");
-        meth = locl.addMethod("content_media_multiple_entries");
-        await test.content_media_multiple_entries();
-        meth.pass();
-        if (test.teardown) await test.teardown();
-      }
-      {
-        const test = await (new ltcl_aff_abap_doc_parser()).constructor_();
-        if (test.setup) await test.setup();
-        console.log("ZCL_AFF_ABAP_DOC_PARSER: running ltcl_aff_abap_doc_parser->content_media_type_used_wrong");
-        meth = locl.addMethod("content_media_type_used_wrong");
-        await test.content_media_type_used_wrong();
-        meth.pass();
-        if (test.teardown) await test.teardown();
-      }
-      {
-        const test = await (new ltcl_aff_abap_doc_parser()).constructor_();
-        if (test.setup) await test.setup();
-        console.log("ZCL_AFF_ABAP_DOC_PARSER: running ltcl_aff_abap_doc_parser->content_encoding_used_wrong");
-        meth = locl.addMethod("content_encoding_used_wrong");
-        await test.content_encoding_used_wrong();
-        meth.pass();
-        if (test.teardown) await test.teardown();
-      }
       if (ltcl_aff_abap_doc_parser.class_teardown) await ltcl_aff_abap_doc_parser.class_teardown();
     }
 // --------------------------------------------
     clas = unit.addObject("ZCL_AFF_ABAP_DOC_READER");
     {
-        const {ltcl_abap_doc_reader} = await import("./zcl_aff_abap_doc_reader.clas.testclasses.mjs");
-        locl = clas.addTestClass("ltcl_abap_doc_reader");
-        if (ltcl_abap_doc_reader.class_setup) await ltcl_abap_doc_reader.class_setup();
+      const {ltcl_abap_doc_reader} = await import("./zcl_aff_abap_doc_reader.clas.testclasses.mjs");
+      locl = clas.addTestClass("ltcl_abap_doc_reader");
+      if (ltcl_abap_doc_reader.class_setup) await ltcl_abap_doc_reader.class_setup();
       {
         const test = await (new ltcl_abap_doc_reader()).constructor_();
         if (test.setup) await test.setup();
@@ -410,9 +356,15 @@ async function run() {
 // --------------------------------------------
     clas = unit.addObject("ZCL_AFF_GENERATOR");
     {
-        const {ltcl_type_generator} = await import("./zcl_aff_generator.clas.testclasses.mjs");
-        locl = clas.addTestClass("ltcl_type_generator");
-        if (ltcl_type_generator.class_setup) await ltcl_type_generator.class_setup();
+      const {ltcl_unit_test_writer} = await import("./zcl_aff_generator.clas.testclasses.mjs");
+      locl = clas.addTestClass("ltcl_unit_test_writer");
+      if (ltcl_unit_test_writer.class_setup) await ltcl_unit_test_writer.class_setup();
+      if (ltcl_unit_test_writer.class_teardown) await ltcl_unit_test_writer.class_teardown();
+    }
+    {
+      const {ltcl_type_generator} = await import("./zcl_aff_generator.clas.testclasses.mjs");
+      locl = clas.addTestClass("ltcl_type_generator");
+      if (ltcl_type_generator.class_setup) await ltcl_type_generator.class_setup();
       {
         const test = await (new ltcl_type_generator()).constructor_();
         if (test.setup) await test.setup();
@@ -533,9 +485,9 @@ async function run() {
       {
         const test = await (new ltcl_type_generator()).constructor_();
         if (test.setup) await test.setup();
-        console.log("ZCL_AFF_GENERATOR: running ltcl_type_generator->simple_component_on_top_level");
-        meth = locl.addMethod("simple_component_on_top_level");
-        await test.simple_component_on_top_level();
+        console.log("ZCL_AFF_GENERATOR: running ltcl_type_generator->mandatory_fields");
+        meth = locl.addMethod("mandatory_fields");
+        await test.mandatory_fields();
         meth.pass();
         if (test.teardown) await test.teardown();
       }
@@ -566,32 +518,14 @@ async function run() {
         meth.pass();
         if (test.teardown) await test.teardown();
       }
-      {
-        const test = await (new ltcl_type_generator()).constructor_();
-        if (test.setup) await test.setup();
-        console.log("ZCL_AFF_GENERATOR: running ltcl_type_generator->structure_on_top_level");
-        meth = locl.addMethod("structure_on_top_level");
-        await test.structure_on_top_level();
-        meth.pass();
-        if (test.teardown) await test.teardown();
-      }
-      {
-        const test = await (new ltcl_type_generator()).constructor_();
-        if (test.setup) await test.setup();
-        console.log("ZCL_AFF_GENERATOR: running ltcl_type_generator->table_on_top_level");
-        meth = locl.addMethod("table_on_top_level");
-        await test.table_on_top_level();
-        meth.pass();
-        if (test.teardown) await test.teardown();
-      }
       if (ltcl_type_generator.class_teardown) await ltcl_type_generator.class_teardown();
     }
 // --------------------------------------------
     clas = unit.addObject("ZCL_AFF_LOG");
     {
-        const {ltcl_log_unit_test} = await import("./zcl_aff_log.clas.testclasses.mjs");
-        locl = clas.addTestClass("ltcl_log_unit_test");
-        if (ltcl_log_unit_test.class_setup) await ltcl_log_unit_test.class_setup();
+      const {ltcl_log_unit_test} = await import("./zcl_aff_log.clas.testclasses.mjs");
+      locl = clas.addTestClass("ltcl_log_unit_test");
+      if (ltcl_log_unit_test.class_setup) await ltcl_log_unit_test.class_setup();
       {
         const test = await (new ltcl_log_unit_test()).constructor_();
         if (test.setup) await test.setup();
@@ -714,9 +648,9 @@ async function run() {
 // --------------------------------------------
     clas = unit.addObject("ZCL_AFF_TEST_TYPES");
     {
-        const {ltcl_sanity} = await import("./zcl_aff_test_types.clas.testclasses.mjs");
-        locl = clas.addTestClass("ltcl_sanity");
-        if (ltcl_sanity.class_setup) await ltcl_sanity.class_setup();
+      const {ltcl_sanity} = await import("./zcl_aff_test_types.clas.testclasses.mjs");
+      locl = clas.addTestClass("ltcl_sanity");
+      if (ltcl_sanity.class_setup) await ltcl_sanity.class_setup();
       {
         const test = await (new ltcl_sanity()).constructor_();
         if (test.setup) await test.setup();
@@ -729,19 +663,19 @@ async function run() {
       if (ltcl_sanity.class_teardown) await ltcl_sanity.class_teardown();
     }
 // --------------------------------------------
-    clas = unit.addObject("ZCL_AFF_WRITER");
-    {
-        const {ltcl_writer_testable} = await import("./zcl_aff_writer.clas.testclasses.mjs");
-        locl = clas.addTestClass("ltcl_writer_testable");
-        if (ltcl_writer_testable.class_setup) await ltcl_writer_testable.class_setup();
-      if (ltcl_writer_testable.class_teardown) await ltcl_writer_testable.class_teardown();
-    }
+    clas = unit.addObject("ZCL_AFF_TOOLS_UNIT_TEST_HELPER");
 // --------------------------------------------
     clas = unit.addObject("ZCL_AFF_WRITER");
     {
-        const {ltcl_type_writer} = await import("./zcl_aff_writer.clas.testclasses.mjs");
-        locl = clas.addTestClass("ltcl_type_writer");
-        if (ltcl_type_writer.class_setup) await ltcl_type_writer.class_setup();
+      const {ltcl_writer_testable} = await import("./zcl_aff_writer.clas.testclasses.mjs");
+      locl = clas.addTestClass("ltcl_writer_testable");
+      if (ltcl_writer_testable.class_setup) await ltcl_writer_testable.class_setup();
+      if (ltcl_writer_testable.class_teardown) await ltcl_writer_testable.class_teardown();
+    }
+    {
+      const {ltcl_type_writer} = await import("./zcl_aff_writer.clas.testclasses.mjs");
+      locl = clas.addTestClass("ltcl_type_writer");
+      if (ltcl_type_writer.class_setup) await ltcl_type_writer.class_setup();
       {
         const test = await (new ltcl_type_writer()).constructor_();
         if (test.setup) await test.setup();
@@ -999,9 +933,9 @@ async function run() {
 // --------------------------------------------
     clas = unit.addObject("ZCL_AFF_WRITER_JSON_SCHEMA");
     {
-        const {ltcl_json_writer} = await import("./zcl_aff_writer_json_schema.clas.testclasses.mjs");
-        locl = clas.addTestClass("ltcl_json_writer");
-        if (ltcl_json_writer.class_setup) await ltcl_json_writer.class_setup();
+      const {ltcl_json_writer} = await import("./zcl_aff_writer_json_schema.clas.testclasses.mjs");
+      locl = clas.addTestClass("ltcl_json_writer");
+      if (ltcl_json_writer.class_setup) await ltcl_json_writer.class_setup();
       {
         const test = await (new ltcl_json_writer()).constructor_();
         if (test.setup) await test.setup();
@@ -1110,32 +1044,12 @@ async function run() {
         meth.pass();
         if (test.teardown) await test.teardown();
       }
-      {
-        const test = await (new ltcl_json_writer()).constructor_();
-        if (test.setup) await test.setup();
-        console.log("ZCL_AFF_WRITER_JSON_SCHEMA: running ltcl_json_writer->nested_table_w_same_field_name");
-        meth = locl.addMethod("nested_table_w_same_field_name");
-        await test.nested_table_w_same_field_name();
-        meth.pass();
-        if (test.teardown) await test.teardown();
-      }
-      {
-        const test = await (new ltcl_json_writer()).constructor_();
-        if (test.setup) await test.setup();
-        console.log("ZCL_AFF_WRITER_JSON_SCHEMA: running ltcl_json_writer->multiple_of_warning");
-        meth = locl.addMethod("multiple_of_warning");
-        await test.multiple_of_warning();
-        meth.pass();
-        if (test.teardown) await test.teardown();
-      }
       if (ltcl_json_writer.class_teardown) await ltcl_json_writer.class_teardown();
     }
-// --------------------------------------------
-    clas = unit.addObject("ZCL_AFF_WRITER_JSON_SCHEMA");
     {
-        const {ltcl_json_writer_abap_doc} = await import("./zcl_aff_writer_json_schema.clas.testclasses.mjs");
-        locl = clas.addTestClass("ltcl_json_writer_abap_doc");
-        if (ltcl_json_writer_abap_doc.class_setup) await ltcl_json_writer_abap_doc.class_setup();
+      const {ltcl_json_writer_abap_doc} = await import("./zcl_aff_writer_json_schema.clas.testclasses.mjs");
+      locl = clas.addTestClass("ltcl_json_writer_abap_doc");
+      if (ltcl_json_writer_abap_doc.class_setup) await ltcl_json_writer_abap_doc.class_setup();
       {
         const test = await (new ltcl_json_writer_abap_doc()).constructor_();
         if (test.setup) await test.setup();
@@ -1241,15 +1155,6 @@ async function run() {
         console.log("ZCL_AFF_WRITER_JSON_SCHEMA: running ltcl_json_writer_abap_doc->nested_nested_structure");
         meth = locl.addMethod("nested_nested_structure");
         await test.nested_nested_structure();
-        meth.pass();
-        if (test.teardown) await test.teardown();
-      }
-      {
-        const test = await (new ltcl_json_writer_abap_doc()).constructor_();
-        if (test.setup) await test.setup();
-        console.log("ZCL_AFF_WRITER_JSON_SCHEMA: running ltcl_json_writer_abap_doc->nested_nested_simple");
-        meth = locl.addMethod("nested_nested_simple");
-        await test.nested_nested_simple();
         meth.pass();
         if (test.teardown) await test.teardown();
       }
@@ -1613,68 +1518,20 @@ async function run() {
         meth.pass();
         if (test.teardown) await test.teardown();
       }
-      {
-        const test = await (new ltcl_json_writer_abap_doc()).constructor_();
-        if (test.setup) await test.setup();
-        console.log("ZCL_AFF_WRITER_JSON_SCHEMA: running ltcl_json_writer_abap_doc->content_encoded_integer");
-        meth = locl.addMethod("content_encoded_integer");
-        await test.content_encoded_integer();
-        meth.pass();
-        if (test.teardown) await test.teardown();
-      }
-      {
-        const test = await (new ltcl_json_writer_abap_doc()).constructor_();
-        if (test.setup) await test.setup();
-        console.log("ZCL_AFF_WRITER_JSON_SCHEMA: running ltcl_json_writer_abap_doc->content_encoding_unknown");
-        meth = locl.addMethod("content_encoding_unknown");
-        await test.content_encoding_unknown();
-        meth.pass();
-        if (test.teardown) await test.teardown();
-      }
-      {
-        const test = await (new ltcl_json_writer_abap_doc()).constructor_();
-        if (test.setup) await test.setup();
-        console.log("ZCL_AFF_WRITER_JSON_SCHEMA: running ltcl_json_writer_abap_doc->content_encoding");
-        meth = locl.addMethod("content_encoding");
-        await test.content_encoding();
-        meth.pass();
-        if (test.teardown) await test.teardown();
-      }
-      {
-        const test = await (new ltcl_json_writer_abap_doc()).constructor_();
-        if (test.setup) await test.setup();
-        console.log("ZCL_AFF_WRITER_JSON_SCHEMA: running ltcl_json_writer_abap_doc->content_media_type_integer");
-        meth = locl.addMethod("content_media_type_integer");
-        await test.content_media_type_integer();
-        meth.pass();
-        if (test.teardown) await test.teardown();
-      }
-      {
-        const test = await (new ltcl_json_writer_abap_doc()).constructor_();
-        if (test.setup) await test.setup();
-        console.log("ZCL_AFF_WRITER_JSON_SCHEMA: running ltcl_json_writer_abap_doc->content_media_type_string");
-        meth = locl.addMethod("content_media_type_string");
-        await test.content_media_type_string();
-        meth.pass();
-        if (test.teardown) await test.teardown();
-      }
-      {
-        const test = await (new ltcl_json_writer_abap_doc()).constructor_();
-        if (test.setup) await test.setup();
-        console.log("ZCL_AFF_WRITER_JSON_SCHEMA: running ltcl_json_writer_abap_doc->encoding_type_next_level");
-        meth = locl.addMethod("encoding_type_next_level");
-        await test.encoding_type_next_level();
-        meth.pass();
-        if (test.teardown) await test.teardown();
-      }
       if (ltcl_json_writer_abap_doc.class_teardown) await ltcl_json_writer_abap_doc.class_teardown();
     }
+// --------------------------------------------
+    clas = unit.addObject("ZCL_AFF_WRITER_XSLT");
+// --------------------------------------------
+    clas = unit.addObject("ZCX_AFF_TOOLS");
 // -------------------END-------------------
+    console.log(abap.console.get());
     fs.writeFileSync(__dirname + path.sep + "_output.xml", unit.xUnitXML());
   } catch (e) {
     if (meth) {
       meth.fail();
     }
+    console.log(abap.console.get());
     fs.writeFileSync(__dirname + path.sep + "_output.xml", unit.xUnitXML());
     throw e;
   }

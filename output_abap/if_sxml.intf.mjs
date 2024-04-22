@@ -1,11 +1,7 @@
 // if_sxml.intf.abap
 class if_sxml {
   static INTERNAL_TYPE = 'INTF';
-  static ATTRIBUTES = {"CO_XT_XML10": {"type": () => {return new abap.types.Integer({qualifiedName: "IF_SXML=>XML_STREAM_TYPE"});}, "visibility": "U", "is_constant": "X", "is_class": "X"},
-  "CO_XT_BINARY": {"type": () => {return new abap.types.Integer({qualifiedName: "IF_SXML=>XML_STREAM_TYPE"});}, "visibility": "U", "is_constant": "X", "is_class": "X"},
-  "CO_XT_XOP": {"type": () => {return new abap.types.Integer({qualifiedName: "IF_SXML=>XML_STREAM_TYPE"});}, "visibility": "U", "is_constant": "X", "is_class": "X"},
-  "CO_XT_JSON": {"type": () => {return new abap.types.Integer({qualifiedName: "IF_SXML=>XML_STREAM_TYPE"});}, "visibility": "U", "is_constant": "X", "is_class": "X"}};
-  static METHODS = {};
+  static IMPLEMENTED_INTERFACES = [];
 }
 abap.Classes['IF_SXML'] = if_sxml;
 if_sxml.if_sxml$co_xt_xml10 = new abap.types.Integer({qualifiedName: "IF_SXML=>XML_STREAM_TYPE"});

@@ -3,23 +3,12 @@ const {cx_root} = await import("./cx_root.clas.mjs");
 // cx_sy_zerodivide.clas.abap
 class cx_sy_zerodivide extends cx_sy_arithmetic_error {
   static INTERNAL_TYPE = 'CLAS';
-  static INTERNAL_NAME = 'CX_SY_ZERODIVIDE';
-  static IMPLEMENTED_INTERFACES = ["IF_MESSAGE","IF_MESSAGE","IF_MESSAGE","IF_MESSAGE"];
-  static ATTRIBUTES = {};
-  static METHODS = {"IF_MESSAGE~GET_TEXT": {"visibility": "U", "parameters": {}}};
-  constructor() {
-    super();
+  static IMPLEMENTED_INTERFACES = [];
+  async constructor_(INPUT) {
+    await super.constructor_(INPUT);
     this.me = new abap.types.ABAPObject();
     this.me.set(this);
-  }
-  async constructor_(INPUT) {
-    if (super.constructor_) { await super.constructor_(INPUT); }
     return this;
-  }
-  async if_message$get_text() {
-    let result = new abap.types.String({qualifiedName: "STRING"});
-    result.set(new abap.types.Character(17).set('Division by zero.'));
-    return result;
   }
 }
 abap.Classes['CX_SY_ZERODIVIDE'] = cx_sy_zerodivide;

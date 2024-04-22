@@ -1,10 +1,10 @@
 {
   "version": 3,
   "sources": [
-    "../downport/cl_o2_api_xsltdesc.clas.abap"
+    "..\\downport\\cl_o2_api_xsltdesc.clas.abap"
   ],
   "names": [],
-  "mappings": ";;AAcA;;;;;;;;;;;;;;EACE;;;;;;;;;;IACE,oCAAS,GAAF,4BAAI,wCAAM;EACnB;AACF",
+  "mappings": ";;AAcA;;;;;;;;EACE;;;;;;;;;;IACE,oCAAS,GAAF,iCAAI,wCAAM;EACnB;AACF",
   "file": "cl_o2_api_xsltdesc.clas.mjs",
   "sourceRoot": ""
 }

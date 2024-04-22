@@ -3,17 +3,11 @@ const {cx_root} = await import("./cx_root.clas.mjs");
 // cx_apc_error.clas.abap
 class cx_apc_error extends cx_static_check {
   static INTERNAL_TYPE = 'CLAS';
-  static INTERNAL_NAME = 'CX_APC_ERROR';
-  static IMPLEMENTED_INTERFACES = ["IF_MESSAGE","IF_MESSAGE"];
-  static ATTRIBUTES = {};
-  static METHODS = {};
-  constructor() {
-    super();
+  static IMPLEMENTED_INTERFACES = [];
+  async constructor_(INPUT) {
+    await super.constructor_(INPUT);
     this.me = new abap.types.ABAPObject();
     this.me.set(this);
-  }
-  async constructor_(INPUT) {
-    if (super.constructor_) { await super.constructor_(INPUT); }
     return this;
   }
 }

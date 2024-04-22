@@ -4,7 +4,7 @@
     "cx_sy_sql_error.clas.abap"
   ],
   "names": [],
-  "mappings": ";;;AASA;;;;;;;;;;;;EACE;;;8BACuB;IACrB,OAAE,OAAE,WAAS,MAAM;IACrB;;AACF",
+  "mappings": ";;;AASA;;;EACE;;;;;;8BACuB;IACrB,OAAE,OAAE,WAAS,MAAM;IACrB;;AACF",
   "file": "cx_sy_sql_error.clas.mjs",
   "sourceRoot": ""
 }

@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "cl_gui_cfw.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;AAaA;;;;;;;;EACE;;;;;;;;;IACE,QAAM,+BAAC;IACT;;EAEA;;;;IACE;EACF;AACF",
+  "file": "cl_gui_cfw.clas.mjs",
+  "sourceRoot": ""
+}
