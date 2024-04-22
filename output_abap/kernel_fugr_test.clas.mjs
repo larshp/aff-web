@@ -2,10 +2,16 @@ const {cx_root} = await import("./cx_root.clas.mjs");
 // kernel_fugr_test.clas.abap
 class kernel_fugr_test {
   static INTERNAL_TYPE = 'CLAS';
+  static INTERNAL_NAME = 'KERNEL_FUGR_TEST';
   static IMPLEMENTED_INTERFACES = [];
-  async constructor_(INPUT) {
+  static ATTRIBUTES = {};
+  static METHODS = {};
+  constructor() {
     this.me = new abap.types.ABAPObject();
     this.me.set(this);
+  }
+  async constructor_(INPUT) {
+    if (super.constructor_) { await super.constructor_(INPUT); }
     return this;
   }
 }

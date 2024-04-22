@@ -3,11 +3,17 @@ const {cx_root} = await import("./cx_root.clas.mjs");
 // cx_parameter_invalid_type.clas.abap
 class cx_parameter_invalid_type extends cx_parameter_invalid {
   static INTERNAL_TYPE = 'CLAS';
-  static IMPLEMENTED_INTERFACES = [];
-  async constructor_(INPUT) {
-    await super.constructor_(INPUT);
+  static INTERNAL_NAME = 'CX_PARAMETER_INVALID_TYPE';
+  static IMPLEMENTED_INTERFACES = ["IF_MESSAGE","IF_MESSAGE","IF_MESSAGE","IF_MESSAGE"];
+  static ATTRIBUTES = {};
+  static METHODS = {};
+  constructor() {
+    super();
     this.me = new abap.types.ABAPObject();
     this.me.set(this);
+  }
+  async constructor_(INPUT) {
+    if (super.constructor_) { await super.constructor_(INPUT); }
     return this;
   }
 }

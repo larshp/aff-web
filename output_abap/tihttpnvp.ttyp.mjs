@@ -1,4 +1,4 @@
 abap.DDIC["TIHTTPNVP"] = {
   "objectType": "TTYP",
-  "type": new abap.types.Table(new abap.types.Structure({"name": new abap.types.String(), "value": new abap.types.String()}, "IHTTPNVP"), {"withHeader":false}, "TIHTTPNVP"),
+  "type": abap.types.TableFactory.construct(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "STRING"}), "value": new abap.types.String({qualifiedName: "STRING"})}, "IHTTPNVP", "IHTTPNVP", {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"isUnique":false,"type":"STANDARD","keyFields":[],"name":"primary_key"},"secondary":[]}, "TIHTTPNVP"),
 };

@@ -4,7 +4,7 @@
     "cx_parameter_invalid.clas.abap"
   ],
   "names": [],
-  "mappings": ";;;AAIA;;;;;;;;;AAEA",
+  "mappings": ";;;AASA;;;;;;;;;;;EACE;;;;;;;kEAGyB;IACzB;;AACF",
   "file": "cx_parameter_invalid.clas.mjs",
   "sourceRoot": ""
 }

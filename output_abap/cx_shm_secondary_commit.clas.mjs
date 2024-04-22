@@ -3,11 +3,17 @@ const {cx_root} = await import("./cx_root.clas.mjs");
 // cx_shm_secondary_commit.clas.abap
 class cx_shm_secondary_commit extends cx_shm_detach_error {
   static INTERNAL_TYPE = 'CLAS';
-  static IMPLEMENTED_INTERFACES = [];
-  async constructor_(INPUT) {
-    await super.constructor_(INPUT);
+  static INTERNAL_NAME = 'CX_SHM_SECONDARY_COMMIT';
+  static IMPLEMENTED_INTERFACES = ["IF_MESSAGE","IF_MESSAGE","IF_MESSAGE","IF_MESSAGE"];
+  static ATTRIBUTES = {};
+  static METHODS = {};
+  constructor() {
+    super();
     this.me = new abap.types.ABAPObject();
     this.me.set(this);
+  }
+  async constructor_(INPUT) {
+    if (super.constructor_) { await super.constructor_(INPUT); }
     return this;
   }
 }

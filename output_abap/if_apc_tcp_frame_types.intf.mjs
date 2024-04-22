@@ -1,7 +1,10 @@
 // if_apc_tcp_frame_types.intf.abap
 class if_apc_tcp_frame_types {
   static INTERNAL_TYPE = 'INTF';
-  static IMPLEMENTED_INTERFACES = [];
+  static ATTRIBUTES = {"CO_FRAME_TYPE_FIXED_LENGTH": {"type": () => {return new abap.types.Integer({qualifiedName: "I"});}, "visibility": "U", "is_constant": "X", "is_class": "X"},
+  "CO_FRAME_TYPE_TERMINATOR": {"type": () => {return new abap.types.Integer({qualifiedName: "I"});}, "visibility": "U", "is_constant": "X", "is_class": "X"},
+  "CO_FRAME_TYPE_LENGTH_FIELD": {"type": () => {return new abap.types.Integer({qualifiedName: "I"});}, "visibility": "U", "is_constant": "X", "is_class": "X"}};
+  static METHODS = {};
 }
 abap.Classes['IF_APC_TCP_FRAME_TYPES'] = if_apc_tcp_frame_types;
 if_apc_tcp_frame_types.if_apc_tcp_frame_types$co_frame_type_fixed_length = new abap.types.Integer({qualifiedName: "I"});

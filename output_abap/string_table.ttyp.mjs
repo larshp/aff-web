@@ -1,4 +1,4 @@
 abap.DDIC["STRING_TABLE"] = {
   "objectType": "TTYP",
-  "type": new abap.types.Table(new abap.types.String(), {"withHeader":false}, "STRING_TABLE"),
+  "type": abap.types.TableFactory.construct(new abap.types.String({qualifiedName: "STRING"}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"isUnique":false,"type":"STANDARD","keyFields":[],"name":"primary_key"},"secondary":[]}, "STRING_TABLE"),
 };

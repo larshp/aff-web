@@ -4,7 +4,7 @@
     "cx_shm_pending_lock_removed.clas.abap"
   ],
   "names": [],
-  "mappings": ";;;AAIA;;;;;;;;;AAEA",
+  "mappings": ";;;AAIA;;;;;;;;;;;;;;;AAEA",
   "file": "cx_shm_pending_lock_removed.clas.mjs",
   "sourceRoot": ""
 }

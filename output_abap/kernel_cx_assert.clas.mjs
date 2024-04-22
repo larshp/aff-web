@@ -3,16 +3,25 @@ const {cx_root} = await import("./cx_root.clas.mjs");
 // kernel_cx_assert.clas.abap
 class kernel_cx_assert extends cx_dynamic_check {
   static INTERNAL_TYPE = 'CLAS';
-  static IMPLEMENTED_INTERFACES = [];
-  async constructor_(INPUT) {
+  static INTERNAL_NAME = 'KERNEL_CX_ASSERT';
+  static IMPLEMENTED_INTERFACES = ["IF_MESSAGE","IF_MESSAGE"];
+  static ATTRIBUTES = {"ACTUAL": {"type": () => {return new abap.types.String({qualifiedName: "STRING"});}, "visibility": "U", "is_constant": " ", "is_class": " "},
+  "EXPECTED": {"type": () => {return new abap.types.String({qualifiedName: "STRING"});}, "visibility": "U", "is_constant": " ", "is_class": " "},
+  "MSG": {"type": () => {return new abap.types.String({qualifiedName: "STRING"});}, "visibility": "U", "is_constant": " ", "is_class": " "}};
+  static METHODS = {"CONSTRUCTOR": {"visibility": "U", "parameters": {"MSG": {"type": () => {return new abap.types.String({qualifiedName: "STRING"});}, "is_optional": " "}, "PREVIOUS": {"type": () => {return new abap.types.ABAPObject({qualifiedName: "CX_ROOT", RTTIName: "\\CLASS=CX_ROOT"});}, "is_optional": " "}, "EXPECTED": {"type": () => {return new abap.types.String({qualifiedName: "STRING"});}, "is_optional": " "}, "ACTUAL": {"type": () => {return new abap.types.String({qualifiedName: "STRING"});}, "is_optional": " "}}}};
+  constructor() {
+    super();
     this.me = new abap.types.ABAPObject();
     this.me.set(this);
     this.actual = new abap.types.String({qualifiedName: "STRING"});
     this.expected = new abap.types.String({qualifiedName: "STRING"});
     this.msg = new abap.types.String({qualifiedName: "STRING"});
-    let msg = new abap.types.String({qualifiedName: "STRING"});
-    if (INPUT && INPUT.msg) {msg.set(INPUT.msg);}
-    let previous = new abap.types.ABAPObject({qualifiedName: "CX_ROOT"});
+  }
+  async constructor_(INPUT) {
+    let msg = INPUT?.msg;
+    if (msg?.getQualifiedName === undefined || msg.getQualifiedName() !== "STRING") { msg = undefined; }
+    if (msg === undefined) { msg = new abap.types.String({qualifiedName: "STRING"}).set(INPUT.msg); }
+    let previous = new abap.types.ABAPObject({qualifiedName: "CX_ROOT", RTTIName: "\\CLASS=CX_ROOT"});
     if (INPUT && INPUT.previous) {previous.set(INPUT.previous);}
     let expected = new abap.types.String({qualifiedName: "STRING"});
     if (INPUT && INPUT.expected) {expected.set(INPUT.expected);}

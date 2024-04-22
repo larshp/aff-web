@@ -2,10 +2,15 @@
 import runtime from "@abaplint/runtime";
 globalThis.abap = new runtime.ABAP();
 await import("./%23ui2%23cl_json.clas.mjs");
+await import("./00.msag.mjs");
+await import("./abap.type.mjs");
 await import("./abap_boolean.dtel.mjs");
 await import("./abap_callstack.ttyp.mjs");
 await import("./abap_callstack_line.tabl.mjs");
+await import("./abap_encod.dtel.mjs");
 await import("./abap_language_version.dtel.mjs");
+await import("./abap_sortorder.tabl.mjs");
+await import("./abap_sortorder_tab.ttyp.mjs");
 await import("./balmnr.dtel.mjs");
 await import("./balognr.dtel.mjs");
 await import("./bapi_fld.dtel.mjs");
@@ -15,15 +20,29 @@ await import("./bapi_mtype.dtel.mjs");
 await import("./bapi_param.dtel.mjs");
 await import("./bapi_rcode.dtel.mjs");
 await import("./bapilogsys.dtel.mjs");
+await import("./bapioption.dtel.mjs");
 await import("./bapiret2.tabl.mjs");
+await import("./bapirettab.ttyp.mjs");
 await import("./bapireturn.tabl.mjs");
+await import("./bapisign.dtel.mjs");
+await import("./boole_d.dtel.mjs");
 await import("./boolean.dtel.mjs");
 await import("./char1.dtel.mjs");
 await import("./char10.dtel.mjs");
+await import("./char120.dtel.mjs");
 await import("./char15.dtel.mjs");
+await import("./char2.dtel.mjs");
+await import("./char20.dtel.mjs");
 await import("./char25.dtel.mjs");
+await import("./char255.dtel.mjs");
+await import("./char3.dtel.mjs");
+await import("./char30.dtel.mjs");
 await import("./char32.dtel.mjs");
 await import("./char4.dtel.mjs");
+await import("./char6.dtel.mjs");
+await import("./char70.dtel.mjs");
+await import("./char8.dtel.mjs");
+await import("./char80.dtel.mjs");
 await import("./cl_abap_char_utilities.clas.mjs");
 await import("./cl_abap_classdescr.clas.mjs");
 await import("./cl_abap_codepage.clas.mjs");
@@ -32,6 +51,8 @@ await import("./cl_abap_conv_codepage.clas.mjs");
 await import("./cl_abap_conv_in_ce.clas.mjs");
 await import("./cl_abap_conv_out_ce.clas.mjs");
 await import("./cl_abap_datadescr.clas.mjs");
+await import("./cl_abap_datfm.clas.mjs");
+await import("./cl_abap_dyn_prg.clas.mjs");
 await import("./cl_abap_elemdescr.clas.mjs");
 await import("./cl_abap_enumdescr.clas.mjs");
 await import("./cl_abap_exceptional_values.clas.mjs");
@@ -41,6 +62,7 @@ await import("./cl_abap_hmac.clas.mjs");
 await import("./cl_abap_intfdescr.clas.mjs");
 await import("./cl_abap_matcher.clas.mjs");
 await import("./cl_abap_math.clas.mjs");
+await import("./cl_abap_message_digest.clas.mjs");
 await import("./cl_abap_objectdescr.clas.mjs");
 await import("./cl_abap_random.clas.mjs");
 await import("./cl_abap_random_int.clas.mjs");
@@ -48,9 +70,11 @@ await import("./cl_abap_refdescr.clas.mjs");
 await import("./cl_abap_regex.clas.mjs");
 await import("./cl_abap_structdescr.clas.mjs");
 await import("./cl_abap_tabledescr.clas.mjs");
+await import("./cl_abap_timefm.clas.mjs");
 await import("./cl_abap_tstmp.clas.mjs");
 await import("./cl_abap_typedescr.clas.mjs");
 await import("./cl_abap_unit_assert.clas.mjs");
+await import("./cl_abap_weak_reference.clas.mjs");
 await import("./cl_abap_zip.clas.mjs");
 await import("./cl_apc_tcp_client_manager.clas.mjs");
 await import("./cl_apc_wsp_ext_stateless_base.clas.mjs");
@@ -59,10 +83,8 @@ await import("./cl_bcs_convert.clas.mjs");
 await import("./cl_cam_address_bcs.clas.mjs");
 await import("./cl_demo_output.clas.mjs");
 await import("./cl_document_bcs.clas.mjs");
+await import("./cl_function_test_environment.clas.mjs");
 await import("./cl_gdt_conversion.clas.mjs");
-await import("./cl_gui_cfw.clas.mjs");
-await import("./cl_gui_container.clas.mjs");
-await import("./cl_gui_frontend_services.clas.mjs");
 await import("./cl_http_client.clas.mjs");
 await import("./cl_http_entity.clas.mjs");
 await import("./cl_http_server.clas.mjs");
@@ -70,41 +92,46 @@ await import("./cl_http_utility.clas.mjs");
 await import("./cl_i18n_languages.clas.mjs");
 await import("./cl_ixml.clas.mjs");
 await import("./cl_message_helper.clas.mjs");
+await import("./cl_mime_repository_api.clas.mjs");
 await import("./cl_numberrange_runtime.clas.mjs");
 await import("./cl_o2_api_xsltdesc.clas.mjs");
+await import("./cl_oa2c_config_writer_api.clas.mjs");
+await import("./cl_oauth2_client.clas.mjs");
 await import("./cl_oo_classname_service.clas.mjs");
 await import("./cl_oo_factory.clas.mjs");
-await import("./cl_progress_indicator.clas.mjs");
+await import("./cl_osql_test_environment.clas.mjs");
 await import("./cl_run.clas.mjs");
-await import("./cl_salv_column.clas.mjs");
-await import("./cl_salv_columns_table.clas.mjs");
-await import("./cl_salv_events_table.clas.mjs");
-await import("./cl_salv_functions_list.clas.mjs");
-await import("./cl_salv_table.clas.mjs");
+await import("./cl_sec_sxml_writer.clas.mjs");
 await import("./cl_shm_area.clas.mjs");
 await import("./cl_shm_service.clas.mjs");
+await import("./cl_sql_result_set.clas.mjs");
+await import("./cl_sql_statement.clas.mjs");
 await import("./cl_sxml_string_reader.clas.mjs");
 await import("./cl_sxml_string_writer.clas.mjs");
 await import("./cl_system_uuid.clas.mjs");
+await import("./cl_web_http_utility.clas.mjs");
+await import("./cx_abap_datfm.clas.mjs");
 await import("./cx_abap_message_digest.clas.mjs");
+await import("./cx_abap_not_a_table.clas.mjs");
+await import("./cx_abap_not_in_package.clas.mjs");
+await import("./cx_abap_not_in_whitelist.clas.mjs");
 await import("./cx_abap_random.clas.mjs");
+await import("./cx_abap_timefm_invalid.clas.mjs");
 await import("./cx_apc_error.clas.mjs");
 await import("./cx_bcs.clas.mjs");
 await import("./cx_dynamic_check.clas.mjs");
+await import("./cx_ftd_parameter_not_found.clas.mjs");
 await import("./cx_gdt_conversion.clas.mjs");
 await import("./cx_no_check.clas.mjs");
 await import("./cx_o2_xslt_error.clas.mjs");
+await import("./cx_oa2c.clas.mjs");
+await import("./cx_oa2c_at_not_available.clas.mjs");
+await import("./cx_oa2c_config_not_found.clas.mjs");
 await import("./cx_oo_clif_not_exists.clas.mjs");
 await import("./cx_parameter_invalid.clas.mjs");
 await import("./cx_parameter_invalid_range.clas.mjs");
 await import("./cx_parameter_invalid_type.clas.mjs");
 await import("./cx_root.clas.mjs");
-await import("./cx_salv_access_error.clas.mjs");
-await import("./cx_salv_data_error.clas.mjs");
-await import("./cx_salv_error.clas.mjs");
-await import("./cx_salv_msg.clas.mjs");
-await import("./cx_salv_not_found.clas.mjs");
-await import("./cx_salv_static_check.clas.mjs");
 await import("./cx_shm_already_detached.clas.mjs");
 await import("./cx_shm_attach_error.clas.mjs");
 await import("./cx_shm_build_failed.clas.mjs");
@@ -127,6 +154,8 @@ await import("./cx_shm_wrong_handle.clas.mjs");
 await import("./cx_shma_dynamic.clas.mjs");
 await import("./cx_shma_inconsistent.clas.mjs");
 await import("./cx_shma_not_configured.clas.mjs");
+await import("./cx_sql_exception.clas.mjs");
+await import("./cx_st_error.clas.mjs");
 await import("./cx_static_check.clas.mjs");
 await import("./cx_sxml_error.clas.mjs");
 await import("./cx_sxml_illegal_argument_error.clas.mjs");
@@ -134,6 +163,7 @@ await import("./cx_sxml_name_error.clas.mjs");
 await import("./cx_sxml_parse_error.clas.mjs");
 await import("./cx_sxml_state_error.clas.mjs");
 await import("./cx_sy_arithmetic_error.clas.mjs");
+await import("./cx_sy_arithmetic_overflow.clas.mjs");
 await import("./cx_sy_buffer_overflow.clas.mjs");
 await import("./cx_sy_codepage_converter_init.clas.mjs");
 await import("./cx_sy_compression_error.clas.mjs");
@@ -148,6 +178,7 @@ await import("./cx_sy_data_access_error.clas.mjs");
 await import("./cx_sy_duplicate_key.clas.mjs");
 await import("./cx_sy_dyn_call_error.clas.mjs");
 await import("./cx_sy_dyn_call_illegal_class.clas.mjs");
+await import("./cx_sy_dyn_call_illegal_form.clas.mjs");
 await import("./cx_sy_dyn_call_illegal_func.clas.mjs");
 await import("./cx_sy_dyn_call_illegal_method.clas.mjs");
 await import("./cx_sy_dyn_call_param_not_found.clas.mjs");
@@ -175,6 +206,7 @@ await import("./cx_uuid_error.clas.mjs");
 await import("./cx_xslt_exception.clas.mjs");
 await import("./cx_xslt_format_error.clas.mjs");
 await import("./cx_xslt_runtime_error.clas.mjs");
+await import("./cx_xslt_serialization_error.clas.mjs");
 await import("./cx_xslt_system_error.clas.mjs");
 await import("./dats.dtel.mjs");
 await import("./ddfields.ttyp.mjs");
@@ -184,15 +216,16 @@ await import("./devclass.dtel.mjs");
 await import("./dfies.tabl.mjs");
 await import("./doku_obj.dtel.mjs");
 await import("./dynprofld.dtel.mjs");
-await import("./file_table.tabl.mjs");
-await import("./filetable.ttyp.mjs");
 await import("./flag.dtel.mjs");
 await import("./funcname.dtel.mjs");
 await import("./guid.dtel.mjs");
+await import("./icon.type.mjs");
+await import("./icon_d.dtel.mjs");
 await import("./if_abap_channel_types.intf.mjs");
 await import("./if_abap_conv_in.intf.mjs");
 await import("./if_abap_conv_out.intf.mjs");
 await import("./if_abap_unit_constant.intf.mjs");
+await import("./if_amdp_marker_hdb.intf.mjs");
 await import("./if_apc_tcp_frame_types.intf.mjs");
 await import("./if_apc_wsp_binding_manager.intf.mjs");
 await import("./if_apc_wsp_client.intf.mjs");
@@ -204,6 +237,14 @@ await import("./if_apc_wsp_message_manager.intf.mjs");
 await import("./if_apc_wsp_server_context.intf.mjs");
 await import("./if_aunit_constants.intf.mjs");
 await import("./if_document_bcs.intf.mjs");
+await import("./if_ftd_input_arguments.intf.mjs");
+await import("./if_ftd_input_config_setter.intf.mjs");
+await import("./if_ftd_invocation_answer.intf.mjs");
+await import("./if_ftd_invocation_result.intf.mjs");
+await import("./if_ftd_output_config_setter.intf.mjs");
+await import("./if_ftd_output_configuration.intf.mjs");
+await import("./if_function_test_environment.intf.mjs");
+await import("./if_function_testdouble.intf.mjs");
 await import("./if_http_client.intf.mjs");
 await import("./if_http_entity.intf.mjs");
 await import("./if_http_extension.intf.mjs");
@@ -219,6 +260,8 @@ await import("./if_ixml_encoding.intf.mjs");
 await import("./if_ixml_istream.intf.mjs");
 await import("./if_ixml_named_node_map.intf.mjs");
 await import("./if_ixml_node.intf.mjs");
+await import("./if_ixml_node_collection.intf.mjs");
+await import("./if_ixml_node_filter.intf.mjs");
 await import("./if_ixml_node_iterator.intf.mjs");
 await import("./if_ixml_node_list.intf.mjs");
 await import("./if_ixml_ostream.intf.mjs");
@@ -228,12 +271,13 @@ await import("./if_ixml_renderer.intf.mjs");
 await import("./if_ixml_stream_factory.intf.mjs");
 await import("./if_ixml_unknown.intf.mjs");
 await import("./if_message.intf.mjs");
+await import("./if_mr_api.intf.mjs");
+await import("./if_oauth2_client.intf.mjs");
 await import("./if_oo_adt_classrun.intf.mjs");
 await import("./if_oo_adt_classrun_out.intf.mjs");
 await import("./if_oo_clif_source.intf.mjs");
+await import("./if_osql_test_environment.intf.mjs");
 await import("./if_recipient_bcs.intf.mjs");
-await import("./if_salv_c_bool_sap.intf.mjs");
-await import("./if_salv_c_selection_mode.intf.mjs");
 await import("./if_sender_bcs.intf.mjs");
 await import("./if_serializable_object.intf.mjs");
 await import("./if_shm_build_instance.intf.mjs");
@@ -241,6 +285,7 @@ await import("./if_shm_trace.intf.mjs");
 await import("./if_sxml.intf.mjs");
 await import("./if_sxml_attribute.intf.mjs");
 await import("./if_sxml_close_element.intf.mjs");
+await import("./if_sxml_named.intf.mjs");
 await import("./if_sxml_node.intf.mjs");
 await import("./if_sxml_open_element.intf.mjs");
 await import("./if_sxml_reader.intf.mjs");
@@ -265,6 +310,7 @@ await import("./kernel_call_transformation.clas.mjs");
 await import("./kernel_create_data_handle.clas.mjs");
 await import("./kernel_cx_assert.clas.mjs");
 await import("./kernel_fugr_test.clas.mjs");
+await import("./kernel_internal_name.clas.mjs");
 await import("./kernel_ixml_json_to_data.clas.mjs");
 await import("./kernel_ixml_xml_to_data.clas.mjs");
 await import("./kernel_json_to_ixml.clas.mjs");
@@ -276,25 +322,32 @@ await import("./kernel_unit_runner.clas.mjs");
 await import("./laiso.dtel.mjs");
 await import("./land1.dtel.mjs");
 await import("./langu.dtel.mjs");
-await import("./lvc_nokeyc.dtel.mjs");
 await import("./mandt.dtel.mjs");
 await import("./match_result.tabl.mjs");
 await import("./match_result_tab.ttyp.mjs");
+await import("./matnr.dtel.mjs");
+await import("./meins.dtel.mjs");
+await import("./menge_d.dtel.mjs");
 await import("./msehi.dtel.mjs");
 await import("./number_get_next.fugr.number_get_next.mjs");
 await import("./numc4.dtel.mjs");
-await import("./o2pageline_table.ttyp.mjs");
+await import("./oa2c_configuration.dtel.mjs");
+await import("./oa2c_granttype.dtel.mjs");
+await import("./oa2c_profile.dtel.mjs");
+await import("./openabap.fugr.call_v1_ping.mjs");
 await import("./openabap.fugr.conversion_exit_alpha_input.mjs");
 await import("./openabap.fugr.conversion_exit_alpha_output.mjs");
 await import("./openabap.fugr.conversion_exit_isola_input.mjs");
 await import("./openabap.fugr.conversion_exit_isola_output.mjs");
 await import("./openabap.fugr.convert_itf_to_stream_text.mjs");
 await import("./openabap.fugr.docu_get.mjs");
+await import("./openabap.fugr.function_exists.mjs");
 await import("./openabap.fugr.generate_sec_random.mjs");
 await import("./openabap.fugr.get_system_timezone.mjs");
 await import("./openabap.fugr.system_callstack.mjs");
 await import("./openabap.fugr.system_installed_languages.mjs");
 await import("./openabap.fugr.text_split.mjs");
+await import("./openabap.fugr.unit_conversion_simple.mjs");
 await import("./progname.dtel.mjs");
 await import("./reposrc.tabl.mjs");
 await import("./rfcdest.dtel.mjs");
@@ -303,6 +356,9 @@ await import("./scrtext_m.dtel.mjs");
 await import("./scrtext_s.dtel.mjs");
 await import("./scx_attrname.dtel.mjs");
 await import("./scx_t100key.tabl.mjs");
+await import("./sdok_class.dtel.mjs");
+await import("./sdok_docid.dtel.mjs");
+await import("./sdokobject.tabl.mjs");
 await import("./seoclsname.dtel.mjs");
 await import("./shm_affect_server.dtel.mjs");
 await import("./shm_area_name.dtel.mjs");
@@ -310,7 +366,8 @@ await import("./shm_attach_mode.dtel.mjs");
 await import("./shm_auto_build_class_name.dtel.mjs");
 await import("./shm_client.dtel.mjs");
 await import("./shm_constr_invocation_mode.dtel.mjs");
-await import("./shm_inst_infos.dtel.mjs");
+await import("./shm_inst_info.tabl.mjs");
+await import("./shm_inst_infos.ttyp.mjs");
 await import("./shm_inst_name.dtel.mjs");
 await import("./shm_life_context.dtel.mjs");
 await import("./shm_properties.tabl.mjs");
@@ -318,6 +375,8 @@ await import("./shm_rc.dtel.mjs");
 await import("./shma_attributes.tabl.mjs");
 await import("./shma_client.dtel.mjs");
 await import("./shmm_trc_variant_name.dtel.mjs");
+await import("./skwf_io.tabl.mjs");
+await import("./skwf_ioty.dtel.mjs");
 await import("./so_raw255.dtel.mjs");
 await import("./so_text255.dtel.mjs");
 await import("./soli.tabl.mjs");
@@ -335,14 +394,22 @@ await import("./stokes.tabl.mjs");
 await import("./stokes_tab.ttyp.mjs");
 await import("./stokesx.tabl.mjs");
 await import("./string_table.ttyp.mjs");
+await import("./stringtab.ttyp.mjs");
 await import("./submatch_result.tabl.mjs");
 await import("./submatch_result_tab.ttyp.mjs");
+await import("./sxco_fm_name.dtel.mjs");
+await import("./sxco_transport.dtel.mjs");
+await import("./sydate.dtel.mjs");
 await import("./symsg.tabl.mjs");
 await import("./symsgid.dtel.mjs");
 await import("./symsgno.dtel.mjs");
 await import("./symsgty.dtel.mjs");
 await import("./symsgv.dtel.mjs");
+await import("./syrepid.dtel.mjs");
+await import("./syst_host.dtel.mjs");
 await import("./sysubrc.dtel.mjs");
+await import("./sysuuid_c22.dtel.mjs");
+await import("./sysuuid_c32.dtel.mjs");
 await import("./sysuuid_c36.dtel.mjs");
 await import("./sysuuid_x16.dtel.mjs");
 await import("./syuname.dtel.mjs");
@@ -364,17 +431,24 @@ await import("./tihttpnvp.ttyp.mjs");
 await import("./timestamp.dtel.mjs");
 await import("./timestampl.dtel.mjs");
 await import("./timezone.dtel.mjs");
+await import("./timn.dtel.mjs");
 await import("./tline.tabl.mjs");
 await import("./tline_tab.ttyp.mjs");
 await import("./trfunction.dtel.mjs");
 await import("./trkorr.dtel.mjs");
 await import("./tzntstmpl.dtel.mjs");
+await import("./tzntstmps.dtel.mjs");
 await import("./uname.dtel.mjs");
+await import("./usnam.dtel.mjs");
 await import("./w3mime.tabl.mjs");
+await import("./waers.dtel.mjs");
+await import("./waers_curc.dtel.mjs");
 await import("./wwwdatatab.tabl.mjs");
 await import("./wwwparams.tabl.mjs");
 await import("./xfeld.dtel.mjs");
 await import("./xsdboolean.dtel.mjs");
+await import("./xsddatetime_z.dtel.mjs");
+await import("./xsdtime_t.dtel.mjs");
 await import("./zcl_aff_abap_doc_parser.clas.mjs");
 await import("./zcl_aff_abap_doc_reader.clas.mjs");
 await import("./zcl_aff_generator.clas.mjs");
@@ -385,6 +459,7 @@ await import("./zcl_aff_writer.clas.mjs");
 await import("./zcl_aff_writer_json_schema.clas.mjs");
 await import("./zcl_aff_writer_xslt.clas.mjs");
 await import("./zcx_aff_tools.clas.mjs");
+await import("./zif_aff_generator.intf.mjs");
 await import("./zif_aff_intf_v1.intf.mjs");
 await import("./zif_aff_log.intf.mjs");
 await import("./zif_aff_oo_types_v1.intf.mjs");
@@ -397,16 +472,31 @@ await import("./zw3mi.fugr.wwwparams_read.mjs");
 
 export async function initializeABAP() {
   const sqlite = [];
-sqlite.push(`CREATE TABLE 't000' ('mandt' NCHAR(3), 'cccategory' NCHAR(1), 'ccnocliind' NCHAR(1), PRIMARY KEY('mandt'));`);
-sqlite.push(`CREATE TABLE 't100' ('sprsl' NCHAR(1), 'arbgb' NCHAR(20), 'msgnr' NCHAR(3), 'text' NCHAR(73), PRIMARY KEY('sprsl','arbgb','msgnr'));`);
-sqlite.push(`CREATE TABLE 'tdevc' ('devclass' NCHAR(30), 'dlvunit' NCHAR(30), 'component' NCHAR(20), 'parentcl' NCHAR(30), PRIMARY KEY('devclass'));`);
-sqlite.push(`CREATE TABLE 'tfdir' ('funcname' NCHAR(30), PRIMARY KEY('funcname'));`);
-sqlite.push(`CREATE TABLE 'reposrc' ('progname' NCHAR(40), 'data' TEXT, PRIMARY KEY('progname'));`);
+  sqlite.push(`CREATE TABLE 't000' ('mandt' NCHAR(3) COLLATE RTRIM, 'cccategory' NCHAR(1) COLLATE RTRIM, 'ccnocliind' NCHAR(1) COLLATE RTRIM, 'mtext' NCHAR(25) COLLATE RTRIM, PRIMARY KEY('mandt'));`);
+  sqlite.push(`CREATE TABLE 't100' ('sprsl' NCHAR(1) COLLATE RTRIM, 'arbgb' NCHAR(20) COLLATE RTRIM, 'msgnr' NCHAR(3) COLLATE RTRIM, 'text' NCHAR(73) COLLATE RTRIM, PRIMARY KEY('sprsl','arbgb','msgnr'));`);
+  sqlite.push(`CREATE TABLE 'tadir' ('pgmid' NCHAR(4) COLLATE RTRIM, 'object' NCHAR(4) COLLATE RTRIM, 'obj_name' NCHAR(40) COLLATE RTRIM, 'devclass' NCHAR(30) COLLATE RTRIM, 'korrnum' NCHAR(10) COLLATE RTRIM, 'delflag' NCHAR(1) COLLATE RTRIM, 'genflag' NCHAR(1) COLLATE RTRIM, 'srcsystem' NCHAR(5) COLLATE RTRIM, 'edtflag' NCHAR(1) COLLATE RTRIM, 'masterlang' NCHAR(1) COLLATE RTRIM, PRIMARY KEY('pgmid','object','obj_name'));`);
+  sqlite.push(`CREATE TABLE 'tdevc' ('devclass' NCHAR(30) COLLATE RTRIM, 'dlvunit' NCHAR(30) COLLATE RTRIM, 'component' NCHAR(20) COLLATE RTRIM, 'parentcl' NCHAR(30) COLLATE RTRIM, 'as4user' NCHAR(12) COLLATE RTRIM, 'created_by' NCHAR(12) COLLATE RTRIM, 'created_on' NCHAR(8), 'ctext' NCHAR(60) COLLATE RTRIM, 'changed_by' NCHAR(12) COLLATE RTRIM, 'changed_on' NCHAR(8), 'namespace' NCHAR(10) COLLATE RTRIM, PRIMARY KEY('devclass'));`);
+  sqlite.push(`CREATE TABLE 'tfdir' ('funcname' NCHAR(30) COLLATE RTRIM, PRIMARY KEY('funcname'));`);
+  sqlite.push(`CREATE TABLE 'reposrc' ('progname' NCHAR(40) COLLATE RTRIM, 'data' TEXT COLLATE RTRIM, 'unam' NCHAR(12) COLLATE RTRIM, 'udat' NCHAR(8), 'utime' NCHAR(6), PRIMARY KEY('progname'));`);
   const hdb = `todo`;
-  const pg = `todo`;
-  const schemas = {sqlite, hdb, pg};
+  const pg = [];
+  pg.push(`CREATE TABLE "t000" ("mandt" NCHAR(3), "cccategory" NCHAR(1), "ccnocliind" NCHAR(1), "mtext" NCHAR(25), PRIMARY KEY("mandt"));`);
+  pg.push(`CREATE TABLE "t100" ("sprsl" NCHAR(1), "arbgb" NCHAR(20), "msgnr" NCHAR(3), "text" NCHAR(73), PRIMARY KEY("sprsl","arbgb","msgnr"));`);
+  pg.push(`CREATE TABLE "tadir" ("pgmid" NCHAR(4), "object" NCHAR(4), "obj_name" NCHAR(40), "devclass" NCHAR(30), "korrnum" NCHAR(10), "delflag" NCHAR(1), "genflag" NCHAR(1), "srcsystem" NCHAR(5), "edtflag" NCHAR(1), "masterlang" NCHAR(1), PRIMARY KEY("pgmid","object","obj_name"));`);
+  pg.push(`CREATE TABLE "tdevc" ("devclass" NCHAR(30), "dlvunit" NCHAR(30), "component" NCHAR(20), "parentcl" NCHAR(30), "as4user" NCHAR(12), "created_by" NCHAR(12), "created_on" NCHAR(8), "ctext" NCHAR(60), "changed_by" NCHAR(12), "changed_on" NCHAR(8), "namespace" NCHAR(10), PRIMARY KEY("devclass"));`);
+  pg.push(`CREATE TABLE "tfdir" ("funcname" NCHAR(30), PRIMARY KEY("funcname"));`);
+  pg.push(`CREATE TABLE "reposrc" ("progname" NCHAR(40), "data" TEXT, "unam" NCHAR(12), "udat" NCHAR(8), "utime" NCHAR(6), PRIMARY KEY("progname"));`);
+  const snowflake = [];
+  snowflake.push(`CREATE TABLE "t000" ("mandt" NCHAR(3) COLLATE 'rtrim', "cccategory" NCHAR(1) COLLATE 'rtrim', "ccnocliind" NCHAR(1) COLLATE 'rtrim', "mtext" NCHAR(25) COLLATE 'rtrim', PRIMARY KEY("mandt"));`);
+  snowflake.push(`CREATE TABLE "t100" ("sprsl" NCHAR(1) COLLATE 'rtrim', "arbgb" NCHAR(20) COLLATE 'rtrim', "msgnr" NCHAR(3) COLLATE 'rtrim', "text" NCHAR(73) COLLATE 'rtrim', PRIMARY KEY("sprsl","arbgb","msgnr"));`);
+  snowflake.push(`CREATE TABLE "tadir" ("pgmid" NCHAR(4) COLLATE 'rtrim', "object" NCHAR(4) COLLATE 'rtrim', "obj_name" NCHAR(40) COLLATE 'rtrim', "devclass" NCHAR(30) COLLATE 'rtrim', "korrnum" NCHAR(10) COLLATE 'rtrim', "delflag" NCHAR(1) COLLATE 'rtrim', "genflag" NCHAR(1) COLLATE 'rtrim', "srcsystem" NCHAR(5) COLLATE 'rtrim', "edtflag" NCHAR(1) COLLATE 'rtrim', "masterlang" NCHAR(1) COLLATE 'rtrim', PRIMARY KEY("pgmid","object","obj_name"));`);
+  snowflake.push(`CREATE TABLE "tdevc" ("devclass" NCHAR(30) COLLATE 'rtrim', "dlvunit" NCHAR(30) COLLATE 'rtrim', "component" NCHAR(20) COLLATE 'rtrim', "parentcl" NCHAR(30) COLLATE 'rtrim', "as4user" NCHAR(12) COLLATE 'rtrim', "created_by" NCHAR(12) COLLATE 'rtrim', "created_on" NCHAR(8), "ctext" NCHAR(60) COLLATE 'rtrim', "changed_by" NCHAR(12) COLLATE 'rtrim', "changed_on" NCHAR(8), "namespace" NCHAR(10) COLLATE 'rtrim', PRIMARY KEY("devclass"));`);
+  snowflake.push(`CREATE TABLE "tfdir" ("funcname" NCHAR(30) COLLATE 'rtrim', PRIMARY KEY("funcname"));`);
+  snowflake.push(`CREATE TABLE "reposrc" ("progname" NCHAR(40) COLLATE 'rtrim', "data" TEXT, "unam" NCHAR(12) COLLATE 'rtrim', "udat" NCHAR(8), "utime" NCHAR(6), PRIMARY KEY("progname"));`);
+  const schemas = {sqlite, hdb, pg, snowflake};
+
   const insert = [];
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_O2_API_XSLTDESC', 'CLASS cl_o2_api_xsltdesc DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_O2_API_XSLTDESC                      ', 'CLASS cl_o2_api_xsltdesc DEFINITION PUBLIC.
   PUBLIC SECTION.
     TYPES: BEGIN OF ty_error,
              text TYPE string,
@@ -426,7 +516,7 @@ CLASS cl_o2_api_xsltdesc IMPLEMENTATION.
   ENDMETHOD.
 ENDCLASS.
 ');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_OO_CLASSNAME_SERVICE', 'CLASS cl_oo_classname_service DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_OO_CLASSNAME_SERVICE                 ', 'CLASS cl_oo_classname_service DEFINITION PUBLIC.
   PUBLIC SECTION.
     TYPES: BEGIN OF ty_rowrow,
              clsname TYPE string,
@@ -449,11 +539,13 @@ CLASS cl_oo_classname_service IMPLEMENTATION.
   ENDMETHOD.
 ENDCLASS.
 ');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_RUN', 'CLASS cl_run DEFINITION PUBLIC FINAL CREATE PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_RUN                                  ', 'CLASS cl_run DEFINITION PUBLIC FINAL CREATE PUBLIC.
   PUBLIC SECTION.
     CLASS-METHODS run
       IMPORTING
-        object_type   TYPE string
+        main_object_type   TYPE string
+        sub_object_type   TYPE string
+        format_version TYPE string
       RETURNING
         VALUE(result) TYPE string.
 ENDCLASS.
@@ -469,20 +561,21 @@ CLASS cl_run IMPLEMENTATION.
     DATA ref        TYPE REF TO data.
     FIELD-SYMBOLS <row> LIKE LINE OF string_tab.
 
-    schema_id = |https://github.com/SAP/abap-file-formats/blob/main/file-formats/{ to_lower( object_type ) }/{ to_lower( object_type ) }-v1.json|.
-    type_name = to_upper( |ZIF_AFF_{ object_type }_V1=>TY_MAIN| ).
+    schema_id = |https://github.com/SAP/abap-file-formats/blob/main/file-formats/{ to_lower( main_object_type ) }/{ to_lower( sub_object_type ) }-v{ format_version }.json|.
+    type_name = to_upper( |ZIF_AFF_{ sub_object_type }_V{ format_version }=>TY_MAIN| ).
 
     CREATE DATA ref TYPE (type_name).
 
     CREATE OBJECT writer
       EXPORTING
-        schema_id = schema_id.
+        schema_id      = schema_id
+        format_version = format_version.
 
     CREATE OBJECT generator
       EXPORTING
         writer = writer.
 
-    string_tab = generator->generate_type( ref->* ).
+    string_tab = generator->zif_aff_generator~generate_type( ref->* ).
 
 * workaround for transpiler/JS keywords
     LOOP AT string_tab ASSIGNING <row>.
@@ -491,12 +584,11 @@ CLASS cl_run IMPLEMENTATION.
       ENDIF.
     ENDLOOP.
 
-    CONCATENATE LINES OF string_tab INTO result SEPARATED BY |\\n|.
+    "CONCATENATE LINES OF string_tab INTO result SEPARATED BY |\\n|.
   ENDMETHOD.
 
-ENDCLASS.
-');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_O2_XSLT_ERROR', 'CLASS cx_o2_xslt_error DEFINITION PUBLIC INHERITING FROM cx_static_check.
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_O2_XSLT_ERROR                        ', 'CLASS cx_o2_xslt_error DEFINITION PUBLIC INHERITING FROM cx_static_check.
 
 ENDCLASS.
 
@@ -504,45 +596,49 @@ CLASS cx_o2_xslt_error IMPLEMENTATION.
 
 ENDCLASS.
 ');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('ZCL_AFF_ABAP_DOC_PARSER', 'CLASS zcl_aff_abap_doc_parser DEFINITION
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('ZCL_AFF_ABAP_DOC_PARSER                 ', 'CLASS zcl_aff_abap_doc_parser DEFINITION
   PUBLIC
   FINAL
   CREATE PUBLIC.
 
   PUBLIC SECTION.
     CONSTANTS: BEGIN OF abap_doc_annotation,
-                 callback_class    TYPE string VALUE \`$callbackClass\`,
-                 default_           TYPE string VALUE \`$default\`,
-                 values            TYPE string VALUE \`$values\`,
-                 required          TYPE string VALUE \`$required\`,
-                 show_always       TYPE string VALUE \`$showAlways\`,
-                 minimum           TYPE string VALUE \`$minimum\`,
-                 maximum           TYPE string VALUE \`$maximum\`,
-                 exclusive_minimum TYPE string VALUE \`$exclusiveMinimum\`,
-                 exclusive_maximum TYPE string VALUE \`$exclusiveMaximum\`,
-                 max_length        TYPE string VALUE \`$maxLength\`,
-                 min_length        TYPE string VALUE \`$minLength\`,
-                 multiple_of       TYPE string VALUE \`$multipleOf\`,
-                 enum_value        TYPE string VALUE \`$enumValue\`,
+                 callback_class     TYPE string VALUE \`$callbackClass\`,
+                 default_            TYPE string VALUE \`$default\`,
+                 values             TYPE string VALUE \`$values\`,
+                 required           TYPE string VALUE \`$required\`,
+                 show_always        TYPE string VALUE \`$showAlways\`,
+                 minimum            TYPE string VALUE \`$minimum\`,
+                 maximum            TYPE string VALUE \`$maximum\`,
+                 exclusive_minimum  TYPE string VALUE \`$exclusiveMinimum\`,
+                 exclusive_maximum  TYPE string VALUE \`$exclusiveMaximum\`,
+                 max_length         TYPE string VALUE \`$maxLength\`,
+                 min_length         TYPE string VALUE \`$minLength\`,
+                 multiple_of        TYPE string VALUE \`$multipleOf\`,
+                 content_media_type TYPE string VALUE \`$contentMediaType\`,
+                 content_encoding   TYPE string VALUE \`$contentEncoding\`,
+                 enum_value         TYPE string VALUE \`$enumValue\`,
                END OF abap_doc_annotation.
 
     TYPES:
       BEGIN OF abap_doc,
-        required          TYPE abap_bool,
-        showalways        TYPE abap_bool,
-        title             TYPE string,
-        description       TYPE string,
-        enumvalues_link   TYPE string,
-        minimum           TYPE string,
-        maximum           TYPE string,
-        exclusive_minimum TYPE string,
-        exclusive_maximum TYPE string,
-        multiple_of       TYPE string,
-        default_           TYPE string,
-        min_length        TYPE string,
-        max_length        TYPE string,
-        callback_class    TYPE string,
-        enum_value        TYPE string,
+        required           TYPE abap_bool,
+        showalways         TYPE abap_bool,
+        title              TYPE string,
+        description        TYPE string,
+        enumvalues_link    TYPE string,
+        minimum            TYPE string,
+        maximum            TYPE string,
+        exclusive_minimum  TYPE string,
+        exclusive_maximum  TYPE string,
+        multiple_of        TYPE string,
+        default_            TYPE string,
+        min_length         TYPE string,
+        max_length         TYPE string,
+        callback_class     TYPE string,
+        content_media_type TYPE string,
+        content_encoding   TYPE string,
+        enum_value         TYPE string,
       END OF abap_doc.
 
     METHODS: parse
@@ -590,6 +686,8 @@ ENDCLASS.
       parse_default,
       parse_enum_values,
       parse_required,
+      parse_content_encoding,
+      parse_content_media_type,
       parse_show_always,
       parse_number_annotations
         IMPORTING
@@ -633,9 +731,9 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
 
 
   METHOD parse_title.
-    REPLACE ALL OCCURRENCES OF REGEX \`[\\s]*(<p[\\s]+class="shorttext([\\s]+synchronized)?"([\\s]+lang="[a-zA-Z]{2}")?[\\s]*>)[\\s]*\`
-        IN abap_doc_string WITH \`<p class="shorttext">\` ##NO_TEXT ##REGEX_POSIX.
-    decoded_abap_doc-title = substring_after( val = abap_doc_string regex = co_shorttext_tag_open ) ##REGEX_POSIX.
+    REPLACE ALL OCCURRENCES OF PCRE \`[\\s]*(<p[\\s]+class="shorttext([\\s]+synchronized)?"([\\s]+lang="[a-zA-Z]{2}")?[\\s]*>)[\\s]*\`
+        IN abap_doc_string WITH \`<p class="shorttext">\` ##NO_TEXT.
+    decoded_abap_doc-title = substring_after( val = abap_doc_string pcre = co_shorttext_tag_open ).
     IF ( decoded_abap_doc-title IS NOT INITIAL ).
       decoded_abap_doc-title = substring_before( val = decoded_abap_doc-title sub = ''</p>'' ).
       remove_leading_trailing_spaces( CHANGING string_to_work_on = decoded_abap_doc-title ).
@@ -647,12 +745,12 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
 
   METHOD check_title_positions.
     DATA msg TYPE string.
-    IF ( count( val = abap_doc_string regex = co_shorttext_tag_open ) > 1 ) ##REGEX_POSIX.
+    IF ( count( val = abap_doc_string pcre = co_shorttext_tag_open ) > 1 ).
 
       msg = parser_log->get_message_text( msgno = 107 msgv1 = \`''Title''\` ).
       parser_log->add_info( message_text   = msg component_name = component_name ).
     ENDIF.
-    IF ( find( val = abap_doc_string regex = co_shorttext_tag_open ) > 0 ) ##REGEX_POSIX.
+    IF ( find( val = abap_doc_string pcre = co_shorttext_tag_open ) > 0 ).
       parser_log->add_info( message_text   = zif_aff_log=>co_msg113 component_name = component_name ).
     ENDIF.
   ENDMETHOD.
@@ -660,9 +758,9 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
 
   METHOD workaround_remove_titles.
     DATA start_offset TYPE i.
-    WHILE ( boolc( matches( val = abap_doc_string regex = \`.*[\\s]*<p\\sclass="shorttext">.*\` ) ) = abap_true ) ##REGEX_POSIX.
+    WHILE ( boolc( matches( val = abap_doc_string pcre = \`.*[\\s]*<p\\sclass="shorttext">.*\` ) ) = abap_true ).
 
-      start_offset = find( val = abap_doc_string regex = co_shorttext_tag_open occ = 1 ) ##REGEX_POSIX.
+      start_offset = find( val = abap_doc_string pcre = co_shorttext_tag_open occ = 1 ).
       abap_doc_string = abap_doc_string(start_offset) && substring_after( val = abap_doc_string+start_offset sub = \`</p>\` ).
     ENDWHILE.
   ENDMETHOD.
@@ -670,8 +768,8 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
   METHOD parse_description.
     DATA offset TYPE i.
     DATA description TYPE string.
-    FIND FIRST OCCURRENCE OF REGEX \`(\\$callbackClass|\\$default|\\$values|\\$required|\\$showAlways|\\$minimum|\\$maximum|\\$exclusiveMinimum|\\$exclusiveMaximum|\\$multipleOf|\\$maxLength|\\$minLength|\\$enumValue)\`
-      IN abap_doc_string MATCH OFFSET offset ##REGEX_POSIX.
+    FIND FIRST OCCURRENCE OF PCRE \`(\\$callbackClass|\\$default|\\$values|\\$required|\\$showAlways|\\$minimum|\\$maximum|\\$exclusiveMinimum|\\$exclusiveMaximum|\\$multipleOf|\\$maxLength|\\$minLength|\\$enumValue|\\$contentMediaType|\\$contentEncoding)\`
+      IN abap_doc_string MATCH OFFSET offset.
     IF sy-subrc = 0.
 
       description = abap_doc_string+0(offset).
@@ -693,7 +791,7 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
     DATA key_word TYPE string.
     DATA temp1 TYPE symsgv.
     DATA msg TYPE string.
-    FIND ALL OCCURRENCES OF REGEX \`\\$[a-zA-Z]+\` IN abap_doc_string RESULTS result_table ##REGEX_POSIX ##NO_TEXT.
+    FIND ALL OCCURRENCES OF PCRE \`\\$[a-zA-Z]+\` IN abap_doc_string RESULTS result_table ##NO_TEXT.
 
     modified_abap_doc_string = abap_doc_string.
 
@@ -720,6 +818,10 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
           parse_number_annotations( key_word = key_word ).
         WHEN abap_doc_annotation-enum_value.
           parse_enum_value( ).
+        WHEN abap_doc_annotation-content_encoding.
+          parse_content_encoding( ).
+        WHEN abap_doc_annotation-content_media_type.
+          parse_content_media_type( ).
         WHEN OTHERS.
           REPLACE key_word IN modified_abap_doc_string WITH ''''.
 
@@ -749,9 +851,9 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
     ENDIF.
 
     string_to_parse = abap_doc_string.
-    REPLACE ALL OCCURRENCES OF REGEX \`\\$callbackClass[\\s]*(:[\\s]*)?\\{[\\s]*@link\` IN string_to_parse WITH \`\\$callbackClass\\{@link\` ##REGEX_POSIX.
+    REPLACE ALL OCCURRENCES OF PCRE \`\\$callbackClass[\\s]*(:[\\s]*)?\\{[\\s]*@link\` IN string_to_parse WITH \`\\$callbackClass\\{@link\`.
 
-    FIND ALL OCCURRENCES OF REGEX \`\\$callbackClass\\{@link[^\\}]+\\}\` IN string_to_parse RESULTS result_table ##REGEX_POSIX.
+    FIND ALL OCCURRENCES OF PCRE \`\\$callbackClass\\{@link[^\\}]+\\}\` IN string_to_parse RESULTS result_table.
     IF lines( result_table ) = 0.
 
       temp2 = abap_doc_annotation-callback_class.
@@ -827,13 +929,13 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
     ENDIF.
 
     string_to_parse = abap_doc_string.
-    REPLACE ALL OCCURRENCES OF REGEX \`\\$default[\\s]*(:[\\s]*)?''\` IN string_to_parse WITH \`\\$default''\` ##REGEX_POSIX.
-    REPLACE ALL OCCURRENCES OF REGEX \`\\$default[\\s]*(:[\\s]*)?\\{[\\s]*@link\` IN string_to_parse WITH \`\\$default\\{@link\` ##REGEX_POSIX.
+    REPLACE ALL OCCURRENCES OF PCRE \`\\$default[\\s]*(:[\\s]*)?''\` IN string_to_parse WITH \`\\$default''\`.
+    REPLACE ALL OCCURRENCES OF PCRE \`\\$default[\\s]*(:[\\s]*)?\\{[\\s]*@link\` IN string_to_parse WITH \`\\$default\\{@link\`.
 
 
-    FIND ALL OCCURRENCES OF REGEX \`\\$default''[^'']*''\` IN string_to_parse RESULTS result_table_value ##REGEX_POSIX.
+    FIND ALL OCCURRENCES OF PCRE \`\\$default''[^'']*''\` IN string_to_parse RESULTS result_table_value.
 
-    FIND ALL OCCURRENCES OF REGEX \`\\$default\\{@link[^\\}]+\\}\` IN string_to_parse RESULTS result_table_link ##REGEX_POSIX.
+    FIND ALL OCCURRENCES OF PCRE \`\\$default\\{@link[^\\}]+\\}\` IN string_to_parse RESULTS result_table_link.
 
 
 
@@ -881,8 +983,8 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
         link = get_annotation_value( length = <entry>-length - 1 offset = <entry>-offset to_decode = string_to_parse length_of_annotation = 9 remove_whitespaces = abap_true ).
 
         link_for_testing = link.
-        REPLACE ALL OCCURRENCES OF REGEX \`\\s\` IN link_for_testing WITH \`\` ##REGEX_POSIX.
-        REPLACE ALL OCCURRENCES OF REGEX \`(@link|data:)\` IN link_for_testing WITH \`\` ##REGEX_POSIX.
+        REPLACE ALL OCCURRENCES OF PCRE \`\\s\` IN link_for_testing WITH \`\`.
+        REPLACE ALL OCCURRENCES OF PCRE \`(@link|data:)\` IN link_for_testing WITH \`\`.
 
         SPLIT link_for_testing AT ''.'' INTO TABLE splitted.
         IF lines( splitted ) = 3.
@@ -918,9 +1020,9 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
     ENDIF.
 
     string_to_parse = abap_doc_string.
-    REPLACE ALL OCCURRENCES OF REGEX \`\\$values[\\s]*(:[\\s]*)?\\{[\\s]*@link\` IN string_to_parse WITH \`\\$values\\{@link\` ##REGEX_POSIX.
+    REPLACE ALL OCCURRENCES OF PCRE \`\\$values[\\s]*(:[\\s]*)?\\{[\\s]*@link\` IN string_to_parse WITH \`\\$values\\{@link\`.
 
-    FIND ALL OCCURRENCES OF REGEX \`\\$values\\{@link([^\\}]+)\\}\` IN string_to_parse RESULTS result_table ##REGEX_POSIX.
+    FIND ALL OCCURRENCES OF PCRE \`\\$values\\{@link([^\\}]+)\\}\` IN string_to_parse RESULTS result_table.
     IF lines( result_table ) = 0.
 
       temp8 = abap_doc_annotation-values.
@@ -943,8 +1045,8 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
       check_next_word( offset = offset_found + length_found text_to_check = string_to_parse ).
 
       link_for_testing = link.
-      REPLACE ALL OCCURRENCES OF REGEX \`\\s\` IN link_for_testing WITH \`\` ##REGEX_POSIX.
-      REPLACE ALL OCCURRENCES OF REGEX \`data:\` IN link_for_testing WITH \`\` ##REGEX_POSIX.
+      REPLACE ALL OCCURRENCES OF PCRE \`\\s\` IN link_for_testing WITH \`\`.
+      REPLACE ALL OCCURRENCES OF PCRE \`data:\` IN link_for_testing WITH \`\`.
 
       SPLIT link_for_testing AT ''.'' INTO TABLE splitted.
       IF lines( splitted ) = 2 AND decoded_abap_doc-enumvalues_link IS INITIAL.
@@ -974,6 +1076,96 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
     LOOP AT result_table ASSIGNING <entry>.
       check_next_word( offset = <entry>-offset + <entry>-length text_to_check = abap_doc_string ).
     ENDLOOP.
+  ENDMETHOD.
+
+
+  METHOD parse_content_encoding.
+    DATA abap_doc LIKE abap_doc_string.
+    DATA result_table TYPE match_result_tab.
+    DATA content_encoding_occurrences TYPE match_result.
+    DATA match LIKE content_encoding_occurrences-submatches.
+    DATA first_match LIKE LINE OF match.
+    DATA temp6 LIKE LINE OF match.
+    DATA temp7 LIKE sy-tabix.
+    DATA temp10 TYPE symsgv.
+    DATA msg TYPE string.
+    abap_doc = abap_doc_string.
+    IF decoded_abap_doc-content_encoding IS NOT INITIAL.
+      RETURN.
+    ENDIF.
+
+    FIND ALL OCCURRENCES OF abap_doc_annotation-content_encoding IN abap_doc_string RESULTS result_table.
+    write_log_for_multiple_entries( result_table = result_table annotaion = abap_doc_annotation-content_encoding ).
+
+    REPLACE FIRST OCCURRENCE OF PCRE \`\\$contentEncoding[\\s]*''\` IN abap_doc WITH \`\\$contentEncoding''\`.
+
+    FIND FIRST OCCURRENCE OF PCRE \`\\$contentEncoding''([^'']*)''\` IN abap_doc RESULTS content_encoding_occurrences.
+
+    match = content_encoding_occurrences-submatches.
+    IF lines( match ) >= 1.
+
+
+
+      temp7 = sy-tabix.
+      READ TABLE match INDEX 1 INTO temp6.
+      sy-tabix = temp7.
+      IF sy-subrc <> 0.
+        RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
+      ENDIF.
+      first_match = temp6.
+      decoded_abap_doc-content_encoding = abap_doc+first_match-offset(first_match-length).
+    ELSE.
+
+      temp10 = abap_doc_annotation-content_encoding.
+
+      msg = parser_log->get_message_text( msgno = 109 msgv1 = temp10 ).
+      parser_log->add_warning( message_text = msg component_name = component_name ).
+    ENDIF.
+  ENDMETHOD.
+
+
+  METHOD parse_content_media_type.
+    DATA abap_doc LIKE abap_doc_string.
+    DATA result_table TYPE match_result_tab.
+    DATA content_media_type_occurrences TYPE match_result.
+    DATA match LIKE content_media_type_occurrences-submatches.
+    DATA first_match LIKE LINE OF match.
+    DATA temp8 LIKE LINE OF match.
+    DATA temp9 LIKE sy-tabix.
+    DATA temp11 TYPE symsgv.
+    DATA msg TYPE string.
+    abap_doc = abap_doc_string.
+    IF decoded_abap_doc-content_media_type IS NOT INITIAL.
+      RETURN.
+    ENDIF.
+
+    FIND ALL OCCURRENCES OF abap_doc_annotation-content_media_type IN abap_doc RESULTS result_table.
+    write_log_for_multiple_entries( result_table = result_table annotaion = abap_doc_annotation-content_media_type ).
+
+    REPLACE FIRST OCCURRENCE OF PCRE \`\\$contentMediaType[\\s]*''\` IN abap_doc WITH \`\\$contentMediaType''\`.
+
+    FIND FIRST OCCURRENCE OF PCRE \`\\$contentMediaType''([^'']*)''\` IN abap_doc RESULTS content_media_type_occurrences.
+
+    match = content_media_type_occurrences-submatches.
+    IF lines( match ) >= 1.
+
+
+
+      temp9 = sy-tabix.
+      READ TABLE match INDEX 1 INTO temp8.
+      sy-tabix = temp9.
+      IF sy-subrc <> 0.
+        RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
+      ENDIF.
+      first_match = temp8.
+      decoded_abap_doc-content_media_type = abap_doc+first_match-offset(first_match-length).
+    ELSE.
+
+      temp11 = abap_doc_annotation-content_media_type.
+
+      msg = parser_log->get_message_text( msgno = 109 msgv1 = temp11 ).
+      parser_log->add_warning( message_text = msg component_name = component_name ).
+    ENDIF.
   ENDMETHOD.
 
 
@@ -1032,10 +1224,10 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
     DATA abap_doc LIKE abap_doc_string.
     DATA dummy_annotation TYPE string.
     DATA result_table TYPE match_result_tab.
-    DATA temp10 TYPE symsgv.
+    DATA temp12 TYPE symsgv.
     DATA msg TYPE string.
     DATA annotation_length TYPE i.
-    DATA regex_of_number_expressions TYPE REF TO cl_abap_regex.
+    DATA pcre_of_number_expressions TYPE REF TO cl_abap_regex.
     DATA warning_written LIKE abap_false.
     FIELD-SYMBOLS <entry> LIKE LINE OF result_table.
     DATA offset_found LIKE <entry>-offset.
@@ -1045,19 +1237,19 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
     DATA number_candidate TYPE string.
     DATA matcher TYPE REF TO cl_abap_matcher.
     DATA match TYPE abap_bool.
-    DATA temp11 TYPE symsgv.
+    DATA temp13 TYPE symsgv.
     abap_doc = abap_doc_string.
 
     dummy_annotation = \`$dummyannotation\`.
     REPLACE ALL OCCURRENCES OF annotation_name IN abap_doc WITH dummy_annotation.
-    REPLACE ALL OCCURRENCES OF REGEX  \`\\$dummyannotation[\\s]*(:[\\s]*)?\` IN abap_doc WITH \`\\$dummyannotation\` ##REGEX_POSIX.
+    REPLACE ALL OCCURRENCES OF PCRE \`\\$dummyannotation[\\s]*(:[\\s]*)?\` IN abap_doc WITH \`\\$dummyannotation\`.
 
-    FIND ALL OCCURRENCES OF REGEX \`\\$dummyannotation[^\\s]+\` IN abap_doc RESULTS result_table ##REGEX_POSIX.
+    FIND ALL OCCURRENCES OF PCRE \`\\$dummyannotation[^\\s]+\` IN abap_doc RESULTS result_table.
     IF lines( result_table ) = 0.
 
-      temp10 = abap_doc_annotation-values.
+      temp12 = abap_doc_annotation-values.
 
-      msg = parser_log->get_message_text( msgno = 109 msgv1 = temp10 ).
+      msg = parser_log->get_message_text( msgno = 109 msgv1 = temp12 ).
       parser_log->add_warning( message_text = msg component_name = component_name ).
       RETURN.
     ENDIF.
@@ -1065,8 +1257,8 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
 
     annotation_length = strlen( dummy_annotation ).
 
-    CREATE OBJECT regex_of_number_expressions TYPE cl_abap_regex EXPORTING pattern = \`(\\+|-)?[0-9]+(.[0-9]+)?(e(\\+|-)?[0-9]+)?\` ignore_case = abap_true.
-
+    pcre_of_number_expressions = cl_abap_regex=>create_pcre( pattern     = \`(\\+|-)?[0-9]+(.[0-9]+)?(e(\\+|-)?[0-9]+)?\`
+                                                                    ignore_case = abap_true ).
 
     warning_written = abap_false.
 
@@ -1083,7 +1275,7 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
       number_candidate = abap_doc+begin_of_number(length_of_number).
       remove_leading_trailing_spaces( CHANGING string_to_work_on = number_candidate ).
 
-      matcher = regex_of_number_expressions->create_matcher( text = number_candidate ).
+      matcher = pcre_of_number_expressions->create_matcher( text = number_candidate ).
 
       match = matcher->match( ).
       check_next_word( offset = offset_found + length_found text_to_check = abap_doc ).
@@ -1091,8 +1283,8 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
         number = number_candidate.
       ELSEIF match = abap_false AND warning_written = abap_false.
 
-        temp11 = annotation_name.
-        msg = parser_log->get_message_text( msgno = 110 msgv1 = temp11 ).
+        temp13 = annotation_name.
+        msg = parser_log->get_message_text( msgno = 110 msgv1 = temp13 ).
         parser_log->add_warning( message_text = msg component_name = component_name ).
         warning_written = abap_true.
       ENDIF.
@@ -1102,28 +1294,28 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
   METHOD parse_enum_value.
     DATA string_to_parse LIKE abap_doc_string.
     DATA result_table TYPE match_result_tab.
-    DATA temp12 TYPE symsgv.
+    DATA temp14 TYPE symsgv.
     DATA msg TYPE string.
     DATA offset_found TYPE i.
-    DATA temp6 LIKE LINE OF result_table.
-    DATA temp7 LIKE sy-tabix.
+    DATA temp10 LIKE LINE OF result_table.
+    DATA temp11 LIKE sy-tabix.
     DATA length_found TYPE i.
-    DATA temp8 LIKE LINE OF result_table.
-    DATA temp9 LIKE sy-tabix.
+    DATA temp12 LIKE LINE OF result_table.
+    DATA temp13 LIKE sy-tabix.
     FIELD-SYMBOLS <entry> LIKE LINE OF result_table.
     IF decoded_abap_doc-enum_value IS NOT INITIAL.
       RETURN.
     ENDIF.
 
     string_to_parse = abap_doc_string.
-    REPLACE ALL OCCURRENCES OF REGEX \`\\$enumValue[\\s]*(:[\\s]*)?''\` IN string_to_parse WITH \`\\$enumValue''\` ##REGEX_POSIX.
+    REPLACE ALL OCCURRENCES OF PCRE \`\\$enumValue[\\s]*(:[\\s]*)?''\` IN string_to_parse WITH \`\\$enumValue''\`.
 
-    FIND ALL OCCURRENCES OF REGEX \`\\$enumValue''[^'']*''\` IN string_to_parse RESULTS result_table ##REGEX_POSIX.
+    FIND ALL OCCURRENCES OF PCRE \`\\$enumValue''[^'']*''\` IN string_to_parse RESULTS result_table.
     IF lines( result_table ) = 0.
 
-      temp12 = abap_doc_annotation-enum_value.
+      temp14 = abap_doc_annotation-enum_value.
 
-      msg = parser_log->get_message_text( msgno = 109 msgv1 = temp12 ).
+      msg = parser_log->get_message_text( msgno = 109 msgv1 = temp14 ).
       parser_log->add_warning( message_text = msg component_name = component_name ).
       RETURN.
     ENDIF.
@@ -1131,23 +1323,23 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
 
 
 
-    temp7 = sy-tabix.
-    READ TABLE result_table INDEX 1 INTO temp6.
-    sy-tabix = temp7.
+    temp11 = sy-tabix.
+    READ TABLE result_table INDEX 1 INTO temp10.
+    sy-tabix = temp11.
     IF sy-subrc <> 0.
       RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
     ENDIF.
-    offset_found = temp6-offset.
+    offset_found = temp10-offset.
 
 
 
-    temp9 = sy-tabix.
-    READ TABLE result_table INDEX 1 INTO temp8.
-    sy-tabix = temp9.
+    temp13 = sy-tabix.
+    READ TABLE result_table INDEX 1 INTO temp12.
+    sy-tabix = temp13.
     IF sy-subrc <> 0.
       RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
     ENDIF.
-    length_found = temp8-length.
+    length_found = temp12-length.
     decoded_abap_doc-enum_value = get_annotation_value( length = length_found - 1 offset = offset_found to_decode = string_to_parse length_of_annotation = 11 remove_whitespaces = abap_true ).
 
     LOOP AT result_table ASSIGNING <entry>.
@@ -1165,7 +1357,7 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
     DATA current_offset LIKE offset.
     DATA next_word TYPE string.
     DATA next_char TYPE c.
-    DATA regex_of_letter TYPE REF TO cl_abap_regex.
+    DATA pcre_of_letter TYPE REF TO cl_abap_regex.
     IF description_warning_is_needed = abap_true.
       RETURN.
     ENDIF.
@@ -1183,12 +1375,12 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
       RETURN.
     ENDIF.
 
-    CREATE OBJECT regex_of_letter TYPE cl_abap_regex EXPORTING pattern = \`[a-zA-Z]\` ignore_case = abap_false.
+    pcre_of_letter = cl_abap_regex=>create_pcre( pattern = \`[a-zA-Z]\` ) ##NO_TEXT.
     DO.
       next_char = text_to_check+current_offset(1).
       current_offset = current_offset + 1.
       next_word = next_word && next_char.
-      IF regex_of_letter->create_matcher( text = next_char )->match( ) = abap_false OR current_offset >= strlen( text_to_check ).
+      IF pcre_of_letter->create_matcher( text = next_char )->match( ) = abap_false OR current_offset >= strlen( text_to_check ).
         EXIT.
       ENDIF.
     ENDDO.
@@ -1208,20 +1400,20 @@ CLASS zcl_aff_abap_doc_parser IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD write_log_for_multiple_entries.
-    DATA temp13 TYPE symsgv.
+    DATA temp15 TYPE symsgv.
     DATA msg TYPE string.
     IF lines( result_table ) > 1.
 
-      temp13 = annotaion.
+      temp15 = annotaion.
 
-      msg = parser_log->get_message_text( msgno = 107 msgv1 = temp13 ).
+      msg = parser_log->get_message_text( msgno = 107 msgv1 = temp15 ).
       parser_log->add_info( message_text = msg component_name = component_name ).
     ENDIF.
   ENDMETHOD.
 
 ENDCLASS.
 ');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('ZCL_AFF_ABAP_DOC_READER', 'CLASS zcl_aff_abap_doc_reader DEFINITION
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('ZCL_AFF_ABAP_DOC_READER                 ', 'CLASS zcl_aff_abap_doc_reader DEFINITION
   PUBLIC
   FINAL
   CREATE PRIVATE .
@@ -1367,27 +1559,16 @@ CLASS ZCL_AFF_ABAP_DOC_READER IMPLEMENTATION.
   ENDMETHOD.
 ENDCLASS.
 ');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('ZCL_AFF_GENERATOR', 'CLASS zcl_aff_generator DEFINITION
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('ZCL_AFF_GENERATOR                       ', 'CLASS zcl_aff_generator DEFINITION
   PUBLIC
   FINAL
   CREATE PUBLIC.
 
   PUBLIC SECTION.
+    INTERFACES zif_aff_generator.
     METHODS constructor
       IMPORTING
         writer TYPE REF TO zif_aff_writer.
-
-    METHODS generate_type
-      IMPORTING
-        data          TYPE data
-      RETURNING
-        VALUE(result) TYPE string_table
-      RAISING
-        zcx_aff_tools.
-
-    METHODS get_log
-      RETURNING
-        VALUE(log) TYPE REF TO zif_aff_log.
 
   PRIVATE SECTION.
     DATA:
@@ -1434,6 +1615,9 @@ ENDCLASS.
           zcx_aff_tools,
       check_mandatory_fields
         IMPORTING
+          structure_description TYPE REF TO cl_abap_structdescr,
+      check_top_level_fields
+        IMPORTING
           structure_description TYPE REF TO cl_abap_structdescr.
 
 ENDCLASS.
@@ -1446,7 +1630,7 @@ CLASS zcl_aff_generator IMPLEMENTATION.
     CREATE OBJECT log TYPE zcl_aff_log.
   ENDMETHOD.
 
-  METHOD generate_type.
+  METHOD zif_aff_generator~generate_type.
     DATA type_description TYPE REF TO cl_abap_typedescr.
     type_description = cl_abap_typedescr=>describe_by_data( data ).
     check_input( type_description ).
@@ -1464,6 +1648,7 @@ CLASS zcl_aff_generator IMPLEMENTATION.
 
         structure_description = temp1.
         check_mandatory_fields( structure_description ).
+        check_top_level_fields( structure_description ).
       CATCH cx_sy_move_cast_error.
         log->add_warning( message_text = zif_aff_log=>co_msg123 component_name = type_description->get_relative_name( ) ).
     ENDTRY.
@@ -1486,63 +1671,76 @@ CLASS zcl_aff_generator IMPLEMENTATION.
     ENDIF.
   ENDMETHOD.
 
+  METHOD check_top_level_fields.
+    DATA temp3 TYPE abap_component_tab.
+    FIELD-SYMBOLS <component> LIKE LINE OF temp3.
+    temp3 = structure_description->get_components( ).
+
+    LOOP AT temp3 ASSIGNING <component>.
+      IF <component>-name <> ''FORMAT_VERSION'' AND <component>-type->kind <> cl_abap_typedescr=>kind_struct AND <component>-type->kind <> cl_abap_typedescr=>kind_table.
+        log->add_warning( message_text = zif_aff_log=>co_msg128 component_name = structure_description->get_relative_name( ) ).
+        EXIT.
+      ENDIF.
+    ENDLOOP.
+  ENDMETHOD.
+
   METHOD process_type_description.
-    DATA temp3 TYPE REF TO cl_abap_elemdescr.
-    DATA temp4 TYPE REF TO cl_abap_structdescr.
-    DATA temp5 TYPE REF TO cl_abap_tabledescr.
-    DATA temp6 TYPE REF TO zcx_aff_tools.
+    DATA temp4 TYPE REF TO cl_abap_elemdescr.
+    DATA temp5 TYPE REF TO cl_abap_structdescr.
+    DATA temp6 TYPE REF TO cl_abap_tabledescr.
+    DATA temp7 TYPE REF TO zcx_aff_tools.
     CASE type_description->kind.
       WHEN cl_abap_typedescr=>kind_elem.
 
-        temp3 ?= type_description.
+        temp4 ?= type_description.
         process_element(
           element_name        = type_name
-          element_description = temp3 ).
+          element_description = temp4 ).
       WHEN cl_abap_typedescr=>kind_struct.
 
-        temp4 ?= type_description.
+        temp5 ?= type_description.
         process_structure(
           structure_name        = type_name
-          structure_description = temp4 ).
+          structure_description = temp5 ).
       WHEN cl_abap_typedescr=>kind_table.
 
-        temp5 ?= type_description.
+        temp6 ?= type_description.
         process_table(
           table_name        = type_name
-          table_description = temp5 ).
+          table_description = temp6 ).
       WHEN OTHERS.
 
-        CREATE OBJECT temp6 TYPE zcx_aff_tools.
-        RAISE EXCEPTION temp6.
+        CREATE OBJECT temp7 TYPE zcx_aff_tools.
+        RAISE EXCEPTION temp7.
     ENDCASE.
   ENDMETHOD.
 
   METHOD process_element.
-    DATA temp7 TYPE string.
-    DATA name LIKE temp7.
+    DATA temp8 TYPE string.
+    DATA name LIKE temp8.
     IF element_name IS NOT INITIAL.
-      temp7 = element_name.
+      temp8 = element_name.
     ELSE.
-      temp7 = element_description->get_relative_name( ).
+      temp8 = element_description->get_relative_name( ).
     ENDIF.
 
-    name = temp7.
+    name = temp8.
     writer->write_element(
       element_name        = name
       element_description = element_description ).
   ENDMETHOD.
 
   METHOD process_structure.
-    DATA temp8 TYPE string.
-    DATA name LIKE temp8.
+    DATA temp9 TYPE string.
+    DATA name LIKE temp9.
     DATA components TYPE abap_component_tab.
     IF structure_name IS NOT INITIAL.
-      temp8 = structure_name.
+      temp9 = structure_name.
     ELSE.
-      temp8 = structure_description->get_relative_name( ).
+      temp9 = structure_description->get_relative_name( ).
     ENDIF.
 
-    name = temp8.
+    name = temp9.
     writer->open_node(
       node_name        = name
       node_description = structure_description ).
@@ -1564,12 +1762,12 @@ CLASS zcl_aff_generator IMPLEMENTATION.
 
   METHOD process_components.
     FIELD-SYMBOLS <component> LIKE LINE OF components.
-    DATA temp9 TYPE REF TO cl_abap_structdescr.
+    DATA temp10 TYPE REF TO cl_abap_structdescr.
     LOOP AT components ASSIGNING <component>.
       IF <component>-as_include = abap_true.
 
-        temp9 ?= <component>-type.
-        process_include( temp9 ).
+        temp10 ?= <component>-type.
+        process_include( temp10 ).
       ELSE.
         process_type_description(
           type_name        = <component>-name
@@ -1579,16 +1777,16 @@ CLASS zcl_aff_generator IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD process_table.
-    DATA temp10 TYPE string.
-    DATA name LIKE temp10.
+    DATA temp11 TYPE string.
+    DATA name LIKE temp11.
     DATA line_description TYPE REF TO cl_abap_datadescr.
     IF table_name IS NOT INITIAL.
-      temp10 = table_name.
+      temp11 = table_name.
     ELSE.
-      temp10 = table_description->get_relative_name( ).
+      temp11 = table_description->get_relative_name( ).
     ENDIF.
 
-    name = temp10.
+    name = temp11.
     writer->open_node(
       node_name        = name
       node_description = table_description ).
@@ -1600,14 +1798,13 @@ CLASS zcl_aff_generator IMPLEMENTATION.
       node_description = table_description ).
   ENDMETHOD.
 
-
-  METHOD get_log.
+  METHOD zif_aff_generator~get_log.
     log = me->log.
   ENDMETHOD.
 
 ENDCLASS.
 ');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('ZCL_AFF_LOG', 'CLASS zcl_aff_log DEFINITION
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('ZCL_AFF_LOG                             ', 'CLASS zcl_aff_log DEFINITION
   PUBLIC
   FINAL
   CREATE PUBLIC.
@@ -1906,7 +2103,9 @@ CLASS ZCL_AFF_LOG IMPLEMENTATION.
 
 
   METHOD zif_aff_log~has_messages.
-    has_messages = boolc( me->messages IS NOT INITIAL ).
+    DATA temp1 TYPE xsdboolean.
+    temp1 = boolc( me->messages IS NOT INITIAL ).
+    has_messages = temp1.
   ENDMETHOD.
 
 
@@ -1916,7 +2115,7 @@ CLASS ZCL_AFF_LOG IMPLEMENTATION.
   ENDMETHOD.
 ENDCLASS.
 ');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('ZCL_AFF_TEST_TYPES', 'CLASS zcl_aff_test_types DEFINITION
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('ZCL_AFF_TEST_TYPES                      ', 'CLASS zcl_aff_test_types DEFINITION
   PUBLIC
   FINAL
   CREATE PUBLIC.
@@ -1926,6 +2125,36 @@ ENDCLASS.
     TYPES:
       "! $hiddenabc
       unknown_annotation TYPE string.
+
+    TYPES:
+      "! $contentEncoding ''base64''
+      content_encoded_string TYPE string.
+
+    TYPES:
+      "! $contentEncoding ''unknown''
+      unknown_content_encoded_string TYPE string.
+
+    TYPES:
+      "! $contentEncoding ''base64''
+      content_encoded_integer TYPE i.
+
+    TYPES:
+      "! $contentMediaType ''text/html''
+      content_media_type_string TYPE string.
+
+    TYPES:
+      "! $contentMediaType ''text/html''
+      content_media_type_integer TYPE i.
+
+    TYPES:
+       "! $contentMediaType ''text/html''
+       "! $contentEncoding ''base64''
+      media_type_content_ecoding TYPE string.
+
+    TYPES:
+      BEGIN OF struc_with_type_encoding,
+        component TYPE media_type_content_ecoding,
+      END OF struc_with_type_encoding.
 
     TYPES:
       "! <p class="shorttext">title</p>
@@ -1959,7 +2188,7 @@ ENDCLASS.
     TYPES:
       "! in ST val(I()) only allow integers
       "! $values {@link zcl_aff_test_types.data:co_enum}
-      enum_ TYPE i.
+      enum TYPE i.
 
     CONSTANTS:
       BEGIN OF co_enum,
@@ -2146,13 +2375,13 @@ ENDCLASS.
     CONSTANTS:
       "! <p class="shorttext">Interface Category</p>
       "! Interface category
-      BEGIN OF enum_values,
+      BEGIN OF enum_values ##NEEDED,
         "! <p class="shorttext">generalCategory</p>
         "! General interface
         general      TYPE category VALUE ''00'',
         "! Interface definition of a classic BAdI
         classic_badi TYPE category VALUE ''01'',
-      END OF enum_values ##NEEDED.
+      END OF enum_values.
 
 * type with enum values without initial:
     TYPES:
@@ -2164,14 +2393,14 @@ ENDCLASS.
     CONSTANTS:
       "! <p class="shorttext">Interface Category</p>
       "! Interface category
-      BEGIN OF enum_values_no_initial,
+      BEGIN OF enum_values_no_initial ##NEEDED,
         "! <p class="shorttext">Component 1</p>
         "! Component 1
         component_1 TYPE category_no_initial VALUE ''01'',
         "! <p class="shorttext">Component 2</p>
         "! Component 2
         component_2 TYPE category_no_initial VALUE ''02'',
-      END OF enum_values_no_initial ##NEEDED.
+      END OF enum_values_no_initial.
 
     TYPES:
       "! <p class="shorttext">Structure with Different Enum Types</p>
@@ -2279,6 +2508,16 @@ ENDCLASS.
         field3 TYPE c LENGTH 2,
       END OF list.
 
+* deep nested structure, simple
+    TYPES:
+      BEGIN OF nsimple,
+        BEGIN OF list1,
+          "! <p class="shorttext">Inner Element</p>
+          "! sdfsdf
+          "! $required
+          element TYPE string,
+        END OF list1,
+      END OF nsimple.
 
 * nested structure with table
     TYPES:
@@ -2417,12 +2656,12 @@ ENDCLASS.
         "! $exclusiveMaximum:100.9
         "! $minimum: -0.42
         float                   TYPE decfloat16,
-        "! <p class="shorttext">Packed Number With Given Multiple</p>
-        "! Packed number with given multiple
-        "! $multipleOf: 0.1
+        "! <p class="shorttext">Integer With Given Multiple</p>
+        "! Integer with given multiple
         "! $exclusiveMinimum: 0
-        "! $maximum: 99999.90
-        packed_with_multiple    TYPE p LENGTH 4 DECIMALS 2,
+        "! $maximum: 99999
+        "! $multipleOf: 1
+        integer_with_multiple    TYPE i,
         "! <p class="shorttext">Packed Number With No Given Multiple</p>
         "! Packed number with no given multiple
         "! $exclusiveMinimum: 0
@@ -2435,6 +2674,28 @@ ENDCLASS.
         "! $maximum: 42
         integer_out_with_doc    TYPE integer_outside,
       END OF structure_with_numbers.
+
+
+    TYPES:
+      "! <p class="shorttext">Structure With Multiple Of Warning</p>
+      "! This is a structure with not allowed multiple of value
+      BEGIN OF structure_multiple_of_warning,
+        "! <p class="shorttext">Integer With Maximum </p>
+        "! Integer with maximum
+        "! $maximum: 10
+        integer                 TYPE i,
+        "! <p class="shorttext">Integer With Given Multiple</p>
+        "! Integer with given multiple
+        "! $exclusiveMinimum: 0
+        "! $maximum: 99999
+        "! $multipleOf: 1
+        integer_with_multiple    TYPE i,
+        "! <p class="shorttext">Packed Number With Multiple</p>
+        "! Packed number with given multiple
+        "! $exclusiveMinimum: 0
+        "! $multipleOf: 0.1
+        packed_with_multiple TYPE p LENGTH 4 DECIMALS 1,
+      END OF structure_multiple_of_warning.
 
 
 * Types for default annotations
@@ -2917,7 +3178,7 @@ CLASS zcl_aff_test_types IMPLEMENTATION.
   ENDMETHOD.
 ENDCLASS.
 ');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('ZCL_AFF_TOOLS_UNIT_TEST_HELPER', 'CLASS zcl_aff_tools_unit_test_helper DEFINITION FINAL FOR TESTING
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('ZCL_AFF_TOOLS_UNIT_TEST_HELPER          ', 'CLASS zcl_aff_tools_unit_test_helper DEFINITION FINAL FOR TESTING
   DURATION SHORT
   RISK LEVEL HARMLESS
   PUBLIC.
@@ -2980,8 +3241,8 @@ CLASS zcl_aff_tools_unit_test_helper IMPLEMENTATION.
     DATA act_messages TYPE zif_aff_log=>tt_log_out.
     DATA temp1 TYPE symsg.
     DATA msg LIKE temp1.
-    DATA temp2 LIKE sy-subrc.
     DATA temp3 LIKE sy-subrc.
+    DATA temp2 LIKE sy-subrc.
     act_messages = log->get_messages( ).
 
     CLEAR temp1.
@@ -2994,6 +3255,9 @@ CLASS zcl_aff_tools_unit_test_helper IMPLEMENTATION.
     temp1-msgv4 = exp_message-attr4.
 
     msg = temp1.
+
+    READ TABLE act_messages WITH KEY type = exp_type message = msg TRANSPORTING NO FIELDS.
+    temp3 = sy-subrc.
     IF exp_component_name IS SUPPLIED.
 
       READ TABLE act_messages WITH KEY type = exp_type message = msg component_name = exp_component_name TRANSPORTING NO FIELDS.
@@ -3001,9 +3265,6 @@ CLASS zcl_aff_tools_unit_test_helper IMPLEMENTATION.
       IF NOT temp2 = 0.
         cl_abap_unit_assert=>fail( msg = ''The expected message is not contained in the log'' ).
       ENDIF.
-
-      READ TABLE act_messages WITH KEY type = exp_type message = msg TRANSPORTING NO FIELDS.
-      temp3 = sy-subrc.
     ELSEIF NOT temp3 = 0.
       cl_abap_unit_assert=>fail( msg = ''The expected message is not contained in the log'' ).
     ENDIF.
@@ -3012,9 +3273,12 @@ CLASS zcl_aff_tools_unit_test_helper IMPLEMENTATION.
 
   METHOD assert_log_contains_text.
     DATA act_messages TYPE zif_aff_log=>tt_log_out.
-    DATA temp4 LIKE sy-subrc.
     DATA temp5 LIKE sy-subrc.
+    DATA temp4 LIKE sy-subrc.
     act_messages = log->get_messages( ).
+
+    READ TABLE act_messages WITH KEY type = exp_type message_text = exp_text TRANSPORTING NO FIELDS.
+    temp5 = sy-subrc.
     IF exp_component_name IS SUPPLIED.
 
       READ TABLE act_messages WITH KEY type = exp_type message_text = exp_text component_name = exp_component_name TRANSPORTING NO FIELDS.
@@ -3022,9 +3286,6 @@ CLASS zcl_aff_tools_unit_test_helper IMPLEMENTATION.
       IF NOT temp4 = 0.
         cl_abap_unit_assert=>fail( msg = ''The expected message is not contained in the log'' ).
       ENDIF.
-
-      READ TABLE act_messages WITH KEY type = exp_type message_text = exp_text TRANSPORTING NO FIELDS.
-      temp5 = sy-subrc.
     ELSEIF NOT temp5 = 0.
       cl_abap_unit_assert=>fail( msg = ''The expected message is not contained in the log'' ).
     ENDIF.
@@ -3034,59 +3295,59 @@ CLASS zcl_aff_tools_unit_test_helper IMPLEMENTATION.
   METHOD assert_log_has_no_message.
     DATA types_to_report TYPE STANDARD TABLE OF symsgty.
     DATA temp6 LIKE types_to_report.
+    DATA temp8 LIKE types_to_report.
     DATA temp10 LIKE types_to_report.
-    DATA temp13 LIKE types_to_report.
-    DATA temp15 LIKE types_to_report.
+    DATA temp12 LIKE types_to_report.
     DATA max_severity TYPE symsgty.
-    DATA temp19 LIKE sy-subrc.
+    DATA temp14 LIKE sy-subrc.
     DATA detail TYPE string.
-    DATA temp20 TYPE zif_aff_log=>tt_log_out.
-    FIELD-SYMBOLS <message> LIKE LINE OF temp20.
-    DATA temp21 LIKE sy-subrc.
+    DATA temp15 TYPE zif_aff_log=>tt_log_out.
+    FIELD-SYMBOLS <message> LIKE LINE OF temp15.
+    DATA temp16 LIKE sy-subrc.
 
     CASE message_severity_threshold.
       WHEN zif_aff_log=>c_message_type-info.
 
         CLEAR temp6.
-        APPEND zif_aff_log=>c_message_type-info TO temp6.
-        APPEND zif_aff_log=>c_message_type-warning TO temp6.
-        APPEND zif_aff_log=>c_message_type-error TO temp6.
+        INSERT zif_aff_log=>c_message_type-info INTO TABLE temp6.
+        INSERT zif_aff_log=>c_message_type-warning INTO TABLE temp6.
+        INSERT zif_aff_log=>c_message_type-error INTO TABLE temp6.
         types_to_report = temp6.
       WHEN zif_aff_log=>c_message_type-warning.
 
-        CLEAR temp10.
-        APPEND zif_aff_log=>c_message_type-warning TO temp10.
-        APPEND zif_aff_log=>c_message_type-error TO temp10.
-        types_to_report = temp10.
+        CLEAR temp8.
+        INSERT zif_aff_log=>c_message_type-warning INTO TABLE temp8.
+        INSERT zif_aff_log=>c_message_type-error INTO TABLE temp8.
+        types_to_report = temp8.
       WHEN zif_aff_log=>c_message_type-error.
 
-        CLEAR temp13.
-        APPEND zif_aff_log=>c_message_type-error TO temp13.
-        types_to_report = temp13.
+        CLEAR temp10.
+        INSERT zif_aff_log=>c_message_type-error INTO TABLE temp10.
+        types_to_report = temp10.
       WHEN OTHERS.
 
-        CLEAR temp15.
-        APPEND zif_aff_log=>c_message_type-info TO temp15.
-        APPEND zif_aff_log=>c_message_type-warning TO temp15.
-        APPEND zif_aff_log=>c_message_type-error TO temp15.
-        types_to_report = temp15.
+        CLEAR temp12.
+        INSERT zif_aff_log=>c_message_type-info INTO TABLE temp12.
+        INSERT zif_aff_log=>c_message_type-warning INTO TABLE temp12.
+        INSERT zif_aff_log=>c_message_type-error INTO TABLE temp12.
+        types_to_report = temp12.
     ENDCASE.
 
 
     max_severity = log->get_max_severity( ).
 
     READ TABLE types_to_report WITH KEY table_line = max_severity TRANSPORTING NO FIELDS.
-    temp19 = sy-subrc.
-    IF temp19 = 0.
+    temp14 = sy-subrc.
+    IF temp14 = 0.
 
 
-      temp20 = log->get_messages( ).
+      temp15 = log->get_messages( ).
 
-      LOOP AT temp20 ASSIGNING <message>.
+      LOOP AT temp15 ASSIGNING <message>.
 
         READ TABLE types_to_report WITH KEY table_line = <message>-type TRANSPORTING NO FIELDS.
-        temp21 = sy-subrc.
-        IF temp21 = 0.
+        temp16 = sy-subrc.
+        IF temp16 = 0.
           detail = detail && <message>-message_text && cl_abap_char_utilities=>newline.
         ENDIF.
       ENDLOOP.
@@ -3161,7 +3422,7 @@ CLASS zcl_aff_tools_unit_test_helper IMPLEMENTATION.
 
 ENDCLASS.
 ');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('ZCL_AFF_WRITER', 'CLASS zcl_aff_writer DEFINITION
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('ZCL_AFF_WRITER                          ', 'CLASS zcl_aff_writer DEFINITION
   PUBLIC
   ABSTRACT
   CREATE PUBLIC .
@@ -3189,11 +3450,12 @@ ENDCLASS.
     CONSTANTS:
       c_indent_number_characters TYPE i VALUE 2.
 
+    TYPES temp1_f81e03d158 TYPE STANDARD TABLE OF ty_stack_entry.
     DATA:
       output                  TYPE string_table,
       content                 TYPE string_table,
       stack_of_structure      TYPE tt_structure_stack,
-      stack                   TYPE STANDARD TABLE OF ty_stack_entry,
+      stack                   TYPE temp1_f81e03d158,
       indent_level            TYPE i VALUE 0,
       log                     TYPE REF TO zif_aff_log,
       abap_doc_parser         TYPE REF TO zcl_aff_abap_doc_parser,
@@ -3450,15 +3712,21 @@ CLASS zcl_aff_writer IMPLEMENTATION.
 
   METHOD is_type_boolean.
     DATA type_name TYPE string.
+    DATA temp1 TYPE xsdboolean.
     type_name = element_description->get_relative_name( ).
-    result = boolc( element_description->output_length = 1 AND ( type_name IS NOT INITIAL AND c_abap_types-boolean CS type_name ) ).
+
+    temp1 = boolc( element_description->output_length = 1 AND ( type_name IS NOT INITIAL AND c_abap_types-boolean CS type_name ) ).
+    result = temp1.
   ENDMETHOD.
 
 
   METHOD is_type_timestamp.
     DATA type_name TYPE string.
+    DATA temp2 TYPE xsdboolean.
     type_name = element_description->get_relative_name( ).
-    result = boolc( type_name IS NOT INITIAL AND c_abap_types-timestamp CS type_name ).
+
+    temp2 = boolc( type_name IS NOT INITIAL AND c_abap_types-timestamp CS type_name ).
+    result = temp2.
   ENDMETHOD.
 
 
@@ -3734,15 +4002,19 @@ CLASS zcl_aff_writer IMPLEMENTATION.
 
   METHOD get_splitted_absolute_name.
     DATA place_of_type LIKE absolute_name.
-    DATA splitted_in_componets TYPE STANDARD TABLE OF string WITH DEFAULT KEY.
+    TYPES temp2 TYPE STANDARD TABLE OF string WITH DEFAULT KEY.
+    DATA splitted_in_componets TYPE temp2.
     FIELD-SYMBOLS <component> LIKE LINE OF splitted_in_componets.
-    DATA splitted_in_details TYPE STANDARD TABLE OF string WITH DEFAULT KEY.
+    TYPES temp3 TYPE STANDARD TABLE OF string WITH DEFAULT KEY.
+    DATA splitted_in_details TYPE temp3.
     place_of_type = absolute_name.
+
 
     SPLIT place_of_type AT ''\\'' INTO TABLE splitted_in_componets.
 
     LOOP AT splitted_in_componets ASSIGNING <component>.
       IF <component> IS NOT INITIAL.
+
 
         SPLIT <component> AT ''='' INTO TABLE splitted_in_details.
         APPEND LINES OF splitted_in_details TO result.
@@ -3843,14 +4115,16 @@ CLASS zcl_aff_writer IMPLEMENTATION.
 
   METHOD get_infos_of_values_link.
     DATA link LIKE values_link.
-    DATA split_at_point TYPE STANDARD TABLE OF string WITH DEFAULT KEY.
+    TYPES temp4 TYPE STANDARD TABLE OF string WITH DEFAULT KEY.
+    DATA split_at_point TYPE temp4.
     DATA temp29 LIKE LINE OF split_at_point.
     DATA temp30 LIKE sy-tabix.
     DATA temp31 LIKE LINE OF split_at_point.
     DATA temp32 LIKE sy-tabix.
     link = values_link.
-    REPLACE ALL OCCURRENCES OF REGEX \`[\\s]\` IN link WITH \`\` ##REGEX_POSIX.
+    REPLACE ALL OCCURRENCES OF PCRE \`[\\s]\` IN link WITH \`\`.
     REPLACE ALL OCCURRENCES OF \`data:\` IN link WITH \`\`.
+
 
     SPLIT link AT ''.'' INTO TABLE split_at_point.
     IF lines( split_at_point ) = 2.
@@ -3953,18 +4227,26 @@ CLASS zcl_aff_writer IMPLEMENTATION.
     IF abap_doc_base-callback_class IS INITIAL.
       abap_doc_base-callback_class = abap_doc_additional-callback_class.
     ENDIF.
+    IF abap_doc_base-content_encoding IS INITIAL.
+      abap_doc_base-content_encoding = abap_doc_additional-content_encoding.
+    ENDIF.
+    IF abap_doc_base-content_media_type IS INITIAL.
+      abap_doc_base-content_media_type = abap_doc_additional-content_media_type.
+    ENDIF.
   ENDMETHOD.
 
 
   METHOD get_default_from_link.
     DATA link_to_work_on LIKE link.
-    DATA splitted TYPE STANDARD TABLE OF string WITH DEFAULT KEY.
+    TYPES temp5 TYPE STANDARD TABLE OF string WITH DEFAULT KEY.
+    DATA splitted TYPE temp5.
     DATA default_abap LIKE LINE OF splitted.
     DATA temp11 LIKE LINE OF splitted.
     DATA temp12 LIKE sy-tabix.
     link_to_work_on = link.
-    REPLACE ALL OCCURRENCES OF REGEX \`(@link|data:)\` IN link_to_work_on WITH \`\` ##REGEX_POSIX.
-    REPLACE ALL OCCURRENCES OF REGEX \`[\\s]\` IN link_to_work_on WITH \`\` ##REGEX_POSIX.
+    REPLACE ALL OCCURRENCES OF PCRE \`(@link|data:)\` IN link_to_work_on WITH \`\`.
+    REPLACE ALL OCCURRENCES OF PCRE \`[\\s]\` IN link_to_work_on WITH \`\`.
+
 
     SPLIT link_to_work_on AT ''.'' INTO TABLE splitted.
     IF validate_default_link( splitted_link = splitted fullname_of_type = fullname_of_type element_type = element_type ) = abap_true.
@@ -3991,14 +4273,18 @@ CLASS zcl_aff_writer IMPLEMENTATION.
     DATA temp33 TYPE string.
     DATA result TYPE cl_oo_classname_service=>ty_result.
     DATA has_method_get_subschema TYPE abap_bool.
-    DATA temp1 LIKE sy-subrc.
-    DATA temp4 TYPE cl_oo_classname_service=>ty_rowrow.
+    DATA temp13 LIKE sy-subrc.
+    DATA temp1 TYPE cl_oo_classname_service=>ty_rowrow.
+    DATA temp4 TYPE xsdboolean.
     DATA has_method_serialize TYPE abap_bool.
-    DATA temp2 LIKE sy-subrc.
-    DATA temp5 TYPE cl_oo_classname_service=>ty_rowrow.
+    DATA temp14 LIKE sy-subrc.
+    DATA temp2 TYPE cl_oo_classname_service=>ty_rowrow.
+    DATA temp5 TYPE xsdboolean.
     DATA has_method_deserialize TYPE abap_bool.
-    DATA temp3 LIKE sy-subrc.
-    DATA temp6 TYPE cl_oo_classname_service=>ty_rowrow.
+    DATA temp15 LIKE sy-subrc.
+    DATA temp3 TYPE cl_oo_classname_service=>ty_rowrow.
+    DATA temp6 TYPE xsdboolean.
+    DATA temp7 TYPE xsdboolean.
     name_of_callback_class = to_upper( class_name ).
 
     temp33 = name_of_callback_class.
@@ -4014,31 +4300,39 @@ CLASS zcl_aff_writer IMPLEMENTATION.
 
 
 
-      CLEAR temp4.
-      temp4-clsname = name_of_callback_class.
-      temp4-cpdname = ''GET_SUBSCHEMA''.
-      READ TABLE result WITH KEY cpdkey = temp4 TRANSPORTING NO FIELDS.
-      temp1 = sy-subrc.
-      has_method_get_subschema = boolc( temp1 = 0 ).
+      CLEAR temp1.
+      temp1-clsname = name_of_callback_class.
+      temp1-cpdname = ''GET_SUBSCHEMA''.
+      READ TABLE result WITH KEY cpdkey = temp1 TRANSPORTING NO FIELDS.
+      temp13 = sy-subrc.
+
+      temp4 = boolc( temp13 = 0 ).
+      has_method_get_subschema = temp4.
 
 
 
-      CLEAR temp5.
-      temp5-clsname = name_of_callback_class.
-      temp5-cpdname = ''SERIALIZE''.
-      READ TABLE result WITH KEY cpdkey = temp5 TRANSPORTING NO FIELDS.
-      temp2 = sy-subrc.
-      has_method_serialize = boolc( temp2 = 0 ).
+      CLEAR temp2.
+      temp2-clsname = name_of_callback_class.
+      temp2-cpdname = ''SERIALIZE''.
+      READ TABLE result WITH KEY cpdkey = temp2 TRANSPORTING NO FIELDS.
+      temp14 = sy-subrc.
+
+      temp5 = boolc( temp14 = 0 ).
+      has_method_serialize = temp5.
 
 
 
-      CLEAR temp6.
-      temp6-clsname = name_of_callback_class.
-      temp6-cpdname = ''DESERIALIZE''.
-      READ TABLE result WITH KEY cpdkey = temp6 TRANSPORTING NO FIELDS.
-      temp3 = sy-subrc.
-      has_method_deserialize = boolc( temp3 = 0 ).
-      is_valid = boolc( has_method_get_subschema = abap_true AND has_method_serialize = abap_true AND has_method_deserialize = abap_true ).
+      CLEAR temp3.
+      temp3-clsname = name_of_callback_class.
+      temp3-cpdname = ''DESERIALIZE''.
+      READ TABLE result WITH KEY cpdkey = temp3 TRANSPORTING NO FIELDS.
+      temp15 = sy-subrc.
+
+      temp6 = boolc( temp15 = 0 ).
+      has_method_deserialize = temp6.
+
+      temp7 = boolc( has_method_get_subschema = abap_true AND has_method_serialize = abap_true AND has_method_deserialize = abap_true ).
+      is_valid = temp7.
     ENDIF.
     IF is_valid = abap_false.
       log->add_warning( message_text = zif_aff_log=>co_msg106 component_name = component_name ).
@@ -4048,54 +4342,54 @@ CLASS zcl_aff_writer IMPLEMENTATION.
   METHOD validate_default_link.
     DATA msg TYPE string.
     DATA source_name TYPE string.
-    DATA temp13 LIKE LINE OF splitted_link.
-    DATA temp14 LIKE sy-tabix.
+    DATA temp16 LIKE LINE OF splitted_link.
+    DATA temp17 LIKE sy-tabix.
     DATA constant_name TYPE string.
-    DATA temp15 LIKE LINE OF splitted_link.
-    DATA temp16 LIKE sy-tabix.
+    DATA temp18 LIKE LINE OF splitted_link.
+    DATA temp19 LIKE sy-tabix.
     DATA component_name TYPE string.
-    DATA temp17 LIKE LINE OF splitted_link.
-    DATA temp18 LIKE sy-tabix.
+    DATA temp20 LIKE LINE OF splitted_link.
+    DATA temp21 LIKE sy-tabix.
     DATA constant_description TYPE REF TO cl_abap_structdescr.
     DATA components TYPE abap_component_tab.
     DATA temp34 TYPE abap_componentdescr.
     DATA temp35 TYPE abap_componentdescr.
     DATA row LIKE temp34.
     DATA temp36 TYPE symsgv.
-    DATA temp19 TYPE symsgv.
+    DATA temp22 TYPE symsgv.
     DATA temp37 TYPE symsgv.
-    DATA temp20 TYPE symsgv.
+    DATA temp23 TYPE symsgv.
     IF lines( splitted_link ) = 3.
 
 
 
-      temp14 = sy-tabix.
-      READ TABLE splitted_link INDEX 1 INTO temp13.
-      sy-tabix = temp14.
+      temp17 = sy-tabix.
+      READ TABLE splitted_link INDEX 1 INTO temp16.
+      sy-tabix = temp17.
       IF sy-subrc <> 0.
         RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
       ENDIF.
-      source_name = to_upper( temp13 ).
+      source_name = to_upper( temp16 ).
 
 
 
-      temp16 = sy-tabix.
-      READ TABLE splitted_link INDEX 2 INTO temp15.
-      sy-tabix = temp16.
+      temp19 = sy-tabix.
+      READ TABLE splitted_link INDEX 2 INTO temp18.
+      sy-tabix = temp19.
       IF sy-subrc <> 0.
         RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
       ENDIF.
-      constant_name = to_upper( temp15 ).
+      constant_name = to_upper( temp18 ).
 
 
 
-      temp18 = sy-tabix.
-      READ TABLE splitted_link INDEX 3 INTO temp17.
-      sy-tabix = temp18.
+      temp21 = sy-tabix.
+      READ TABLE splitted_link INDEX 3 INTO temp20.
+      sy-tabix = temp21.
       IF sy-subrc <> 0.
         RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
       ENDIF.
-      component_name = to_upper( temp17 ).
+      component_name = to_upper( temp20 ).
 
       constant_description = get_constant_as_struc(
         name_of_source   = source_name
@@ -4120,16 +4414,16 @@ CLASS zcl_aff_writer IMPLEMENTATION.
 
             temp36 = constant_name.
 
-            temp19 = fullname_of_type.
-            msg = log->get_message_text( msgno = 122 msgv1 = temp36 msgv2 = temp19 ).
+            temp22 = fullname_of_type.
+            msg = log->get_message_text( msgno = 122 msgv1 = temp36 msgv2 = temp22 ).
             log->add_warning( message_text = msg component_name = fullname_of_type ).
           ENDIF.
         ELSE.
 
           temp37 = component_name.
 
-          temp20 = constant_name.
-          msg = log->get_message_text( msgno = 105 msgv1 = temp37 msgv2 = temp20 ).
+          temp23 = constant_name.
+          msg = log->get_message_text( msgno = 105 msgv1 = temp37 msgv2 = temp23 ).
           log->add_warning( message_text = msg component_name = fullname_of_type ).
         ENDIF.
       ENDIF.
@@ -4176,7 +4470,7 @@ CLASS zcl_aff_writer IMPLEMENTATION.
             default_ = default_ && repeat( val = ''0'' occ = 6 - strlen( default_ ) ).
           ENDIF.
           IF element_description->type_kind = cl_abap_typedescr=>typekind_utclong.
-            REPLACE REGEX \`T|t\` IN default_ WITH \` \` ##REGEX_POSIX.
+            REPLACE PCRE \`T|t\` IN default_ WITH \` \`.
           ENDIF.
           remove_leading_trailing_spaces( CHANGING string_to_work_on = string ).
           remove_leading_trailing_spaces( CHANGING string_to_work_on = default_ ).
@@ -4226,14 +4520,17 @@ CLASS zcl_aff_writer IMPLEMENTATION.
 
   METHOD is_sy_langu.
     DATA temp39 TYPE sy-langu.
-    DATA temp21 TYPE REF TO cl_abap_elemdescr.
-    DATA sy_langu_description LIKE temp21.
+    DATA temp24 TYPE REF TO cl_abap_elemdescr.
+    DATA sy_langu_description LIKE temp24.
+    DATA temp8 TYPE xsdboolean.
     CLEAR temp39.
 
-    temp21 ?= cl_abap_typedescr=>describe_by_data( temp39 ).
+    temp24 ?= cl_abap_typedescr=>describe_by_data( temp39 ).
 
-    sy_langu_description = temp21.
-    result = boolc( sy_langu_description->edit_mask = element_description->edit_mask ).
+    sy_langu_description = temp24.
+
+    temp8 = boolc( sy_langu_description->edit_mask = element_description->edit_mask ).
+    result = temp8.
   ENDMETHOD.
 
   METHOD clear_type_specifics.
@@ -4249,14 +4546,14 @@ CLASS zcl_aff_writer IMPLEMENTATION.
       log->add_info( message_text = msg component_name = fullname_of_type ).
     ENDIF.
 
-    IF abap_doc-required = abap_true AND abap_doc-default_ IS NOT INITIAL.
+    IF abap_doc-enumvalues_link IS INITIAL AND abap_doc-required = abap_true AND abap_doc-default_ IS NOT INITIAL.
       log->add_warning( message_text = zif_aff_log=>co_msg126 component_name = fullname_of_type ).
     ENDIF.
   ENDMETHOD.
 
 ENDCLASS.
 ');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('ZCL_AFF_WRITER_JSON_SCHEMA', '"! Writer for a JSON schema. This is just a utility class helping to create a JSON schema.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('ZCL_AFF_WRITER_JSON_SCHEMA              ', '"! Writer for a JSON schema. This is just a utility class helping to create a JSON schema.
 "! The generated schema must be reviewed and adapted!
 CLASS zcl_aff_writer_json_schema DEFINITION
   PUBLIC
@@ -4320,12 +4617,13 @@ CLASS zcl_aff_writer_json_schema DEFINITION
       c_format_version            TYPE string VALUE ''FORMAT_VERSION'',
       c_max_length_of_description TYPE i VALUE 253.
 
+    TYPES temp1_44ba95addc TYPE STANDARD TABLE OF string_table.
     DATA:
       schema_id              TYPE string,
       structure_buffer       TYPE tt_buffer,
       table_buffer           TYPE tt_buffer,
       ignore_next_elements   TYPE abap_boolean,
-      stack_of_required_tabs TYPE STANDARD TABLE OF string_table,
+      stack_of_required_tabs TYPE temp1_44ba95addc,
       format_version         TYPE i.
 
     METHODS: append_comma_to_prev_line,
@@ -4432,16 +4730,17 @@ CLASS zcl_aff_writer_json_schema DEFINITION
         IMPORTING abap_doc_to_check        TYPE zcl_aff_abap_doc_parser=>abap_doc
                   fullname_of_checked_type TYPE string,
 
-
       write_title_and_description
         IMPORTING
           type_description TYPE REF TO cl_abap_typedescr
           check_not_needed TYPE abap_boolean DEFAULT abap_false,
+
       set_abapdoc_fullname_element
         IMPORTING
           element_description TYPE REF TO cl_abap_elemdescr
           element_name        TYPE string
           splitted_prev_name  TYPE string_table,
+
       set_abapdoc_fullname_struc_tab
         IMPORTING
           type_description TYPE REF TO cl_abap_typedescr
@@ -4450,10 +4749,26 @@ CLASS zcl_aff_writer_json_schema DEFINITION
       get_max_length
         IMPORTING element_description TYPE REF TO cl_abap_elemdescr
         RETURNING VALUE(result)       TYPE string,
+
       get_extrema
         IMPORTING element_description TYPE REF TO cl_abap_elemdescr
         EXPORTING VALUE(max)          TYPE string
-                  VALUE(min)          TYPE string.
+                  VALUE(min)          TYPE string,
+
+      is_content_encoding_valid
+        IMPORTING content_encoding TYPE string
+        RETURNING VALUE(result)    TYPE abap_boolean,
+
+      write_content_encoding
+        IMPORTING json_type TYPE string,
+
+      write_content_media_type
+        IMPORTING json_type TYPE string,
+      is_element_descr_kind_int
+        IMPORTING
+          element_description TYPE REF TO cl_abap_elemdescr
+        RETURNING
+          VALUE(result)       TYPE abap_bool.
 ENDCLASS.
 
 
@@ -4563,6 +4878,10 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
       IF enum_properties IS NOT INITIAL.
         handle_enums( element_description = element_description enum_properties = enum_properties ).
       ELSE. "non- enum
+
+        write_content_encoding( json_type ).
+        write_content_media_type( json_type ).
+
         IF json_type = zif_aff_writer=>type_info-numeric.
           handle_extrema( element_description ).
         ELSEIF json_type = zif_aff_writer=>type_info-string AND NOT ( element_description->type_kind = cl_abap_typedescr=>typekind_date OR element_description->type_kind = cl_abap_typedescr=>typekind_time OR
@@ -4608,6 +4927,49 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
     ENDIF.
   ENDMETHOD.
 
+  METHOD write_content_encoding.
+    IF abap_doc-content_encoding IS INITIAL.
+      RETURN.
+    ENDIF.
+
+    IF json_type <> zif_aff_writer=>type_info-string.
+      log->add_warning( message_text = zif_aff_log=>co_msg132 component_name = fullname_of_type ).
+      RETURN.
+    ENDIF.
+
+    IF NOT is_content_encoding_valid( abap_doc-content_encoding ) IS NOT INITIAL.
+      log->add_warning( message_text = zif_aff_log=>co_msg133 component_name = fullname_of_type ).
+      RETURN.
+    ENDIF.
+
+    write_tag( |"contentEncoding": "{ abap_doc-content_encoding }",| ).
+  ENDMETHOD.
+
+  METHOD write_content_media_type.
+    IF abap_doc-content_media_type IS INITIAL.
+      RETURN.
+    ENDIF.
+
+    IF json_type <> zif_aff_writer=>type_info-string.
+      log->add_warning( message_text = zif_aff_log=>co_msg132 component_name = fullname_of_type ).
+      RETURN.
+    ENDIF.
+
+    write_tag( |"contentMediaType": "{ abap_doc-content_media_type }",| ).
+  ENDMETHOD.
+
+  METHOD is_content_encoding_valid.
+    IF content_encoding = ''7bit'' OR
+      content_encoding = ''8bit'' OR
+      content_encoding = ''binary'' OR
+      content_encoding = ''quoted-printable'' OR
+      content_encoding = ''base16'' OR
+      content_encoding = ''base32'' OR
+      content_encoding = ''base64''.
+      result = abap_true.
+    ENDIF.
+  ENDMETHOD.
+
 
   METHOD write_title_and_description.
     DATA title TYPE string.
@@ -4632,6 +4994,7 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
     DATA enum_values TYPE string_table.
     FIELD-SYMBOLS <enum_value> LIKE LINE OF enum_properties-values.
     DATA enum_descr TYPE string_table.
+    DATA lt_copy LIKE enum_descr.
     write_tag( \`"enum": [\` ).
 
 
@@ -4651,8 +5014,13 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
 
 
     enum_descr = get_enum_descriptions( element_description = element_description enum_properties = enum_properties ).
-    write_tag( \`"enumDescriptions": [\` ).
-    write_enum_properties( enum_descr ).
+
+    lt_copy = enum_descr.
+    DELETE lt_copy WHERE table_line = ''''.
+    IF lines( lt_copy ) > 0.
+      write_tag( \`"enumDescriptions": [\` ).
+      write_enum_properties( enum_descr ).
+    ENDIF.
   ENDMETHOD.
 
 
@@ -4696,7 +5064,6 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
     DATA max_value TYPE string.
     DATA min_value TYPE string.
     DATA multiple_of LIKE abap_doc-multiple_of.
-    DATA decimals LIKE element_description->decimals.
     DATA exclusive_minimum LIKE abap_doc-exclusive_minimum.
     DATA exclusive_maximum LIKE abap_doc-exclusive_maximum.
     get_extrema(
@@ -4708,12 +5075,8 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
 
     multiple_of = abap_doc-multiple_of.
 
-    IF multiple_of IS INITIAL AND element_description->type_kind = cl_abap_typedescr=>typekind_packed.
-
-      decimals = element_description->decimals.
-      IF decimals > 0.
-        multiple_of = |0.{ repeat( val = \`0\`  occ = decimals - 1 ) }1|.
-      ENDIF.
+    IF multiple_of IS NOT INITIAL AND is_element_descr_kind_int( element_description ) = abap_false.
+      log->add_warning( message_text = zif_aff_log=>co_msg129 component_name = fullname_of_type ).
     ENDIF.
 
 
@@ -4746,11 +5109,16 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
       write_tag( |"exclusiveMaximum": { exclusive_maximum },| ).
     ENDIF.
 
-    IF multiple_of IS NOT INITIAL.
+    IF multiple_of IS NOT INITIAL AND is_element_descr_kind_int( element_description ) = abap_true.
       write_tag( |"multipleOf": { multiple_of },| ).
     ENDIF.
   ENDMETHOD.
 
+  METHOD is_element_descr_kind_int.
+    DATA temp1 TYPE xsdboolean.
+    temp1 = boolc( element_description->type_kind = cl_abap_typedescr=>typekind_int OR element_description->type_kind = cl_abap_typedescr=>typekind_int1 OR element_description->type_kind = cl_abap_typedescr=>typekind_int2 OR element_description->type_kind = cl_abap_typedescr=>typekind_int8 ).
+    result = temp1.
+  ENDMETHOD.
 
   METHOD handle_default.
     DATA default_ LIKE abap_doc-default_.
@@ -4957,13 +5325,13 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
       CLEAR temp18.
       temp18-name = table_name.
       temp18-number_brackets = 2.
-      INSERT temp18 INTO TABLE me->table_buffer.
+      INSERT temp18 INTO me->table_buffer INDEX 1.
     ELSE.
 
       CLEAR temp19.
       temp19-name = table_name.
       temp19-number_brackets = 1.
-      INSERT temp19 INTO TABLE me->table_buffer.
+      INSERT temp19 INTO me->table_buffer INDEX 1.
     ENDIF.
 
     write_title_and_description( table_description ).
@@ -4981,6 +5349,7 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
   METHOD close_table.
     DATA temp21 LIKE LINE OF me->table_buffer.
     DATA temp22 LIKE sy-tabix.
+    DATA temp23 LIKE sy-subrc.
     temp22 = sy-tabix.
     READ TABLE me->table_buffer WITH KEY name = table_name INTO temp21.
     sy-tabix = temp22.
@@ -4990,7 +5359,10 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
     DO temp21-number_brackets TIMES.
       write_closing_tag( \`}\` ).
     ENDDO.
-    DELETE me->table_buffer WHERE name = table_name.
+
+    READ TABLE me->table_buffer WITH KEY name = table_name TRANSPORTING NO FIELDS.
+    temp23 = sy-tabix.
+    DELETE me->table_buffer INDEX temp23.
     reset_indent_level_tag( ).
   ENDMETHOD.
 
@@ -5071,10 +5443,10 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
   METHOD set_abapdoc_fullname_element.
     DATA source_type TYPE string.
     DATA source TYPE string.
-    DATA temp23 LIKE LINE OF splitted_prev_name.
-    DATA temp24 LIKE sy-tabix.
-    DATA temp25 LIKE LINE OF splitted_prev_name.
-    DATA temp26 LIKE sy-tabix.
+    DATA temp24 LIKE LINE OF splitted_prev_name.
+    DATA temp25 LIKE sy-tabix.
+    DATA temp26 LIKE LINE OF splitted_prev_name.
+    DATA temp27 LIKE sy-tabix.
     DATA already_searched LIKE abap_true.
     DATA abap_doc_second TYPE zcl_aff_abap_doc_parser=>abap_doc.
 * Simple Component of a structure, defined in the structure definition
@@ -5094,22 +5466,22 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
       fullname_of_type = element_name.
 
 
-      temp24 = sy-tabix.
-      READ TABLE splitted_prev_name INDEX 1 INTO temp23.
-      sy-tabix = temp24.
+      temp25 = sy-tabix.
+      READ TABLE splitted_prev_name INDEX 1 INTO temp24.
+      sy-tabix = temp25.
       IF sy-subrc <> 0.
         RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
       ENDIF.
-      source_type = temp23.
+      source_type = temp24.
 
 
-      temp26 = sy-tabix.
-      READ TABLE splitted_prev_name INDEX 2 INTO temp25.
-      sy-tabix = temp26.
+      temp27 = sy-tabix.
+      READ TABLE splitted_prev_name INDEX 2 INTO temp26.
+      sy-tabix = temp27.
       IF sy-subrc <> 0.
         RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
       ENDIF.
-      source = temp25.
+      source = temp26.
 
       already_searched = abap_true.
     ENDIF.
@@ -5295,7 +5667,7 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
 
   METHOD get_description.
     DATA element_description TYPE REF TO cl_abap_elemdescr.
-    DATA temp27 TYPE REF TO cl_abap_elemdescr.
+    DATA temp28 TYPE REF TO cl_abap_elemdescr.
     DATA ddic_field TYPE dfies.
     IF abap_doc-description IS NOT INITIAL.
       result = abap_doc-description.
@@ -5303,8 +5675,8 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
 
       TRY.
 
-          temp27 ?= type_description.
-          element_description = temp27.
+          temp28 ?= type_description.
+          element_description = temp28.
         CATCH cx_sy_move_cast_error.
           RETURN.
       ENDTRY.
@@ -5327,7 +5699,7 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
     DATA ddic_fixed_values TYPE cl_abap_elemdescr=>fixvalues.
     FIELD-SYMBOLS <value> LIKE LINE OF ddic_fixed_values.
     DATA text TYPE string.
-    DATA temp28 TYPE zcl_aff_writer_json_schema=>ty_enum_value.
+    DATA temp29 TYPE zcl_aff_writer_json_schema=>ty_enum_value.
     IF abap_doc-enumvalues_link IS NOT INITIAL.
       result = get_properties_from_structure( element_description->type_kind ).
     ELSE.
@@ -5347,11 +5719,11 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
       LOOP AT ddic_fixed_values ASSIGNING <value>.
 
         text = <value>-ddtext.
-        REPLACE ALL OCCURRENCES OF REGEX ''\\s'' IN text WITH ''_''  ##REGEX_POSIX.
+        REPLACE ALL OCCURRENCES OF PCRE ''\\s'' IN text WITH ''_''.
 
-        CLEAR temp28.
-        temp28-value = format_to_camel_case( text ).
-        INSERT temp28 INTO TABLE result-values.
+        CLEAR temp29.
+        temp29-value = format_to_camel_case( text ).
+        INSERT temp29 INTO TABLE result-values.
       ENDLOOP.
     ENDIF.
   ENDMETHOD.
@@ -5395,13 +5767,13 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
     DATA name_of_source TYPE string.
     DATA name_of_constant TYPE string.
     FIELD-SYMBOLS <component> LIKE LINE OF structure_of_values->components.
-    DATA temp29 TYPE symsgv.
+    DATA temp30 TYPE symsgv.
     DATA temp20 TYPE symsgv.
     DATA msg TYPE string.
-    DATA temp30 TYPE REF TO zcx_aff_tools.
+    DATA temp31 TYPE REF TO zcx_aff_tools.
     DATA fullname_of_value TYPE string.
     DATA abap_doc_of_component TYPE zcl_aff_abap_doc_parser=>abap_doc.
-    DATA temp31 TYPE ty_enum_value.
+    DATA temp32 TYPE ty_enum_value.
     DATA temp21 TYPE string.
     get_structure_of_enum_values(
       EXPORTING
@@ -5417,14 +5789,14 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
       LOOP AT structure_of_values->components ASSIGNING <component>.
         IF <component>-type_kind <> enum_type.
 
-          temp29 = name_of_constant.
+          temp30 = name_of_constant.
 
           temp20 = fullname_of_type.
 
-          msg = log->get_message_text( msgno = 122 msgv1 = temp29 msgv2 = temp20 ).
+          msg = log->get_message_text( msgno = 122 msgv1 = temp30 msgv2 = temp20 ).
 
-          CREATE OBJECT temp30 TYPE zcx_aff_tools EXPORTING message = msg.
-          RAISE EXCEPTION temp30.
+          CREATE OBJECT temp31 TYPE zcx_aff_tools EXPORTING message = msg.
+          RAISE EXCEPTION temp31.
         ENDIF.
 
 
@@ -5433,12 +5805,12 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
         abap_doc_of_component = call_reader_and_decode( name_of_source = name_of_source element_name = fullname_of_value ).
 
 
-        CLEAR temp31.
+        CLEAR temp32.
 
         temp21 = <component>-name.
-        temp31-value = format_to_camel_case( temp21 ).
-        temp31-overwritten_value = abap_doc_of_component-enum_value.
-        APPEND temp31 TO result-values.
+        temp32-value = format_to_camel_case( temp21 ).
+        temp32-overwritten_value = abap_doc_of_component-enum_value.
+        APPEND temp32 TO result-values.
         APPEND abap_doc_of_component-description TO result-descriptions.
         APPEND abap_doc_of_component-title TO result-titles.
 
@@ -5452,9 +5824,9 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
 
 
   METHOD add_required_table_to_stack.
-    DATA temp32 TYPE string_table.
-    CLEAR temp32.
-    INSERT temp32 INTO stack_of_required_tabs INDEX 1.
+    DATA temp33 TYPE string_table.
+    CLEAR temp33.
+    INSERT temp33 INTO stack_of_required_tabs INDEX 1.
   ENDMETHOD.
 
 
@@ -5466,14 +5838,14 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
 
 
   METHOD write_req_and_add_props.
-    FIELD-SYMBOLS <temp33> LIKE LINE OF content.
-    DATA temp34 LIKE sy-tabix.
+    FIELD-SYMBOLS <temp34> LIKE LINE OF content.
+    DATA temp35 LIKE sy-tabix.
     DATA temp22 LIKE LINE OF content.
     DATA temp23 LIKE sy-tabix.
-    DATA temp35 LIKE LINE OF stack_of_required_tabs.
-    DATA temp36 LIKE sy-tabix.
-    FIELD-SYMBOLS <temp37> LIKE LINE OF content.
-    DATA temp38 LIKE sy-tabix.
+    DATA temp36 LIKE LINE OF stack_of_required_tabs.
+    DATA temp37 LIKE sy-tabix.
+    FIELD-SYMBOLS <temp38> LIKE LINE OF content.
+    DATA temp39 LIKE sy-tabix.
     DATA temp24 LIKE LINE OF content.
     DATA temp25 LIKE sy-tabix.
     DATA temp26 LIKE LINE OF stack_of_required_tabs.
@@ -5481,14 +5853,14 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
     FIELD-SYMBOLS <required_comp> LIKE LINE OF temp26.
     DATA temp28 LIKE LINE OF stack_of_required_tabs.
     DATA temp29 LIKE sy-tabix.
-    DATA temp39 LIKE LINE OF stack_of_required_tabs.
-    DATA temp40 LIKE sy-tabix.
+    DATA temp40 LIKE LINE OF stack_of_required_tabs.
+    DATA temp41 LIKE sy-tabix.
     IF ignore_til_indent_level > indent_level OR ignore_til_indent_level IS INITIAL.
 
 
-      temp34 = sy-tabix.
-      READ TABLE content INDEX lines( content ) ASSIGNING <temp33>.
-      sy-tabix = temp34.
+      temp35 = sy-tabix.
+      READ TABLE content INDEX lines( content ) ASSIGNING <temp34>.
+      sy-tabix = temp35.
       IF sy-subrc <> 0.
         RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
       ENDIF.
@@ -5500,22 +5872,22 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
       IF sy-subrc <> 0.
         RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
       ENDIF.
-      <temp33> = temp22 && \`,\`.
+      <temp34> = temp22 && \`,\`.
       write_tag( \`"additionalProperties": false\` ).
 
 
-      temp36 = sy-tabix.
-      READ TABLE stack_of_required_tabs INDEX 1 INTO temp35.
-      sy-tabix = temp36.
+      temp37 = sy-tabix.
+      READ TABLE stack_of_required_tabs INDEX 1 INTO temp36.
+      sy-tabix = temp37.
       IF sy-subrc <> 0.
         RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
       ENDIF.
-      IF temp35 IS NOT INITIAL.
+      IF temp36 IS NOT INITIAL.
 
 
-        temp38 = sy-tabix.
-        READ TABLE content INDEX lines( content ) ASSIGNING <temp37>.
-        sy-tabix = temp38.
+        temp39 = sy-tabix.
+        READ TABLE content INDEX lines( content ) ASSIGNING <temp38>.
+        sy-tabix = temp39.
         IF sy-subrc <> 0.
           RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
         ENDIF.
@@ -5527,7 +5899,7 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
         IF sy-subrc <> 0.
           RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
         ENDIF.
-        <temp37> = temp24 && \`,\`.
+        <temp38> = temp24 && \`,\`.
         write_tag( \`"required": [\` ).
         indent_level = indent_level + 1.
 
@@ -5550,13 +5922,13 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
         LOOP AT temp28 ASSIGNING <required_comp>.
 
 
-          temp40 = sy-tabix.
-          READ TABLE stack_of_required_tabs INDEX 1 INTO temp39.
-          sy-tabix = temp40.
+          temp41 = sy-tabix.
+          READ TABLE stack_of_required_tabs INDEX 1 INTO temp40.
+          sy-tabix = temp41.
           IF sy-subrc <> 0.
             RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
           ENDIF.
-          IF sy-tabix < lines( temp39 ).
+          IF sy-tabix < lines( temp40 ).
             write_tag( |"{ <required_comp> }",| ).
           ELSE.
             write_tag( |"{ <required_comp> }"| ).
@@ -5580,11 +5952,11 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
 
 
   METHOD write_tag.
-    DATA temp41 LIKE LINE OF content.
+    DATA temp42 LIKE LINE OF content.
     IF ignore_til_indent_level IS INITIAL OR ignore_til_indent_level > indent_level.
 
-      temp41 = |{ repeat( val = \` \` occ = indent_level * c_indent_number_characters ) }{ line }|.
-      APPEND temp41 TO content.
+      temp42 = |{ repeat( val = \` \` occ = indent_level * c_indent_number_characters ) }{ line }|.
+      APPEND temp42 TO content.
     ENDIF.
   ENDMETHOD.
 
@@ -5629,7 +6001,7 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
 
   METHOD check_title_and_description.
     DATA msg TYPE string.
-    DATA temp42 TYPE symsgv.
+    DATA temp43 TYPE symsgv.
 
     IF ignore_til_indent_level IS INITIAL OR ignore_til_indent_level > indent_level. "Only write message if no callback class provided
       IF abap_doc_to_check-title IS INITIAL.
@@ -5642,8 +6014,8 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
         log->add_info( message_text = msg component_name = fullname_of_checked_type ).
       ELSEIF strlen( abap_doc_to_check-description ) > c_max_length_of_description.
 
-        temp42 = c_max_length_of_description.
-        msg = log->get_message_text( msgno = 125 msgv1 = temp42 ).
+        temp43 = c_max_length_of_description.
+        msg = log->get_message_text( msgno = 125 msgv1 = temp43 ).
         log->add_warning( message_text = msg component_name = fullname_of_checked_type ).
       ENDIF.
     ENDIF.
@@ -5675,24 +6047,22 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
 
   METHOD handle_language_field.
     write_tag( \`"minLength": 2,\` ).
-    write_tag( \`"maxLength": 2,\` ).
-    write_tag( \`"pattern": "^[a-z]+$",\` ).
   ENDMETHOD.
 
 
   METHOD get_max_length.
-    DATA temp43 TYPE i.
-    DATA length LIKE temp43.
+    DATA temp44 TYPE i.
+    DATA length LIKE temp44.
     DATA length_as_string TYPE string.
     IF element_description->output_length > 0.
 
       IF ( element_description->length / cl_abap_char_utilities=>charsize ) > element_description->output_length.
-        temp43 = element_description->length / cl_abap_char_utilities=>charsize.
+        temp44 = element_description->length / cl_abap_char_utilities=>charsize.
       ELSE.
-        temp43 = element_description->output_length.
+        temp44 = element_description->output_length.
       ENDIF.
 
-      length = temp43.
+      length = temp44.
 
       length_as_string = length.
       remove_leading_trailing_spaces( CHANGING string_to_work_on = length_as_string ).
@@ -5704,10 +6074,10 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
   METHOD get_extrema.
     DATA r_field TYPE REF TO data.
     FIELD-SYMBOLS <field> TYPE any.
-    DATA max_val TYPE REF TO any.
-    FIELD-SYMBOLS <max> TYPE any.
-    DATA min_val TYPE REF TO any.
-    FIELD-SYMBOLS <min> TYPE any.
+    DATA max_val TYPE REF TO data.
+    FIELD-SYMBOLS <max> TYPE data.
+    DATA min_val TYPE REF TO data.
+    FIELD-SYMBOLS <min> TYPE data.
     DATA min_str TYPE string.
     DATA length TYPE i.
     DATA front TYPE string.
@@ -5759,7 +6129,7 @@ CLASS zcl_aff_writer_json_schema IMPLEMENTATION.
   ENDMETHOD.
 ENDCLASS.
 ');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('ZCL_AFF_WRITER_XSLT', 'CLASS zcl_aff_writer_xslt DEFINITION
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('ZCL_AFF_WRITER_XSLT                     ', 'CLASS zcl_aff_writer_xslt DEFINITION
   PUBLIC
   INHERITING FROM zcl_aff_writer
   CREATE PUBLIC.
@@ -5850,7 +6220,6 @@ ENDCLASS.
       write_enum_value_mappings
         IMPORTING
           element_description TYPE REF TO cl_abap_elemdescr
-          json_type           TYPE string
           element_name        TYPE string
           enum_values         TYPE tt_enum_values
         RAISING
@@ -5959,7 +6328,17 @@ ENDCLASS.
       set_abapdoc_fullname_element
         IMPORTING
           element_description TYPE REF TO cl_abap_elemdescr
-          element_name        TYPE string.
+          element_name        TYPE string,
+      write_enum_map_ext_compatible
+        IMPORTING
+          element_description TYPE REF TO cl_abap_elemdescr
+          element_name        TYPE string
+          enum_values         TYPE zcl_aff_writer_xslt=>tt_enum_values,
+      get_to_ref
+        IMPORTING
+                  name          TYPE string
+        RETURNING VALUE(result) TYPE string.
+
 
 ENDCLASS.
 
@@ -6046,16 +6425,20 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
   METHOD append_before_output.
     DATA temp4 LIKE LINE OF output.
     DATA temp5 LIKE LINE OF output.
+    DATA temp6 LIKE LINE OF output.
     APPEND \`<?sap.transform simple?>\` TO output.
     APPEND \`<tt:transform xmlns:tt="http://www.sap.com/transformation-templates">\` TO output.
     APPEND LINES OF st_template_imports TO output.
 
     temp4 = |<tt:root name="{ st_root_name }"/>|.
     APPEND temp4 TO output.
+
+    temp5 = |<tt:variable name="VARIABLE"/>|.
+    APPEND temp5 TO output.
     APPEND \`<tt:template>\` TO output.
 
-    temp5 = |<tt:ref name="{ st_root_name }">|.
-    APPEND temp5 TO output.
+    temp6 = |<tt:ref name="{ st_root_name }">|.
+    APPEND temp6 TO output.
   ENDMETHOD.
 
 
@@ -6068,8 +6451,8 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
 
   METHOD write_element.
     DATA enum_values TYPE zcl_aff_writer_xslt=>tt_enum_values.
-    DATA temp6 TYPE string.
-    DATA type LIKE temp6.
+    DATA temp7 TYPE string.
+    DATA type LIKE temp7.
     DATA tag TYPE string.
     CHECK ignore_next_elements = abap_false.
 
@@ -6082,12 +6465,12 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
     ENDIF.
 
     IF enum_values IS NOT INITIAL.
-      temp6 = zif_aff_writer=>type_info-string.
+      temp7 = zif_aff_writer=>type_info-string.
     ELSE.
-      temp6 = get_json_type_from_description( element_description ).
+      temp7 = get_json_type_from_description( element_description ).
     ENDIF.
 
-    type = temp6.
+    type = temp7.
 
 
     tag = get_tag_from_type( type ).
@@ -6095,17 +6478,26 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
     IF abap_doc-callback_class IS NOT INITIAL AND is_callback_class_valid( class_name = abap_doc-callback_class component_name = fullname_of_type ) IS NOT INITIAL.
       write_callback_template( element_name = element_name description = element_description tag = tag ).
     ENDIF.
-
-
     write_open_tag( |<tt:cond{ get_condition_for_element( element_name = element_name element_description = element_description enum_values = enum_values type = type ) }>| ).
     write_open_tag( |<{ tag }{ get_name( name = element_name ) }>| ).
     IF ( is_sy_langu( element_description = element_description ) IS NOT INITIAL ).
       write_iso_language_callback( element_name = element_name ).
     ELSEIF enum_values IS INITIAL.
       write_tag( |<tt:value{ get_ref( element_name ) }{ get_option( json_type = type element_description = element_description ) }/>| ).
+    ELSEIF abap_doc-default_ IS NOT INITIAL.
+      write_open_tag( line = |<tt:deserialize>| ).
+      write_enum_map_ext_compatible(
+        element_description = element_description
+        element_name        = element_name
+        enum_values         = enum_values ).
+      write_closing_tag( \`</tt:deserialize>\` ).
+      write_open_tag( |<tt:serialize>| ).
+      write_enum_value_mappings( element_description = element_description element_name = element_name enum_values = enum_values ).
+      write_closing_tag( \`</tt:serialize>\` ).
     ELSE.
-      write_enum_value_mappings( element_description = element_description json_type = type element_name = element_name enum_values = enum_values ).
+      write_enum_value_mappings( element_description = element_description element_name = element_name enum_values = enum_values ).
     ENDIF.
+
     write_closing_tag( |</{ tag }>| ).
     write_closing_tag( \`</tt:cond>\` ).
     reset_indent_level_tag( ).
@@ -6205,9 +6597,9 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
 
 
   METHOD get_tag_from_type.
-    DATA temp7 TYPE symsgv.
+    DATA temp8 TYPE symsgv.
     DATA msg TYPE string.
-    DATA temp8 TYPE REF TO zcx_aff_tools.
+    DATA temp9 TYPE REF TO zcx_aff_tools.
     CASE json_type.
       WHEN zif_aff_writer=>type_info-string OR zif_aff_writer=>type_info-date_time.
         result = \`str\`.
@@ -6217,20 +6609,20 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
         result = \`num\`.
       WHEN OTHERS.
 
-        temp7 = json_type.
+        temp8 = json_type.
 
-        msg = log->get_message_text( msgno = 102 msgv1 = temp7 ).
+        msg = log->get_message_text( msgno = 102 msgv1 = temp8 ).
 
-        CREATE OBJECT temp8 TYPE zcx_aff_tools EXPORTING message = msg.
-        RAISE EXCEPTION temp8.
+        CREATE OBJECT temp9 TYPE zcx_aff_tools EXPORTING message = msg.
+        RAISE EXCEPTION temp9.
     ENDCASE.
   ENDMETHOD.
 
 
   METHOD get_option.
-    DATA temp9 TYPE symsgv.
+    DATA temp10 TYPE symsgv.
     DATA msg TYPE string.
-    DATA temp10 TYPE REF TO zcx_aff_tools.
+    DATA temp11 TYPE REF TO zcx_aff_tools.
     IF is_sy_langu( element_description ) = abap_true.
       result = \` option="format(language)"\` ##NO_TEXT.
     ELSE.
@@ -6245,12 +6637,12 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
           result = \` option="format(alpha)"\` ##NO_TEXT.
         WHEN OTHERS.
 
-          temp9 = json_type.
+          temp10 = json_type.
 
-          msg = log->get_message_text( msgno = 102 msgv1 = temp9 ).
+          msg = log->get_message_text( msgno = 102 msgv1 = temp10 ).
 
-          CREATE OBJECT temp10 TYPE zcx_aff_tools EXPORTING message = msg.
-          RAISE EXCEPTION temp10.
+          CREATE OBJECT temp11 TYPE zcx_aff_tools EXPORTING message = msg.
+          RAISE EXCEPTION temp11.
       ENDCASE.
     ENDIF.
   ENDMETHOD.
@@ -6264,7 +6656,7 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
     IF lines( enum_values ) = 0.
       RETURN.
     ENDIF.
-    write_tag( |<tt:value{ get_ref( element_name ) } { get_option( json_type = json_type element_description = element_description ) }map="| ) ##NO_TEXT.
+    write_tag( |<tt:value{ get_ref( element_name ) } map="| ) ##NO_TEXT.
 
 
     index = 1.
@@ -6281,8 +6673,8 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
       IF index < lines( enum_values ).
         write_tag( |  val({ abap_value })=xml(''{ xml_value }''),| ) ##NO_TEXT.
       ELSE.
-        write_tag( |  val({ abap_value })=xml(''{ xml_value }'')| ) ##NO_TEXT.
-        write_tag( \`"/>\` ).
+        write_tag( |  val({ abap_value })=xml(''{ xml_value }'')"| ) ##NO_TEXT.
+        write_tag( \`/>\` ).
       ENDIF.
       index = index + 1.
     ENDLOOP.
@@ -6318,6 +6710,12 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
     ENDIF.
   ENDMETHOD.
 
+  METHOD get_to_ref.
+    IF next_tag_without_name_and_ref = abap_false.
+      result = | to-ref="{ name }"| ##NO_TEXT.
+    ENDIF.
+  ENDMETHOD.
+
 
   METHOD get_ref_for_structure.
     IF next_tag_without_name_and_ref = abap_false.
@@ -6342,7 +6740,7 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
       RETURN.
     ENDIF.
 
-    IF abap_doc-default_ IS NOT INITIAL AND abap_doc-required = abap_false.
+    IF abap_doc-default_ IS NOT INITIAL AND ( abap_doc-required = abap_false OR abap_doc-enumvalues_link IS NOT INITIAL ).
 
       default_ = get_default( enum_values = enum_values structure_name = element_name element_description = element_description type = type ).
     ENDIF.
@@ -6362,9 +6760,9 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
     DATA table TYPE zcl_aff_writer_xslt=>tt_variable_default_pair.
     DATA temp5 LIKE LINE OF stack_default_comp_of_struc.
     DATA temp6 LIKE sy-tabix.
-    DATA temp11 TYPE zcl_aff_writer_xslt=>ty_variable_default_pair.
-    FIELD-SYMBOLS <temp12> LIKE LINE OF stack_default_comp_of_struc.
-    DATA temp13 LIKE sy-tabix.
+    DATA temp12 TYPE zcl_aff_writer_xslt=>ty_variable_default_pair.
+    FIELD-SYMBOLS <temp13> LIKE LINE OF stack_default_comp_of_struc.
+    DATA temp14 LIKE sy-tabix.
     default_ = get_default_value_from_default(
       enum_values         = enum_values
       element_description = element_description
@@ -6381,19 +6779,19 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
       ENDIF.
       table = temp5-table_of_defaults.
 
-      CLEAR temp11.
-      temp11-var_name = structure_name.
-      temp11-default_value = default_.
-      APPEND temp11 TO table.
+      CLEAR temp12.
+      temp12-var_name = structure_name.
+      temp12-default_value = default_.
+      APPEND temp12 TO table.
 
 
-      temp13 = sy-tabix.
-      READ TABLE stack_default_comp_of_struc INDEX 1 ASSIGNING <temp12>.
-      sy-tabix = temp13.
+      temp14 = sy-tabix.
+      READ TABLE stack_default_comp_of_struc INDEX 1 ASSIGNING <temp13>.
+      sy-tabix = temp14.
       IF sy-subrc <> 0.
         RAISE EXCEPTION TYPE cx_sy_itab_line_not_found.
       ENDIF.
-      <temp12>-table_of_defaults = table.
+      <temp13>-table_of_defaults = table.
     ENDIF.
   ENDMETHOD.
 
@@ -6407,11 +6805,11 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
     FIELD-SYMBOLS <component> LIKE LINE OF structure_of_values->components.
     DATA fullname_of_component TYPE string.
     DATA abap_doc_of_component TYPE zcl_aff_abap_doc_parser=>abap_doc.
-    DATA temp14 TYPE symsgv.
+    DATA temp15 TYPE symsgv.
     DATA temp7 TYPE symsgv.
     DATA msg TYPE string.
-    DATA temp15 TYPE REF TO zcx_aff_tools.
-    DATA temp16 TYPE zcl_aff_writer_xslt=>ty_enum_value.
+    DATA temp16 TYPE REF TO zcx_aff_tools.
+    DATA temp17 TYPE zcl_aff_writer_xslt=>ty_enum_value.
     DATA temp8 TYPE string.
     get_structure_of_enum_values(
       EXPORTING
@@ -6433,24 +6831,24 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
         abap_doc_of_component = call_reader_and_decode( name_of_source = name_of_source element_name = fullname_of_component ).
         IF <component>-type_kind <> enum_type.
 
-          temp14 = name_of_constant.
+          temp15 = name_of_constant.
 
           temp7 = fullname_of_type.
 
-          msg = log->get_message_text( msgno = 122 msgv1 = temp14 msgv2 = temp7 ).
+          msg = log->get_message_text( msgno = 122 msgv1 = temp15 msgv2 = temp7 ).
 
-          CREATE OBJECT temp15 TYPE zcx_aff_tools EXPORTING message = msg.
-          RAISE EXCEPTION temp15.
+          CREATE OBJECT temp16 TYPE zcx_aff_tools EXPORTING message = msg.
+          RAISE EXCEPTION temp16.
         ENDIF.
         ASSIGN COMPONENT <component>-name OF STRUCTURE <attr> TO <fs_data>.
 
-        CLEAR temp16.
-        temp16-abap_value = <fs_data>.
+        CLEAR temp17.
+        temp17-abap_value = <fs_data>.
 
         temp8 = <component>-name.
-        temp16-json_value = format_name( temp8 ).
-        temp16-overwritten_json_value = abap_doc_of_component-enum_value.
-        INSERT temp16 INTO TABLE result.
+        temp17-json_value = format_name( temp8 ).
+        temp17-overwritten_json_value = abap_doc_of_component-enum_value.
+        INSERT temp17 INTO TABLE result.
       ENDLOOP.
       IF abap_doc-required = abap_false AND abap_doc-default_ IS INITIAL.
         log->add_warning( message_text = zif_aff_log=>co_msg127 component_name = fullname_of_type ).
@@ -6460,11 +6858,11 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
 
 
   METHOD write_tag.
-    DATA temp17 LIKE LINE OF content.
+    DATA temp18 LIKE LINE OF content.
     IF ignore_til_indent_level IS INITIAL OR ignore_til_indent_level - 1 > indent_level.
 
-      temp17 = |{ repeat( val = \` \` occ = indent_level * c_indent_number_characters ) }{ line }|.
-      APPEND temp17 TO content.
+      temp18 = |{ repeat( val = \` \` occ = indent_level * c_indent_number_characters ) }{ line }|.
+      APPEND temp18 TO content.
     ENDIF.
   ENDMETHOD.
 
@@ -6521,8 +6919,8 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
   METHOD get_prefixed_default.
     DATA value_copy TYPE string.
     DATA message TYPE string.
-    DATA temp18 TYPE REF TO zcx_aff_tools.
     DATA temp19 TYPE REF TO zcx_aff_tools.
+    DATA temp20 TYPE REF TO zcx_aff_tools.
     CASE element_description->type_kind.
       WHEN cl_abap_typedescr=>typekind_int OR cl_abap_typedescr=>typekind_int1 OR cl_abap_typedescr=>typekind_int2.
         value_copy = value.
@@ -6552,12 +6950,12 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
 
         message = log->get_message_text( msgno = 117 msgv1 = \`UTCLONG\` ).
 
-        CREATE OBJECT temp18 TYPE zcx_aff_tools EXPORTING message = message.
-        RAISE EXCEPTION temp18.
+        CREATE OBJECT temp19 TYPE zcx_aff_tools EXPORTING message = message.
+        RAISE EXCEPTION temp19.
       WHEN OTHERS.
 
-        CREATE OBJECT temp19 TYPE zcx_aff_tools.
-        RAISE EXCEPTION temp19.
+        CREATE OBJECT temp20 TYPE zcx_aff_tools.
+        RAISE EXCEPTION temp20.
     ENDCASE.
   ENDMETHOD.
 
@@ -6568,7 +6966,7 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
     DATA temp10 LIKE sy-tabix.
     DATA list_of_applies LIKE content.
     FIELD-SYMBOLS <default> LIKE LINE OF actual_entry-table_of_defaults.
-    DATA temp20 LIKE LINE OF list_of_applies.
+    DATA temp21 LIKE LINE OF list_of_applies.
     temp10 = sy-tabix.
     READ TABLE me->stack_default_comp_of_struc INDEX 1 INTO temp9.
     sy-tabix = temp10.
@@ -6580,8 +6978,8 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
 
     LOOP AT actual_entry-table_of_defaults ASSIGNING <default>.
 
-      temp20 = |{ repeat( val = \` \` occ = ( indent_level * c_indent_number_characters ) - c_indent_number_characters ) }<tt:assign to-ref="{ <default>-var_name }" val="{ <default>-default_value }"/>|.
-      APPEND temp20 TO list_of_applies.
+      temp21 = |{ repeat( val = \` \` occ = ( indent_level * c_indent_number_characters ) - c_indent_number_characters ) }<tt:assign to-ref="{ <default>-var_name }" val="{ <default>-default_value }"/>|.
+      APPEND temp21 TO list_of_applies.
     ENDLOOP.
     INSERT LINES OF list_of_applies INTO content INDEX actual_entry-line_to_insert + 1.
     DELETE me->stack_default_comp_of_struc INDEX 1.
@@ -6591,7 +6989,7 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
   METHOD write_callback_template.
     DATA ref_name LIKE element_name.
     DATA calculated_tag LIKE tag.
-    DATA temp21 TYPE REF TO cl_abap_elemdescr.
+    DATA temp22 TYPE REF TO cl_abap_elemdescr.
     DATA component_start TYPE string.
     DATA component_end TYPE string.
     IF indent_level > 0.
@@ -6612,8 +7010,8 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
           calculated_tag = tag.
         ELSE.
 
-          temp21 ?= description.
-          calculated_tag = get_tag_from_type( get_json_type_from_description( temp21 ) ).
+          temp22 ?= description.
+          calculated_tag = get_tag_from_type( get_json_type_from_description( temp22 ) ).
         ENDIF.
 
         component_start = |<{ calculated_tag }>|.
@@ -6660,7 +7058,7 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
     DATA exception TYPE REF TO cx_o2_xslt_error.
     FIELD-SYMBOLS <error> LIKE LINE OF errors.
     DATA msg TYPE string.
-    DATA temp22 TYPE string.
+    DATA temp23 TYPE string.
     APPEND LINES OF source TO tsource.
     TRY.
 
@@ -6680,8 +7078,8 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
 
         msg = log->get_message_text( msgno = 0 msgv1 = sy-msgv1 msgv2 = sy-msgv2 msgv3 = sy-msgv3 msgv4 = sy-msgv4 ).
 
-        CLEAR temp22.
-        log->add_error( message_text = msg component_name = temp22 ).
+        CLEAR temp23.
+        log->add_error( message_text = msg component_name = temp23 ).
       ENDLOOP.
       RETURN.
     ENDIF.
@@ -6698,7 +7096,7 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
     DATA component LIKE LINE OF components.
     DATA formatted_name TYPE string.
     DATA tag TYPE string.
-    DATA temp23 LIKE LINE OF content.
+    DATA temp24 LIKE LINE OF content.
 
     write_open_tag( \`<tt:d-cond frq="*">\` ).
     write_open_tag( \` <_ tt:lax="on">\` ).
@@ -6726,8 +7124,8 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
       write_tag( \`<tt:with-parameter name="MEMBERS"\` ).
       IF ignore_til_indent_level IS INITIAL OR ignore_til_indent_level - 1 > indent_level.
 
-        temp23 = |val="''{ str_comp }''"/>|.
-        APPEND temp23 TO content.
+        temp24 = |val="''{ str_comp }''"/>|.
+        APPEND temp24 TO content.
       ENDIF.
     ELSE.
       write_tag( |<tt:with-parameter name="MEMBERS" val="''{ str_comp }''"/>| ).
@@ -6742,9 +7140,31 @@ CLASS zcl_aff_writer_xslt IMPLEMENTATION.
 
   ENDMETHOD.
 
+
+  METHOD write_enum_map_ext_compatible.
+    FIELD-SYMBOLS <enum_value> LIKE LINE OF enum_values.
+    DATA abap_value TYPE string.
+    DATA xml_value LIKE <enum_value>-json_value.
+    write_tag( line = |<tt:read type="C" var="VARIABLE"/>| ).
+
+    LOOP AT enum_values ASSIGNING <enum_value>.
+
+      abap_value = get_abap_value( abap_value = <enum_value>-abap_value element_description = element_description ).
+      IF <enum_value>-overwritten_json_value IS INITIAL.
+
+        xml_value = <enum_value>-json_value.
+      ELSE.
+        xml_value = <enum_value>-overwritten_json_value.
+      ENDIF.
+      write_open_tag( |<tt:cond-var check="VARIABLE=''{ xml_value }''">| ).
+      write_tag( |<tt:assign { get_to_ref( element_name ) } val="{ abap_value }"/>| ).
+      write_closing_tag( \`</tt:cond-var>\` ).
+    ENDLOOP.
+  ENDMETHOD.
+
 ENDCLASS.
 ');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('ZCX_AFF_TOOLS', 'CLASS zcx_aff_tools DEFINITION
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('ZCX_AFF_TOOLS                           ', 'CLASS zcx_aff_tools DEFINITION
   PUBLIC
   INHERITING FROM cx_static_check
   CREATE PUBLIC.
@@ -6791,7 +7211,23 @@ CLASS zcx_aff_tools IMPLEMENTATION.
 
 ENDCLASS.
 ');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('ZIF_AFF_INTF_V1', 'INTERFACE zif_aff_intf_v1 PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('ZIF_AFF_GENERATOR                       ', 'INTERFACE zif_aff_generator
+  PUBLIC.
+  METHODS: generate_type
+    IMPORTING
+      data          TYPE data
+    RETURNING
+      VALUE(result) TYPE string_table
+    RAISING
+      zcx_aff_tools,
+
+    get_log
+      RETURNING
+        VALUE(log) TYPE REF TO zif_aff_log.
+
+ENDINTERFACE.
+');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('ZIF_AFF_INTF_V1                         ', 'INTERFACE zif_aff_intf_v1 PUBLIC.
 
   "! <p class="shorttext">Interface Category</p>
   "! Interface category
@@ -6847,7 +7283,7 @@ ENDCLASS.
     END OF ty_main.
 
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('ZIF_AFF_LOG', '"! Log for the Schema/Simple Transformation writers.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('ZIF_AFF_LOG                             ', '"! Log for the Schema/Simple Transformation writers.
 INTERFACE zif_aff_log
   PUBLIC.
 
@@ -6866,7 +7302,11 @@ INTERFACE zif_aff_log
     co_msg123 TYPE string VALUE \`No structure was provided for type generator\` ##NO_TEXT,
     co_msg124 TYPE string VALUE \`Given structure must have mandatory fields format_version and header\` ##NO_TEXT,
     co_msg126 TYPE string VALUE \`For required fields, a default handling is not possible\` ##NO_TEXT,
-    co_msg127 TYPE string VALUE \`Elements of type enum should be required or have a default\` ##NO_TEXT.
+    co_msg127 TYPE string VALUE \`Elements of type enum should be required or have a default\` ##NO_TEXT,
+    co_msg128 TYPE string VALUE \`Components on top level (except format_version) should be structures or tables\` ##NO_TEXT,
+    co_msg129 TYPE string VALUE \`Fields of a different type than integer should not use the annototation $multipleOf\` ##NO_TEXT,
+    co_msg132 TYPE string VALUE \`Only elements of character-like type can have annotation $contentEncoding or $contentMediaType\` ##NO_TEXT,
+    co_msg133 TYPE string VALUE \`The content encoding is unknown\` ##NO_TEXT.
 
   TYPES:
     "! A single message entry in the log
@@ -6969,7 +7409,7 @@ INTERFACE zif_aff_log
 
 ENDINTERFACE.
 ');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('ZIF_AFF_OO_TYPES_V1', '"! <p class="shorttext synchronized" lang="en">Common types for classes and interfaces</p>
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('ZIF_AFF_OO_TYPES_V1                     ', '"! <p class="shorttext synchronized" lang="en">Common types for classes and interfaces</p>
 "! Types which can be reused for Class and Interface AFF Types
 INTERFACE zif_aff_oo_types_v1
   PUBLIC.
@@ -7055,7 +7495,7 @@ INTERFACE zif_aff_oo_types_v1
     END OF ty_descriptions.
 
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('ZIF_AFF_TYPES_V1', '"! <p class="shorttext synchronized" lang="en">General types reusable in AFF</p>
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('ZIF_AFF_TYPES_V1                        ', '"! <p class="shorttext synchronized" lang="en">General types reusable in AFF</p>
 "! Types which can be reused in all AFF object types
 INTERFACE zif_aff_types_v1 PUBLIC.
 
@@ -7260,7 +7700,7 @@ INTERFACE zif_aff_types_v1 PUBLIC.
     END OF co_sign.
 
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('ZIF_AFF_WRITER', 'INTERFACE zif_aff_writer
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('ZIF_AFF_WRITER                          ', 'INTERFACE zif_aff_writer
   PUBLIC.
 
   CONSTANTS: BEGIN OF  type_info,
@@ -7331,232 +7771,28 @@ ENDINTERFACE.');`);
 
 ENDINTERFACE.
 ');`);
-  insert.push(`INSERT INTO t100 ('SPRSL', 'ARBGB', 'MSGNR', 'TEXT') VALUES ('E', '00', '001', '&1&2&3&4');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_BCS', 'CLASS cl_bcs DEFINITION PUBLIC.
+  insert.push(`INSERT INTO "t100" ("sprsl", "arbgb", "msgnr", "text") VALUES ('E', '00                  ', '001', '&1&2&3&4                                                                 ');`);
+  insert.push(`INSERT INTO "t100" ("sprsl", "arbgb", "msgnr", "text") VALUES ('E', '00                  ', '002', 'needed by abapGit unit test                                              ');`);
+  insert.push(`INSERT INTO "t100" ("sprsl", "arbgb", "msgnr", "text") VALUES ('E', '00                  ', '003', 'needed by abapGit unit test                                              ');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_CHAR_UTILITIES                  ', 'CLASS cl_abap_char_utilities DEFINITION PUBLIC.
   PUBLIC SECTION.
-    CLASS-METHODS create_persistent
-      RETURNING
-        VALUE(result) TYPE REF TO cl_bcs
-      RAISING
-        cx_bcs.
-
-    METHODS add_recipient
-      IMPORTING
-        i_recipient  TYPE REF TO if_recipient_bcs
-        i_express    TYPE abap_bool OPTIONAL
-        i_copy       TYPE abap_bool OPTIONAL
-        i_blind_copy TYPE abap_bool OPTIONAL
-        i_no_forward TYPE abap_bool OPTIONAL
-      RAISING
-        cx_bcs.
-
-    METHODS set_sender
-      IMPORTING
-        i_sender TYPE REF TO if_sender_bcs
-      RAISING
-        cx_bcs.
-
-    METHODS set_document
-      IMPORTING
-        i_document TYPE REF TO if_document_bcs
-      RAISING
-        cx_bcs.
-
-    METHODS set_message_subject
-      IMPORTING
-        ip_subject TYPE string
-      RAISING
-        cx_bcs.
-
-    METHODS send
-      IMPORTING
-        i_with_error_screen TYPE abap_bool DEFAULT abap_false
-      RETURNING
-        VALUE(result) TYPE abap_bool
-      RAISING
-        cx_bcs.
-
-    METHODS set_send_immediately
-      IMPORTING
-        i_send_immediately TYPE abap_bool
-      RAISING
-        cx_bcs.
-ENDCLASS.
-
-CLASS cl_bcs IMPLEMENTATION.
-
-  METHOD set_document.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-  METHOD set_send_immediately.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-  METHOD set_message_subject.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-  METHOD set_sender.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-  METHOD send.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-  METHOD create_persistent.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-  METHOD add_recipient.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_BCS_CONVERT', 'CLASS cl_bcs_convert DEFINITION PUBLIC.
-  PUBLIC SECTION.
-
-    CLASS-METHODS string_to_soli
-      IMPORTING
-        iv_string      TYPE string
-      RETURNING
-        VALUE(et_soli) TYPE soli_tab.
-
-    CLASS-METHODS xstring_to_solix
-      IMPORTING
-        iv_xstring TYPE xstring
-      RETURNING
-        VALUE(et_solix) TYPE solix_tab.
-
-ENDCLASS.
-
-CLASS cl_bcs_convert IMPLEMENTATION.
-
-  METHOD string_to_soli.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-  METHOD xstring_to_solix.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_CAM_ADDRESS_BCS', 'CLASS cl_cam_address_bcs DEFINITION PUBLIC.
-  PUBLIC SECTION.
-    INTERFACES if_recipient_bcs.
-    INTERFACES if_sender_bcs.
-
-    CLASS-METHODS create_internet_address
-      IMPORTING
-        i_address_string TYPE clike
-        i_address_name   TYPE clike OPTIONAL
-        i_incl_sapuser   TYPE abap_bool OPTIONAL
-      RETURNING
-        VALUE(result)    TYPE REF TO cl_cam_address_bcs
-      RAISING
-        cx_bcs.
-
-ENDCLASS.
-
-CLASS cl_cam_address_bcs IMPLEMENTATION.
-
-  METHOD create_internet_address.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_DOCUMENT_BCS', 'CLASS cl_document_bcs DEFINITION PUBLIC.
-  PUBLIC SECTION.
-    INTERFACES if_document_bcs.
-
-    CLASS-METHODS create_document
-      IMPORTING
-        i_type    TYPE string
-        i_subject TYPE string
-        i_text    TYPE any OPTIONAL
-        i_length  TYPE i OPTIONAL
-      RETURNING
-        VALUE(result) TYPE REF TO cl_document_bcs
-      RAISING
-        cx_bcs.
-
-    METHODS add_attachment
-      IMPORTING
-        i_attachment_type    TYPE string
-        i_attachment_subject TYPE string
-        i_attachment_size    TYPE i OPTIONAL
-        i_att_content_text   TYPE any OPTIONAL
-        i_att_content_hex    TYPE any OPTIONAL
-        i_attachment_header  TYPE soli_tab OPTIONAL
-      RAISING
-        cx_bcs.
-
-ENDCLASS.
-
-CLASS cl_document_bcs IMPLEMENTATION.
-
-  METHOD create_document.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-  METHOD add_attachment.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_BCS', 'CLASS cx_bcs DEFINITION PUBLIC INHERITING FROM cx_static_check.
-
-ENDCLASS.
-
-CLASS cx_bcs IMPLEMENTATION.
-
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_DOCUMENT_BCS', 'INTERFACE if_document_bcs PUBLIC.
-
-ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_RECIPIENT_BCS', 'INTERFACE if_recipient_bcs PUBLIC.
-
-ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SENDER_BCS', 'INTERFACE if_sender_bcs PUBLIC.
-
-ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_OO_ADT_CLASSRUN', 'INTERFACE if_oo_adt_classrun PUBLIC.
-  METHODS main IMPORTING out TYPE REF TO if_oo_adt_classrun_out.
-ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_OO_ADT_CLASSRUN_OUT', 'INTERFACE if_oo_adt_classrun_out PUBLIC.
-
-  METHODS write
-    IMPORTING
-      data TYPE any
-      name TYPE string OPTIONAL
-    RETURNING
-      VALUE(output) TYPE REF TO if_oo_adt_classrun_out.
-
-  METHODS get
-    IMPORTING
-      data TYPE any OPTIONAL
-      name TYPE string OPTIONAL PREFERRED PARAMETER data
-    RETURNING
-      VALUE(output) TYPE string.
-
-ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_CHAR_UTILITIES', 'CLASS cl_abap_char_utilities DEFINITION PUBLIC.
-  PUBLIC SECTION.
-    CONSTANTS:
 * https://en.wikipedia.org/wiki/Byte_order_mark, 0xEF,0xBB,0xBF
-      byte_order_mark_utf8   TYPE x LENGTH 3 VALUE ''EFBBBF'',
-      byte_order_mark_big    TYPE x LENGTH 2 VALUE ''FEFF'',
-      byte_order_mark_little TYPE x LENGTH 2 VALUE ''FFFE'',
-      cr_lf                  TYPE c LENGTH 2 VALUE ''__'',
-      charsize               TYPE i VALUE 2,
-      horizontal_tab         TYPE c LENGTH 1 VALUE ''_'',
-      vertical_tab           TYPE c LENGTH 1 VALUE ''_'',
-      form_feed              TYPE c LENGTH 1 VALUE ''_'',
-      backspace              TYPE c LENGTH 1 VALUE ''_'',
-      minchar                TYPE c LENGTH 1 VALUE ''_'',
-      maxchar                TYPE c LENGTH 1 VALUE ''_'',
-      newline                TYPE c LENGTH 1 VALUE ''_''.
+    CONSTANTS byte_order_mark_utf8   TYPE x LENGTH 3 VALUE ''EFBBBF''.
+    CONSTANTS byte_order_mark_big    TYPE x LENGTH 2 VALUE ''FEFF''.
+    CONSTANTS byte_order_mark_little TYPE x LENGTH 2 VALUE ''FFFE''.
+    CONSTANTS charsize               TYPE i VALUE 2.
+* open-abap is little endian
+    CONSTANTS endian                 TYPE abap_endian VALUE ''L''.
+
+    CONSTANTS backspace      TYPE abap_char1 VALUE %_backspace.
+    CONSTANTS cr_lf          TYPE abap_cr_lf VALUE %_cr_lf.
+    CONSTANTS form_feed      TYPE abap_char1 VALUE %_formfeed.
+    CONSTANTS horizontal_tab TYPE abap_char1 VALUE %_horizontal_tab.
+    CONSTANTS newline        TYPE abap_char1 VALUE %_newline.
+    CONSTANTS vertical_tab   TYPE abap_char1 VALUE %_vertical_tab.
+
+    CONSTANTS maxchar        TYPE abap_char1 VALUE ''_''.
+    CONSTANTS minchar        TYPE abap_char1 VALUE ''_''.
 
     CLASS-METHODS class_constructor.
 
@@ -7568,14 +7804,8 @@ ENDCLASS.
 CLASS cl_abap_char_utilities IMPLEMENTATION.
 
   METHOD class_constructor.
-    WRITE ''@KERNEL cl_abap_char_utilities.cr_lf.set("\\r\\n");''.
-    WRITE ''@KERNEL cl_abap_char_utilities.horizontal_tab.set("\\t");''.
-    WRITE ''@KERNEL cl_abap_char_utilities.vertical_tab.set("\\v");''.
-    WRITE ''@KERNEL cl_abap_char_utilities.form_feed.set("\\f");''.
-    WRITE ''@KERNEL cl_abap_char_utilities.backspace.set("\\b");''.
-    WRITE ''@KERNEL cl_abap_char_utilities.newline.set("\\n");''.
-    WRITE ''@KERNEL cl_abap_char_utilities.minchar.set(Buffer.from("0000", "hex").toString());''.
     WRITE ''@KERNEL cl_abap_char_utilities.maxchar.set(Buffer.from("FDFF", "hex").toString());''.
+    WRITE ''@KERNEL cl_abap_char_utilities.minchar.set(Buffer.from("0000", "hex").toString());''.
   ENDMETHOD.
 
   METHOD get_simple_spaces_for_cur_cp.
@@ -7583,7 +7813,7 @@ CLASS cl_abap_char_utilities IMPLEMENTATION.
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_EXCEPTIONAL_VALUES', 'CLASS cl_abap_exceptional_values DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_EXCEPTIONAL_VALUES              ', 'CLASS cl_abap_exceptional_values DEFINITION PUBLIC.
   PUBLIC SECTION.
     CLASS-METHODS get_max_value
       IMPORTING
@@ -7619,10 +7849,15 @@ CLASS cl_abap_exceptional_values IMPLEMENTATION.
 
         IF lv_length = 3 AND lv_decimals = 1.
           <out> = ''9999.9''.
+        ELSEIF lv_length = 4 AND lv_decimals = 1.
+          <out> = ''999999.9''.
+        ELSEIF lv_length = 7 AND lv_decimals = 3.
+          <out> = ''9999999999.999''.
         ELSE.
           ASSERT 1 = ''todo''.
         ENDIF.
       WHEN OTHERS.
+        WRITE ''@KERNEL console.dir(INPUT);''.
         ASSERT 1 = ''todo''.
     ENDCASE.
   ENDMETHOD.
@@ -7641,47 +7876,106 @@ CLASS cl_abap_exceptional_values IMPLEMENTATION.
         ASSIGN out->* TO <out>.
         <out> = <out> * -1.
       WHEN OTHERS.
+        WRITE ''@KERNEL console.dir(INPUT);''.
         ASSERT 1 = ''todo''.
     ENDCASE.
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_FORMAT', 'CLASS cl_abap_format DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_FORMAT                          ', 'CLASS cl_abap_format DEFINITION PUBLIC.
   PUBLIC SECTION.
-    CONSTANTS e_html_attr TYPE i VALUE 5.
-    CONSTANTS e_html_text TYPE i VALUE 4.
-    CONSTANTS e_json_string TYPE i VALUE 24.
-    CONSTANTS e_url TYPE i VALUE 12.
+    CONSTANTS e_html_attr    TYPE i VALUE 5.
+    CONSTANTS e_html_js      TYPE i VALUE 8.
+    CONSTANTS e_html_js_html TYPE i VALUE 10.
+    CONSTANTS e_html_text    TYPE i VALUE 4.
+    CONSTANTS e_json_string  TYPE i VALUE 24.
+    CONSTANTS e_url          TYPE i VALUE 12.
+    CONSTANTS e_xml_attr     TYPE i VALUE 1.
+    CONSTANTS e_xss_ml       TYPE i VALUE 26.
 ENDCLASS.
 
 CLASS cl_abap_format IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_GZIP', 'CLASS cl_abap_gzip DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_GZIP                            ', 'CLASS cl_abap_gzip DEFINITION PUBLIC.
   PUBLIC SECTION.
-    CLASS-METHODS
-      decompress_binary
-        IMPORTING
-          gzip_in     TYPE xstring
-        EXPORTING
-          raw_out     TYPE xstring
-          raw_out_len TYPE i.
+    CLASS-METHODS decompress_binary
+      IMPORTING
+        gzip_in     TYPE xstring
+      EXPORTING
+        raw_out     TYPE xstring
+        raw_out_len TYPE i.
 
-    CLASS-METHODS
-      compress_binary
-        IMPORTING
-          compress_level TYPE i OPTIONAL
-          raw_in         TYPE xstring
-        EXPORTING
-          gzip_out       TYPE xstring
-          gzip_out_len   TYPE i.
+    CLASS-METHODS compress_binary
+      IMPORTING
+        compress_level TYPE i OPTIONAL
+        raw_in         TYPE xstring
+      EXPORTING
+        gzip_out       TYPE xstring
+        gzip_out_len   TYPE i.
+
+    CLASS-METHODS decompress_text
+      IMPORTING
+        gzip_in     TYPE xsequence
+        gzip_in_len TYPE i DEFAULT -1
+        conversion  TYPE abap_encod DEFAULT ''DEFAULT''
+      EXPORTING
+        text_out     TYPE csequence
+        text_out_len TYPE i
+      RAISING
+        cx_parameter_invalid_range
+        cx_sy_buffer_overflow
+        cx_sy_conversion_codepage
+        cx_sy_compression_error.
+
+    CLASS-METHODS compress_text
+      IMPORTING
+        text_in        TYPE csequence
+        text_in_len    TYPE i DEFAULT -1
+        compress_level TYPE i DEFAULT 6
+        conversion     TYPE abap_encod DEFAULT ''DEFAULT''
+      EXPORTING
+        gzip_out TYPE xsequence
+        gzip_out_len TYPE i
+      RAISING
+        cx_parameter_invalid_range
+        cx_sy_buffer_overflow
+        cx_sy_conversion_codepage
+        cx_sy_compression_error.
+
+    CLASS-METHODS decompress_binary_with_header
+      IMPORTING
+        gzip_in TYPE xstring
+      EXPORTING
+        raw_out TYPE xstring
+      RAISING
+        cx_parameter_invalid
+        cx_sy_buffer_overflow
+        cx_sy_compression_error.
 ENDCLASS.
 
 CLASS cl_abap_gzip IMPLEMENTATION.
+  METHOD decompress_binary_with_header.
+* with gzip RFC 1952 header
+    WRITE ''@KERNEL const zlib = await import("zlib");''.
+    WRITE ''@KERNEL const buf = Buffer.from(gzip_in.get(), "hex");''.
+    WRITE ''@KERNEL const decompress = zlib.gunzipSync(buf).toString("hex").toUpperCase();''.
+
+    WRITE ''@KERNEL raw_out.set(decompress);''.
+  ENDMETHOD.
+
+  METHOD decompress_text.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD compress_text.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
   METHOD decompress_binary.
     WRITE ''@KERNEL const zlib = await import("zlib");''.
     WRITE ''@KERNEL const buf = Buffer.from(gzip_in.get(), "hex");''.
-    WRITE ''@KERNEL const decompress = zlib.inflateRawSync(buf).toString("hex").toUpperCase();''.
+    WRITE ''@KERNEL const decompress = zlib.inflateRawSync(buf, {finishFlush: zlib.constants.Z_SYNC_FLUSH}).toString("hex").toUpperCase();''.
 
     WRITE ''@KERNEL raw_out.set(decompress);''.
     raw_out_len = xstrlen( raw_out ).
@@ -7697,151 +7991,31 @@ CLASS cl_abap_gzip IMPLEMENTATION.
     gzip_out_len = xstrlen( gzip_out ).
   ENDMETHOD.
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_HMAC', 'CLASS cl_abap_hmac DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_WEAK_REFERENCE                  ', 'CLASS cl_abap_weak_reference DEFINITION PUBLIC.
   PUBLIC SECTION.
-    CLASS-METHODS calculate_hmac_for_raw
+    METHODS constructor
       IMPORTING
-        if_algorithm   TYPE string DEFAULT ''SHA1''
-        if_key         TYPE xstring
-        if_data        TYPE xstring
-      EXPORTING
-        ef_hmacstring  TYPE string
-        ef_hmacxstring TYPE xstring
-      RAISING
-        cx_abap_message_digest.
+        oref TYPE REF TO object.
 
-    CLASS-METHODS calculate_hmac_for_char
-      IMPORTING
-        if_algorithm     TYPE string DEFAULT ''SHA1''
-        if_key           TYPE xstring
-        if_data          TYPE string
-      EXPORTING
-        ef_hmacstring    TYPE string
-        ef_hmacxstring   TYPE xstring
-        ef_hmacb64string TYPE string
-      RAISING
-        cx_abap_message_digest.
+    METHODS get
+      RETURNING
+        VALUE(oref) TYPE REF TO object.
+  PRIVATE SECTION.
+    DATA mv_ref TYPE x LENGTH 1.
 ENDCLASS.
 
-CLASS cl_abap_hmac IMPLEMENTATION.
-  METHOD calculate_hmac_for_raw.
-
-    DATA lv_algorithm TYPE string.
-
-    CLEAR ef_hmacstring.
-    CLEAR ef_hmacxstring.
-
-    lv_algorithm = to_lower( if_algorithm ).
-    ASSERT lv_algorithm = ''sha1'' OR lv_algorithm = ''md5'' OR lv_algorithm = ''sha256''.
-
-* todo, this doesnt work in browser?
-    WRITE ''@KERNEL const crypto = await import("crypto");''.
-    IF if_key IS INITIAL.
-      WRITE ''@KERNEL var shasum = crypto.createHash(lv_algorithm.get());''.
-      WRITE ''@KERNEL shasum.update(if_data.get(), "hex");''.
-      WRITE ''@KERNEL ef_hmacstring.set(shasum.digest("hex").toUpperCase());''.
-    ELSE.
-      WRITE ''@KERNEL let hmac = crypto.createHmac(lv_algorithm.get(), Buffer.from(if_key.get(), "hex")).update(if_data.get(), "hex").digest("hex").toUpperCase();''.
-      WRITE ''@KERNEL ef_hmacstring.set(hmac);''.
-    ENDIF.
-
-    ef_hmacxstring = ef_hmacstring.
-
+CLASS cl_abap_weak_reference IMPLEMENTATION.
+  METHOD constructor.
+    ASSERT oref IS NOT INITIAL.
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakRef
+    WRITE ''@KERNEL this.mv_ref = new WeakRef(oref);''.
   ENDMETHOD.
 
-  METHOD calculate_hmac_for_char.
-    ASSERT 1 = ''todo''.
+  METHOD get.
+    WRITE ''@KERNEL oref.set(this.mv_ref.deref());''.
   ENDMETHOD.
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_TSTMP', 'CLASS cl_abap_tstmp DEFINITION PUBLIC.
-  PUBLIC SECTION.
-    CLASS-METHODS subtract
-      IMPORTING
-        tstmp1 TYPE p
-        tstmp2 TYPE p
-      RETURNING
-        VALUE(r_secs) TYPE i.
-
-    CLASS-METHODS add
-      IMPORTING
-        tstmp   TYPE p
-        secs    TYPE i
-      RETURNING
-        VALUE(time) TYPE timestamp.
-
-    CLASS-METHODS subtractsecs
-      IMPORTING
-        tstmp   TYPE p
-        secs    TYPE i
-      RETURNING
-        VALUE(time) TYPE timestamp.
-
-    CLASS-METHODS td_add
-      IMPORTING
-        date     TYPE d
-        time     TYPE t
-        secs     TYPE numeric
-      EXPORTING
-        res_date TYPE d
-        res_time TYPE t.
-
-    CLASS-METHODS move
-      IMPORTING
-        tstmp_src   TYPE p
-      EXPORTING
-        tstmp_tgt TYPE p.
-
-    CLASS-METHODS systemtstmp_syst2utc
-      IMPORTING
-        syst_date TYPE d
-        syst_time TYPE t
-      EXPORTING
-        utc_tstmp TYPE p.
-ENDCLASS.
-
-CLASS cl_abap_tstmp IMPLEMENTATION.
-
-  METHOD td_add.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-  METHOD move.
-* todo, this is most likely wrong, but will also work in some cases
-    tstmp_tgt = tstmp_src.
-
-  ENDMETHOD.
-
-  METHOD systemtstmp_syst2utc.
-* system timezone is always UTC for open-abap, so no conversion needed
-    utc_tstmp = |{ syst_date }{ syst_time }|.
-  ENDMETHOD.
-
-  METHOD subtract.
-    DATA str TYPE string.
-    str = |{ tstmp1 TIMESTAMP = ISO }|.
-    WRITE ''@KERNEL let t1 = Date.parse(str.get());''.
-    str = |{ tstmp2 TIMESTAMP = ISO }|.
-    WRITE ''@KERNEL let t2 = Date.parse(str.get());''.
-    WRITE ''@KERNEL r_secs.set((t1 - t2)/1000);''.
-  ENDMETHOD.
-
-  METHOD add.
-    DATA str TYPE string.
-    str = |{ tstmp TIMESTAMP = ISO }|.
-    WRITE ''@KERNEL let t1 = new Date(Date.parse(str.get() + "Z"));''.
-    WRITE ''@KERNEL t1.setSeconds( t1.getSeconds() + secs.get() );''.
-    WRITE ''@KERNEL time.set(t1.toISOString().slice(0, 19).replace(/-/g, "").replace(/:/g, "").replace("T", ""));''.
-  ENDMETHOD.
-
-  METHOD subtractsecs.
-    DATA lv_secs TYPE i.
-    lv_secs = secs * -1.
-    time = add(
-      tstmp = tstmp
-      secs  = lv_secs ).
-  ENDMETHOD.
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_ZIP', 'CLASS cl_abap_zip DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_ZIP                             ', 'CLASS cl_abap_zip DEFINITION PUBLIC.
 
   PUBLIC SECTION.
     METHODS add
@@ -7849,13 +8023,27 @@ ENDCLASS.');`);
         name TYPE string
         content TYPE xstring.
 
-    METHODS save RETURNING VALUE(val) TYPE xstring.
+    METHODS save
+      RETURNING
+        VALUE(val) TYPE xstring.
 
-    METHODS load IMPORTING zip TYPE xstring.
+    METHODS load
+      IMPORTING
+        zip TYPE xstring.
 
     METHODS get
-      IMPORTING name TYPE string
-      EXPORTING content TYPE xstring.
+      IMPORTING
+        name    TYPE string OPTIONAL
+        index   TYPE i OPTIONAL
+      EXPORTING
+        content TYPE xstring.
+
+    METHODS delete
+      IMPORTING
+        name  TYPE string OPTIONAL
+        index TYPE i DEFAULT 0
+      EXCEPTIONS
+        zip_index_error.
 
     CLASS-METHODS crc32
       IMPORTING content TYPE xstring
@@ -7863,6 +8051,7 @@ ENDCLASS.');`);
 
     TYPES: BEGIN OF t_file,
              name TYPE string,
+             size TYPE i,
            END OF t_file.
     TYPES t_files TYPE STANDARD TABLE OF t_file WITH DEFAULT KEY.
     DATA files TYPE t_files.
@@ -7870,7 +8059,6 @@ ENDCLASS.');`);
   PRIVATE SECTION.
     TYPES: BEGIN OF ty_contents,
              name          TYPE string,
-             original_size TYPE i,
 * todo, optimize memory usage, dont store both compressed and original,
              content       TYPE xstring,
              compressed    TYPE xstring,
@@ -7884,24 +8072,35 @@ CLASS cl_abap_zip IMPLEMENTATION.
   METHOD crc32.
     DATA lo_stream TYPE REF TO lcl_stream.
     CREATE OBJECT lo_stream.
-    crc = lo_stream->append_crc( content ).
+    crc = lo_stream->append_crc(
+      iv_little_endian = abap_false
+      iv_xstring       = content ).
+  ENDMETHOD.
+
+  METHOD delete.
+    ASSERT 1 = ''todo''.
   ENDMETHOD.
 
   METHOD get.
-    DATA:
-      ls_length TYPE i,
-      ls_contents LIKE LINE OF mt_contents.
+    DATA ls_length   TYPE i.
+    DATA ls_contents LIKE LINE OF mt_contents.
+
+    ASSERT name IS NOT INITIAL.
+    ASSERT index IS INITIAL.
+
     READ TABLE mt_contents WITH KEY name = name INTO ls_contents.
     cl_abap_gzip=>decompress_binary(
-        EXPORTING gzip_in = ls_contents-compressed
-        IMPORTING raw_out = content
-                  raw_out_len = ls_length ).
+      EXPORTING
+        gzip_in     = ls_contents-compressed
+      IMPORTING
+        raw_out     = content
+        raw_out_len = ls_length ).
   ENDMETHOD.
 
   METHOD add.
     DATA ls_contents LIKE LINE OF mt_contents.
+
     ls_contents-name = name.
-    ls_contents-original_size = xstrlen( content ).
     ls_contents-content = content.
     cl_abap_gzip=>compress_binary(
       EXPORTING
@@ -7917,190 +8116,1028 @@ CLASS cl_abap_zip IMPLEMENTATION.
 
   METHOD save.
 * https://en.wikipedia.org/wiki/ZIP_(file_format)
+* https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT
 
-    DATA lo_stream TYPE REF TO lcl_stream.
+    DATA lo_total    TYPE REF TO lcl_stream.
+    DATA lo_file     TYPE REF TO lcl_stream.
+    DATA lo_central  TYPE REF TO lcl_stream.
     DATA ls_contents LIKE LINE OF mt_contents.
-    DATA lv_buffer TYPE xstring.
-    DATA lo_conv TYPE REF TO cl_abap_conv_out_ce.
+    DATA lv_buffer   TYPE xstring.
+    DATA lv_tmp      TYPE xstring.
+    DATA lv_start    TYPE i.
+    DATA lo_conv     TYPE REF TO cl_abap_conv_out_ce.
 
-    CREATE OBJECT lo_stream.
+    CREATE OBJECT lo_central.
+    CREATE OBJECT lo_total.
     lo_conv = cl_abap_conv_out_ce=>create( ).
 
     LOOP AT mt_contents INTO ls_contents.
-* 0, 4, Local file header signature
-      lo_stream->append( ''504B0304'' ).
-* 4, 2, Version needed to extract (minimum)
-      lo_stream->append( ''1400'' ).
-* 6, 2, General purpose bit flag
-      lo_stream->append( ''0000'' ).
-* 8, 2, Compression method; e.g. none = 0, DEFLATE = 8 (or "0x08 0x00")
-      lo_stream->append( ''0800'' ).
-* 10, 2, File last modification time
-      lo_stream->append( ''0000'' ). "lo_stream->append_time( sy-uzeit ).
-* 12, 2, File last modification date
-      lo_stream->append( ''0000'' ). "lo_stream->append_date( sy-datum ).
-* 14, 4, CRC-32 of uncompressed data
-      lo_stream->append_crc( ls_contents-content ).
-* 18, 4, Compressed size (or 0xffffffff for ZIP64)
-      lo_stream->append_int4( xstrlen( ls_contents-compressed ) ).
-* 22, 4, Uncompressed size (or 0xffffffff for ZIP64)
-      lo_stream->append_int4( xstrlen( ls_contents-content ) ).
-* 26, 2, File name length (n)
-      lo_stream->append_int2( strlen( ls_contents-name ) ).
-* 28, 2, Extra field length (m)
-      lo_stream->append( ''0000'' ).
-* 30, n, File name
       lo_conv->convert( EXPORTING data = ls_contents-name
                         IMPORTING buffer = lv_buffer ).
-      lo_stream->append( lv_buffer ).
+
+****************************************
+* LOCAL FILE RECORD
+      CREATE OBJECT lo_file.
+* 0, 4, Local file header signature
+      lo_file->append( ''504B0304'' ).
+* 4, 2, Version needed to extract (minimum)
+      lo_file->append( ''1400'' ).
+* 6, 2, General purpose bit flag
+      lo_file->append( ''0000'' ).
+* 8, 2, Compression method; e.g. none = 0, DEFLATE = 8 (or "0x08 0x00")
+      lo_file->append( ''0800'' ).
+* 10, 2, File last modification time
+      lo_file->append( ''0699'' ). "lo_stream->append_time( sy-uzeit ).
+* 12, 2, File last modification date
+      lo_file->append( ''F856'' ). "lo_stream->append_date( sy-datum ).
+* 14, 4, CRC-32 of uncompressed data
+      lo_file->append_crc(
+        iv_little_endian = abap_true
+        iv_xstring       = ls_contents-content ).
+* 18, 4, Compressed size (or 0xffffffff for ZIP64)
+      lo_file->append_int4( xstrlen( ls_contents-compressed ) ).
+* 22, 4, Uncompressed size (or 0xffffffff for ZIP64)
+      lo_file->append_int4( xstrlen( ls_contents-content ) ).
+* 26, 2, File name length (n)
+      lo_file->append_int2( xstrlen( lv_buffer ) ).
+* 28, 2, Extra field length (m)
+      lo_file->append( ''0000'' ).
+* 30, n, File name
+      lo_file->append( lv_buffer ).
 * 30+n, m, Extra field
-* empty, no extra field
+* empty
 * compressed data,
-      lo_stream->append( ls_contents-compressed ).
+      lo_file->append( ls_contents-compressed ).
+
+****************************************
+* CENTRAL DIRECTORY FILE RECORD
+* 0, 4, Central directory file header signature = 0x02014b50
+      lo_central->append( ''504B0102'' ).
+* 4, 2, Version made by
+      lo_central->append( ''1400'' ).
+
+* 6, 2, Version needed to extract (minimum)
+* 8, 2, General purpose bit flag
+* 10, 2, Compression method
+* 12, 2, File last modification time
+* 14, 2, File last modification date
+* 16, 4, CRC-32 of uncompressed data
+* 20, 4, Compressed size (or 0xffffffff for ZIP64)
+* 24, 4, Uncompressed size (or 0xffffffff for ZIP64)
+* 28, 2, File name length (n)
+* 30, 2, Extra field length (m)
+      lv_tmp = lo_file->get( ).
+      lo_central->append( lv_tmp+4(26) ).
+
+* 32, 2, File comment length (k)
+      lo_central->append_int2( 0 ).
+* 34, 2, Disk number where file starts (or 0xffff for ZIP64)
+      lo_central->append_int2( 0 ).
+* 36, 2, Internal file attributes
+      lo_central->append_int2( 0 ).
+* 38, 4, External file attributes
+      lo_central->append_int4( 0 ).
+* 42, 4, Relative offset of local file header (or 0xffffffff for ZIP64). This is the number of bytes between the start of the first disk on which the file occurs, and the start of the local file header. This allows software reading the central directory to locate the position of the file inside the ZIP file.
+      lo_central->append_int4( xstrlen( lo_total->get( ) ) ).
+* 46, n, File name
+      lo_central->append( lv_buffer ).
+
+      lo_total->append( lo_file->get( ) ).
     ENDLOOP.
 
-    val = lo_stream->get( ).
+    lv_start = xstrlen( lo_total->get( ) ).
+    lo_total->append( lo_central->get( ) ).
+
+****************************************
+* END OF CENTRAL DIRECTORY
+* 0, 4, End of central directory signature = 0x06054b50
+    lo_total->append( ''504B0506'' ).
+* 4, 2, Number of this disk (or 0xffff for ZIP64)
+    lo_total->append_int2( 0 ).
+* 6, 2, Disk where central directory starts (or 0xffff for ZIP64)
+    lo_total->append_int2( 0 ).
+* 8, 2, Number of central directory records on this disk (or 0xffff for ZIP64)
+    lo_total->append_int2( lines( mt_contents ) ).
+* 10, 2, Total number of central directory records (or 0xffff for ZIP64)
+    lo_total->append_int2( lines( mt_contents ) ).
+* 12, 4, Size of central directory (bytes) (or 0xffffffff for ZIP64)
+    lo_total->append_int4( xstrlen( lo_central->get( ) ) ).
+* 16, 4, Offset of start of central directory, relative to start of archive (or 0xffffffff for ZIP64)
+    lo_total->append_int4( lv_start ).
+* 20, 2, Comment length (n)
+    lo_total->append_int2( 0 ).
+* 22, n, Comment
+* empty
+
+    val = lo_total->get( ).
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_GDT_CONVERSION', 'CLASS cl_gdt_conversion DEFINITION PUBLIC.
-
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_DYN_PRG                         ', 'CLASS cl_abap_dyn_prg DEFINITION PUBLIC.
   PUBLIC SECTION.
-    CLASS-METHODS language_code_outbound
+    CLASS-METHODS check_table_name_str
       IMPORTING
-        im_value TYPE spras
-      EXPORTING
-        ex_value TYPE laiso.
-
-    CLASS-METHODS language_code_inbound
-      IMPORTING
-        im_value TYPE csequence
-      EXPORTING
-        ex_value TYPE spras
+        val            TYPE csequence
+        packages       TYPE csequence
+      RETURNING
+        VALUE(val_str) TYPE string
       RAISING
-        cx_gdt_conversion.
+        cx_abap_not_a_table
+        cx_abap_not_in_package.
 
-    CLASS-METHODS amount_outbound
+    CLASS-METHODS check_whitelist_str
       IMPORTING
-        im_value         TYPE p
-        im_currency_code TYPE string
-      EXPORTING
-        ex_value         TYPE p
+        val            TYPE csequence
+        whitelist      TYPE csequence
+      RETURNING
+        VALUE(val_str) TYPE string
       RAISING
-        cx_gdt_conversion.
+        cx_abap_not_in_whitelist.
 
-    CLASS-METHODS country_code_outbound
+    CLASS-METHODS quote
       IMPORTING
-        im_value TYPE string
-      EXPORTING
-        ex_value TYPE csequence
-      RAISING
-        cx_gdt_conversion.
+        val        TYPE csequence
+      RETURNING
+        VALUE(out) TYPE string.
 
-    CLASS-METHODS date_time_inbound
+    CLASS-METHODS escape_quotes
       IMPORTING
-        im_value       TYPE csequence
-      EXPORTING
-        ex_value_short TYPE timestamp
-      RAISING
-        cx_gdt_conversion.
+        val        TYPE csequence
+      RETURNING
+        VALUE(out) TYPE string.
 
-    CLASS-METHODS unit_code_inbound
+    CLASS-METHODS escape_xss_xml_html
       IMPORTING
-        im_value TYPE csequence
-      EXPORTING
-        ex_value TYPE msehi
-      RAISING
-        cx_gdt_conversion.
+        val        TYPE csequence
+      RETURNING
+        VALUE(out) TYPE string.
 
-    CLASS-METHODS unit_code_outbound
+    CLASS-METHODS escape_xss_url
       IMPORTING
-        im_value TYPE msehi
-      EXPORTING
-        ex_value TYPE csequence
-      RAISING
-        cx_gdt_conversion.
+        val        TYPE csequence
+      RETURNING
+        VALUE(out) TYPE string.
+ENDCLASS.
+
+CLASS cl_abap_dyn_prg IMPLEMENTATION.
+
+  METHOD check_table_name_str.
+* allow everything
+    val_str = val.
+  ENDMETHOD.
+
+  METHOD check_whitelist_str.
+* allow everything
+    val_str = val.
+  ENDMETHOD.
+
+  METHOD quote.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD escape_xss_url.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD escape_quotes.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD escape_xss_xml_html.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_ABAP_NOT_A_TABLE                     ', 'CLASS cx_abap_not_a_table DEFINITION PUBLIC INHERITING FROM cx_static_check.
 
 ENDCLASS.
 
-CLASS cl_gdt_conversion IMPLEMENTATION.
+CLASS cx_abap_not_a_table IMPLEMENTATION.
 
-  METHOD amount_outbound.
-    CASE im_currency_code.
-      WHEN ''DKK'' OR ''EUR'' OR ''USD''.
-        ex_value = im_value.
-      WHEN ''VND''.
-        ex_value = im_value * 100.
-      WHEN OTHERS.
-        ASSERT 1 = ''todo''.
-    ENDCASE.
-  ENDMETHOD.
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_ABAP_NOT_IN_PACKAGE                  ', 'CLASS cx_abap_not_in_package DEFINITION PUBLIC INHERITING FROM cx_static_check.
 
-  METHOD language_code_inbound.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
+ENDCLASS.
 
-  METHOD unit_code_outbound.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
+CLASS cx_abap_not_in_package IMPLEMENTATION.
 
-  METHOD country_code_outbound.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_ABAP_NOT_IN_WHITELIST                ', 'CLASS cx_abap_not_in_whitelist DEFINITION PUBLIC INHERITING FROM cx_static_check.
 
-  METHOD date_time_inbound.
-    DATA lv_str TYPE string.
+ENDCLASS.
 
-    IF im_value NP ''*Z''.
-      ASSERT 1 = ''todo, only handles UTC for now''.
+CLASS cx_abap_not_in_whitelist IMPLEMENTATION.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_HMAC                            ', 'CLASS cl_abap_hmac DEFINITION PUBLIC.
+  PUBLIC SECTION.
+    CLASS-METHODS calculate_hmac_for_raw
+      IMPORTING
+        if_algorithm   TYPE string DEFAULT ''SHA1''
+        if_key         TYPE xstring
+        if_data        TYPE xstring
+        if_length      TYPE i OPTIONAL
+      EXPORTING
+        ef_hmacstring     TYPE string
+        ef_hmacxstring    TYPE xstring
+        ef_hmacb64string  TYPE string
+      RAISING
+        cx_abap_message_digest.
+
+    CLASS-METHODS calculate_hmac_for_char
+      IMPORTING
+        if_algorithm     TYPE string DEFAULT ''SHA1''
+        if_key           TYPE xstring
+        if_data          TYPE string
+      EXPORTING
+        ef_hmacstring    TYPE string
+        ef_hmacxstring   TYPE xstring
+        ef_hmacb64string TYPE string
+      RAISING
+        cx_abap_message_digest.
+
+    CLASS-METHODS string_to_xstring
+      IMPORTING
+        if_input TYPE string
+      RETURNING
+        VALUE(er_output) TYPE xstring
+      RAISING
+        cx_abap_message_digest.
+ENDCLASS.
+
+CLASS cl_abap_hmac IMPLEMENTATION.
+  METHOD calculate_hmac_for_raw.
+
+    DATA lv_algorithm TYPE string.
+
+    CLEAR ef_hmacstring.
+    CLEAR ef_hmacxstring.
+
+    " todo,
+    ASSERT if_length = 0.
+
+    lv_algorithm = to_lower( if_algorithm ).
+    ASSERT lv_algorithm = ''sha1'' OR lv_algorithm = ''md5'' OR lv_algorithm = ''sha256''.
+
+* todo, this doesnt work in browser?
+    WRITE ''@KERNEL const crypto = await import("crypto");''.
+    IF if_key IS INITIAL.
+      WRITE ''@KERNEL var shasum = crypto.createHash(lv_algorithm.get());''.
+      WRITE ''@KERNEL shasum.update(if_data.get(), "hex");''.
+      WRITE ''@KERNEL ef_hmacstring.set(shasum.digest("hex").toUpperCase());''.
+    ELSE.
+      WRITE ''@KERNEL let hmac = crypto.createHmac(lv_algorithm.get(), Buffer.from(if_key.get(), "hex")).update(if_data.get(), "hex").digest("hex").toUpperCase();''.
+      WRITE ''@KERNEL ef_hmacstring.set(hmac);''.
     ENDIF.
 
-    lv_str = im_value.
-    REPLACE ALL OCCURRENCES OF ''-'' IN lv_str WITH ''''.
-    REPLACE ALL OCCURRENCES OF '':'' IN lv_str WITH ''''.
-    REPLACE ALL OCCURRENCES OF ''T'' IN lv_str WITH ''''.
-    REPLACE ALL OCCURRENCES OF ''Z'' IN lv_str WITH ''''.
-    ex_value_short = lv_str.
-  ENDMETHOD.
+    WRITE ''@KERNEL ef_hmacb64string.set(Buffer.from(ef_hmacstring.get(), "hex").toString("base64"));''.
 
-  METHOD unit_code_inbound.
-
-* todo, first look up in database, if there is no database connected, fallback to below
-
-    CASE im_value.
-      WHEN ''MTR''.
-        ex_value = ''M''.
-      WHEN ''PCE''.
-        ex_value = ''PC''.
-      WHEN ''KGM''.
-        ex_value = ''KG''.
-      WHEN ''LTR''.
-        ex_value = ''L''.
-      WHEN OTHERS.
-        ASSERT 1 = ''todo''.
-    ENDCASE.
+    ef_hmacxstring = ef_hmacstring.
 
   ENDMETHOD.
 
-  METHOD language_code_outbound.
+  METHOD calculate_hmac_for_char.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
 
-* todo, first look up in database, if there is no database connected, fallback to below
+  METHOD string_to_xstring.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_MESSAGE_DIGEST                  ', 'CLASS cl_abap_message_digest DEFINITION PUBLIC.
+  PUBLIC SECTION.
+    CLASS-METHODS calculate_hash_for_raw
+      IMPORTING
+        if_algorithm   TYPE string DEFAULT ''SHA1''
+        if_data        TYPE xstring
+      EXPORTING
+        ef_hashxstring TYPE xstring
+      RAISING
+        cx_abap_message_digest.
 
-    CASE im_value.
-      WHEN ''E''.
-        ex_value = ''en''.
-      WHEN ''K''.
-        ex_value = ''da''.
-      WHEN ''D''.
-        ex_value = ''de''.
-      WHEN OTHERS.
-        ASSERT 0 = 1.
-    ENDCASE.
+    CLASS-METHODS calculate_hash_for_char
+      IMPORTING
+        if_algorithm     TYPE string DEFAULT ''SHA1''
+        if_data          TYPE string
+      EXPORTING
+        ef_hashxstring   TYPE xstring
+        ef_hashstring    TYPE string
+        ef_hashb64string TYPE string
+      RAISING
+        cx_abap_message_digest.
+ENDCLASS.
+
+CLASS cl_abap_message_digest IMPLEMENTATION.
+  METHOD calculate_hash_for_raw.
+
+    DATA lv_algorithm TYPE string.
+
+    lv_algorithm = to_lower( if_algorithm ).
+    ASSERT lv_algorithm = ''sha1'' OR lv_algorithm = ''md5'' OR lv_algorithm = ''sha256''.
+
+* todo, this doesnt work in browser?
+    WRITE ''@KERNEL const crypto = await import("crypto");''.
+    WRITE ''@KERNEL var shasum = crypto.createHash(lv_algorithm.get());''.
+    WRITE ''@KERNEL shasum.update(if_data.get(), "hex");''.
+    WRITE ''@KERNEL ef_hashxstring.set(shasum.digest("hex").toUpperCase());''.
+
+  ENDMETHOD.
+
+  METHOD calculate_hash_for_char.
+
+    DATA lv_algorithm TYPE string.
+
+    lv_algorithm = to_lower( if_algorithm ).
+    ASSERT lv_algorithm = ''sha1'' OR lv_algorithm = ''md5'' OR lv_algorithm = ''sha256''.
+
+* todo, this doesnt work in browser?
+    WRITE ''@KERNEL const crypto = await import("crypto");''.
+    WRITE ''@KERNEL var shasum = crypto.createHash(lv_algorithm.get());''.
+    WRITE ''@KERNEL shasum.update(if_data.get());''.
+    WRITE ''@KERNEL ef_hashxstring.set(shasum.digest("hex").toUpperCase());''.
+    WRITE ''@KERNEL ef_hashb64string.set(Buffer.from(ef_hashxstring.get(), "hex").toString("base64"));''.
+
+    ef_hashstring = ef_hashxstring.
+
+  ENDMETHOD.
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_ABAP_MESSAGE_DIGEST                  ', 'CLASS cx_abap_message_digest DEFINITION PUBLIC INHERITING FROM cx_static_check.
+
+ENDCLASS.
+
+CLASS cx_abap_message_digest IMPLEMENTATION.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_MATH                            ', 'CLASS cl_abap_math DEFINITION PUBLIC.
+  PUBLIC SECTION.
+    CONSTANTS min_int4 TYPE i VALUE -2147483648.
+    CONSTANTS max_int4 TYPE i VALUE 2147483647.
+
+    CONSTANTS max_int8 TYPE int8 VALUE 9223372036854775807.
+    CONSTANTS min_int8 TYPE int8 VALUE -9223372036854775808.
+
+    CONSTANTS round_ceiling   TYPE i VALUE 0.
+    CONSTANTS round_up        TYPE i VALUE 1.
+    CONSTANTS round_half_up   TYPE i VALUE 2.
+    CONSTANTS round_half_even TYPE i VALUE 3.
+    CONSTANTS round_half_down TYPE i VALUE 4.
+    CONSTANTS round_down      TYPE i VALUE 5.
+    CONSTANTS round_floor     TYPE i VALUE 6.
+ENDCLASS.
+
+CLASS cl_abap_math IMPLEMENTATION.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_RANDOM                          ', 'CLASS cl_abap_random DEFINITION PUBLIC.
+  PUBLIC SECTION.
+    CLASS-METHODS create
+      IMPORTING
+        seed             TYPE i OPTIONAL
+      RETURNING
+        VALUE(ro_random) TYPE REF TO cl_abap_random.
+
+    METHODS int
+      RETURNING
+        VALUE(rv_integer) TYPE i.
+
+    METHODS intinrange
+      IMPORTING
+        low               TYPE i
+        high              TYPE i
+      RETURNING
+        VALUE(rv_integer) TYPE i.
+
+    CLASS-METHODS seed
+      RETURNING
+        VALUE(rv_seed) TYPE i.
+* todo, use "crypto." instead for generating random numbers? see cl_abap_hmac which also uses crypto
+ENDCLASS.
+
+CLASS cl_abap_random IMPLEMENTATION.
+  METHOD create.
+    CREATE OBJECT ro_random.
+  ENDMETHOD.
+
+  METHOD int.
+* todo, currently only positive integers are returned
+    WRITE ''@KERNEL rv_integer.set(Math.floor(Math.random() * 2147483647));''.
+  ENDMETHOD.
+
+  METHOD seed.
+    WRITE ''@KERNEL rv_seed.set(Math.floor(Math.random() * 2147483647));''.
+  ENDMETHOD.
+
+  METHOD intinrange.
+* including "low" and "high" numbers
+    DATA lv_interval TYPE i.
+
+    ASSERT high > low.
+    ASSERT low >= 0.
+    lv_interval = high - low + 1.
+    rv_integer = abs( int( ) ).
+    rv_integer = rv_integer MOD lv_interval.
+    rv_integer = rv_integer + low.
+  ENDMETHOD.
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_RANDOM_INT                      ', 'CLASS cl_abap_random_int DEFINITION PUBLIC FINAL CREATE PRIVATE.
+  PUBLIC SECTION.
+    CLASS-METHODS create
+      IMPORTING
+        seed TYPE i OPTIONAL
+        min  TYPE i DEFAULT -2147483648
+        max  TYPE i DEFAULT 2147483647
+        PREFERRED PARAMETER seed
+      RETURNING
+        VALUE(prng) TYPE REF TO cl_abap_random_int
+      RAISING
+        cx_abap_random.
+
+    METHODS get_next
+      RETURNING
+        VALUE(value) TYPE i.
+
+  PRIVATE SECTION.
+    DATA mv_min TYPE i.
+    DATA mv_max TYPE i.
+ENDCLASS.
+
+CLASS cl_abap_random_int IMPLEMENTATION.
+  METHOD create.
+    CREATE OBJECT prng.
+    prng->mv_min = min.
+    prng->mv_max = max.
+  ENDMETHOD.
+
+  METHOD get_next.
+    value = cl_abap_random=>create( )->intinrange(
+      low  = mv_min
+      high = mv_max ).
+  ENDMETHOD.
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_ABAP_RANDOM                          ', 'CLASS cx_abap_random DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+
+ENDCLASS.
+
+CLASS cx_abap_random IMPLEMENTATION.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_MATCHER                         ', 'CLASS cl_abap_matcher DEFINITION PUBLIC.
+
+  PUBLIC SECTION.
+    METHODS constructor
+      IMPORTING
+        pattern TYPE clike
+        ignore_case TYPE abap_bool
+        text TYPE clike.
+
+    METHODS find_all
+      RETURNING
+        VALUE(rt_matches) TYPE match_result_tab.
+
+    METHODS find_next
+      RETURNING
+        VALUE(found) TYPE abap_bool.
+
+    METHODS get_submatch
+      IMPORTING
+        index TYPE i
+      RETURNING
+        VALUE(match) TYPE string.
+
+    METHODS get_offset
+      RETURNING
+        VALUE(offset) TYPE i.
+
+    METHODS match
+      RETURNING
+        VALUE(success) TYPE abap_bool.
+
+    METHODS get_length
+      RETURNING
+        VALUE(length) TYPE i.
+
+  PRIVATE SECTION.
+    DATA mt_matches TYPE match_result_tab.
+    DATA mv_index TYPE i.
+    DATA mv_text TYPE string.
+    DATA mv_pattern TYPE string.
+
+ENDCLASS.
+
+CLASS cl_abap_matcher IMPLEMENTATION.
+
+  METHOD constructor.
+    IF ignore_case = abap_true.
+      FIND ALL OCCURRENCES OF REGEX pattern IN text RESULTS mt_matches IGNORING CASE.
+    ELSE.
+      FIND ALL OCCURRENCES OF REGEX pattern IN text RESULTS mt_matches.
+    ENDIF.
+    mv_pattern = pattern.
+    mv_text = text.
+  ENDMETHOD.
+
+  METHOD match.
+    FIND ALL OCCURRENCES OF REGEX |^{ mv_pattern }$| IN mv_text.
+    success = boolc( sy-subrc = 0 ).
+  ENDMETHOD.
+
+  METHOD find_all.
+    rt_matches = mt_matches.
+  ENDMETHOD.
+
+  METHOD find_next.
+    mv_index = mv_index + 1.
+    READ TABLE mt_matches INDEX mv_index TRANSPORTING NO FIELDS.
+    found = boolc( sy-subrc = 0 ).
+  ENDMETHOD.
+
+  METHOD get_submatch.
+    DATA ls_match LIKE LINE OF mt_matches.
+    DATA ls_submatch LIKE LINE OF ls_match-submatches.
+    READ TABLE mt_matches INDEX mv_index INTO ls_match.
+    READ TABLE ls_match-submatches INDEX index INTO ls_submatch.
+    IF sy-subrc = 0.
+      match = mv_text+ls_submatch-offset(ls_submatch-length).
+    ENDIF.
+  ENDMETHOD.
+
+  METHOD get_offset.
+    DATA ls_match LIKE LINE OF mt_matches.
+    READ TABLE mt_matches INDEX mv_index INTO ls_match.
+    offset = ls_match-offset.
+  ENDMETHOD.
+
+  METHOD get_length.
+    DATA ls_match LIKE LINE OF mt_matches.
+    READ TABLE mt_matches INDEX mv_index INTO ls_match.
+    length = ls_match-length.
+  ENDMETHOD.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_REGEX                           ', 'CLASS cl_abap_regex DEFINITION PUBLIC.
+
+  PUBLIC SECTION.
+    METHODS constructor
+      IMPORTING
+        pattern     TYPE clike
+        ignore_case TYPE abap_bool DEFAULT abap_false.
+
+    METHODS create_matcher
+      IMPORTING
+        text              TYPE clike
+      RETURNING
+        VALUE(ro_matcher) TYPE REF TO cl_abap_matcher.
+
+    CLASS-METHODS create_pcre
+      IMPORTING
+        pattern      TYPE clike
+        ignore_case  TYPE abap_bool DEFAULT abap_false
+      RETURNING
+        VALUE(regex) TYPE REF TO cl_abap_regex.
+
+  PRIVATE SECTION.
+    DATA mv_pattern     TYPE string.
+    DATA mv_ignore_case TYPE abap_bool.
+
+ENDCLASS.
+
+CLASS cl_abap_regex IMPLEMENTATION.
+
+  METHOD constructor.
+    mv_pattern = pattern.
+    mv_ignore_case = ignore_case.
+  ENDMETHOD.
+
+  METHOD create_pcre.
+    CREATE OBJECT regex
+      EXPORTING
+        pattern     = pattern
+        ignore_case = ignore_case.
+  ENDMETHOD.
+
+  METHOD create_matcher.
+    CREATE OBJECT ro_matcher
+      EXPORTING
+        pattern     = mv_pattern
+        ignore_case = mv_ignore_case
+        text        = text.
+  ENDMETHOD.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_SQL_RESULT_SET                       ', 'CLASS cl_sql_result_set DEFINITION PUBLIC.
+  PUBLIC SECTION.
+    METHODS set_param
+      IMPORTING
+        data_ref TYPE REF TO data
+      RAISING
+        cx_parameter_invalid.
+
+    METHODS set_param_table
+      IMPORTING
+        itab_ref TYPE REF TO data
+      RAISING
+        cx_parameter_invalid.
+
+    METHODS next
+      RETURNING
+        VALUE(rows_ret) TYPE i
+      RAISING
+        cx_sql_exception.
+
+    METHODS close.
+
+    METHODS next_package
+      RAISING
+        cx_sql_exception
+        cx_parameter_invalid_type.
+  PRIVATE SECTION.
+    DATA mv_magic TYPE x LENGTH 1.
+    DATA mv_index TYPE i.
+    DATA mv_ref   TYPE REF TO data.
+ENDCLASS.
+
+CLASS cl_sql_result_set IMPLEMENTATION.
+
+  METHOD set_param.
+    mv_ref = data_ref.
+  ENDMETHOD.
+
+  METHOD next.
+* todo, more work needed here
+
+    DATA lv_total TYPE i.
+    DATA lv_value TYPE string.
+
+    WRITE ''@KERNEL lv_total.set(this.mv_magic.length);''.
+*    WRITE ''@KERNEL console.dir(this.mv_magic);''.
+    WRITE ''@KERNEL const current = this.mv_magic[this.mv_index.get()];''.
+    WRITE ''@KERNEL lv_value.set(Object.values(current)[0]);''.
+
+    mv_ref->* = lv_value.
+
+    mv_index = mv_index + 1.
+    rows_ret = lv_total - mv_index.
+  ENDMETHOD.
+
+  METHOD close.
+* nothing here,
+    RETURN.
+  ENDMETHOD.
+
+  METHOD set_param_table.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD next_package.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_SQL_STATEMENT                        ', 'CLASS cl_sql_statement DEFINITION PUBLIC.
+  PUBLIC SECTION.
+    METHODS constructor
+      IMPORTING con_ref TYPE REF TO object OPTIONAL.
+
+    METHODS execute_update
+      IMPORTING
+        statement TYPE string
+      RAISING
+        cx_sql_exception.
+
+    METHODS execute_query
+      IMPORTING
+        statement         TYPE string
+      RETURNING
+        VALUE(result_set) TYPE REF TO cl_sql_result_set
+      RAISING
+        cx_sql_exception.
+
+    METHODS execute_ddl
+      IMPORTING
+        statement TYPE string
+      RAISING
+        cx_sql_exception.
+ENDCLASS.
+
+CLASS cl_sql_statement IMPLEMENTATION.
+
+  METHOD constructor.
+* todo,
+    ASSERT con_ref IS INITIAL.
+  ENDMETHOD.
+
+  METHOD execute_ddl.
+    ASSERT 1 = ''not supported''.
+  ENDMETHOD.
+
+  METHOD execute_update.
+
+    DATA lv_sql_message TYPE string.
+
+    ASSERT statement IS NOT INITIAL.
+
+    WRITE ''@KERNEL if (abap.context.databaseConnections["DEFAULT"] === undefined) {''.
+    lv_sql_message = ''not connected to db''.
+    WRITE ''@KERNEL }''.
+    IF lv_sql_message IS NOT INITIAL.
+      RAISE EXCEPTION TYPE cx_sql_exception.
+    ENDIF.
+
+    WRITE ''@KERNEL try {''.
+    WRITE ''@KERNEL   await abap.context.databaseConnections["DEFAULT"].execute(statement.get());''.
+    WRITE ''@KERNEL } catch(e) {''.
+    WRITE ''@KERNEL   lv_sql_message.set(e + "");''.
+    WRITE ''@KERNEL }''.
+    IF lv_sql_message IS NOT INITIAL.
+      RAISE EXCEPTION TYPE cx_sql_exception.
+    ENDIF.
+
+  ENDMETHOD.
+
+  METHOD execute_query.
+    DATA lv_sql_message TYPE string.
+
+    ASSERT statement IS NOT INITIAL.
+
+    WRITE ''@KERNEL if (abap.context.databaseConnections["DEFAULT"] === undefined) {''.
+    lv_sql_message = ''not connected to db''.
+    WRITE ''@KERNEL }''.
+    IF lv_sql_message IS NOT INITIAL.
+      RAISE EXCEPTION TYPE cx_sql_exception.
+    ENDIF.
+
+    CREATE OBJECT result_set.
+
+    WRITE ''@KERNEL try {''.
+    WRITE ''@KERNEL   const res = await abap.context.databaseConnections["DEFAULT"].select({select: statement.get()});''.
+*    WRITE ''@KERNEL   console.dir(res.rows);''.
+    WRITE ''@KERNEL   result_set.get().mv_magic = res.rows;''.
+    WRITE ''@KERNEL } catch(e) {''.
+    WRITE ''@KERNEL   lv_sql_message.set(e + "");''.
+    WRITE ''@KERNEL }''.
+    IF lv_sql_message IS NOT INITIAL.
+      RAISE EXCEPTION TYPE cx_sql_exception.
+    ENDIF.
 
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_I18N_LANGUAGES', 'CLASS cl_i18n_languages DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SQL_EXCEPTION                        ', 'CLASS cx_sql_exception DEFINITION PUBLIC INHERITING FROM cx_static_check.
+
+ENDCLASS.
+
+CLASS cx_sql_exception IMPLEMENTATION.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_BCS                                  ', 'CLASS cl_bcs DEFINITION PUBLIC.
+  PUBLIC SECTION.
+    CLASS-METHODS create_persistent
+      RETURNING
+        VALUE(result) TYPE REF TO cl_bcs
+      RAISING
+        cx_bcs.
+
+    METHODS add_recipient
+      IMPORTING
+        i_recipient  TYPE REF TO if_recipient_bcs
+        i_express    TYPE abap_bool OPTIONAL
+        i_copy       TYPE abap_bool OPTIONAL
+        i_blind_copy TYPE abap_bool OPTIONAL
+        i_no_forward TYPE abap_bool OPTIONAL
+      RAISING
+        cx_bcs.
+
+    METHODS set_sender
+      IMPORTING
+        i_sender TYPE REF TO if_sender_bcs
+      RAISING
+        cx_bcs.
+
+    METHODS set_status_attributes
+      IMPORTING
+        i_requested_status TYPE any.
+
+    METHODS set_document
+      IMPORTING
+        i_document TYPE REF TO if_document_bcs
+      RAISING
+        cx_bcs.
+
+    METHODS set_message_subject
+      IMPORTING
+        ip_subject TYPE string
+      RAISING
+        cx_bcs.
+
+    METHODS send
+      IMPORTING
+        i_with_error_screen TYPE abap_bool DEFAULT abap_false
+      RETURNING
+        VALUE(result) TYPE abap_bool
+      RAISING
+        cx_bcs.
+
+    METHODS set_send_immediately
+      IMPORTING
+        i_send_immediately TYPE abap_bool
+      RAISING
+        cx_bcs.
+ENDCLASS.
+
+CLASS cl_bcs IMPLEMENTATION.
+
+  METHOD set_document.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD set_status_attributes.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD set_send_immediately.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD set_message_subject.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD set_sender.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD send.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD create_persistent.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD add_recipient.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_BCS_CONVERT                          ', 'CLASS cl_bcs_convert DEFINITION PUBLIC.
+  PUBLIC SECTION.
+
+    CLASS-METHODS string_to_soli
+      IMPORTING
+        iv_string      TYPE string
+      RETURNING
+        VALUE(et_soli) TYPE soli_tab.
+
+    CLASS-METHODS xstring_to_solix
+      IMPORTING
+        iv_xstring      TYPE xstring
+      RETURNING
+        VALUE(et_solix) TYPE solix_tab.
+
+    CLASS-METHODS raw_to_string
+      IMPORTING
+        it_soli          TYPE soli_tab
+      RETURNING
+        VALUE(ev_string) TYPE string
+      RAISING
+        cx_bcs.
+
+    CLASS-METHODS solix_to_xstring
+      IMPORTING
+        it_solix TYPE solix_tab
+        iv_size TYPE i OPTIONAL
+      RETURNING
+        VALUE(ev_xstring) TYPE xstring.
+
+ENDCLASS.
+
+CLASS cl_bcs_convert IMPLEMENTATION.
+
+  METHOD string_to_soli.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD solix_to_xstring.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD xstring_to_solix.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD raw_to_string.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_CAM_ADDRESS_BCS                      ', 'CLASS cl_cam_address_bcs DEFINITION PUBLIC.
+  PUBLIC SECTION.
+    INTERFACES if_recipient_bcs.
+    INTERFACES if_sender_bcs.
+
+    CLASS-METHODS create_internet_address
+      IMPORTING
+        i_address_string TYPE clike
+        i_address_name   TYPE clike OPTIONAL
+        i_incl_sapuser   TYPE abap_bool OPTIONAL
+      RETURNING
+        VALUE(result)    TYPE REF TO cl_cam_address_bcs
+      RAISING
+        cx_bcs.
+
+ENDCLASS.
+
+CLASS cl_cam_address_bcs IMPLEMENTATION.
+
+  METHOD create_internet_address.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_DOCUMENT_BCS                         ', 'CLASS cl_document_bcs DEFINITION PUBLIC.
+  PUBLIC SECTION.
+    INTERFACES if_document_bcs.
+
+    CLASS-METHODS create_document
+      IMPORTING
+        i_type    TYPE clike
+        i_subject TYPE clike
+        i_text    TYPE any OPTIONAL
+        i_length  TYPE i OPTIONAL
+      RETURNING
+        VALUE(result) TYPE REF TO cl_document_bcs
+      RAISING
+        cx_bcs.
+
+    METHODS add_attachment
+      IMPORTING
+        i_attachment_type    TYPE clike
+        i_attachment_subject TYPE clike
+        i_attachment_size    TYPE i OPTIONAL
+        i_att_content_text   TYPE any OPTIONAL
+        i_att_content_hex    TYPE any OPTIONAL
+        i_attachment_header  TYPE soli_tab OPTIONAL
+      RAISING
+        cx_bcs.
+
+ENDCLASS.
+
+CLASS cl_document_bcs IMPLEMENTATION.
+
+  METHOD create_document.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD add_attachment.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_BCS                                  ', 'CLASS cx_bcs DEFINITION PUBLIC INHERITING FROM cx_static_check.
+
+ENDCLASS.
+
+CLASS cx_bcs IMPLEMENTATION.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_DOCUMENT_BCS                         ', 'INTERFACE if_document_bcs PUBLIC.
+
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_RECIPIENT_BCS                        ', 'INTERFACE if_recipient_bcs PUBLIC.
+
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SENDER_BCS                           ', 'INTERFACE if_sender_bcs PUBLIC.
+
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_DEMO_OUTPUT                          ', 'CLASS cl_demo_output DEFINITION PUBLIC.
+  PUBLIC SECTION.
+    CLASS-METHODS write
+      IMPORTING
+        data TYPE any
+        name TYPE string OPTIONAL.
+
+    CLASS-METHODS clear.
+
+    CLASS-METHODS display
+      IMPORTING
+      data TYPE any OPTIONAL
+      name TYPE string OPTIONAL PREFERRED PARAMETER data.
+ENDCLASS.
+
+CLASS cl_demo_output IMPLEMENTATION.
+  METHOD write.
+    ASSERT 1 = ''not supported''.
+  ENDMETHOD.
+
+  METHOD clear.
+    ASSERT 1 = ''not supported''.
+  ENDMETHOD.
+
+  METHOD display.
+    ASSERT 1 = ''not supported''.
+  ENDMETHOD.
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_I18N_LANGUAGES                       ', 'CLASS cl_i18n_languages DEFINITION PUBLIC.
   PUBLIC SECTION.
     CLASS-METHODS sap1_to_sap2
       IMPORTING
@@ -8120,7 +9157,7 @@ ENDCLASS.');`);
 
     CLASS-METHODS sap2_to_iso639_1
       IMPORTING
-        im_lang_sap2   TYPE string
+        im_lang_sap2   TYPE laiso
       EXPORTING
         ex_lang_iso639 TYPE string
         ex_country     TYPE land1
@@ -8412,7 +9449,7 @@ CLASS cl_i18n_languages IMPLEMENTATION.
     ENDCASE.
   ENDMETHOD.
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_MESSAGE_HELPER', 'CLASS cl_message_helper DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_MESSAGE_HELPER                       ', 'CLASS cl_message_helper DEFINITION PUBLIC.
   PUBLIC SECTION.
     CLASS-METHODS set_msg_vars_for_if_msg
       IMPORTING
@@ -8429,11 +9466,38 @@ ENDCLASS.');`);
         text TYPE REF TO if_message
       RETURNING
         VALUE(result) TYPE string.
+
+    CLASS-METHODS check_msg_kind
+      IMPORTING
+        msg     TYPE REF TO object
+      EXPORTING
+        t100key TYPE scx_t100key
+        textid  TYPE sotr_conc.
+
+    CLASS-METHODS get_otr_text_raw
+      IMPORTING
+        textid TYPE sotr_conc
+      EXPORTING
+        result TYPE string.
+
+    CLASS-METHODS replace_text_params
+      IMPORTING
+        obj    TYPE REF TO object
+      CHANGING
+        result TYPE string.
   PRIVATE SECTION.
     CONSTANTS gc_fallback TYPE string VALUE ''An exception was raised.''.
 ENDCLASS.
 
 CLASS cl_message_helper IMPLEMENTATION.
+
+  METHOD get_otr_text_raw.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD replace_text_params.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
 
   METHOD get_text_for_message.
 
@@ -8445,14 +9509,14 @@ CLASS cl_message_helper IMPLEMENTATION.
     DATA lv_msgv4 LIKE sy-msgv4.
 
 * when the transpiler can do more, the below can be implemented in ABAP instead of using KERNEL,
-    WRITE ''@KERNEL if (text.get().if_t100_message$t100key === undefined) { result.set(this.gc_fallback); return result; };''.
+    WRITE ''@KERNEL if (text.get()?.if_t100_message$t100key === undefined) { result.set(this.gc_fallback); return result; };''.
 
     WRITE ''@KERNEL lv_msgid.set(text.get().if_t100_message$t100key.get().msgid);''.
     WRITE ''@KERNEL lv_msgno.set(text.get().if_t100_message$t100key.get().msgno);''.
-    WRITE ''@KERNEL lv_msgv1.set(text.get()[text.get().if_t100_message$t100key.get().attr1.get().toLowerCase().replace("~", "$")] ? text.get()[text.get().if_t100_message$t100key.get().attr1.get().toLowerCase().replace("~", "$")].get() : "");''.
-    WRITE ''@KERNEL lv_msgv2.set(text.get()[text.get().if_t100_message$t100key.get().attr2.get().toLowerCase().replace("~", "$")] ? text.get()[text.get().if_t100_message$t100key.get().attr2.get().toLowerCase().replace("~", "$")].get() : "");''.
-    WRITE ''@KERNEL lv_msgv3.set(text.get()[text.get().if_t100_message$t100key.get().attr3.get().toLowerCase().replace("~", "$")] ? text.get()[text.get().if_t100_message$t100key.get().attr3.get().toLowerCase().replace("~", "$")].get() : "");''.
-    WRITE ''@KERNEL lv_msgv4.set(text.get()[text.get().if_t100_message$t100key.get().attr4.get().toLowerCase().replace("~", "$")] ? text.get()[text.get().if_t100_message$t100key.get().attr4.get().toLowerCase().replace("~", "$")].get() : "");''.
+    WRITE ''@KERNEL lv_msgv1.set(text.get()[text.get().if_t100_message$t100key.get().attr1.get().toLowerCase().replace("~", "$").trimEnd()] ? text.get()[text.get().if_t100_message$t100key.get().attr1.get().toLowerCase().replace("~", "$").trimEnd()].get() : "");''.
+    WRITE ''@KERNEL lv_msgv2.set(text.get()[text.get().if_t100_message$t100key.get().attr2.get().toLowerCase().replace("~", "$").trimEnd()] ? text.get()[text.get().if_t100_message$t100key.get().attr2.get().toLowerCase().replace("~", "$").trimEnd()].get() : "");''.
+    WRITE ''@KERNEL lv_msgv3.set(text.get()[text.get().if_t100_message$t100key.get().attr3.get().toLowerCase().replace("~", "$").trimEnd()] ? text.get()[text.get().if_t100_message$t100key.get().attr3.get().toLowerCase().replace("~", "$").trimEnd()].get() : "");''.
+    WRITE ''@KERNEL lv_msgv4.set(text.get()[text.get().if_t100_message$t100key.get().attr4.get().toLowerCase().replace("~", "$").trimEnd()] ? text.get()[text.get().if_t100_message$t100key.get().attr4.get().toLowerCase().replace("~", "$").trimEnd()].get() : "");''.
 
     MESSAGE ID lv_msgid TYPE ''I'' NUMBER lv_msgno WITH lv_msgv1 lv_msgv2 lv_msgv3 lv_msgv4 INTO result.
 
@@ -8479,22 +9543,75 @@ CLASS cl_message_helper IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD set_msg_vars_for_clike.
+
+    DATA lv_char200 TYPE c LENGTH 200.
+
+    " move to char200 to avoid checking out of bound
+    lv_char200 = text.
+
     sy-msgid = ''00''.
     sy-msgno = ''001''.
-    sy-msgv1 = text.
-    IF strlen( text ) > 50.
-      sy-msgv2 = text+50.
+
+    sy-msgv1 = lv_char200.
+    IF lv_char200+49(1) = space.
+      lv_char200 = lv_char200+49.
+    ELSE.
+      lv_char200 = text+50.
     ENDIF.
-    IF strlen( text ) > 100.
-      sy-msgv3 = text+100.
+
+    sy-msgv2 = lv_char200.
+    IF lv_char200+49(1) = space.
+      lv_char200 = lv_char200+49.
+    ELSE.
+      lv_char200 = lv_char200+50.
     ENDIF.
-    IF strlen( text ) > 150.
-      sy-msgv4 = text+150.
+
+    sy-msgv3 = lv_char200.
+    IF lv_char200+49(1) = space.
+      lv_char200 = lv_char200+49.
+    ELSE.
+      lv_char200 = lv_char200+50.
     ENDIF.
+
+    sy-msgv4 = lv_char200.
+
+  ENDMETHOD.
+
+  METHOD check_msg_kind.
+
+    DATA li_t100_message TYPE REF TO if_t100_message.
+
+    TRY.
+        li_t100_message ?= msg.
+        t100key = li_t100_message->t100key.
+      CATCH cx_sy_move_cast_error.
+        ASSERT 1 = ''todo''.
+    ENDTRY.
+
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_CODEPAGE', 'CLASS cl_abap_codepage DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_OO_ADT_CLASSRUN                      ', 'INTERFACE if_oo_adt_classrun PUBLIC.
+  METHODS main IMPORTING out TYPE REF TO if_oo_adt_classrun_out.
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_OO_ADT_CLASSRUN_OUT                  ', 'INTERFACE if_oo_adt_classrun_out PUBLIC.
+
+  METHODS write
+    IMPORTING
+      data TYPE any
+      name TYPE string OPTIONAL
+    RETURNING
+      VALUE(output) TYPE REF TO if_oo_adt_classrun_out.
+
+  METHODS get
+    IMPORTING
+      data TYPE any OPTIONAL
+      name TYPE string OPTIONAL PREFERRED PARAMETER data
+    RETURNING
+      VALUE(output) TYPE string.
+
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_CODEPAGE                        ', 'CLASS cl_abap_codepage DEFINITION PUBLIC.
   PUBLIC SECTION.
     CLASS-METHODS convert_to
       IMPORTING
@@ -8539,7 +9656,7 @@ CLASS cl_abap_codepage IMPLEMENTATION.
     codepage = ''4103''.
   ENDMETHOD.
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_CONV_CODEPAGE', 'CLASS cl_abap_conv_codepage DEFINITION PUBLIC FINAL CREATE PRIVATE.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_CONV_CODEPAGE                   ', 'CLASS cl_abap_conv_codepage DEFINITION PUBLIC FINAL CREATE PRIVATE.
 
   PUBLIC SECTION.
 
@@ -8568,7 +9685,7 @@ CLASS cl_abap_conv_codepage IMPLEMENTATION.
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_CONV_IN_CE', 'CLASS cl_abap_conv_in_ce DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_CONV_IN_CE                      ', 'CLASS cl_abap_conv_in_ce DEFINITION PUBLIC.
   PUBLIC SECTION.
     CLASS-METHODS
       create
@@ -8591,23 +9708,22 @@ ENDCLASS.');`);
     TYPES ty_char2 TYPE c LENGTH 2.
     CLASS-METHODS uccp
       IMPORTING
-        uccp TYPE simple
+        uccp        TYPE simple
       RETURNING
-        VALUE(char_) TYPE ty_char2.
+        VALUE(char) TYPE ty_char2.
 
-    METHODS
-      convert
-        IMPORTING
-          input TYPE xstring
-          n     TYPE i OPTIONAL
-        EXPORTING
-          data  TYPE string.
-    METHODS
-      read
-        IMPORTING
-          n     TYPE i OPTIONAL
-        EXPORTING
-          data  TYPE string.
+    METHODS convert
+      IMPORTING
+        input TYPE xsequence
+        n     TYPE i OPTIONAL
+      EXPORTING
+        data  TYPE string.
+
+    METHODS read
+      IMPORTING
+        n     TYPE i OPTIONAL
+      EXPORTING
+        data  TYPE string.
   PRIVATE SECTION.
     DATA mv_input TYPE xstring.
     DATA mv_js_encoding TYPE string.
@@ -8640,7 +9756,7 @@ CLASS cl_abap_conv_in_ce IMPLEMENTATION.
     hex = uccp.
     int = hex.
     TRY.
-        char_ = uccpi( int ).
+        char = uccpi( int ).
       CATCH cx_sy_conversion_codepage.
 * todo, hmm
     ENDTRY.
@@ -8648,10 +9764,11 @@ CLASS cl_abap_conv_in_ce IMPLEMENTATION.
 
   METHOD uccpi.
     DATA lv_hex TYPE x LENGTH 2.
-    DATA lo_in TYPE REF TO cl_abap_conv_in_ce.
+    DATA lo_in  TYPE REF TO cl_abap_conv_in_ce.
 
-    lv_hex(1) = value MOD 255.
-    lv_hex+1(1) = value DIV 255.
+    lv_hex = value.
+    " switch to little endian
+    CONCATENATE lv_hex+1(1) lv_hex(1) INTO lv_hex IN BYTE MODE.
 
     lo_in = create( encoding = ''4103'' ).
 
@@ -8665,14 +9782,12 @@ CLASS cl_abap_conv_in_ce IMPLEMENTATION.
   METHOD convert.
     DATA lv_error TYPE abap_bool.
 
-    IF input IS INITIAL.
-      RETURN.
-    ENDIF.
     ASSERT mv_js_encoding IS NOT INITIAL.
     WRITE ''@KERNEL let buf = Buffer.from(input.get(), "hex");''.
 
-    WRITE ''@KERNEL const util= await import("util");''.
-    WRITE ''@KERNEL const td = new util.TextDecoder(this.mv_js_encoding.get(), {fatal: this.mv_ignore_cerr.get() !== "X"});''.
+    " Try TextDecoder first, if it runs in browser,
+    WRITE ''@KERNEL const decoder = TextDecoder || await import("util").TextDecoder;''.
+    WRITE ''@KERNEL const td = new decoder(this.mv_js_encoding.get(), {fatal: this.mv_ignore_cerr.get() !== "X"});''.
     WRITE ''@KERNEL try {''.
     WRITE ''@KERNEL   data.set(td.decode(buf));''.
     WRITE ''@KERNEL } catch {''.
@@ -8697,7 +9812,7 @@ CLASS cl_abap_conv_in_ce IMPLEMENTATION.
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_CONV_OUT_CE', 'CLASS cl_abap_conv_out_ce DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_CONV_OUT_CE                     ', 'CLASS cl_abap_conv_out_ce DEFINITION PUBLIC.
   PUBLIC SECTION.
     CLASS-METHODS
       create
@@ -8708,25 +9823,41 @@ ENDCLASS.');`);
           replacement TYPE string OPTIONAL
         RETURNING
           VALUE(ret)  TYPE REF TO cl_abap_conv_out_ce.
+
     CLASS-METHODS
       uccpi
         IMPORTING
-          value TYPE string
+          char       TYPE clike
         RETURNING
           VALUE(ret) TYPE i.
+
+    TYPES hex02 TYPE x LENGTH 2.
+    CLASS-METHODS uccp
+      IMPORTING
+        char        TYPE clike
+      RETURNING
+        VALUE(uccp) TYPE hex02
+      RAISING
+        cx_sy_conversion_codepage
+        cx_sy_codepage_converter_init
+        cx_parameter_invalid_range.
+
     METHODS
       convert
         IMPORTING
-          data   TYPE string
+          data   TYPE simple
           n      TYPE i OPTIONAL
         EXPORTING
           buffer TYPE xstring.
+
     METHODS write
       IMPORTING
-        data TYPE string.
+        data TYPE any.
+
     METHODS get_buffer
       RETURNING
         VALUE(buffer) TYPE xstring.
+
     METHODS reset.
   PRIVATE SECTION.
     DATA mv_js_encoding TYPE string.
@@ -8749,10 +9880,11 @@ CLASS cl_abap_conv_out_ce IMPLEMENTATION.
   METHOD uccpi.
     DATA lo_out TYPE REF TO cl_abap_conv_out_ce.
     DATA lv_hex TYPE xstring.
+
     lo_out = create( encoding = ''4103'' ).
     lo_out->convert(
       EXPORTING
-        data = value
+        data   = char
       IMPORTING
         buffer = lv_hex ).
     ASSERT xstrlen( lv_hex ) = 2.
@@ -8771,25 +9903,194 @@ CLASS cl_abap_conv_out_ce IMPLEMENTATION.
     buffer = mv_buffer.
   ENDMETHOD.
 
+  METHOD uccp.
+    DATA lv_char TYPE c LENGTH 1.
+    DATA lo_obj  TYPE REF TO cl_abap_conv_out_ce.
+
+    lv_char = char(1).
+    lo_obj = create( encoding = ''4103'' ).
+
+    lo_obj->convert( EXPORTING data = lv_char
+                     IMPORTING buffer = uccp ).
+
+    SHIFT uccp LEFT CIRCULAR IN BYTE MODE.
+  ENDMETHOD.
+
   METHOD reset.
     CLEAR mv_buffer.
   ENDMETHOD.
 
   METHOD convert.
-* todo, input parameter "N" not handled
+    DATA lv_str TYPE string.
 
-    WRITE ''@KERNEL let result = Buffer.from(data.get(), this.mv_js_encoding.get()).toString("hex");''.
+    WRITE ''@KERNEL let result = "";''.
+*    WRITE ''@KERNEL console.dir(n);''.
+    IF n IS SUPPLIED.
+      lv_str = data.
+      lv_str = lv_str(n).
+      WRITE ''@KERNEL result = Buffer.from(lv_str.get(), this.mv_js_encoding.get()).toString("hex");''.
+    ELSE.
+      WRITE ''@KERNEL result = Buffer.from(data.get(), this.mv_js_encoding.get()).toString("hex");''.
+    ENDIF.
     WRITE ''@KERNEL buffer.set(result.toUpperCase());''.
   ENDMETHOD.
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_GDT_CONVERSION', 'CLASS cx_gdt_conversion DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_GDT_CONVERSION                       ', 'CLASS cl_gdt_conversion DEFINITION PUBLIC.
+
+  PUBLIC SECTION.
+    CLASS-METHODS language_code_outbound
+      IMPORTING
+        im_value TYPE spras
+      EXPORTING
+        ex_value TYPE laiso.
+
+    CLASS-METHODS language_code_inbound
+      IMPORTING
+        im_value TYPE csequence
+      EXPORTING
+        ex_value TYPE spras
+      RAISING
+        cx_gdt_conversion.
+
+    CLASS-METHODS amount_outbound
+      IMPORTING
+        im_value         TYPE p
+        im_currency_code TYPE clike
+      EXPORTING
+        ex_value         TYPE p
+      RAISING
+        cx_gdt_conversion.
+
+    CLASS-METHODS country_code_outbound
+      IMPORTING
+        im_value TYPE land1
+      EXPORTING
+        ex_value TYPE csequence
+      RAISING
+        cx_gdt_conversion.
+
+    CLASS-METHODS date_time_inbound
+      IMPORTING
+        im_value       TYPE csequence
+      EXPORTING
+        ex_value_short TYPE timestamp
+      RAISING
+        cx_gdt_conversion.
+
+    CLASS-METHODS unit_code_inbound
+      IMPORTING
+        im_value TYPE csequence
+      EXPORTING
+        ex_value TYPE msehi
+      RAISING
+        cx_gdt_conversion.
+
+    CLASS-METHODS unit_code_outbound
+      IMPORTING
+        im_value TYPE msehi
+      EXPORTING
+        ex_value TYPE csequence
+      RAISING
+        cx_gdt_conversion.
+
+ENDCLASS.
+
+CLASS cl_gdt_conversion IMPLEMENTATION.
+
+  METHOD amount_outbound.
+    CASE im_currency_code.
+      WHEN ''DKK'' OR ''EUR'' OR ''USD''.
+        ex_value = im_value.
+      WHEN ''VND''.
+        ex_value = im_value * 100.
+      WHEN OTHERS.
+        ASSERT 1 = ''todo''.
+    ENDCASE.
+  ENDMETHOD.
+
+  METHOD language_code_inbound.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD unit_code_outbound.
+    CASE im_value.
+      WHEN ''''.
+        RAISE EXCEPTION TYPE cx_gdt_conversion.
+      WHEN ''ST''.
+        ex_value = ''PCE''.
+      WHEN ''KG''.
+        ex_value = ''KGM''.
+      WHEN ''CDM''.
+        ex_value = ''DMQ''.
+      WHEN OTHERS.
+        ASSERT 1 = ''todo''.
+    ENDCASE.
+  ENDMETHOD.
+
+  METHOD country_code_outbound.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD date_time_inbound.
+    DATA lv_str TYPE string.
+
+    IF im_value NP ''*Z''.
+      ASSERT 1 = ''todo, only handles UTC for now''.
+    ENDIF.
+
+    lv_str = im_value.
+    REPLACE ALL OCCURRENCES OF ''-'' IN lv_str WITH ''''.
+    REPLACE ALL OCCURRENCES OF '':'' IN lv_str WITH ''''.
+    REPLACE ALL OCCURRENCES OF ''T'' IN lv_str WITH ''''.
+    REPLACE ALL OCCURRENCES OF ''Z'' IN lv_str WITH ''''.
+    ex_value_short = lv_str.
+  ENDMETHOD.
+
+  METHOD unit_code_inbound.
+
+* todo, first look up in database, if there is no database connected, fallback to below
+
+    CASE im_value.
+      WHEN ''MTR''.
+        ex_value = ''M''.
+      WHEN ''PCE''.
+        ex_value = ''PC''.
+      WHEN ''KGM''.
+        ex_value = ''KG''.
+      WHEN ''LTR''.
+        ex_value = ''L''.
+      WHEN OTHERS.
+        ASSERT 1 = ''todo''.
+    ENDCASE.
+
+  ENDMETHOD.
+
+  METHOD language_code_outbound.
+
+    cl_i18n_languages=>sap1_to_sap2(
+      EXPORTING
+        im_lang_sap1  = im_value
+      RECEIVING
+        re_lang_sap2  = ex_value
+      EXCEPTIONS
+        no_assignment = 1
+        OTHERS        = 2 ).
+    TRANSLATE ex_value TO LOWER CASE.
+    IF sy-subrc <> 0.
+      RAISE EXCEPTION TYPE cx_gdt_conversion.
+    ENDIF.
+
+  ENDMETHOD.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_GDT_CONVERSION                       ', 'CLASS cx_gdt_conversion DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
 
 ENDCLASS.
 
 CLASS cx_gdt_conversion IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_ABAP_CONV_IN', 'INTERFACE if_abap_conv_in PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_ABAP_CONV_IN                         ', 'INTERFACE if_abap_conv_in PUBLIC.
 
   METHODS convert
     IMPORTING
@@ -8800,7 +10101,7 @@ ENDCLASS.');`);
       cx_sy_conversion_codepage.
 
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_ABAP_CONV_OUT', 'INTERFACE if_abap_conv_out PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_ABAP_CONV_OUT                        ', 'INTERFACE if_abap_conv_out PUBLIC.
 
   METHODS convert
     IMPORTING
@@ -8811,25 +10112,327 @@ ENDINTERFACE.');`);
       cx_sy_conversion_codepage.
 
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_ABAP_MESSAGE_DIGEST', 'CLASS cx_abap_message_digest DEFINITION PUBLIC INHERITING FROM cx_static_check.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_DATFM                           ', 'CLASS cl_abap_datfm DEFINITION PUBLIC.
+  PUBLIC SECTION.
+    CLASS-METHODS conv_date_ext_to_int
+      IMPORTING
+        im_datext    TYPE csequence
+        im_datfmdes  TYPE char1 OPTIONAL
+      EXPORTING
+        ex_datint    TYPE d
+        ex_datfmused TYPE char1
+      RAISING
+        cx_abap_datfm.
+
+    CLASS-METHODS get_date_format_des
+      IMPORTING
+        im_datfm      TYPE char1 OPTIONAL
+        im_langu      TYPE spras DEFAULT sy-langu
+        im_plain      TYPE abap_bool DEFAULT abap_false
+        im_long       TYPE abap_bool DEFAULT abap_false
+      EXPORTING
+        ex_dateformat TYPE csequence
+      RAISING
+        cx_abap_datfm.
+
+    CLASS-METHODS conv_period_ext_to_int
+      IMPORTING
+        im_periodext TYPE csequence
+      EXPORTING
+        ex_periodint TYPE csequence
+      RAISING
+        cx_abap_datfm.
+
+  PRIVATE SECTION.
+    CONSTANTS ddmmyyyy_dot_seperated TYPE c VALUE ''1''.
+    CONSTANTS yyyymmdd_dot_seperated TYPE c VALUE ''4''.
+ENDCLASS.
+
+CLASS cl_abap_datfm IMPLEMENTATION.
+
+  METHOD conv_period_ext_to_int.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD conv_date_ext_to_int.
+    DATA regex_ddmmyyyy_dot_seperated TYPE string VALUE ''^(0[0-9]|[12][0-9]|3[01])[- \\..](0[0-9]|1[012])[- \\..]\\d\\d\\d\\d$''.
+    DATA regex_yyyymmdd_dot_seperated TYPE string VALUE ''^\\d\\d\\d\\d[- \\..](0[0-9]|1[012])[- \\..](0[0-9]|[12][0-9]|3[01])$''.
+    DATA regex_yyyymmdd_no_dot TYPE string VALUE ''^(\\d{4})(0[0-9]|1[012])(0[0-9]|[12][0-9]|3[01])$''.
+
+    IF im_datfmdes <> ddmmyyyy_dot_seperated
+        AND im_datfmdes <> yyyymmdd_dot_seperated.
+      RAISE EXCEPTION TYPE cx_abap_datfm.
+    ENDIF.
+
+    FIND ALL OCCURRENCES OF REGEX regex_ddmmyyyy_dot_seperated IN im_datext.
+    IF sy-subrc = 0.
+      ex_datint = im_datext+6(4) && im_datext+3(2) && im_datext(2).
+      ex_datfmused = ddmmyyyy_dot_seperated.
+      RETURN.
+    ENDIF.
+
+    FIND ALL OCCURRENCES OF REGEX regex_yyyymmdd_dot_seperated IN im_datext.
+    IF sy-subrc = 0.
+      ex_datint = im_datext(4) && im_datext+5(2) && im_datext+8(2).
+      ex_datfmused = yyyymmdd_dot_seperated.
+      RETURN.
+    ENDIF.
+
+    FIND ALL OCCURRENCES OF REGEX regex_yyyymmdd_no_dot IN im_datext.
+    IF sy-subrc = 0.
+      ex_datint = im_datext.
+      ex_datfmused = yyyymmdd_dot_seperated.
+      RETURN.
+    ENDIF.
+
+    RAISE EXCEPTION TYPE cx_abap_datfm.
+  ENDMETHOD.
+
+  METHOD get_date_format_des.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_TIMEFM                          ', 'CLASS cl_abap_timefm DEFINITION PUBLIC.
+  PUBLIC SECTION.
+    TYPES ty_format TYPE i.
+    TYPES ty_timefm TYPE c LENGTH 1.
+
+    CLASS-METHODS conv_time_ext_to_int
+      IMPORTING
+        time_ext        TYPE csequence
+        is_24_allowed   TYPE abap_bool DEFAULT abap_false
+      EXPORTING
+        time_int        TYPE t
+      RAISING
+        cx_abap_timefm_invalid.
+
+    CLASS-METHODS conv_time_int_to_ext
+      IMPORTING
+        time_int TYPE t
+      EXPORTING
+        time_ext TYPE string
+      RAISING
+        cx_parameter_invalid_range.
+
+    CLASS-METHODS get_environment_timefm
+      RETURNING
+        VALUE(timefm) TYPE ty_timefm.
+ENDCLASS.
+
+CLASS cl_abap_timefm IMPLEMENTATION.
+
+  METHOD conv_time_ext_to_int.
+    DATA lv_text TYPE string.
+
+* todo,
+    ASSERT is_24_allowed = abap_true.
+
+    FIND REGEX ''^([0-1]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$'' IN time_ext.
+    IF sy-subrc <> 0.
+      RAISE EXCEPTION TYPE cx_abap_timefm_invalid.
+    ENDIF.
+
+    lv_text = time_ext.
+    REPLACE ALL OCCURRENCES OF '':'' IN lv_text WITH ''''.
+    time_int = lv_text.
+  ENDMETHOD.
+
+  METHOD conv_time_int_to_ext.
+    time_ext = |{ time_int TIME = ISO }|.
+  ENDMETHOD.
+
+  METHOD get_environment_timefm.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_TSTMP                           ', 'CLASS cl_abap_tstmp DEFINITION PUBLIC.
+  PUBLIC SECTION.
+    CLASS-METHODS subtract
+      IMPORTING
+        tstmp1        TYPE p
+        tstmp2        TYPE p
+      RETURNING
+        VALUE(r_secs) TYPE i.
+
+    CLASS-METHODS add
+      IMPORTING
+        tstmp       TYPE p
+        secs        TYPE numeric
+      RETURNING
+        VALUE(time) TYPE timestamp.
+
+    CLASS-METHODS subtractsecs
+      IMPORTING
+        tstmp       TYPE p
+        secs        TYPE numeric
+      RETURNING
+        VALUE(time) TYPE timestamp.
+
+    CLASS-METHODS td_add
+      IMPORTING
+        date     TYPE d
+        time     TYPE t
+        secs     TYPE numeric
+      EXPORTING
+        res_date TYPE d
+        res_time TYPE t.
+
+    CLASS-METHODS move
+      IMPORTING
+        tstmp_src TYPE p
+      EXPORTING
+        tstmp_tgt TYPE p.
+
+    CLASS-METHODS systemtstmp_syst2utc
+      IMPORTING
+        syst_date TYPE d
+        syst_time TYPE t
+      EXPORTING
+        utc_tstmp TYPE p
+      RAISING
+        cx_parameter_invalid_range.
+
+    CLASS-METHODS move_to_short
+      IMPORTING
+        tstmp_src        TYPE tzntstmpl
+      RETURNING
+        VALUE(tstmp_out) TYPE tzntstmps
+      RAISING
+        cx_parameter_invalid_type
+        cx_parameter_invalid_range.
+
+    CLASS-METHODS td_subtract
+      IMPORTING
+        date1 TYPE d
+        time1 TYPE t
+        date2 TYPE d
+        time2 TYPE t
+      EXPORTING
+        res_secs TYPE numeric
+      RAISING
+        cx_parameter_invalid_type
+        cx_parameter_invalid_range.
+
+    CLASS-METHODS systemtstmp_utc2syst
+      IMPORTING
+        utc_tstmp TYPE timestamp
+      EXPORTING
+        syst_date TYPE d
+        syst_time TYPE t
+      RAISING
+        cx_parameter_invalid_range.
+ENDCLASS.
+
+CLASS cl_abap_tstmp IMPLEMENTATION.
+
+  METHOD td_add.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD systemtstmp_utc2syst.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD move.
+* todo, this is most likely wrong, but will also work in some cases
+* todo, input is generic packed? which is unknown to abaplint
+    tstmp_tgt = tstmp_src.
+  ENDMETHOD.
+
+  METHOD systemtstmp_syst2utc.
+* system timezone is always UTC for open-abap, so no conversion needed
+    IF syst_date IS INITIAL.
+      RAISE EXCEPTION TYPE cx_parameter_invalid_range.
+    ENDIF.
+
+    utc_tstmp = |{ syst_date }{ syst_time }|.
+  ENDMETHOD.
+
+  METHOD subtract.
+    DATA str      TYPE string.
+    DATA lv_dummy TYPE string.
+    str = |{ tstmp1 TIMESTAMP = ISO }|.
+    IF str CA '',''.
+      SPLIT str AT '','' INTO str lv_dummy.
+    ENDIF.
+    WRITE ''@KERNEL let t1 = Date.parse(str.get());''.
+    str = |{ tstmp2 TIMESTAMP = ISO }|.
+    IF str CA '',''.
+      SPLIT str AT '','' INTO str lv_dummy.
+    ENDIF.
+    WRITE ''@KERNEL let t2 = Date.parse(str.get());''.
+    WRITE ''@KERNEL r_secs.set((t1 - t2)/1000);''.
+  ENDMETHOD.
+
+  METHOD add.
+    DATA str      TYPE string.
+    DATA lv_dummy TYPE string.
+    str = |{ tstmp TIMESTAMP = ISO }|.
+    IF str CA '',''.
+      SPLIT str AT '','' INTO str lv_dummy.
+    ENDIF.
+    WRITE ''@KERNEL let t1 = new Date(Date.parse(str.get() + "Z"));''.
+    WRITE ''@KERNEL t1.setSeconds( t1.getSeconds() + secs.get() );''.
+    WRITE ''@KERNEL time.set(t1.toISOString().slice(0, 19).replace(/-/g, "").replace(/:/g, "").replace("T", ""));''.
+  ENDMETHOD.
+
+  METHOD subtractsecs.
+    DATA lv_secs TYPE i.
+    lv_secs = secs * -1.
+    time = add(
+      tstmp = tstmp
+      secs  = lv_secs ).
+  ENDMETHOD.
+
+  METHOD move_to_short.
+    move(
+      EXPORTING
+        tstmp_src = tstmp_src
+      IMPORTING
+        tstmp_tgt = tstmp_out ).
+  ENDMETHOD.
+
+  METHOD td_subtract.
+    DATA lv_stamp1 TYPE timestamp.
+    DATA lv_stamp2 TYPE timestamp.
+
+    CONVERT DATE date1 TIME time1 INTO TIME STAMP lv_stamp1.
+    CONVERT DATE date2 TIME time2 INTO TIME STAMP lv_stamp2.
+
+    res_secs = subtract(
+      tstmp1 = lv_stamp1
+      tstmp2 = lv_stamp2 ).
+  ENDMETHOD.
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_ABAP_DATFM                           ', 'CLASS cx_abap_datfm DEFINITION PUBLIC INHERITING FROM cx_static_check.
 
 ENDCLASS.
 
-CLASS cx_abap_message_digest IMPLEMENTATION.
+CLASS cx_abap_datfm IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_DYNAMIC_CHECK', 'CLASS cx_dynamic_check DEFINITION ABSTRACT PUBLIC INHERITING FROM cx_root.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_ABAP_TIMEFM_INVALID                  ', 'CLASS cx_abap_timefm_invalid DEFINITION PUBLIC INHERITING FROM cx_static_check.
+
+ENDCLASS.
+
+CLASS cx_abap_timefm_invalid IMPLEMENTATION.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_DYNAMIC_CHECK                        ', 'CLASS cx_dynamic_check DEFINITION ABSTRACT PUBLIC INHERITING FROM cx_root.
 
 ENDCLASS.
 
 CLASS cx_dynamic_check IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_NO_CHECK', 'CLASS cx_no_check DEFINITION PUBLIC INHERITING FROM cx_root.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_NO_CHECK                             ', 'CLASS cx_no_check DEFINITION PUBLIC INHERITING FROM cx_root.
 
   PUBLIC SECTION.
     METHODS constructor
       IMPORTING
+        textid   LIKE textid OPTIONAL
         previous TYPE REF TO cx_root OPTIONAL.
 
 ENDCLASS.
@@ -8837,33 +10440,54 @@ ENDCLASS.
 CLASS cx_no_check IMPLEMENTATION.
 
   METHOD constructor.
-    super->constructor( previous = previous ).
+    super->constructor(
+      previous = previous
+      textid   = textid ).
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_PARAMETER_INVALID', 'CLASS cx_parameter_invalid DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
-
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_PARAMETER_INVALID                    ', 'CLASS cx_parameter_invalid DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+  PUBLIC SECTION.
+    METHODS constructor
+      IMPORTING
+        textid    LIKE textid OPTIONAL
+        previous  LIKE previous OPTIONAL
+        parameter TYPE string OPTIONAL.
 ENDCLASS.
 
 CLASS cx_parameter_invalid IMPLEMENTATION.
-
+  METHOD constructor.
+    super->constructor(
+      textid   = textid
+      previous = previous ).
+  ENDMETHOD.
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_PARAMETER_INVALID_RANGE', 'CLASS cx_parameter_invalid_range DEFINITION PUBLIC INHERITING FROM cx_parameter_invalid.
-
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_PARAMETER_INVALID_RANGE              ', 'CLASS cx_parameter_invalid_range DEFINITION PUBLIC INHERITING FROM cx_parameter_invalid.
+  PUBLIC SECTION.
+    METHODS constructor
+      IMPORTING
+        textid    LIKE textid OPTIONAL
+        previous  LIKE previous OPTIONAL
+        parameter TYPE string OPTIONAL
+        value     TYPE string OPTIONAL.
 ENDCLASS.
 
 CLASS cx_parameter_invalid_range IMPLEMENTATION.
-
+  METHOD constructor.
+    super->constructor(
+      textid    = textid
+      previous  = previous
+      parameter = parameter ).
+  ENDMETHOD.
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_PARAMETER_INVALID_TYPE', 'CLASS cx_parameter_invalid_type DEFINITION PUBLIC INHERITING FROM cx_parameter_invalid.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_PARAMETER_INVALID_TYPE               ', 'CLASS cx_parameter_invalid_type DEFINITION PUBLIC INHERITING FROM cx_parameter_invalid.
 
 ENDCLASS.
 
 CLASS cx_parameter_invalid_type IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_ROOT', 'CLASS cx_root DEFINITION ABSTRACT PUBLIC.
-
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_ROOT                                 ', 'CLASS cx_root DEFINITION ABSTRACT PUBLIC.
   PUBLIC SECTION.
     DATA previous TYPE REF TO cx_root.
     DATA textid   TYPE c LENGTH 32.
@@ -8877,7 +10501,7 @@ ENDCLASS.');`);
       EXPORTING
         program_name TYPE string
         include_name TYPE string
-        source_line  TYPE string.
+        source_line  TYPE i.
 
     INTERFACES if_message.
     ALIASES get_longtext FOR if_message~get_longtext.
@@ -8893,7 +10517,12 @@ CLASS cx_root IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD get_source_position.
-    ASSERT ''todo'' = 1.
+    CLEAR program_name.
+    CLEAR include_name.
+    CLEAR source_line.
+
+    WRITE ''@KERNEL source_line.set(this.EXTRA_CX.INTERNAL_LINE || 1);''.
+    WRITE ''@KERNEL program_name.set(this.EXTRA_CX.INTERNAL_FILENAME || "error");''.
   ENDMETHOD.
 
   METHOD if_message~get_longtext.
@@ -8905,17 +10534,20 @@ CLASS cx_root IMPLEMENTATION.
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_STATIC_CHECK', 'CLASS cx_static_check DEFINITION PUBLIC INHERITING FROM cx_root.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_ST_ERROR                             ', 'CLASS cx_st_error DEFINITION PUBLIC INHERITING FROM cx_transformation_error.
+
+ENDCLASS.
+
+CLASS cx_st_error IMPLEMENTATION.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_STATIC_CHECK                         ', 'CLASS cx_static_check DEFINITION PUBLIC INHERITING FROM cx_root.
 
   PUBLIC SECTION.
     METHODS constructor
       IMPORTING
-        textid   LIKE if_t100_message=>t100key OPTIONAL
-        previous TYPE REF TO cx_root OPTIONAL
-        msgv1    TYPE c OPTIONAL
-        msgv2    TYPE c OPTIONAL
-        msgv3    TYPE c OPTIONAL
-        msgv4    TYPE c OPTIONAL.
+        textid   LIKE textid OPTIONAL
+        previous TYPE REF TO cx_root OPTIONAL.
 ENDCLASS.
 
 CLASS cx_static_check IMPLEMENTATION.
@@ -8927,35 +10559,49 @@ CLASS cx_static_check IMPLEMENTATION.
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_ARITHMETIC_ERROR', 'CLASS cx_sy_arithmetic_error DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_ARITHMETIC_ERROR                  ', 'CLASS cx_sy_arithmetic_error DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
 
 ENDCLASS.
 
 CLASS cx_sy_arithmetic_error IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_BUFFER_OVERFLOW', 'CLASS cx_sy_buffer_overflow DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_ARITHMETIC_OVERFLOW               ', 'CLASS cx_sy_arithmetic_overflow DEFINITION PUBLIC INHERITING FROM cx_sy_arithmetic_error.
+
+  PUBLIC SECTION.
+    METHODS if_message~get_text REDEFINITION.
+
+ENDCLASS.
+
+CLASS cx_sy_arithmetic_overflow IMPLEMENTATION.
+
+  METHOD if_message~get_text.
+    result = ''Arithmetic overflow''.
+  ENDMETHOD.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_BUFFER_OVERFLOW                   ', 'CLASS cx_sy_buffer_overflow DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
 
 ENDCLASS.
 
 CLASS cx_sy_buffer_overflow IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_CODEPAGE_CONVERTER_INIT', 'CLASS cx_sy_codepage_converter_init DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_CODEPAGE_CONVERTER_INIT           ', 'CLASS cx_sy_codepage_converter_init DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
 
 ENDCLASS.
 
 CLASS cx_sy_codepage_converter_init IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_COMPRESSION_ERROR', 'CLASS cx_sy_compression_error DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_COMPRESSION_ERROR                 ', 'CLASS cx_sy_compression_error DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
 
 ENDCLASS.
 
 CLASS cx_sy_compression_error IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_CONVERSION_CODEPAGE', 'CLASS cx_sy_conversion_codepage DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_CONVERSION_CODEPAGE               ', 'CLASS cx_sy_conversion_codepage DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
   PUBLIC SECTION.
     DATA source_extract TYPE xstring.
 ENDCLASS.
@@ -8963,111 +10609,130 @@ ENDCLASS.
 CLASS cx_sy_conversion_codepage IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_CONVERSION_DATA_LOSS', 'CLASS cx_sy_conversion_data_loss DEFINITION PUBLIC INHERITING FROM cx_sy_conversion_error.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_CONVERSION_DATA_LOSS              ', 'CLASS cx_sy_conversion_data_loss DEFINITION PUBLIC INHERITING FROM cx_sy_conversion_error.
 
 ENDCLASS.
 
 CLASS cx_sy_conversion_data_loss IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_CONVERSION_ERROR', 'CLASS cx_sy_conversion_error DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_CONVERSION_ERROR                  ', 'CLASS cx_sy_conversion_error DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
 
 ENDCLASS.
 
 CLASS cx_sy_conversion_error IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_CONVERSION_NO_NUMBER', 'CLASS cx_sy_conversion_no_number DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_CONVERSION_NO_NUMBER              ', 'CLASS cx_sy_conversion_no_number DEFINITION PUBLIC INHERITING FROM cx_sy_conversion_error.
+
+  PUBLIC SECTION.
+    METHODS if_message~get_text REDEFINITION.
 
 ENDCLASS.
 
 CLASS cx_sy_conversion_no_number IMPLEMENTATION.
 
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_CONVERSION_OVERFLOW', 'CLASS cx_sy_conversion_overflow DEFINITION PUBLIC INHERITING FROM cx_sy_conversion_error.
+  METHOD if_message~get_text.
+    result = ''Conversion no number''.
+  ENDMETHOD.
 
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_CONVERSION_OVERFLOW               ', 'CLASS cx_sy_conversion_overflow DEFINITION PUBLIC INHERITING FROM cx_sy_conversion_error.
+  PUBLIC SECTION.
+    METHODS constructor
+      IMPORTING
+        textid   LIKE textid OPTIONAL
+        previous LIKE previous OPTIONAL
+        value    TYPE string OPTIONAL.
 ENDCLASS.
 
 CLASS cx_sy_conversion_overflow IMPLEMENTATION.
-
+  METHOD constructor.
+    super->constructor(
+      textid   = textid
+      previous = previous ).
+  ENDMETHOD.
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_CREATE_DATA_ERROR', 'CLASS cx_sy_create_data_error DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_CREATE_DATA_ERROR                 ', 'CLASS cx_sy_create_data_error DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
 
 ENDCLASS.
 
 CLASS cx_sy_create_data_error IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_CREATE_OBJECT_ERROR', 'CLASS cx_sy_create_object_error DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_CREATE_OBJECT_ERROR               ', 'CLASS cx_sy_create_object_error DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+  PUBLIC SECTION.
+    METHODS constructor
+      IMPORTING
+        textid    LIKE textid OPTIONAL
+        previous  LIKE previous OPTIONAL
+        classname TYPE string OPTIONAL.
 
+    METHODS if_message~get_text REDEFINITION.
+
+    DATA classname TYPE string READ-ONLY.
 ENDCLASS.
 
 CLASS cx_sy_create_object_error IMPLEMENTATION.
 
+  METHOD constructor.
+    super->constructor(
+      textid   = textid
+      previous = previous ).
+    me->classname = classname.
+  ENDMETHOD.
+
+  METHOD if_message~get_text.
+    result = ''The object could not be created: The class ??? does not exist.''.
+  ENDMETHOD.
+
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_DATA_ACCESS_ERROR', 'CLASS cx_sy_data_access_error DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_DATA_ACCESS_ERROR                 ', 'CLASS cx_sy_data_access_error DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
 
 ENDCLASS.
 
 CLASS cx_sy_data_access_error IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_DUPLICATE_KEY', 'CLASS cx_sy_duplicate_key DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_DUPLICATE_KEY                     ', 'CLASS cx_sy_duplicate_key DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
 
 ENDCLASS.
 
 CLASS cx_sy_duplicate_key IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_DYNAMIC_OSQL_ERROR', 'CLASS cx_sy_dynamic_osql_error DEFINITION PUBLIC INHERITING FROM cx_sy_open_sql_error.
-  PUBLIC SECTION.
-    METHODS constructor
-      IMPORTING
-        sqlmsg TYPE string OPTIONAL.
-ENDCLASS.
-
-CLASS cx_sy_dynamic_osql_error IMPLEMENTATION.
-  METHOD constructor.
-    super->constructor( sqlmsg = sqlmsg ).
-  ENDMETHOD.
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_DYNAMIC_OSQL_SEMANTICS', 'CLASS cx_sy_dynamic_osql_semantics DEFINITION PUBLIC INHERITING FROM cx_sy_dynamic_osql_error.
-  PUBLIC SECTION.
-    METHODS constructor
-      IMPORTING
-        sqlmsg TYPE string OPTIONAL.
-ENDCLASS.
-
-CLASS cx_sy_dynamic_osql_semantics IMPLEMENTATION.
-  METHOD constructor.
-    super->constructor( sqlmsg = sqlmsg ).
-  ENDMETHOD.
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_DYN_CALL_ERROR', 'CLASS cx_sy_dyn_call_error DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_DYN_CALL_ERROR                    ', 'CLASS cx_sy_dyn_call_error DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
 
 ENDCLASS.
 
 CLASS cx_sy_dyn_call_error IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_DYN_CALL_ILLEGAL_CLASS', 'CLASS cx_sy_dyn_call_illegal_class DEFINITION PUBLIC INHERITING FROM cx_sy_dyn_call_error.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_DYN_CALL_ILLEGAL_CLASS            ', 'CLASS cx_sy_dyn_call_illegal_class DEFINITION PUBLIC INHERITING FROM cx_sy_dyn_call_error.
 
 ENDCLASS.
 
 CLASS cx_sy_dyn_call_illegal_class IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_DYN_CALL_ILLEGAL_FUNC', 'CLASS cx_sy_dyn_call_illegal_func DEFINITION PUBLIC INHERITING FROM cx_sy_dyn_call_error.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_DYN_CALL_ILLEGAL_FORM             ', 'CLASS cx_sy_dyn_call_illegal_form DEFINITION PUBLIC INHERITING FROM cx_sy_dyn_call_error.
+
+ENDCLASS.
+
+CLASS cx_sy_dyn_call_illegal_form IMPLEMENTATION.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_DYN_CALL_ILLEGAL_FUNC             ', 'CLASS cx_sy_dyn_call_illegal_func DEFINITION PUBLIC INHERITING FROM cx_sy_dyn_call_error.
 
 ENDCLASS.
 
 CLASS cx_sy_dyn_call_illegal_func IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_DYN_CALL_ILLEGAL_METHOD', 'CLASS cx_sy_dyn_call_illegal_method DEFINITION PUBLIC INHERITING FROM cx_sy_dyn_call_error.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_DYN_CALL_ILLEGAL_METHOD           ', 'CLASS cx_sy_dyn_call_illegal_method DEFINITION PUBLIC INHERITING FROM cx_sy_dyn_call_error.
 
   PUBLIC SECTION.
-    CONSTANTS private_method TYPE c VALUE ''1''.
+    CONSTANTS private_method TYPE sotr_conc VALUE ''11111111111111111111111111111111''.
 
     METHODS constructor
       IMPORTING
@@ -9085,7 +10750,14 @@ CLASS cx_sy_dyn_call_illegal_method IMPLEMENTATION.
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_DYN_CALL_PARAMETER_ERROR', 'CLASS cx_sy_dyn_call_parameter_error DEFINITION PUBLIC INHERITING FROM cx_sy_dyn_call_error.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_DYN_CALL_PARAM_NOT_FOUND          ', 'CLASS cx_sy_dyn_call_param_not_found DEFINITION PUBLIC INHERITING FROM cx_sy_dyn_call_parameter_error.
+
+ENDCLASS.
+
+CLASS cx_sy_dyn_call_param_not_found IMPLEMENTATION.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_DYN_CALL_PARAMETER_ERROR          ', 'CLASS cx_sy_dyn_call_parameter_error DEFINITION PUBLIC INHERITING FROM cx_sy_dyn_call_error.
   PUBLIC SECTION.
     DATA parameter TYPE string.
 ENDCLASS.
@@ -9093,49 +10765,73 @@ ENDCLASS.
 CLASS cx_sy_dyn_call_parameter_error IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_DYN_CALL_PARAM_NOT_FOUND', 'CLASS cx_sy_dyn_call_param_not_found DEFINITION PUBLIC INHERITING FROM cx_sy_dyn_call_parameter_error.
-
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_DYNAMIC_OSQL_ERROR                ', 'CLASS cx_sy_dynamic_osql_error DEFINITION PUBLIC INHERITING FROM cx_sy_open_sql_error.
+  PUBLIC SECTION.
+    METHODS constructor
+      IMPORTING
+        sqlmsg TYPE string OPTIONAL.
 ENDCLASS.
 
-CLASS cx_sy_dyn_call_param_not_found IMPLEMENTATION.
-
+CLASS cx_sy_dynamic_osql_error IMPLEMENTATION.
+  METHOD constructor.
+    super->constructor( sqlmsg = sqlmsg ).
+  ENDMETHOD.
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_ITAB_DUPLICATE_KEY', 'CLASS cx_sy_itab_duplicate_key DEFINITION PUBLIC INHERITING FROM cx_sy_itab_error.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_DYNAMIC_OSQL_SEMANTICS            ', 'CLASS cx_sy_dynamic_osql_semantics DEFINITION PUBLIC INHERITING FROM cx_sy_dynamic_osql_error.
+  PUBLIC SECTION.
+    METHODS constructor
+      IMPORTING
+        sqlmsg TYPE string OPTIONAL.
+ENDCLASS.
+
+CLASS cx_sy_dynamic_osql_semantics IMPLEMENTATION.
+  METHOD constructor.
+    super->constructor( sqlmsg = sqlmsg ).
+  ENDMETHOD.
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_ITAB_DUPLICATE_KEY                ', 'CLASS cx_sy_itab_duplicate_key DEFINITION PUBLIC INHERITING FROM cx_sy_itab_error.
 
 ENDCLASS.
 
 CLASS cx_sy_itab_duplicate_key IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_ITAB_ERROR', 'CLASS cx_sy_itab_error DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_ITAB_ERROR                        ', 'CLASS cx_sy_itab_error DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
 
 ENDCLASS.
 
 CLASS cx_sy_itab_error IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_ITAB_LINE_NOT_FOUND', 'CLASS cx_sy_itab_line_not_found DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_ITAB_LINE_NOT_FOUND               ', 'CLASS cx_sy_itab_line_not_found DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
 
 ENDCLASS.
 
 CLASS cx_sy_itab_line_not_found IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_MESSAGE_ILLEGAL_TEXT', 'CLASS cx_sy_message_illegal_text DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_MESSAGE_ILLEGAL_TEXT              ', 'CLASS cx_sy_message_illegal_text DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
   PUBLIC SECTION.
 ENDCLASS.
 
 CLASS cx_sy_message_illegal_text IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_MOVE_CAST_ERROR', 'CLASS cx_sy_move_cast_error DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_MOVE_CAST_ERROR                   ', 'CLASS cx_sy_move_cast_error DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+
+  PUBLIC SECTION.
+    METHODS if_message~get_text REDEFINITION.
 
 ENDCLASS.
 
 CLASS cx_sy_move_cast_error IMPLEMENTATION.
 
+  METHOD if_message~get_text.
+    result = ''Casting failed, types not compatible''.
+  ENDMETHOD.
+
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_OPEN_SQL_ERROR', 'CLASS cx_sy_open_sql_error DEFINITION PUBLIC INHERITING FROM cx_sy_sql_error.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_OPEN_SQL_ERROR                    ', 'CLASS cx_sy_open_sql_error DEFINITION PUBLIC INHERITING FROM cx_sy_sql_error.
   PUBLIC SECTION.
     METHODS constructor
       IMPORTING
@@ -9147,21 +10843,28 @@ CLASS cx_sy_open_sql_error IMPLEMENTATION.
     super->constructor( sqlmsg = sqlmsg ).
   ENDMETHOD.
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_RANGE_OUT_OF_BOUNDS', 'CLASS cx_sy_range_out_of_bounds DEFINITION PUBLIC INHERITING FROM cx_sy_data_access_error.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_RANGE_OUT_OF_BOUNDS               ', 'CLASS cx_sy_range_out_of_bounds DEFINITION PUBLIC INHERITING FROM cx_sy_data_access_error.
+
+  PUBLIC SECTION.
+    METHODS if_message~get_text REDEFINITION.
 
 ENDCLASS.
 
 CLASS cx_sy_range_out_of_bounds IMPLEMENTATION.
 
+  METHOD if_message~get_text.
+    result = ''Range out of bounds''.
+  ENDMETHOD.
+
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_REF_IS_INITIAL', 'CLASS cx_sy_ref_is_initial DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_REF_IS_INITIAL                    ', 'CLASS cx_sy_ref_is_initial DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
 
 ENDCLASS.
 
 CLASS cx_sy_ref_is_initial IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_SQL_ERROR', 'CLASS cx_sy_sql_error DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_SQL_ERROR                         ', 'CLASS cx_sy_sql_error DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
   PUBLIC SECTION.
     DATA sqlmsg TYPE string.
 
@@ -9176,90 +10879,102 @@ CLASS cx_sy_sql_error IMPLEMENTATION.
     me->sqlmsg = sqlmsg.
   ENDMETHOD.
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_STRG_PAR_VAL', 'CLASS cx_sy_strg_par_val DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_STRG_PAR_VAL                      ', 'CLASS cx_sy_strg_par_val DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
   PUBLIC SECTION.
 ENDCLASS.
 
 CLASS cx_sy_strg_par_val IMPLEMENTATION.
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_STRUCT_ATTRIBUTES', 'CLASS cx_sy_struct_attributes DEFINITION PUBLIC INHERITING FROM cx_sy_struct_creation.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_STRUCT_ATTRIBUTES                 ', 'CLASS cx_sy_struct_attributes DEFINITION PUBLIC INHERITING FROM cx_sy_struct_creation.
 
 ENDCLASS.
 
 CLASS cx_sy_struct_attributes IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_STRUCT_COMP_NAME', 'CLASS cx_sy_struct_comp_name DEFINITION PUBLIC INHERITING FROM cx_sy_struct_creation.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_STRUCT_COMP_NAME                  ', 'CLASS cx_sy_struct_comp_name DEFINITION PUBLIC INHERITING FROM cx_sy_struct_creation.
 
 ENDCLASS.
 
 CLASS cx_sy_struct_comp_name IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_STRUCT_COMP_TYPE', 'CLASS cx_sy_struct_comp_type DEFINITION PUBLIC INHERITING FROM cx_sy_struct_creation.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_STRUCT_COMP_TYPE                  ', 'CLASS cx_sy_struct_comp_type DEFINITION PUBLIC INHERITING FROM cx_sy_struct_creation.
 
 ENDCLASS.
 
 CLASS cx_sy_struct_comp_type IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_STRUCT_CREATION', 'CLASS cx_sy_struct_creation DEFINITION PUBLIC INHERITING FROM cx_sy_type_creation.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_STRUCT_CREATION                   ', 'CLASS cx_sy_struct_creation DEFINITION PUBLIC INHERITING FROM cx_sy_type_creation.
 
 ENDCLASS.
 
 CLASS cx_sy_struct_creation IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_TYPE_CREATION', 'CLASS cx_sy_type_creation DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_TYPE_CREATION                     ', 'CLASS cx_sy_type_creation DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
 
 ENDCLASS.
 
 CLASS cx_sy_type_creation IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_ZERODIVIDE', 'CLASS cx_sy_zerodivide DEFINITION PUBLIC INHERITING FROM cx_sy_arithmetic_error.
-
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_ZERODIVIDE                        ', 'CLASS cx_sy_zerodivide DEFINITION PUBLIC INHERITING FROM cx_sy_arithmetic_error.
+  PUBLIC SECTION.
+    METHODS if_message~get_text REDEFINITION.
 ENDCLASS.
 
 CLASS cx_sy_zerodivide IMPLEMENTATION.
 
+  METHOD if_message~get_text.
+    result = ''Division by zero.''.
+  ENDMETHOD.
+
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_TRANSFORMATION_ERROR', 'CLASS cx_transformation_error DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_TRANSFORMATION_ERROR                 ', 'CLASS cx_transformation_error DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
 
 ENDCLASS.
 
 CLASS cx_transformation_error IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_XSLT_EXCEPTION', 'CLASS cx_xslt_exception DEFINITION PUBLIC INHERITING FROM cx_transformation_error.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_XSLT_EXCEPTION                       ', 'CLASS cx_xslt_exception DEFINITION PUBLIC INHERITING FROM cx_transformation_error.
 
 ENDCLASS.
 
 CLASS cx_xslt_exception IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_XSLT_FORMAT_ERROR', 'CLASS cx_xslt_format_error DEFINITION PUBLIC INHERITING FROM cx_xslt_system_error.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_XSLT_FORMAT_ERROR                    ', 'CLASS cx_xslt_format_error DEFINITION PUBLIC INHERITING FROM cx_xslt_system_error.
 
 ENDCLASS.
 
 CLASS cx_xslt_format_error IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_XSLT_RUNTIME_ERROR', 'CLASS cx_xslt_runtime_error DEFINITION PUBLIC INHERITING FROM cx_transformation_error.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_XSLT_RUNTIME_ERROR                   ', 'CLASS cx_xslt_runtime_error DEFINITION PUBLIC INHERITING FROM cx_transformation_error.
 
 ENDCLASS.
 
 CLASS cx_xslt_runtime_error IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_XSLT_SYSTEM_ERROR', 'CLASS cx_xslt_system_error DEFINITION PUBLIC INHERITING FROM cx_xslt_exception.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_XSLT_SERIALIZATION_ERROR             ', 'CLASS cx_xslt_serialization_error DEFINITION PUBLIC INHERITING FROM cx_xslt_system_error.
+
+ENDCLASS.
+
+CLASS cx_xslt_serialization_error IMPLEMENTATION.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_XSLT_SYSTEM_ERROR                    ', 'CLASS cx_xslt_system_error DEFINITION PUBLIC INHERITING FROM cx_xslt_exception.
 
 ENDCLASS.
 
 CLASS cx_xslt_system_error IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_MESSAGE', 'INTERFACE if_message PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_MESSAGE                              ', 'INTERFACE if_message PUBLIC.
 
   METHODS get_text RETURNING VALUE(result) TYPE string.
 
@@ -9268,7 +10983,7 @@ ENDCLASS.');`);
     RETURNING VALUE(result) TYPE string.
 
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_T100_DYN_MSG', 'INTERFACE if_t100_dyn_msg PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_T100_DYN_MSG                         ', 'INTERFACE if_t100_dyn_msg PUBLIC.
 
   DATA msgty TYPE symsgty.
 
@@ -9278,7 +10993,7 @@ ENDINTERFACE.');`);
   DATA msgv4 TYPE symsgv.
 
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_T100_MESSAGE', 'INTERFACE if_t100_message PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_T100_MESSAGE                         ', 'INTERFACE if_t100_message PUBLIC.
 
   DATA t100key TYPE scx_t100key.
 
@@ -9293,578 +11008,14 @@ ENDINTERFACE.');`);
     END OF default_textid.
 
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('KERNEL_FUGR_TEST', 'CLASS kernel_fugr_test DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('KERNEL_FUGR_TEST                        ', 'CLASS kernel_fugr_test DEFINITION PUBLIC.
   PUBLIC SECTION.
 ENDCLASS.
 
 CLASS kernel_fugr_test IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_DEMO_OUTPUT', 'CLASS cl_demo_output DEFINITION PUBLIC.
-  PUBLIC SECTION.
-    CLASS-METHODS write
-      IMPORTING
-        data TYPE any
-        name TYPE string OPTIONAL.
-    CLASS-METHODS clear.
-    CLASS-METHODS display
-      IMPORTING
-      data TYPE any OPTIONAL
-      name TYPE string OPTIONAL PREFERRED PARAMETER data.
-ENDCLASS.
-
-CLASS cl_demo_output IMPLEMENTATION.
-  METHOD write.
-    ASSERT 1 = ''not supported''.
-  ENDMETHOD.
-
-  METHOD clear.
-    ASSERT 1 = ''not supported''.
-  ENDMETHOD.
-
-  METHOD display.
-    ASSERT 1 = ''not supported''.
-  ENDMETHOD.
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_GUI_CFW', 'CLASS cl_gui_cfw DEFINITION PUBLIC.
-  PUBLIC SECTION.
-    CLASS-METHODS
-      compute_pixel_from_metric
-        IMPORTING
-          x_or_y TYPE c
-          in_     TYPE i
-        RETURNING
-          VALUE(val) TYPE i.
-
-    CLASS-METHODS flush.
-ENDCLASS.
-
-CLASS cl_gui_cfw IMPLEMENTATION.
-  METHOD compute_pixel_from_metric.
-    val = 1.
-  ENDMETHOD.
-
-  METHOD flush.
-    RETURN.
-  ENDMETHOD.
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_GUI_CONTAINER', 'CLASS cl_gui_container DEFINITION PUBLIC.
-  PUBLIC SECTION.
-    CLASS-DATA screen0 TYPE REF TO cl_gui_container.
-    CLASS-DATA default_screen TYPE REF TO cl_gui_container.
-    CONSTANTS visible_true TYPE c LENGTH 1 VALUE ''1''.
-    CONSTANTS visible_false TYPE c LENGTH 1 VALUE ''0''.
-ENDCLASS.
-
-CLASS cl_gui_container IMPLEMENTATION.
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_GUI_FRONTEND_SERVICES', 'CLASS cl_gui_frontend_services DEFINITION PUBLIC.
-  PUBLIC SECTION.
-    CONSTANTS filetype_all TYPE string VALUE ''abc''.
-    CONSTANTS action_cancel TYPE i VALUE 1.
-    CONSTANTS action_ok TYPE i VALUE 1.
-
-    CONSTANTS platform_nt351 TYPE i VALUE 1.
-    CONSTANTS platform_nt40 TYPE i VALUE 2.
-    CONSTANTS platform_nt50 TYPE i VALUE 3.
-    CONSTANTS platform_windows95 TYPE i VALUE 4.
-    CONSTANTS platform_windows98 TYPE i VALUE 5.
-    CONSTANTS platform_windowsxp TYPE i VALUE 6.
-
-    CLASS-METHODS
-      gui_download
-        IMPORTING
-          bin_filesize          TYPE i OPTIONAL
-          filename              TYPE string
-          filetype              TYPE string OPTIONAL
-          write_lf              TYPE abap_bool OPTIONAL
-          write_field_separator TYPE char1 OPTIONAL
-        CHANGING
-          data_tab TYPE any.
-
-    CLASS-METHODS file_exist
-      IMPORTING
-        file          TYPE string
-      RETURNING
-        VALUE(result) TYPE abap_bool.
-
-    CLASS-METHODS
-      directory_list_files
-        IMPORTING
-          directory  TYPE string
-        CHANGING
-          file_table TYPE any
-          count      TYPE i.
-
-    CLASS-METHODS
-      gui_upload
-        IMPORTING
-          filename TYPE string
-          filetype TYPE string OPTIONAL
-        EXPORTING
-          filelength TYPE i
-        CHANGING
-          data_tab TYPE any.
-
-    CLASS-METHODS
-      file_open_dialog
-        IMPORTING
-          window_title     TYPE string OPTIONAL
-          default_filename TYPE string OPTIONAL
-          multiselection   TYPE abap_bool OPTIONAL
-          file_filter      TYPE string OPTIONAL
-        CHANGING
-          file_table  TYPE filetable
-          rc          TYPE i
-          user_action TYPE i OPTIONAL.
-
-    CLASS-METHODS
-      get_platform
-        RETURNING
-          VALUE(platform) TYPE i.
-
-    CLASS-METHODS
-      file_save_dialog
-        IMPORTING
-          window_title         TYPE string OPTIONAL
-          default_extension    TYPE string OPTIONAL
-          default_file_name    TYPE string OPTIONAL
-          file_filter          TYPE string OPTIONAL
-        CHANGING
-          filename             TYPE string
-          path                 TYPE string
-          fullpath             TYPE string
-          user_action          TYPE i OPTIONAL.
-
-    CLASS-METHODS
-      directory_browse
-        IMPORTING
-          window_title    TYPE string OPTIONAL
-          initial_folder  TYPE string
-        CHANGING
-          selected_folder TYPE string.
-
-    CLASS-METHODS
-      execute
-        IMPORTING
-          document          TYPE string OPTIONAL
-          application       TYPE string OPTIONAL
-          parameter         TYPE string OPTIONAL
-          default_directory TYPE string OPTIONAL
-          maximized         TYPE string OPTIONAL
-          minimized         TYPE string OPTIONAL
-          synchronous       TYPE string OPTIONAL
-          operation         TYPE string DEFAULT ''OPEN''.
-
-    CLASS-METHODS
-      get_file_separator
-        CHANGING
-          file_separator TYPE string.
-
-    CLASS-METHODS
-      directory_exist
-        IMPORTING
-          directory TYPE string
-        RETURNING
-          VALUE(result) TYPE abap_bool.
-
-    CLASS-METHODS
-      directory_create
-        IMPORTING
-          directory TYPE string
-        CHANGING
-          rc TYPE i.
-
-    CLASS-METHODS
-      clipboard_export
-        IMPORTING
-          no_auth_check TYPE abap_bool OPTIONAL
-        EXPORTING
-          data TYPE any
-        CHANGING
-          rc TYPE i.
-
-    CLASS-METHODS
-      get_system_directory
-        CHANGING
-          system_directory TYPE string.
-
-    CLASS-METHODS
-      get_gui_version
-        CHANGING
-          version_table TYPE filetable
-          rc            TYPE i.
-
-    CLASS-METHODS clipboard_import
-      EXPORTING
-        data   TYPE STANDARD TABLE
-        length TYPE i.
-
-    CLASS-METHODS file_delete
-      IMPORTING
-        filename TYPE string
-      CHANGING
-        rc       TYPE i.
-
-    CLASS-METHODS get_sapgui_workdir
-      CHANGING
-        sapworkdir TYPE string.
-
-ENDCLASS.
-
-CLASS cl_gui_frontend_services IMPLEMENTATION.
-  METHOD directory_exist.
-    ASSERT 1 = ''directory_exist not supported''.
-  ENDMETHOD.
-
-  METHOD get_sapgui_workdir.
-    ASSERT 1 = ''get_sapgui_workdir not supported''.
-  ENDMETHOD.
-
-  METHOD file_exist.
-    ASSERT 1 = ''file_exist not supported''.
-  ENDMETHOD.
-
-  METHOD file_delete.
-    ASSERT 1 = ''file_delete not supported''.
-  ENDMETHOD.
-
-  METHOD clipboard_import.
-    ASSERT 1 = ''clipboard_import not supported''.
-  ENDMETHOD.
-
-  METHOD directory_list_files.
-    ASSERT 1 = ''directory_list_files not supported''.
-  ENDMETHOD.
-
-  METHOD directory_create.
-    ASSERT 1 = ''directory_create not supported''.
-  ENDMETHOD.
-
-  METHOD gui_download.
-    ASSERT 1 = ''gui_download not supported''.
-  ENDMETHOD.
-
-  METHOD get_file_separator.
-    ASSERT 1 = ''get_file_separator not supported''.
-  ENDMETHOD.
-
-  METHOD execute.
-    ASSERT 1 = ''execute not supported''.
-  ENDMETHOD.
-
-  METHOD directory_browse.
-    ASSERT 1 = ''directory_browse not supported''.
-  ENDMETHOD.
-
-  METHOD gui_upload.
-    ASSERT 1 = ''gui_upload not supported''.
-  ENDMETHOD.
-
-  METHOD file_open_dialog.
-    ASSERT 1 = ''file_open_dialog not supported''.
-  ENDMETHOD.
-
-  METHOD file_save_dialog.
-    ASSERT 1 = ''file_save_dialog not supported''.
-  ENDMETHOD.
-
-  METHOD get_platform.
-    platform = platform_windowsxp.
-  ENDMETHOD.
-
-  METHOD clipboard_export.
-    ASSERT 1 = ''clipboard_export not supported''.
-  ENDMETHOD.
-
-  METHOD get_system_directory.
-    ASSERT 1 = ''get_system_directory not supported''.
-  ENDMETHOD.
-
-  METHOD get_gui_version.
-    ASSERT 1 = ''get_gui_verison not supported''.
-  ENDMETHOD.
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_PROGRESS_INDICATOR', 'CLASS cl_progress_indicator DEFINITION PUBLIC.
-  PUBLIC SECTION.
-    CLASS-METHODS progress_indicate
-      IMPORTING
-        i_text               TYPE any OPTIONAL
-        i_processed          TYPE sy-tabix OPTIONAL
-        i_total              TYPE sy-tabix OPTIONAL
-        i_output_immediately TYPE abap_bool OPTIONAL
-      EXPORTING
-        e_progress_sent      TYPE abap_bool.
-ENDCLASS.
-
-CLASS cl_progress_indicator IMPLEMENTATION.
-  METHOD progress_indicate.
-* do nothing, gui is not supported, but background logic might indicatoe progress
-    RETURN.
-  ENDMETHOD.
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_SALV_COLUMN', 'CLASS cl_salv_column DEFINITION PUBLIC.
-  PUBLIC SECTION.
-    METHODS set_technical IMPORTING value TYPE abap_bool DEFAULT abap_true.
-    METHODS set_short_text IMPORTING value TYPE string.
-    METHODS set_medium_text IMPORTING value TYPE string.
-    METHODS set_long_text IMPORTING value TYPE string.
-ENDCLASS.
-
-CLASS cl_salv_column IMPLEMENTATION.
-  METHOD set_technical.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-  METHOD set_short_text.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-  METHOD set_medium_text.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-  METHOD set_long_text.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_SALV_COLUMNS_TABLE', 'CLASS cl_salv_columns_table DEFINITION PUBLIC.
-  PUBLIC SECTION.
-    METHODS set_cell_type_column
-      IMPORTING value TYPE string.
-    METHODS set_optimize
-      IMPORTING value TYPE abap_bool DEFAULT abap_true.
-    METHODS set_color_column
-      IMPORTING value TYPE string.
-    METHODS get_column
-      IMPORTING columnname TYPE string
-      RETURNING VALUE(value) TYPE REF TO cl_salv_column.
-    METHODS get
-      RETURNING VALUE(value) TYPE any.
-ENDCLASS.
-
-CLASS cl_salv_columns_table IMPLEMENTATION.
-  METHOD get_column.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-  METHOD set_cell_type_column.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-  METHOD set_optimize.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-  METHOD get.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-  METHOD set_color_column.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_SALV_EVENTS_TABLE', 'CLASS cl_salv_events_table DEFINITION PUBLIC.
-  PUBLIC SECTION.
-    EVENTS double_click
-      EXPORTING
-        VALUE(row)    TYPE i
-        VALUE(column) TYPE string.
-
-    EVENTS added_function
-      EXPORTING
-        VALUE(e_salv_function) TYPE string OPTIONAL.
-
-    EVENTS link_click
-      EXPORTING
-        VALUE(row) TYPE i
-        VALUE(column) TYPE string.
-
-ENDCLASS.
-
-CLASS cl_salv_events_table IMPLEMENTATION.
-
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_SALV_FUNCTIONS_LIST', 'CLASS cl_salv_functions_list DEFINITION PUBLIC.
-  PUBLIC SECTION.
-    METHODS set_all.
-ENDCLASS.
-
-CLASS cl_salv_functions_list IMPLEMENTATION.
-  METHOD set_all.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_SALV_TABLE', 'CLASS cl_salv_table DEFINITION PUBLIC.
-  PUBLIC SECTION.
-    CONSTANTS c_functions_all TYPE i VALUE 1.
-    TYPES ty_rows TYPE STANDARD TABLE OF i WITH DEFAULT KEY.
-
-    CLASS-METHODS factory
-      IMPORTING
-        r_container TYPE any OPTIONAL
-      EXPORTING
-        r_salv_table TYPE any
-      CHANGING
-        t_table TYPE any.
-    METHODS get_selections RETURNING VALUE(val) TYPE REF TO cl_salv_table.
-    METHODS set_selection_mode IMPORTING val TYPE i.
-    METHODS get_selected_rows RETURNING VALUE(rows) TYPE ty_rows.
-    METHODS close_screen.
-    METHODS refresh.
-    METHODS display.
-    METHODS is_offline RETURNING VALUE(value) TYPE abap_bool.
-    METHODS get_metadata.
-    METHODS set_screen_status
-      IMPORTING
-        pfstatus      TYPE any
-        set_functions TYPE any OPTIONAL
-        report        TYPE any.
-    METHODS set_screen_popup
-      IMPORTING
-        start_column TYPE i
-        end_column   TYPE i
-        start_line   TYPE i
-        end_line     TYPE i.
-    METHODS get_event
-      RETURNING VALUE(val) TYPE REF TO cl_salv_events_table.
-    METHODS get_display_settings
-      RETURNING VALUE(val) TYPE REF TO cl_salv_table.
-    METHODS set_striped_pattern IMPORTING val TYPE any.
-    METHODS set_list_header IMPORTING val TYPE any.
-    METHODS set_top_of_list IMPORTING val TYPE any.
-    METHODS get_columns RETURNING VALUE(val) TYPE REF TO cl_salv_columns_table.
-    METHODS get_functions RETURNING VALUE(val) TYPE REF TO cl_salv_functions_list.
-ENDCLASS.
-
-CLASS cl_salv_table IMPLEMENTATION.
-  METHOD get_functions.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-  METHOD get_selected_rows.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-  METHOD get_metadata.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-  METHOD set_selection_mode.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-  METHOD set_striped_pattern.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-  METHOD set_list_header.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-  METHOD factory.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-  METHOD is_offline.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-  METHOD get_selections.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-  METHOD close_screen.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-  METHOD refresh.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-  METHOD display.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-  METHOD set_screen_status.
-    ASSERT 1 = ''TODO''.
-  ENDMETHOD.
-
-  METHOD set_screen_popup.
-    ASSERT 1 = ''TODO''.
-  ENDMETHOD.
-
-  METHOD get_event.
-    ASSERT 1 = ''TODO''.
-  ENDMETHOD.
-
-  METHOD get_display_settings.
-    ASSERT 1 = ''TODO''.
-  ENDMETHOD.
-
-  METHOD set_top_of_list.
-    ASSERT 1 = ''TODO''.
-  ENDMETHOD.
-
-  METHOD get_columns.
-    ASSERT 1 = ''TODO''.
-  ENDMETHOD.
-
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SALV_ACCESS_ERROR', 'CLASS cx_salv_access_error DEFINITION PUBLIC INHERITING FROM cx_salv_static_check.
-
-ENDCLASS.
-
-CLASS cx_salv_access_error IMPLEMENTATION.
-
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SALV_DATA_ERROR', 'CLASS cx_salv_data_error DEFINITION PUBLIC INHERITING FROM cx_salv_static_check.
-
-ENDCLASS.
-
-CLASS cx_salv_data_error IMPLEMENTATION.
-
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SALV_ERROR', 'CLASS cx_salv_error DEFINITION PUBLIC INHERITING FROM cx_static_check.
-
-ENDCLASS.
-
-CLASS cx_salv_error IMPLEMENTATION.
-
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SALV_MSG', 'CLASS cx_salv_msg DEFINITION PUBLIC INHERITING FROM cx_salv_error.
-
-ENDCLASS.
-
-CLASS cx_salv_msg IMPLEMENTATION.
-
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SALV_NOT_FOUND', 'CLASS cx_salv_not_found DEFINITION PUBLIC INHERITING FROM cx_salv_access_error.
-
-ENDCLASS.
-
-CLASS cx_salv_not_found IMPLEMENTATION.
-
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SALV_STATIC_CHECK', 'CLASS cx_salv_static_check DEFINITION PUBLIC INHERITING FROM cx_salv_error.
-
-ENDCLASS.
-
-CLASS cx_salv_static_check IMPLEMENTATION.
-
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SALV_C_BOOL_SAP', 'INTERFACE if_salv_c_bool_sap PUBLIC.
-  CONSTANTS true_ TYPE abap_bool VALUE abap_true.
-  CONSTANTS false_ TYPE abap_bool VALUE abap_false.
-ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SALV_C_SELECTION_MODE', 'INTERFACE if_salv_c_selection_mode PUBLIC.
-  CONSTANTS cell       TYPE i VALUE 1.
-  CONSTANTS multiple   TYPE i VALUE 2.
-  CONSTANTS none       TYPE i VALUE 3.
-  CONSTANTS row_column TYPE i VALUE 4.
-  CONSTANTS single     TYPE i VALUE 5.
-ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_HTTP_CLIENT', 'CLASS cl_http_client DEFINITION PUBLIC CREATE PRIVATE.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_HTTP_CLIENT                          ', 'CLASS cl_http_client DEFINITION PUBLIC CREATE PRIVATE.
   PUBLIC SECTION.
     INTERFACES if_http_client.
 
@@ -9880,10 +11031,17 @@ ENDINTERFACE.');`);
 
     CLASS-METHODS create_by_destination
       IMPORTING
-        destination   TYPE string
+        destination   TYPE clike
       EXPORTING
         VALUE(client) TYPE REF TO if_http_client.
 * todo, add classic exceptions
+
+    CLASS-METHODS create_internal
+      EXPORTING
+        client TYPE REF TO if_http_client
+      EXCEPTIONS
+        plugin_not_active
+        internal_error.
 
     METHODS constructor
       IMPORTING
@@ -9924,6 +11082,10 @@ CLASS cl_http_client IMPLEMENTATION.
 
   ENDMETHOD.
 
+  METHOD if_http_client~escape_url.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
   METHOD create_by_url.
     CREATE OBJECT client TYPE cl_http_client
       EXPORTING
@@ -9948,12 +11110,22 @@ CLASS cl_http_client IMPLEMENTATION.
     ASSERT 1 = ''todo''.
   ENDMETHOD.
 
+  METHOD create_internal.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_http_client~create_abs_url.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
   METHOD if_http_client~send.
     DATA lv_method        TYPE string.
     DATA lv_url           TYPE string.
     DATA lv_body          TYPE string.
     DATA lv_name          TYPE string.
     DATA lv_value         TYPE string.
+    DATA lv_content_type  TYPE string.
+    DATA lv_xstr          TYPE xstring.
     DATA lt_form_fields   TYPE tihttpnvp.
     DATA lt_header_fields TYPE tihttpnvp.
     DATA ls_field         LIKE LINE OF lt_header_fields.
@@ -9976,9 +11148,14 @@ CLASS cl_http_client IMPLEMENTATION.
     lv_url = mv_host && lv_url.
     if_http_client~request->get_form_fields( CHANGING fields = lt_form_fields ).
     IF lines( lt_form_fields ) > 0.
-      lv_url = lv_url && ''?'' && cl_http_utility=>fields_to_string( lt_form_fields ).
+      CASE lv_method.
+        WHEN ''GET''.
+          lv_url = lv_url && ''?'' && cl_http_utility=>fields_to_string( lt_form_fields ).
+        WHEN ''POST''.
+          if_http_client~request->set_cdata( cl_http_utility=>fields_to_string( lt_form_fields ) ).
+      ENDCASE.
     ENDIF.
-    " WRITE ''@KERNEL console.dir(lv_url.get());''.
+*    WRITE ''@KERNEL console.dir(lv_url.get());''.
 
 * building headers
     if_http_client~request->get_header_fields( CHANGING fields = lt_header_fields ).
@@ -9986,9 +11163,20 @@ CLASS cl_http_client IMPLEMENTATION.
     LOOP AT lt_header_fields INTO ls_field WHERE name <> ''~request_uri''.
       WRITE ''@KERNEL headers[ls_field.get().name.get()] = ls_field.get().value.get();''.
     ENDLOOP.
+
+    lv_content_type = if_http_client~request->get_content_type( ).
+    IF lv_content_type IS NOT INITIAL.
+      WRITE ''@KERNEL headers["content-type"] = lv_content_type.get();''.
+    ENDIF.
+    WRITE ''@KERNEL headers["accept-encoding"] = "gzip";''.
+
 *    WRITE ''@KERNEL console.dir(headers);''.
 
     lv_body = if_http_client~request->get_cdata( ).
+*    WRITE ''@KERNEL console.dir(lv_body);''.
+    IF strlen( lv_body ) > 0.
+      WRITE ''@KERNEL headers["content-length"] = lv_body.get().length;''.
+    ENDIF.
 
     WRITE ''@KERNEL const https = await import("https");''.
     WRITE ''@KERNEL const http = await import("http");''.
@@ -10001,12 +11189,12 @@ CLASS cl_http_client IMPLEMENTATION.
     WRITE ''@KERNEL         res.on("data", (chunk) => {chunks.push(chunk);});''.
     WRITE ''@KERNEL         res.on("error", reject);''.
     WRITE ''@KERNEL         res.on("end", () => {''.
-*    WRITE ''@KERNEL           console.dir(res.statusCode + " " + res.headers["content-type"]);''.
-    WRITE ''@KERNEL           if (res.statusCode >= 200 && res.statusCode <= 299) {''.
+*    WRITE ''@KERNEL           console.dir(res.statusCode + " " + JSON.stringify(res.headers));''.
+*    WRITE ''@KERNEL           if (res.statusCode >= 200 && res.statusCode <= 299) {''.
     WRITE ''@KERNEL             resolve({statusCode: res.statusCode, headers: res.headers, body: Buffer.concat(chunks)});''.
-    WRITE ''@KERNEL           } else {''.
-    WRITE ''@KERNEL             reject("Request failed. status: " + res.statusCode + ", body: " + Buffer.concat(chunks).toString());''.
-    WRITE ''@KERNEL           }''.
+*    WRITE ''@KERNEL           } else {''.
+*    WRITE ''@KERNEL             reject("Request failed. status: " + res.statusCode + ", body: " + Buffer.concat(chunks).toString());''.
+*    WRITE ''@KERNEL           }''.
     WRITE ''@KERNEL         });''.
     WRITE ''@KERNEL       });''.
     WRITE ''@KERNEL     req.on("error", reject);''.
@@ -10024,6 +11212,7 @@ CLASS cl_http_client IMPLEMENTATION.
 
     WRITE ''@KERNEL for (const h in response.headers) {''.
     WRITE ''@KERNEL   lv_name.set(h);''.
+    WRITE ''@KERNEL   if (Array.isArray(response.headers[h])) continue;''.
     WRITE ''@KERNEL   lv_value.set(response.headers[h]);''.
     if_http_client~response->set_header_field(
       name  = lv_name
@@ -10034,6 +11223,17 @@ CLASS cl_http_client IMPLEMENTATION.
     WRITE ''@KERNEL this.if_http_client$response.get().mv_content_type.set(response.headers["content-type"] || "");''.
     WRITE ''@KERNEL this.if_http_client$response.get().mv_status.set(response.statusCode);''.
     WRITE ''@KERNEL this.if_http_client$response.get().mv_data.set(response.body.toString("hex").toUpperCase());''.
+*    WRITE ''@KERNEL console.dir(this.if_http_client$response.get().mv_data);''.
+
+    lv_value = if_http_client~response->get_header_field( ''content-encoding'' ).
+    IF lv_value = ''gzip''.
+      cl_abap_gzip=>decompress_binary_with_header(
+        EXPORTING
+          gzip_in = if_http_client~response->get_data( )
+        IMPORTING
+          raw_out = lv_xstr ).
+      if_http_client~response->set_data( lv_xstr ).
+    ENDIF.
 
 * workaround for classic exceptions, this should work sometime in the transpiler instead
     sy-subrc = 0.
@@ -10054,14 +11254,24 @@ CLASS cl_http_client IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD if_http_client~send_sap_logon_ticket.
-    ASSERT 2 = ''not supported''.
+* do nothing,
+    RETURN.
+  ENDMETHOD.
+
+  METHOD if_http_client~refresh_request.
+    ASSERT 1 = ''todo''.
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_HTTP_ENTITY', 'CLASS cl_http_entity DEFINITION PUBLIC CREATE PRIVATE.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_HTTP_ENTITY                          ', 'CLASS cl_http_entity DEFINITION PUBLIC CREATE PRIVATE.
   PUBLIC SECTION.
     INTERFACES if_http_response.
     INTERFACES if_http_request.
+
+    ALIASES set_header_field FOR if_http_entity~set_header_field.
+    ALIASES append_cdata FOR if_http_entity~append_cdata.
+  PROTECTED SECTION.
+    DATA m_last_error TYPE i.
   PRIVATE SECTION.
     DATA mv_status       TYPE i.
     DATA mv_reason       TYPE string.
@@ -10209,7 +11419,13 @@ CLASS cl_http_entity IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD if_http_entity~set_header_fields.
-    ASSERT 1 = ''todo''.
+* todo, does this method clear the existing fields?
+    DATA ls_field LIKE LINE OF fields.
+    LOOP AT fields INTO ls_field.
+      if_http_entity~set_header_field(
+        name  = ls_field-name
+        value = ls_field-value ).
+    ENDLOOP.
   ENDMETHOD.
 
   METHOD if_http_entity~suppress_content_type.
@@ -10267,11 +11483,13 @@ CLASS cl_http_entity IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD if_http_entity~get_content_type.
-    val = mv_content_type.
+    content_type = if_http_entity~get_header_field( ''content-type'' ).
   ENDMETHOD.
 
   METHOD if_http_entity~set_content_type.
-    mv_content_type = content_type.
+    if_http_entity~set_header_field(
+      name  = ''content-type''
+      value = content_type ).
   ENDMETHOD.
 
   METHOD if_http_entity~get_data.
@@ -10291,7 +11509,8 @@ CLASS cl_http_entity IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD if_http_entity~num_multiparts.
-    ASSERT 2 = ''todo''.
+* todo
+    num = 0.
   ENDMETHOD.
 
   METHOD if_http_entity~get_multipart.
@@ -10307,7 +11526,11 @@ CLASS cl_http_entity IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD if_http_entity~get_form_fields.
-    fields = mt_form_fields.
+    DATA ls_field LIKE LINE OF mt_form_fields.
+    LOOP AT mt_form_fields INTO ls_field.
+      TRANSLATE ls_field-name TO LOWER CASE.
+      APPEND ls_field TO fields.
+    ENDLOOP.
   ENDMETHOD.
 
   METHOD if_http_entity~get_form_field.
@@ -10343,7 +11566,8 @@ CLASS cl_http_entity IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD if_http_request~set_version.
-    ASSERT 2 = ''todo''.
+* todo,
+    RETURN.
   ENDMETHOD.
 
   METHOD if_http_entity~set_form_field.
@@ -10354,26 +11578,131 @@ CLASS cl_http_entity IMPLEMENTATION.
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_HTTP_SERVER', 'CLASS cl_http_server DEFINITION PUBLIC CREATE PRIVATE.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_HTTP_SERVER                          ', 'CLASS cl_http_server DEFINITION PUBLIC CREATE PRIVATE.
   PUBLIC SECTION.
+    INTERFACES if_http_server.
+
+    ALIASES co_enabled FOR if_http_server~co_enabled.
+    ALIASES append_field_url FOR if_http_server~append_field_url.
+
+    CLASS-DATA c_compression_supported TYPE i.
+    DATA m_protocol_version TYPE string READ-ONLY.
+
     CLASS-METHODS get_location
+      IMPORTING
+        application TYPE csequence OPTIONAL
       EXPORTING
-        host TYPE string.
+        port         TYPE string
+        out_protocol TYPE string
+        host         TYPE string.
+
 ENDCLASS.
 
 CLASS cl_http_server IMPLEMENTATION.
+  METHOD if_http_server~logoff.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_http_server~set_session_stateful.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_http_server~append_field_url.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_http_server~create_abs_url.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_http_server~create_rel_url.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_http_server~decode_base64.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_http_server~enable_foreign_session_access.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_http_server~encode_base64.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_http_server~escape_html.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_http_server~escape_url.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_http_server~get_extension_info.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_http_server~get_extension_url.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_http_server~get_last_error.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_http_server~get_location.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_http_server~get_location_exception.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_http_server~get_xsrf_token.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_http_server~send_page.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_http_server~set_compression.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_http_server~set_page.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_http_server~set_session_stateful_via_url.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_http_server~unescape_url.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_http_server~validate_xsrf_token.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
   METHOD get_location.
     host = ''open-abap.org''.
   ENDMETHOD.
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_HTTP_UTILITY', 'CLASS cl_http_utility DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_HTTP_UTILITY                         ', 'CLASS cl_http_utility DEFINITION PUBLIC.
   PUBLIC SECTION.
     INTERFACES if_http_utility.
 
+    ALIASES decode_base64 FOR if_http_utility~decode_base64.
+    ALIASES encode_base64 FOR if_http_utility~encode_base64.
+    ALIASES escape_url FOR if_http_utility~escape_url.
+    ALIASES fields_to_string FOR if_http_utility~fields_to_string.
+    ALIASES get_last_error FOR if_http_utility~get_last_error.
     ALIASES string_to_fields FOR if_http_utility~string_to_fields.
     ALIASES unescape_url FOR if_http_utility~unescape_url.
-    ALIASES escape_url FOR if_http_utility~escape_url.
-    ALIASES encode_base64 FOR if_http_utility~encode_base64.
+    ALIASES normalize_url FOR if_http_utility~normalize_url.
 
     CLASS-METHODS decode_x_base64
       IMPORTING
@@ -10383,15 +11712,9 @@ ENDCLASS.');`);
 
     CLASS-METHODS encode_x_base64
       IMPORTING
-        data           TYPE xstring
+        unencoded      TYPE xstring
       RETURNING
         VALUE(encoded) TYPE string.
-
-    CLASS-METHODS fields_to_string
-      IMPORTING
-        fields TYPE tihttpnvp
-      RETURNING
-        VALUE(string) TYPE string.
 
     CLASS-METHODS set_query
       IMPORTING
@@ -10428,7 +11751,9 @@ ENDCLASS.
 CLASS cl_http_utility IMPLEMENTATION.
 
   METHOD set_request_uri.
-    ASSERT 1 = ''todo''.
+    request->set_header_field(
+      name = ''~request_uri''
+      value = uri ).
   ENDMETHOD.
 
   METHOD escape_html.
@@ -10443,10 +11768,16 @@ CLASS cl_http_utility IMPLEMENTATION.
     ASSERT 1 = ''todo''.
   ENDMETHOD.
 
+  METHOD if_http_utility~get_last_error.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
   METHOD if_http_utility~string_to_fields.
-    DATA tab TYPE STANDARD TABLE OF string.
+    DATA tab TYPE STANDARD TABLE OF string WITH DEFAULT KEY.
     DATA str LIKE LINE OF tab.
     DATA ls_field LIKE LINE OF fields.
+
+    ASSERT ignore_parenthesis = 0.
 
     SPLIT string AT ''&'' INTO TABLE tab.
     LOOP AT tab INTO str.
@@ -10459,12 +11790,17 @@ CLASS cl_http_utility IMPLEMENTATION.
     request->set_form_fields( string_to_fields( query ) ).
   ENDMETHOD.
 
-  METHOD fields_to_string.
-    DATA tab TYPE STANDARD TABLE OF string.
+  METHOD if_http_utility~normalize_url.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_http_utility~fields_to_string.
+    DATA tab TYPE STANDARD TABLE OF string WITH DEFAULT KEY.
     DATA str TYPE string.
     DATA ls_field LIKE LINE OF fields.
 
     LOOP AT fields INTO ls_field.
+      ls_field-value = if_http_utility~escape_url( ls_field-value ).
       str = ls_field-name && ''='' && ls_field-value.
       APPEND str TO tab.
     ENDLOOP.
@@ -10472,7 +11808,7 @@ CLASS cl_http_utility IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD encode_x_base64.
-    WRITE ''@KERNEL let buffer = Buffer.from(data.get(), "hex");''.
+    WRITE ''@KERNEL let buffer = Buffer.from(unencoded.get(), "hex");''.
     WRITE ''@KERNEL encoded.set(buffer.toString("base64"));''.
   ENDMETHOD.
 
@@ -10487,22 +11823,80 @@ CLASS cl_http_utility IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD if_http_utility~escape_url.
-    WRITE ''@KERNEL escaped.set(encodeURIComponent(unescaped.get()));''.
+    DATA lv_index TYPE i.
+    DATA lv_char  TYPE string.
+
+    DO strlen( unescaped ) TIMES.
+      lv_index = sy-index - 1.
+      lv_char = unescaped+lv_index(1).
+      IF to_upper( lv_char ) CA sy-abcde OR lv_char CA ''0123456789.-()''.
+        escaped = escaped && lv_char.
+      ELSE.
+        escaped = escaped && ''%'' && to_lower( cl_abap_codepage=>convert_to( lv_char ) ).
+      ENDIF.
+    ENDDO.
   ENDMETHOD.
 
   METHOD if_http_utility~encode_base64.
     WRITE ''@KERNEL let buffer = Buffer.from(unencoded.get());''.
     WRITE ''@KERNEL encoded.set(buffer.toString("base64"));''.
   ENDMETHOD.
+
+  METHOD if_http_utility~decode_base64.
+    WRITE ''@KERNEL let buffer = Buffer.from(encoded.get(), "base64");''.
+    WRITE ''@KERNEL decoded.set(buffer.toString());''.
+  ENDMETHOD.
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_HTTP_CLIENT', 'INTERFACE if_http_client PUBLIC.
-  DATA request TYPE REF TO if_http_request.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_WEB_HTTP_UTILITY                     ', 'CLASS cl_web_http_utility DEFINITION PUBLIC.
+  PUBLIC SECTION.
+    CLASS-METHODS unescape_url
+      IMPORTING
+        escaped          TYPE string
+        options          TYPE i OPTIONAL
+      RETURNING
+        VALUE(unescaped) TYPE string.
+
+    CLASS-METHODS decode_x_base64
+      IMPORTING
+        encoded        TYPE string
+      RETURNING
+        VALUE(decoded) TYPE xstring.
+
+    CLASS-METHODS encode_x_base64
+      IMPORTING
+        unencoded      TYPE xstring
+      RETURNING
+        VALUE(encoded) TYPE string.
+ENDCLASS.
+
+CLASS cl_web_http_utility IMPLEMENTATION.
+  METHOD unescape_url.
+    unescaped = cl_http_utility=>unescape_url(
+      escaped = escaped
+      options = options ).
+  ENDMETHOD.
+
+  METHOD decode_x_base64.
+    decoded = cl_http_utility=>decode_x_base64( encoded ).
+  ENDMETHOD.
+
+  METHOD encode_x_base64.
+    encoded = cl_http_utility=>encode_x_base64( unencoded ).
+  ENDMETHOD.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_HTTP_CLIENT                          ', 'INTERFACE if_http_client PUBLIC.
+  DATA request  TYPE REF TO if_http_request.
   DATA response TYPE REF TO if_http_response.
-  DATA propertytype_logon_popup TYPE i.
+
+  DATA propertytype_logon_popup   TYPE i.
   DATA propertytype_accept_cookie TYPE i.
+  DATA propertytype_redirect      TYPE i.
 
   CONSTANTS co_disabled TYPE i VALUE 0.
-  CONSTANTS co_enabled TYPE i VALUE 1.
+  CONSTANTS co_enabled  TYPE i VALUE 1.
+
+  CONSTANTS co_timeout_default TYPE i VALUE 60.
 
   METHODS authenticate
     IMPORTING
@@ -10511,29 +11905,51 @@ ENDCLASS.');`);
       password             TYPE string.
 
   METHODS close.
+
   METHODS send
+    IMPORTING
+      timeout TYPE i DEFAULT 0
     EXCEPTIONS
       http_communication_failure
       http_invalid_state
       http_processing_failed
       http_invalid_timeout.
+
   METHODS receive
     EXCEPTIONS
       http_communication_failure
       http_invalid_state
       http_processing_failed.
+
   METHODS send_sap_logon_ticket.
 
   METHODS get_last_error
     EXPORTING
       code    TYPE i
       message TYPE string.
+
+  METHODS refresh_request.
+
+  METHODS create_abs_url
+    IMPORTING
+      path       TYPE string OPTIONAL
+    RETURNING
+      VALUE(url) TYPE string.
+
+  CLASS-METHODS escape_url
+    IMPORTING
+      unescaped      TYPE string
+    RETURNING
+      VALUE(escaped) TYPE string.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_HTTP_ENTITY', 'INTERFACE if_http_entity PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_HTTP_ENTITY                          ', 'INTERFACE if_http_entity PUBLIC.
 
   CONSTANTS co_request_method_get TYPE string VALUE ''GET''.
   CONSTANTS co_request_method_post TYPE string VALUE ''POST''.
   CONSTANTS co_body_before_query_string TYPE i VALUE 3.
+  CONSTANTS co_protocol_version_1_0 TYPE i VALUE 1000.
+  CONSTANTS co_protocol_version_1_1 TYPE i VALUE 1001.
+  CONSTANTS co_compress_based_on_mime_type TYPE i VALUE 2.
 
   METHODS set_cdata
     IMPORTING
@@ -10560,7 +11976,11 @@ ENDINTERFACE.');`);
     CHANGING
       fields TYPE tihttpnvp.
 
-  METHODS set_compression.
+  METHODS set_compression
+    IMPORTING
+      disable_extended_checks TYPE abap_bool DEFAULT abap_false
+      options                 TYPE i DEFAULT co_compress_based_on_mime_type
+      PREFERRED PARAMETER options.
 
   METHODS add_multipart
     IMPORTING
@@ -10575,7 +11995,8 @@ ENDINTERFACE.');`);
   METHODS get_cdata RETURNING VALUE(data) TYPE string.
 
   METHODS get_content_type
-    RETURNING VALUE(val) TYPE string.
+    RETURNING
+      VALUE(content_type) TYPE string.
 
   METHODS get_serialized_message_length
     EXPORTING
@@ -10590,7 +12011,9 @@ ENDINTERFACE.');`);
     RETURNING
       VALUE(data) TYPE xstring.
 
-  METHODS get_header_fields CHANGING fields TYPE any.
+  METHODS get_header_fields
+    CHANGING
+      fields TYPE tihttpnvp.
 
   METHODS to_xstring
     RETURNING
@@ -10739,7 +12162,7 @@ ENDINTERFACE.');`);
       name TYPE string.
 
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_HTTP_EXTENSION', 'INTERFACE if_http_extension PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_HTTP_EXTENSION                       ', 'INTERFACE if_http_extension PUBLIC.
 
   DATA flow_rc TYPE i.
 
@@ -10749,30 +12172,35 @@ ENDINTERFACE.');`);
   METHODS handle_request IMPORTING server TYPE REF TO if_http_server.
 
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_HTTP_REQUEST', 'INTERFACE if_http_request PUBLIC.
-
-  CONSTANTS:
-    co_protocol_version_1_1 TYPE string VALUE ''VER11'',
-    co_protocol_version_1_0 TYPE string VALUE ''VER10'',
-    co_request_method_get TYPE string VALUE ''GET'',
-    co_request_method_post TYPE string VALUE ''POST''.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_HTTP_REQUEST                         ', 'INTERFACE if_http_request PUBLIC.
 
   INTERFACES if_http_entity.
 
   ALIASES add_multipart FOR if_http_entity~add_multipart.
+  ALIASES append_cdata FOR if_http_entity~append_cdata.
+  ALIASES append_cdata2 FOR if_http_entity~append_cdata2.
+  ALIASES append_data FOR if_http_entity~append_data.
+  ALIASES co_protocol_version_1_0 FOR if_http_entity~co_protocol_version_1_0.
+  ALIASES co_protocol_version_1_1 FOR if_http_entity~co_protocol_version_1_1.
+  ALIASES co_request_method_get FOR if_http_entity~co_request_method_get.
+  ALIASES co_request_method_post FOR if_http_entity~co_request_method_post.
   ALIASES get_cdata FOR if_http_entity~get_cdata.
   ALIASES get_content_type FOR if_http_entity~get_content_type.
   ALIASES get_cookie_field FOR if_http_entity~get_cookie_field.
+  ALIASES get_cookies FOR if_http_entity~get_cookies.
   ALIASES get_data FOR if_http_entity~get_data.
   ALIASES get_form_field FOR if_http_entity~get_form_field.
   ALIASES get_form_fields FOR if_http_entity~get_form_fields.
   ALIASES get_form_fields_cs FOR if_http_entity~get_form_fields_cs.
   ALIASES get_header_field FOR if_http_entity~get_header_field.
   ALIASES get_header_fields FOR if_http_entity~get_header_fields.
+  ALIASES get_last_error FOR if_http_entity~get_last_error.
   ALIASES get_multipart FOR if_http_entity~get_multipart.
   ALIASES num_multiparts FOR if_http_entity~num_multiparts.
   ALIASES set_cdata FOR if_http_entity~set_cdata.
+  ALIASES set_compression FOR if_http_entity~set_compression.
   ALIASES set_content_type FOR if_http_entity~set_content_type.
+  ALIASES set_cookie FOR if_http_entity~set_cookie.
   ALIASES set_data FOR if_http_entity~set_data.
   ALIASES set_form_field FOR if_http_entity~set_form_field.
   ALIASES set_form_fields FOR if_http_entity~set_form_fields.
@@ -10789,7 +12217,7 @@ ENDINTERFACE.');`);
 
   METHODS set_version
     IMPORTING
-      version TYPE string.
+      version TYPE i.
 
   METHODS set_authorization
     IMPORTING
@@ -10829,7 +12257,7 @@ ENDINTERFACE.');`);
       user_agent_version TYPE i.
 
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_HTTP_RESPONSE', 'INTERFACE if_http_response PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_HTTP_RESPONSE                        ', 'INTERFACE if_http_response PUBLIC.
 
   INTERFACES if_http_entity.
 
@@ -10845,6 +12273,8 @@ ENDINTERFACE.');`);
   ALIASES append_cdata FOR if_http_entity~append_cdata.
   ALIASES set_cookie FOR if_http_entity~set_cookie.
   ALIASES delete_header_field FOR if_http_entity~delete_header_field.
+  ALIASES set_compression FOR if_http_entity~set_compression.
+  ALIASES get_cookies FOR if_http_entity~get_cookies.
 
   METHODS get_status
     EXPORTING
@@ -10866,6 +12296,7 @@ ENDINTERFACE.');`);
     IMPORTING
       url                TYPE string
       permanently        TYPE i OPTIONAL
+      explanation        TYPE string OPTIONAL
       protocol_dependent TYPE i OPTIONAL.
 
   METHODS copy
@@ -10878,30 +12309,30 @@ ENDINTERFACE.');`);
 
   METHODS server_cache_browser_dependent
     IMPORTING
-      dependent TYPE boolean DEFAULT ''X''.
+      dependent TYPE boolean DEFAULT abap_true.
 
   METHODS server_cache_expire_abs
     IMPORTING
       expires_abs_date  TYPE d OPTIONAL
       expires_abs_time  TYPE t OPTIONAL
       etag              TYPE char32 OPTIONAL
-      browser_dependent TYPE boolean DEFAULT '' ''
-      no_ufo_cache      TYPE boolean DEFAULT '' ''.
+      browser_dependent TYPE boolean DEFAULT abap_false
+      no_ufo_cache      TYPE boolean DEFAULT abap_false.
 
   METHODS server_cache_expire_default
     IMPORTING
-      etag TYPE char32 OPTIONAL
-      browser_dependent TYPE boolean DEFAULT '' ''
-      no_ufo_cache TYPE boolean DEFAULT '' ''.
+      etag              TYPE char32 OPTIONAL
+      browser_dependent TYPE boolean DEFAULT abap_false
+      no_ufo_cache      TYPE boolean DEFAULT abap_false.
 
   METHODS server_cache_expire_rel
     IMPORTING
-      !expires_rel TYPE i
-      !etag TYPE char32 OPTIONAL
-      !browser_dependent TYPE boolean DEFAULT '' ''
-      !no_ufo_cache TYPE boolean DEFAULT '' ''.
+      expires_rel       TYPE i
+      etag              TYPE char32 OPTIONAL
+      browser_dependent TYPE boolean DEFAULT abap_false
+      no_ufo_cache      TYPE boolean DEFAULT abap_false.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_HTTP_SERVER', 'INTERFACE if_http_server PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_HTTP_SERVER                          ', 'INTERFACE if_http_server PUBLIC.
 
   DATA response TYPE REF TO if_http_response.
   DATA request TYPE REF TO if_http_request.
@@ -10915,10 +12346,13 @@ ENDINTERFACE.');`);
 
   CLASS-DATA session_id TYPE string READ-ONLY.
   CLASS-DATA authentication_method TYPE i READ-ONLY.
+  CLASS-DATA authenticated TYPE i READ-ONLY.
 
   METHODS logoff
     IMPORTING
-      redirect_url TYPE string OPTIONAL.
+      delete_mysapsso2_cookie TYPE abap_bool OPTIONAL
+      propagate_logoff        TYPE abap_bool OPTIONAL
+      redirect_url            TYPE string OPTIONAL.
 
   METHODS set_session_stateful
     IMPORTING
@@ -11081,13 +12515,18 @@ ENDINTERFACE.');`);
       called_by_public_service.
 
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_HTTP_UTILITY', 'INTERFACE if_http_utility PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_HTTP_UTILITY                         ', 'INTERFACE if_http_utility PUBLIC.
 
   CLASS-METHODS string_to_fields
     IMPORTING
-      string        TYPE string
+      string             TYPE string
+      ignore_parenthesis TYPE i DEFAULT 0
     RETURNING
-      VALUE(fields) TYPE tihttpnvp.
+      VALUE(fields)      TYPE tihttpnvp.
+
+  CLASS-METHODS get_last_error
+    RETURNING
+      VALUE(rc) TYPE i.
 
   CLASS-METHODS unescape_url
     IMPORTING
@@ -11108,11 +12547,32 @@ ENDINTERFACE.');`);
     RETURNING
       VALUE(encoded) TYPE string.
 
-ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SERIALIZABLE_OBJECT', 'INTERFACE if_serializable_object PUBLIC.
+  CLASS-METHODS fields_to_string
+    IMPORTING
+      fields TYPE tihttpnvp
+    RETURNING
+      VALUE(string) TYPE string.
+
+  CLASS-METHODS decode_base64
+    IMPORTING
+      encoded        TYPE string
+    RETURNING
+      VALUE(decoded) TYPE string.
+
+  CLASS-METHODS normalize_url
+    IMPORTING
+      unnormalized      TYPE string
+    RETURNING
+      VALUE(normalized) TYPE string.
 
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_IXML', 'CLASS cl_ixml DEFINITION PUBLIC CREATE PRIVATE.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_AMDP_MARKER_HDB                      ', 'INTERFACE if_amdp_marker_hdb PUBLIC.
+
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SERIALIZABLE_OBJECT                  ', 'INTERFACE if_serializable_object PUBLIC.
+
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_IXML                                 ', 'CLASS cl_ixml DEFINITION PUBLIC CREATE PRIVATE.
   PUBLIC SECTION.
     INTERFACES if_ixml.
     CLASS-METHODS
@@ -11153,7 +12613,7 @@ CLASS cl_ixml IMPLEMENTATION.
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML', 'INTERFACE if_ixml PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML                                 ', 'INTERFACE if_ixml PUBLIC.
   METHODS create_document
     RETURNING
       VALUE(doc) TYPE REF TO if_ixml_document.
@@ -11175,19 +12635,21 @@ ENDCLASS.');`);
       VALUE(parser) TYPE REF TO if_ixml_parser.
   METHODS create_encoding
     IMPORTING
-      byte_order    TYPE string
+      byte_order    TYPE i
       character_set TYPE string
     RETURNING
       VALUE(rval) TYPE REF TO if_ixml_encoding.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_ATTRIBUTE', 'INTERFACE if_ixml_attribute PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_ATTRIBUTE                       ', 'INTERFACE if_ixml_attribute PUBLIC.
   INTERFACES if_ixml_node.
   METHODS get_value RETURNING VALUE(val) TYPE string.
   METHODS set_value IMPORTING value TYPE string.
   METHODS get_name RETURNING VALUE(val) TYPE string.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_DOCUMENT', 'INTERFACE if_ixml_document PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_DOCUMENT                        ', 'INTERFACE if_ixml_document PUBLIC.
   INTERFACES if_ixml_node.
+
+  ALIASES create_filter_name_ns FOR if_ixml_node~create_filter_name_ns.
 
   METHODS:
     set_encoding
@@ -11196,6 +12658,9 @@ ENDINTERFACE.');`);
     set_standalone
       IMPORTING
         standalone TYPE abap_bool,
+    get_standalone
+      RETURNING
+        VALUE(rval) TYPE abap_bool,
     set_namespace_prefix
       IMPORTING
         prefix TYPE string,
@@ -11213,8 +12678,9 @@ ENDINTERFACE.');`);
         VALUE(element) TYPE REF TO if_ixml_attribute,
     create_element_ns
       IMPORTING
-        name TYPE string
+        name   TYPE string
         prefix TYPE string OPTIONAL
+        uri    TYPE string OPTIONAL
       RETURNING
         VALUE(element) TYPE REF TO if_ixml_element,
     create_element
@@ -11223,19 +12689,19 @@ ENDINTERFACE.');`);
       RETURNING
         VALUE(element) TYPE REF TO if_ixml_element,
     create_iterator_filtered
-      IMPORTING input TYPE any
+      IMPORTING filter TYPE any
       RETURNING VALUE(val) TYPE REF TO if_ixml_node_iterator,
     create_filter_and
       IMPORTING
         filter1 TYPE any
         filter2 TYPE any
       RETURNING
-        VALUE(val) TYPE any,
+        VALUE(val) TYPE REF TO if_ixml_node_filter,
     create_iterator
       RETURNING VALUE(rval) TYPE REF TO if_ixml_node_iterator,
     create_filter_node_type
-      IMPORTING typ TYPE string
-      RETURNING VALUE(val) TYPE any,
+      IMPORTING node_types TYPE i
+      RETURNING VALUE(val) TYPE REF TO if_ixml_node_filter,
     create_simple_element_ns
       IMPORTING
         name       TYPE string
@@ -11244,17 +12710,21 @@ ENDINTERFACE.');`);
       RETURNING
         VALUE(val) TYPE REF TO if_ixml_element,
     create_filter_attribute
-      IMPORTING name TYPE string
-      RETURNING VALUE(val) TYPE any,
+      IMPORTING
+        name       TYPE string
+      RETURNING
+        VALUE(val) TYPE REF TO if_ixml_node_filter,
     create_simple_element
       IMPORTING
         name       TYPE string
         parent     TYPE REF TO if_ixml_node
+        value      TYPE string OPTIONAL
       RETURNING
         VALUE(val) TYPE REF TO if_ixml_element,
     find_from_name
       IMPORTING
-        name TYPE string
+        name      TYPE string
+        depth     TYPE i OPTIONAL
         namespace TYPE string OPTIONAL
       RETURNING
         VALUE(element) TYPE REF TO if_ixml_element,
@@ -11275,17 +12745,21 @@ ENDINTERFACE.');`);
         name TYPE string
         namespace TYPE string OPTIONAL
         uri TYPE string OPTIONAL
-      RETURNING VALUE(val) TYPE any,
+      RETURNING VALUE(val) TYPE REF TO if_ixml_node_collection,
     get_elements_by_tag_name
       IMPORTING
         depth     TYPE i OPTIONAL
         name      TYPE string
         namespace TYPE string OPTIONAL
-      RETURNING VALUE(val) TYPE any,
+      RETURNING VALUE(val) TYPE REF TO if_ixml_node_collection,
     get_root RETURNING VALUE(node) TYPE REF TO if_ixml_node,
     get_root_element RETURNING VALUE(root) TYPE REF TO if_ixml_element.
+
+  METHODS set_declaration
+    IMPORTING
+      declaration TYPE abap_bool.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_ELEMENT', 'INTERFACE if_ixml_element PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_ELEMENT                         ', 'INTERFACE if_ixml_element PUBLIC.
   INTERFACES if_ixml_node.
 
   METHODS:
@@ -11305,8 +12779,8 @@ ENDINTERFACE.');`);
     clone
       RETURNING VALUE(val) TYPE REF TO if_ixml_node,
     create_filter_node_type
-      IMPORTING name TYPE string
-      RETURNING VALUE(val) TYPE REF TO any,
+      IMPORTING node_types TYPE i
+      RETURNING VALUE(val) TYPE REF TO if_ixml_node_filter,
     create_iterator
       RETURNING VALUE(val) TYPE REF TO if_ixml_node_iterator,
     find_from_name_ns
@@ -11339,14 +12813,16 @@ ENDINTERFACE.');`);
     get_children
       RETURNING VALUE(val) TYPE REF TO if_ixml_node_list,
     get_elements_by_tag_name
-      IMPORTING name TYPE string
-      RETURNING VALUE(val) TYPE any,
+      IMPORTING
+        name TYPE string
+      RETURNING
+        VALUE(val) TYPE REF TO if_ixml_node_collection,
     get_elements_by_tag_name_ns
       IMPORTING
         name TYPE string
         uri  TYPE string OPTIONAL
       RETURNING
-        VALUE(val) TYPE any,
+        VALUE(val) TYPE REF TO if_ixml_node_collection,
     get_attribute_node_ns
         IMPORTING
         name TYPE string
@@ -11368,9 +12844,11 @@ ENDINTERFACE.');`);
         attr TYPE any,
     set_attribute
       IMPORTING
-        name      TYPE string
-        namespace TYPE string OPTIONAL
-        value     TYPE string OPTIONAL,
+        name        TYPE string
+        namespace   TYPE string OPTIONAL
+        value       TYPE string OPTIONAL
+      RETURNING
+        VALUE(rval) TYPE i,
     set_attribute_ns
       IMPORTING
         name   TYPE string
@@ -11379,15 +12857,38 @@ ENDINTERFACE.');`);
     set_value
       IMPORTING
         value TYPE string
-      RETURNING VALUE(rc) TYPE i.
+      RETURNING
+        VALUE(rc) TYPE i.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_ENCODING', 'INTERFACE if_ixml_encoding PUBLIC.
-  CONSTANTS co_platform_endian TYPE string VALUE ''a''.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_ENCODING                        ', 'INTERFACE if_ixml_encoding PUBLIC.
+  CONSTANTS co_none            TYPE i VALUE 0.
+  CONSTANTS co_big_endian      TYPE i VALUE 1.
+  CONSTANTS co_platform_endian TYPE i VALUE 4.
+
+  METHODS get_byte_order
+    RETURNING
+      VALUE(rval) TYPE i.
+
+  METHODS get_character_set
+    RETURNING
+      VALUE(rval) TYPE string.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_ISTREAM', 'INTERFACE if_ixml_istream PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_ISTREAM                         ', 'INTERFACE if_ixml_istream PUBLIC.
+  CONSTANTS dtd_allowed    TYPE i VALUE 0.
+  CONSTANTS dtd_restricted TYPE i VALUE 1.
+  CONSTANTS dtd_prohibited TYPE i VALUE 2.
+
   METHODS close.
+
+  METHODS get_dtd_restriction
+    RETURNING
+      VALUE(rval) TYPE i.
+
+  METHODS set_dtd_restriction
+    IMPORTING
+      level TYPE i DEFAULT dtd_restricted.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_NAMED_NODE_MAP', 'INTERFACE if_ixml_named_node_map PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_NAMED_NODE_MAP                  ', 'INTERFACE if_ixml_named_node_map PUBLIC.
   METHODS:
     create_iterator
       RETURNING VALUE(iterator) TYPE REF TO if_ixml_node_iterator,
@@ -11404,17 +12905,20 @@ ENDINTERFACE.');`);
     remove_named_item
       IMPORTING name TYPE string.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_NODE', 'INTERFACE if_ixml_node PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_NODE                            ', 'INTERFACE if_ixml_node PUBLIC.
   CONSTANTS:
-    co_node_element TYPE i VALUE 0,
-    co_node_text TYPE i VALUE 0.
+    co_node_document      TYPE i VALUE 1,
+    co_node_element       TYPE i VALUE 4,
+    co_node_text          TYPE i VALUE 16,
+    co_node_cdata_section TYPE i VALUE 32.
+
   METHODS:
     append_child IMPORTING new_child TYPE REF TO if_ixml_node,
     get_attributes RETURNING VALUE(map) TYPE REF TO if_ixml_named_node_map,
     get_first_child RETURNING VALUE(node) TYPE REF TO if_ixml_node,
     get_children RETURNING VALUE(val) TYPE REF TO if_ixml_node_list,
     query_interface
-      IMPORTING foo         TYPE string
+      IMPORTING iid         TYPE i
       RETURNING VALUE(rval) TYPE REF TO if_ixml_unknown,
     remove_node,
     get_parent RETURNING VALUE(val) TYPE REF TO if_ixml_node,
@@ -11431,14 +12935,74 @@ ENDINTERFACE.');`);
     set_namespace_prefix IMPORTING val TYPE string,
     remove_child IMPORTING child TYPE REF TO if_ixml_node,
     set_value IMPORTING value TYPE string.
+
+  METHODS get_gid
+    RETURNING
+      VALUE(rval) TYPE i.
+
+  METHODS insert_child
+    IMPORTING
+      new_child   TYPE REF TO if_ixml_node
+      ref_child   TYPE REF TO if_ixml_node
+    RETURNING
+      VALUE(rval) TYPE i.
+
+  METHODS get_next
+    RETURNING
+      VALUE(rval) TYPE REF TO if_ixml_node.
+
   METHODS get_namespace_prefix
     RETURNING
       VALUE(rv_prefix) TYPE string.
+
   METHODS get_namespace_uri
     RETURNING
       VALUE(rval) TYPE string.
+
+  METHODS get_height
+    RETURNING
+      VALUE(rval) TYPE i.
+
+  METHODS create_filter_name_ns
+    IMPORTING
+      name        TYPE string
+      namespace   TYPE string OPTIONAL
+    RETURNING
+      VALUE(rval) TYPE REF TO if_ixml_node_filter.
+
+  METHODS get_column
+    RETURNING
+      VALUE(rval) TYPE i.
+
+  METHODS create_iterator_filtered
+    IMPORTING
+      filter      TYPE REF TO if_ixml_node_filter
+    RETURNING
+      VALUE(rval) TYPE REF TO if_ixml_node_iterator.
+
+  METHODS clone
+    RETURNING
+      VALUE(rval) TYPE REF TO if_ixml_node.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_NODE_ITERATOR', 'INTERFACE if_ixml_node_iterator PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_NODE_COLLECTION                 ', 'INTERFACE if_ixml_node_collection PUBLIC.
+  METHODS create_iterator
+    RETURNING
+      VALUE(rval) TYPE REF TO if_ixml_node_iterator.
+
+  METHODS get_length
+    RETURNING
+      VALUE(rval) TYPE i.
+
+  METHODS get_item
+    IMPORTING
+      index       TYPE i
+    RETURNING
+      VALUE(rval) TYPE REF TO if_ixml_node.
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_NODE_FILTER                     ', 'INTERFACE if_ixml_node_filter PUBLIC.
+
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_NODE_ITERATOR                   ', 'INTERFACE if_ixml_node_iterator PUBLIC.
 
   METHODS reset.
 
@@ -11447,7 +13011,7 @@ ENDINTERFACE.');`);
       VALUE(rval) TYPE REF TO if_ixml_node.
 
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_NODE_LIST', 'INTERFACE if_ixml_node_list PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_NODE_LIST                       ', 'INTERFACE if_ixml_node_list PUBLIC.
 
   METHODS:
     get_length
@@ -11467,19 +13031,63 @@ ENDINTERFACE.');`);
         VALUE(val) TYPE REF TO if_ixml_node_iterator.
 
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_OSTREAM', 'INTERFACE if_ixml_ostream PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_OSTREAM                         ', 'INTERFACE if_ixml_ostream PUBLIC.
   METHODS write_string
     IMPORTING
       string      TYPE string
     RETURNING
       VALUE(rval) TYPE i.
-ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_PARSER', 'INTERFACE if_ixml_parser PUBLIC.
-  CONSTANTS co_no_validation TYPE i VALUE 0.
 
-  METHODS parse RETURNING VALUE(subrc) TYPE i.
-  METHODS set_normalizing IMPORTING normal TYPE abap_bool.
-  METHODS num_errors RETURNING VALUE(errors) TYPE i.
+  METHODS get_num_written_raw
+    RETURNING
+      VALUE(rval) TYPE i.
+
+  METHODS set_encoding
+    IMPORTING
+      encoding    TYPE REF TO if_ixml_encoding
+    RETURNING
+      VALUE(rval) TYPE boolean.
+
+  METHODS set_pretty_print
+    IMPORTING
+      pretty_print TYPE abap_bool DEFAULT abap_true.
+
+  METHODS get_pretty_print
+    RETURNING
+      VALUE(rval) TYPE boolean.
+
+  METHODS get_indent
+    RETURNING
+      VALUE(rval) TYPE i.
+
+  METHODS set_indent
+    IMPORTING
+      indent TYPE i.
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_PARSE_ERROR                     ', 'INTERFACE if_ixml_parse_error PUBLIC.
+  METHODS get_reason
+    RETURNING
+      VALUE(reason) TYPE string.
+  METHODS get_line
+    RETURNING
+      VALUE(line) TYPE i.
+  METHODS get_column
+    RETURNING
+      VALUE(column) TYPE i.
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_PARSER                          ', 'INTERFACE if_ixml_parser PUBLIC.
+  CONSTANTS co_no_validation   TYPE i VALUE 0.
+  CONSTANTS co_validate_if_dtd TYPE i VALUE 2.
+
+  METHODS parse
+    RETURNING
+      VALUE(subrc) TYPE i.
+  METHODS set_normalizing
+    IMPORTING
+      normal TYPE abap_bool.
+  METHODS num_errors
+    RETURNING
+      VALUE(errors) TYPE i.
   METHODS add_strip_space_element.
   METHODS get_error
     IMPORTING
@@ -11492,57 +13100,62 @@ ENDINTERFACE.');`);
     RETURNING
       VALUE(rval) TYPE abap_bool.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_PARSE_ERROR', 'INTERFACE if_ixml_parse_error PUBLIC.
-  METHODS get_reason
-    RETURNING
-      VALUE(reason) TYPE string.
-  METHODS get_line
-    RETURNING
-      VALUE(line) TYPE i.
-  METHODS get_column
-    RETURNING
-      VALUE(column) TYPE i.
-ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_RENDERER', 'INTERFACE if_ixml_renderer PUBLIC.
-  METHODS render.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_RENDERER                        ', 'INTERFACE if_ixml_renderer PUBLIC.
+  METHODS render RETURNING VALUE(rval) TYPE i.
   METHODS set_normalizing IMPORTING normal TYPE abap_bool.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_STREAM_FACTORY', 'INTERFACE if_ixml_stream_factory PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_STREAM_FACTORY                  ', 'INTERFACE if_ixml_stream_factory PUBLIC.
   METHODS create_ostream_cstring
     IMPORTING
-      string TYPE string
+      string        TYPE string
     RETURNING
       VALUE(stream) TYPE REF TO if_ixml_ostream.
 
   METHODS create_ostream_xstring
     IMPORTING
-      string TYPE xstring
+      string        TYPE xstring
     RETURNING
       VALUE(stream) TYPE REF TO if_ixml_ostream.
 
   METHODS create_istream_string
     IMPORTING
-      xml TYPE string
+      string        TYPE string
     RETURNING
       VALUE(stream) TYPE REF TO if_ixml_istream.
 
   METHODS create_istream_xstring
     IMPORTING
-      xml TYPE xstring
+      string        TYPE xstring
     RETURNING
       VALUE(stream) TYPE REF TO if_ixml_istream.
 
+  METHODS create_ostream_itable
+    IMPORTING
+      table       TYPE table
+    RETURNING
+      VALUE(rval) TYPE REF TO if_ixml_ostream.
+
+  METHODS create_istream_cstring
+    IMPORTING
+      string TYPE string
+    RETURNING
+      VALUE(rval) TYPE REF TO if_ixml_istream.
+
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_UNKNOWN', 'INTERFACE if_ixml_unknown PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_UNKNOWN                         ', 'INTERFACE if_ixml_unknown PUBLIC.
   METHODS query_interface
     IMPORTING
       iid         TYPE i
     RETURNING
       VALUE(rval) TYPE REF TO if_ixml_unknown.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('/UI2/CL_JSON', 'CLASS /ui2/cl_json DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('/UI2/CL_JSON                            ', 'CLASS /ui2/cl_json DEFINITION PUBLIC.
   PUBLIC SECTION.
+
+    TYPES pretty_name_mode TYPE string.
+
     CONSTANTS: BEGIN OF pretty_mode,
+                 none       TYPE string VALUE '''',
                  low_case   TYPE string VALUE ''low_case'',
                  camel_case TYPE string VALUE ''camel_case'',
                END OF pretty_mode.
@@ -11565,49 +13178,137 @@ ENDINTERFACE.');`);
         compress      TYPE abap_bool OPTIONAL
         pretty_name   TYPE string OPTIONAL
         assoc_arrays  TYPE abap_bool OPTIONAL
+        ts_as_iso8601 TYPE abap_bool OPTIONAL
+        type_descr    TYPE REF TO cl_abap_typedescr OPTIONAL
+        format_output TYPE abap_bool OPTIONAL
       RETURNING
         VALUE(r_json) TYPE string.
+
+    CLASS-METHODS generate
+      IMPORTING
+        json        TYPE string
+        pretty_name TYPE string OPTIONAL
+      RETURNING
+        VALUE(rr_data) TYPE REF TO data.
+
+    METHODS serialize_int
+      IMPORTING
+        data          TYPE data
+        type_descr    TYPE REF TO cl_abap_typedescr OPTIONAL
+      RETURNING
+        VALUE(r_json) TYPE string.
+
+    METHODS constructor
+      IMPORTING
+        compress TYPE abap_bool DEFAULT abap_false
+        pretty_name TYPE pretty_name_mode DEFAULT pretty_mode-none
+        assoc_arrays TYPE abap_bool DEFAULT abap_false
+        ts_as_iso8601 TYPE abap_bool DEFAULT abap_false.
+
+  PROTECTED SECTION.
+
+    DATA mv_compress TYPE abap_bool.
+    DATA mv_pretty_name TYPE string.
+    DATA mv_assoc_arrays TYPE abap_bool.
+    DATA mv_ts_as_iso8601 TYPE abap_bool.
+    DATA mv_extended TYPE abap_bool.
+
+    METHODS is_compressable
+      IMPORTING
+        type_descr TYPE REF TO cl_abap_typedescr
+        name       TYPE string
+      RETURNING
+      VALUE(rv_compress) TYPE abap_bool.
 
   PRIVATE SECTION.
     CLASS-DATA mo_parsed TYPE REF TO lcl_parser.
     CLASS-METHODS _deserialize
       IMPORTING
-        prefix      TYPE string
-        pretty_name TYPE string OPTIONAL
+        VALUE(prefix) TYPE string
+        pretty_name   TYPE string OPTIONAL
+        io_type       TYPE REF TO cl_abap_typedescr
       CHANGING
-        data        TYPE data.
+        data          TYPE data.
 ENDCLASS.
 
 CLASS /ui2/cl_json IMPLEMENTATION.
 
-  METHOD serialize.
+  METHOD serialize_int.
+
     DATA lo_type       TYPE REF TO cl_abap_typedescr.
     DATA lo_struct     TYPE REF TO cl_abap_structdescr.
+    DATA lo_table      TYPE REF TO cl_abap_tabledescr.
     DATA lt_components TYPE cl_abap_structdescr=>component_table.
-    DATA ls_component  LIKE LINE OF lt_components.
     DATA ref           TYPE REF TO data.
     DATA lv_index      TYPE i.
 
+    FIELD-SYMBOLS <ls_component> LIKE LINE OF lt_components.
     FIELD-SYMBOLS <any> TYPE any.
     FIELD-SYMBOLS <tab> TYPE ANY TABLE.
 
-    lo_type = cl_abap_typedescr=>describe_by_data( data ).
+    IF type_descr IS INITIAL.
+      lo_type = cl_abap_typedescr=>describe_by_data( data ).
+    ELSE.
+      lo_type = type_descr.
+    ENDIF.
+
     CASE lo_type->kind.
       WHEN cl_abap_typedescr=>kind_elem.
+*        WRITE ''@KERNEL console.dir(lo_type);''.
         CASE lo_type->type_kind.
-          WHEN cl_abap_typedescr=>typekind_char
-              OR cl_abap_typedescr=>typekind_string.
-            r_json = ''"'' && data && ''"''.
+          WHEN cl_abap_typedescr=>typekind_char.
+            IF lo_type->absolute_name = \`\\TYPE-POOL=ABAP\\TYPE=ABAP_BOOL\`.
+              IF data = abap_true.
+                r_json = ''true''.
+              ELSE.
+                r_json = ''false''.
+              ENDIF.
+            ELSEIF data IS INITIAL.
+              r_json = ''""''.
+            ELSE.
+              r_json = ''"'' && escape( val = |{ data }| format = cl_abap_format=>e_json_string )  && ''"''.
+            ENDIF.
+          WHEN cl_abap_typedescr=>typekind_string.
+            r_json = ''"'' && escape( val = data format = cl_abap_format=>e_json_string ) && ''"''.
+          WHEN cl_abap_typedescr=>typekind_int.
+            r_json = |{ data }|.
+          WHEN cl_abap_typedescr=>typekind_num.
+            IF data = 0.
+              r_json = |0|.
+            ELSE.
+              r_json = |{ data }|.
+              SHIFT r_json LEFT DELETING LEADING ''0''.
+            ENDIF.
+          WHEN cl_abap_typedescr=>typekind_packed.
+            IF mv_ts_as_iso8601 = abap_true
+                AND ( lo_type->absolute_name = \`\\TYPE=TIMESTAMP\`
+                OR lo_type->absolute_name = \`\\TYPE=TIMESTAMPL\` ).
+              IF data IS INITIAL.
+                r_json = |""|.
+              ELSE.
+                r_json = |"{ data TIMESTAMP = ISO }.0000000Z"|.
+              ENDIF.
+            ELSE.
+              r_json = |{ data }|.
+            ENDIF.
+          WHEN cl_abap_typedescr=>typekind_date.
+            r_json = |"{ data DATE = ISO }"|.
+          WHEN cl_abap_typedescr=>typekind_time.
+            r_json = |"{ data TIME = ISO }"|.
           WHEN OTHERS.
             r_json = data.
         ENDCASE.
       WHEN cl_abap_typedescr=>kind_table.
         r_json = ''[''.
         ASSIGN data TO <tab>.
+        lo_table ?= lo_type.
         LOOP AT <tab> ASSIGNING <any>.
           lv_index = sy-tabix.
-          r_json = r_json && serialize( <any> ).
-          IF lines( data ) <> lv_index.
+          r_json = r_json && serialize_int(
+            data       = <any>
+            type_descr = lo_table->get_table_line_type( ) ).
+
+          IF lines( <tab> ) <> lv_index.
             r_json = r_json && '',''.
           ENDIF.
         ENDLOOP.
@@ -11616,61 +13317,170 @@ CLASS /ui2/cl_json IMPLEMENTATION.
         lo_struct ?= lo_type.
         lt_components = lo_struct->get_components( ).
         r_json = ''{''.
-        LOOP AT lt_components INTO ls_component.
-          lv_index = sy-tabix.
-          ASSIGN COMPONENT ls_component-name OF STRUCTURE data TO <any>.
+        LOOP AT lt_components ASSIGNING <ls_component>.
+          ASSIGN COMPONENT <ls_component>-name OF STRUCTURE data TO <any>.
           ASSERT sy-subrc = 0.
-          r_json = r_json && |"{ ls_component-name }":| && serialize( <any> ).
-          IF lines( lt_components ) <> lv_index.
-            r_json = r_json && '',''.
+          IF mv_compress = abap_true AND <any> IS INITIAL.
+            CONTINUE.
           ENDIF.
+          IF mv_pretty_name = pretty_mode-camel_case.
+            r_json = r_json && |"{ to_mixed( to_lower( <ls_component>-name ) ) }":|.
+          ELSEIF mv_pretty_name = pretty_mode-low_case.
+            r_json = r_json && |"{ to_lower( <ls_component>-name ) }":|.
+          ELSE.
+            r_json = r_json && |"{ <ls_component>-name }":|.
+          ENDIF.
+          r_json = r_json && serialize_int(
+            data       = <any>
+            type_descr = <ls_component>-type ).
+          r_json = r_json && '',''.
         ENDLOOP.
+        IF r_json CP ''*,''.
+          r_json = substring( val = r_json off = 0 len = strlen( r_json ) - 1 ).
+        ENDIF.
         r_json = r_json && ''}''.
+      WHEN cl_abap_typedescr=>kind_ref.
+        IF data IS INITIAL.
+          r_json = ''null''.
+          RETURN.
+        ENDIF.
+        ASSIGN data->* TO <any>.
+        r_json = serialize_int( data = <any> ).
       WHEN OTHERS.
         ASSERT 1 = ''cl_json, unknown kind''.
     ENDCASE.
   ENDMETHOD.
 
   METHOD deserialize.
-    CREATE OBJECT mo_parsed.
-    ASSERT jsonx IS INITIAL. " todo
-    mo_parsed->parse( json ).
 
-    CLEAR data.
+    DATA lo_type TYPE REF TO cl_abap_typedescr.
+
+    CREATE OBJECT mo_parsed.
+
+    IF jsonx IS NOT INITIAL.
+      mo_parsed->parse( cl_abap_codepage=>convert_from( jsonx ) ).
+    ELSEIF json IS INITIAL.
+      RETURN.
+    ELSE.
+      mo_parsed->parse( json ).
+    ENDIF.
+
+* todo, this should take the "pretty_name" into account
+    mo_parsed->adjust_names( ).
+
+    lo_type = cl_abap_typedescr=>describe_by_data( data ).
 
     _deserialize(
       EXPORTING
         prefix      = ''''
         pretty_name = pretty_name
+        io_type     = lo_type
       CHANGING
         data        = data ).
+
+  ENDMETHOD.
+
+  METHOD constructor.
+
+    DATA rtti TYPE REF TO cl_abap_classdescr.
+
+    mv_compress       = compress.
+    mv_pretty_name    = pretty_name.
+    mv_assoc_arrays   = assoc_arrays.
+    mv_ts_as_iso8601  = ts_as_iso8601.
+
+*  rtti ?= cl_abap_classdescr=>describe_by_object_ref( me ).
+*  IF rtti->absolute_name NE mc_me_type.
+*    mv_extended = abap_true.
+*  ENDIF.
+
+  ENDMETHOD.
+
+  METHOD is_compressable.
+    rv_compress = abap_true.
+  ENDMETHOD.
+
+  METHOD generate.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD serialize.
+
+    DATA lo_json  TYPE REF TO /ui2/cl_json.
+
+    ASSERT format_output IS INITIAL.
+
+    CREATE OBJECT lo_json
+      EXPORTING
+        compress      = compress
+        pretty_name   = pretty_name
+        assoc_arrays  = assoc_arrays
+        ts_as_iso8601 = ts_as_iso8601.
+
+    r_json = lo_json->serialize_int(
+      data       = data
+      type_descr = type_descr ).
+
   ENDMETHOD.
 
   METHOD _deserialize.
-    DATA lo_type       TYPE REF TO cl_abap_typedescr.
     DATA lo_struct     TYPE REF TO cl_abap_structdescr.
+    DATA lo_table      TYPE REF TO cl_abap_tabledescr.
+    DATA lo_refdescr   TYPE REF TO cl_abap_refdescr.
     DATA lt_components TYPE cl_abap_structdescr=>component_table.
     DATA ls_component  LIKE LINE OF lt_components.
     DATA lt_members    TYPE string_table.
     DATA ref           TYPE REF TO data.
     DATA lv_name       TYPE string.
+    DATA lv_type       TYPE string.
+    DATA lv_value      TYPE string.
     DATA lv_member     LIKE LINE OF lt_members.
 
     FIELD-SYMBOLS <any> TYPE any.
+    FIELD-SYMBOLS <at> TYPE ANY TABLE.
+    FIELD-SYMBOLS <ls_component> LIKE LINE OF lt_components.
 
-    lo_type = cl_abap_typedescr=>describe_by_data( data ).
+    prefix = mo_parsed->find_ignore_case( prefix ).
+
 *    WRITE ''@KERNEL console.dir(lo_type.get());''.
-    CASE lo_type->kind.
+    CASE io_type->kind.
       WHEN cl_abap_typedescr=>kind_elem.
 *        WRITE ''@KERNEL console.dir(lo_type.get().absolute_name);''.
-        IF lo_type->absolute_name = ''\\TYPE-POOL=ABAP\\TYPE=ABAP_BOOL''
-            OR lo_type->absolute_name = ''\\TYPE=FLAG''.
+        IF io_type->absolute_name = ''\\TYPE-POOL=ABAP\\TYPE=ABAP_BOOL''
+            OR io_type->absolute_name = ''\\TYPE=ABAP_BOOLEAN''
+            OR io_type->absolute_name = ''\\TYPE=FLAG''.
           data = boolc( mo_parsed->value_string( prefix ) = ''true'' ).
+        ELSEIF io_type->absolute_name = \`\\TYPE=TIMESTAMP\`
+            OR io_type->absolute_name = \`\\TYPE=TIMESTAMPL\`.
+          lv_value = mo_parsed->value_string( prefix ).
+          REPLACE ALL OCCURRENCES OF ''-'' IN lv_value WITH ''''.
+          REPLACE ALL OCCURRENCES OF ''T'' IN lv_value WITH ''''.
+          REPLACE ALL OCCURRENCES OF '':'' IN lv_value WITH ''''.
+          REPLACE ALL OCCURRENCES OF ''Z'' IN lv_value WITH ''''.
+          data = lv_value.
+        ELSEIF io_type->type_kind = cl_abap_typedescr=>typekind_date.
+          lv_value = mo_parsed->value_string( prefix ).
+          REPLACE ALL OCCURRENCES OF ''-'' IN lv_value WITH ''''.
+          IF lv_value CO space.
+            CLEAR data.
+          ELSE.
+            data = lv_value.
+          ENDIF.
+        ELSEIF io_type->type_kind = cl_abap_typedescr=>typekind_time.
+          lv_value = mo_parsed->value_string( prefix ).
+          REPLACE ALL OCCURRENCES OF '':'' IN lv_value WITH ''''.
+          IF lv_value CO space.
+            CLEAR data.
+          ELSE.
+            data = lv_value.
+          ENDIF.
         ELSE.
           data = mo_parsed->value_string( prefix ).
         ENDIF.
       WHEN cl_abap_typedescr=>kind_table.
+        lo_table ?= io_type.
         lt_members = mo_parsed->members( prefix && ''/'' ).
+        ASSIGN data TO <at>.
         LOOP AT lt_members INTO lv_member.
 *          WRITE ''@KERNEL console.dir(lv_member.get());''.
           CREATE DATA ref LIKE LINE OF data.
@@ -11679,51 +13489,126 @@ CLASS /ui2/cl_json IMPLEMENTATION.
             EXPORTING
               prefix      = prefix && ''/'' && lv_member
               pretty_name = pretty_name
+              io_type     = lo_table->get_table_line_type( )
             CHANGING
               data        = <any> ).
 *          WRITE ''@KERNEL console.dir(fs_row_);''.
-          INSERT <any> INTO TABLE data.
+          INSERT <any> INTO TABLE <at>.
         ENDLOOP.
       WHEN cl_abap_typedescr=>kind_struct.
-        lo_struct ?= lo_type.
+        lo_struct ?= io_type.
         lt_components = lo_struct->get_components( ).
-        LOOP AT lt_components INTO ls_component.
-          ASSIGN COMPONENT ls_component-name OF STRUCTURE data TO <any>.
+        LOOP AT lt_components ASSIGNING <ls_component>.
+          ASSIGN COMPONENT <ls_component>-name OF STRUCTURE data TO <any>.
           ASSERT sy-subrc = 0.
           CASE pretty_name.
             WHEN pretty_mode-camel_case.
-              lv_name = to_mixed( to_lower( ls_component-name ) ).
+              lv_name = to_mixed( to_lower( <ls_component>-name ) ).
             WHEN OTHERS.
-              lv_name = to_lower( ls_component-name ).
+              lv_name = to_lower( <ls_component>-name ).
           ENDCASE.
-*          WRITE ''@KERNEL console.dir(lv_name.get());''.
+          " WRITE ''@KERNEL console.dir("structure: " + lv_name.get());''.
           _deserialize(
             EXPORTING
               prefix      = prefix && ''/'' && lv_name
               pretty_name = pretty_name
+              io_type     = <ls_component>-type
             CHANGING
               data        = <any> ).
         ENDLOOP.
+      WHEN cl_abap_typedescr=>kind_ref.
+        lo_refdescr ?= io_type.
+        IF data IS INITIAL.
+          lt_members = mo_parsed->members( prefix && ''/'' ).
+
+*          WRITE ''@KERNEL console.dir(prefix.get());''.
+          IF lines( lt_members ) = 0 AND prefix = ''''.
+            RETURN.
+          ENDIF.
+
+          lv_type = mo_parsed->get_type( prefix && ''/'' ).
+          IF lv_type IS INITIAL.
+            lv_type = mo_parsed->get_type( prefix ).
+          ENDIF.
+*          WRITE ''@KERNEL console.dir("type: " + lv_type.get());''.
+
+          IF lines( lt_members ) > 0 AND lv_type = ''object''.
+            CLEAR lt_components.
+            LOOP AT lt_members INTO lv_member.
+*              WRITE ''@KERNEL console.dir("component: " + lv_member.get());''.
+              CLEAR ls_component.
+              ls_component-name = to_upper( lv_member ).
+              TRANSLATE ls_component-name USING ''-_''.
+              ls_component-type = cl_abap_refdescr=>get_ref_to_data( ).
+              ASSERT ls_component-name IS NOT INITIAL.
+              APPEND ls_component TO lt_components.
+            ENDLOOP.
+            lo_struct = cl_abap_structdescr=>create( lt_components ).
+            CREATE DATA data TYPE HANDLE lo_struct.
+          ELSEIF lv_type = ''array''.
+            lo_table = cl_abap_tabledescr=>create( cl_abap_refdescr=>get_ref_to_data( ) ).
+            CREATE DATA data TYPE HANDLE lo_table.
+          ELSE.
+            CASE lv_type.
+              WHEN ''num''.
+                lv_value = mo_parsed->value_string( prefix ).
+                IF lv_value CO ''-0123456789''.
+                  CREATE DATA data TYPE i.
+                ELSEIF lv_value CO ''-0123456789.''.
+                  CREATE DATA data TYPE f.
+                ELSE.
+                  ASSERT 1 = ''todo''.
+                ENDIF.
+              WHEN ''bool''.
+                CREATE DATA data TYPE HANDLE cl_abap_typedescr=>describe_by_name( ''ABAP_BOOL'' ).
+              WHEN ''str''.
+                CREATE DATA data TYPE HANDLE cl_abap_elemdescr=>get_string( ).
+              " WHEN OTHERS.
+              "   ASSERT 1 = ''todo''.
+            ENDCASE.
+          ENDIF.
+        ENDIF.
+        ASSIGN data->* TO <any>.
+* todo: optimize, it should not be nessesary to call cl_abap_typedescr
+        _deserialize(
+          EXPORTING
+            prefix      = prefix
+            pretty_name = pretty_name
+            io_type     = cl_abap_typedescr=>describe_by_data( <any> )
+          CHANGING
+            data        = <any> ).
       WHEN OTHERS.
         ASSERT 1 = ''cl_json, unknown kind''.
     ENDCASE.
   ENDMETHOD.
 
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('KERNEL_CALL_TRANSFORMATION', 'CLASS kernel_call_transformation DEFINITION PUBLIC.
+ENDCLASS.
+');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('KERNEL_CALL_TRANSFORMATION              ', 'CLASS kernel_call_transformation DEFINITION PUBLIC.
 * handling of ABAP statement CALL TRANSFORMATION
   PUBLIC SECTION.
-    CLASS-METHODS call IMPORTING input TYPE any.
-  PRIVATE SECTION.
-    CLASS-DATA mi_doc TYPE REF TO if_ixml_document.
-    CLASS-DATA mi_writer TYPE REF TO if_sxml_writer.
+    TYPES: BEGIN OF ty_options,
+             initial_components TYPE string,
+           END OF ty_options.
 
-    CLASS-METHODS parse_xml IMPORTING iv_xml TYPE string.
-    CLASS-METHODS traverse_write
-      IMPORTING iv_ref TYPE REF TO data.
-    CLASS-METHODS traverse_write_type
-      IMPORTING iv_ref TYPE REF TO data
-      RETURNING VALUE(rv_type) TYPE string.
+    CONSTANTS: BEGIN OF gc_options,
+                 suppress TYPE string VALUE ''suppress'',
+               END OF gc_options.
+
+    CLASS-METHODS call
+      IMPORTING
+        name    TYPE any
+        options TYPE any.
+  PRIVATE SECTION.
+    CLASS-DATA mi_doc     TYPE REF TO if_ixml_document.
+    CLASS-DATA ms_options TYPE ty_options.
+
+    CLASS-METHODS parse_xml
+      IMPORTING
+        iv_xml TYPE string.
+
+    CLASS-METHODS parse_options
+      IMPORTING options TYPE any.
 ENDCLASS.
 
 CLASS kernel_call_transformation IMPLEMENTATION.
@@ -11734,19 +13619,25 @@ CLASS kernel_call_transformation IMPLEMENTATION.
 
     DATA lv_name   TYPE string.
     DATA lv_source TYPE string.
+    DATA lv_result TYPE string.
     DATA result    TYPE REF TO data.
     DATA lt_rtab   TYPE abap_trans_resbind_tab.
     DATA ls_rtab   LIKE LINE OF lt_rtab.
     DATA lv_type   TYPE string.
+    DATA lv_dummy  TYPE string.
+    DATA li_writer TYPE REF TO if_sxml_writer.
+    DATA li_doc    TYPE REF TO if_ixml_document.
+
 
     CLEAR mi_doc.
-    CLEAR mi_writer.
 
 *    WRITE ''@KERNEL console.dir(INPUT);''.
 
 * only the ID transformation is implemented
     WRITE ''@KERNEL lv_name.set(INPUT.name.toUpperCase());''.
     ASSERT lv_name = ''ID''.
+
+    parse_options( options ).
 
 * Handle input SOURCE
     WRITE ''@KERNEL if (INPUT.sourceXML?.constructor.name === "ABAPObject") this.mi_doc.set(INPUT.sourceXML);''.
@@ -11763,28 +13654,43 @@ CLASS kernel_call_transformation IMPLEMENTATION.
       ENDIF.
     ENDIF.
 
-* todo, rewrite this part,
-    WRITE ''@KERNEL if (typeof INPUT.source === "object" && INPUT.resultXML?.constructor.name === "ABAPObject") {''.
-    WRITE ''@KERNEL   this.mi_writer.set(INPUT.resultXML);''.
+* input = object, output = ixml_document
+    WRITE ''@KERNEL if (typeof INPUT.source === "object"''.
+    WRITE ''@KERNEL     && INPUT.resultXML?.constructor.name === "ABAPObject"''.
+    WRITE ''@KERNEL     && INPUT.resultXML?.qualifiedName === "IF_IXML_DOCUMENT") {''.
+    WRITE ''@KERNEL   li_doc.set(INPUT.resultXML);''.
+    WRITE ''@KERNEL   lv_dummy = INPUT.source;''.
     WRITE ''@KERNEL }''.
-*    WRITE ''@KERNEL console.dir(INPUT);''.
-    IF mi_writer IS NOT INITIAL.
-* input is object and write to sxml output
-* todo, rewrite
-      mi_writer->open_element( name = ''object'' ).
-      WRITE ''@KERNEL for (const name in INPUT.source) {''.
-      WRITE ''@KERNEL   lv_name.set(name);''.
-      WRITE ''@KERNEL   if (INPUT.source[name].constructor.name === "FieldSymbol") {''.
-      WRITE ''@KERNEL     result.assign(INPUT.source[name].getPointer());''.
-      WRITE ''@KERNEL   } else {''.
-      WRITE ''@KERNEL     result.assign(INPUT.source[name]);''.
-      WRITE ''@KERNEL   }''.
-      mi_writer->open_element( name = ''str'' ).
-      mi_writer->write_attribute( name = ''name'' value = to_upper( lv_name ) ).
-      traverse_write( result ).
-      mi_writer->close_element( ).
-      WRITE ''@KERNEL }''.
-      mi_writer->close_element( ).
+    IF li_doc IS NOT INITIAL.
+      lcl_object_to_ixml=>run(
+        ii_doc = li_doc
+        source = lv_dummy ).
+      RETURN.
+    ENDIF.
+
+* input = object, output = sxml_writer
+    WRITE ''@KERNEL if (typeof INPUT.source === "object"''.
+    WRITE ''@KERNEL     && INPUT.resultXML?.constructor.name === "ABAPObject") {''.
+    WRITE ''@KERNEL   li_writer.set(INPUT.resultXML);''.
+    WRITE ''@KERNEL   lv_dummy = INPUT.source;''.
+    WRITE ''@KERNEL }''.
+    IF li_writer IS NOT INITIAL.
+      lcl_object_to_sxml=>run(
+        ii_writer = li_writer
+        source    = lv_dummy ).
+      RETURN.
+    ENDIF.
+
+* input = object, output = string
+    WRITE ''@KERNEL if (INPUT.resultXML && INPUT.resultXML.constructor.name === "String") {''.
+    WRITE ''@KERNEL   lv_result.set("X");''.
+    WRITE ''@KERNEL   lv_dummy = INPUT.source;''.
+    WRITE ''@KERNEL }''.
+    IF lv_result = abap_true.
+      lv_result = lcl_object_to_string=>run(
+        is_options = ms_options
+        source     = lv_dummy ).
+      WRITE ''@KERNEL   INPUT.resultXML.set(lv_result);''.
       RETURN.
     ENDIF.
 
@@ -11792,8 +13698,8 @@ CLASS kernel_call_transformation IMPLEMENTATION.
       RAISE EXCEPTION TYPE cx_xslt_runtime_error.
     ENDIF.
 
+* output = is an ABAP internal table, dynamic result parameter
     WRITE ''@KERNEL if (INPUT.result.constructor.name === "Table") {''.
-* INPUT.result is an ABAP internal table, dynamic result parameter
     WRITE ''@KERNEL lt_rtab = INPUT.result;''.
     LOOP AT lt_rtab INTO ls_rtab.
       kernel_ixml_xml_to_data=>build(
@@ -11824,84 +13730,28 @@ CLASS kernel_call_transformation IMPLEMENTATION.
     WRITE ''@KERNEL }''.
     WRITE ''@KERNEL }''.
 
-*    WRITE ''@KERNEL console.dir(INPUT.result.data);''.
+  ENDMETHOD.
+
+  METHOD parse_options.
+* https://help.sap.com/doc/abapdocu_752_index_htm/7.52/en-US/abapcall_transformation_options.htm
+
+    DATA lv_name  TYPE string.
+    DATA lv_value TYPE string.
+
+    FIELD-SYMBOLS <lv_field> TYPE string.
+
+
+    WRITE ''@KERNEL for (const name in INPUT.options || {}) {''.
+    WRITE ''@KERNEL   lv_name.set(name);''.
+    WRITE ''@KERNEL   lv_value.set(INPUT.options[name]);''.
+    ASSIGN COMPONENT lv_name OF STRUCTURE ms_options TO <lv_field>.
+    IF sy-subrc = 0.
+      <lv_field> = lv_value.
+    ENDIF.
+    WRITE ''@KERNEL }''.
 
   ENDMETHOD.
 
-  METHOD traverse_write_type.
-    DATA lo_type TYPE REF TO cl_abap_typedescr.
-    lo_type = cl_abap_typedescr=>describe_by_data( iv_ref->* ).
-    CASE lo_type->type_kind.
-      WHEN cl_abap_typedescr=>typekind_int
-          OR cl_abap_typedescr=>typekind_int1
-          OR cl_abap_typedescr=>typekind_int2
-          OR cl_abap_typedescr=>typekind_int8
-          OR cl_abap_typedescr=>typekind_decfloat
-          OR cl_abap_typedescr=>typekind_decfloat16
-          OR cl_abap_typedescr=>typekind_decfloat34.
-        rv_type = ''num''.
-      WHEN OTHERS.
-        rv_type = ''str''.
-    ENDCASE.
-  ENDMETHOD.
-
-  METHOD traverse_write.
-* TODO: refactor this method
-
-    DATA lo_type TYPE REF TO cl_abap_typedescr.
-    DATA lo_struc TYPE REF TO cl_abap_structdescr.
-    DATA lt_comps TYPE cl_abap_structdescr=>component_table.
-    DATA li_element TYPE REF TO if_ixml_element.
-    DATA li_sub TYPE REF TO if_ixml_element.
-    DATA ls_compo LIKE LINE OF lt_comps.
-    DATA lv_ref TYPE REF TO data.
-    FIELD-SYMBOLS <any> TYPE any.
-    FIELD-SYMBOLS <table> TYPE ANY TABLE.
-    FIELD-SYMBOLS <field> TYPE any.
-
-*     WRITE ''@KERNEL console.dir(iv_ref.getPointer());''.
-    lo_type = cl_abap_typedescr=>describe_by_data( iv_ref->* ).
-*    WRITE ''@KERNEL console.dir(lo_type.get().kind.get());''.
-    CASE lo_type->kind.
-      WHEN cl_abap_typedescr=>kind_struct.
-        mi_writer->open_element( name = ''object'' ).
-
-        lo_struc ?= lo_type.
-        lt_comps = lo_struc->get_components( ).
-        ASSIGN iv_ref->* TO <any>.
-        LOOP AT lt_comps INTO ls_compo.
-          ASSIGN COMPONENT ls_compo-name OF STRUCTURE <any> TO <field>.
-          GET REFERENCE OF <field> INTO lv_ref.
-          mi_writer->open_element( name = traverse_write_type( lv_ref ) ).
-          mi_writer->write_attribute( name = ''name'' value = to_upper( ls_compo-name ) ).
-          traverse_write( lv_ref ).
-          mi_writer->close_element( ).
-        ENDLOOP.
-
-        mi_writer->close_element( ).
-      WHEN cl_abap_typedescr=>kind_elem.
-        mi_writer->write_value( iv_ref->* ).
-      WHEN cl_abap_typedescr=>kind_table.
-        mi_writer->open_element( name = ''array'' ).
-
-        ASSIGN iv_ref->* TO <table>.
-        LOOP AT <table> ASSIGNING <any>.
-          GET REFERENCE OF <any> INTO lv_ref.
-          IF cl_abap_typedescr=>describe_by_data( lv_ref->* )->kind = cl_abap_typedescr=>kind_elem.
-            mi_writer->open_element( name = traverse_write_type( lv_ref ) ).
-          ENDIF.
-          traverse_write( lv_ref ).
-          IF cl_abap_typedescr=>describe_by_data( lv_ref->* )->kind = cl_abap_typedescr=>kind_elem.
-            mi_writer->close_element( ).
-          ENDIF.
-        ENDLOOP.
-
-        mi_writer->close_element( ).
-      WHEN OTHERS.
-        ASSERT 1 = ''todo_traverse_write''.
-    ENDCASE.
-
-  ENDMETHOD.
 
   METHOD parse_xml.
 
@@ -11928,7 +13778,7 @@ CLASS kernel_call_transformation IMPLEMENTATION.
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('KERNEL_IXML_JSON_TO_DATA', 'CLASS kernel_ixml_json_to_data DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('KERNEL_IXML_JSON_TO_DATA                ', 'CLASS kernel_ixml_json_to_data DEFINITION PUBLIC.
   PUBLIC SECTION.
     CLASS-METHODS build
       IMPORTING
@@ -11969,10 +13819,9 @@ CLASS kernel_ixml_json_to_data IMPLEMENTATION.
 
   METHOD build.
 * assumptions: the top level element is an object containing iv_name
-
-    DATA li_first TYPE REF TO if_ixml_node.
-    DATA li_node TYPE REF TO if_ixml_node.
-    DATA lv_name TYPE string.
+    DATA li_first    TYPE REF TO if_ixml_node.
+    DATA li_node     TYPE REF TO if_ixml_node.
+    DATA lv_name     TYPE string.
     DATA li_iterator TYPE REF TO if_ixml_node_iterator.
 
     li_first = ii_doc->get_root( )->get_first_child( ).
@@ -11998,14 +13847,15 @@ CLASS kernel_ixml_json_to_data IMPLEMENTATION.
 
   METHOD traverse.
 
-    DATA lo_type TYPE REF TO cl_abap_typedescr.
-    DATA li_child TYPE REF TO if_ixml_node.
-    DATA lv_name TYPE string.
+    DATA lo_type     TYPE REF TO cl_abap_typedescr.
+    DATA li_child    TYPE REF TO if_ixml_node.
+    DATA lv_name     TYPE string.
     DATA li_iterator TYPE REF TO if_ixml_node_iterator.
-    DATA lv_ref TYPE REF TO data.
-    FIELD-SYMBOLS <any> TYPE any.
+    DATA lv_ref      TYPE REF TO data.
+
+    FIELD-SYMBOLS <any>   TYPE any.
     FIELD-SYMBOLS <field> TYPE any.
-    FIELD-SYMBOLS <tab> TYPE ANY TABLE.
+    FIELD-SYMBOLS <tab>   TYPE ANY TABLE.
 
     lo_type = cl_abap_typedescr=>describe_by_data( iv_ref->* ).
     CASE lo_type->kind.
@@ -12031,6 +13881,12 @@ CLASS kernel_ixml_json_to_data IMPLEMENTATION.
         ASSERT li_child->get_name( ) = ''#text''.
         ASSIGN iv_ref->* TO <any>.
         <any> = li_child->get_value( ).
+
+        IF lo_type->type_kind = cl_abap_typedescr=>typekind_char
+            OR lo_type->type_kind = cl_abap_typedescr=>typekind_clike
+            OR lo_type->type_kind = cl_abap_typedescr=>typekind_string.
+          REPLACE ALL OCCURRENCES OF ''\\"'' IN <any> WITH ''"''.
+        ENDIF.
       WHEN cl_abap_typedescr=>kind_table.
         ASSERT ii_node->get_name( ) = ''array''.
         ASSIGN iv_ref->* TO <tab>.
@@ -12048,12 +13904,13 @@ CLASS kernel_ixml_json_to_data IMPLEMENTATION.
         ENDDO.
       WHEN OTHERS.
         WRITE ''@KERNEL console.dir(lo_type.get().kind.get());''.
+        ASSERT 1 = ''todo''.
     ENDCASE.
 
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('KERNEL_IXML_XML_TO_DATA', 'CLASS kernel_ixml_xml_to_data DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('KERNEL_IXML_XML_TO_DATA                 ', 'CLASS kernel_ixml_xml_to_data DEFINITION PUBLIC.
   PUBLIC SECTION.
     CLASS-METHODS build
       IMPORTING
@@ -12061,20 +13918,31 @@ ENDCLASS.');`);
         iv_ref  TYPE REF TO data
         ii_doc  TYPE REF TO if_ixml_document.
   PRIVATE SECTION.
+    CLASS-DATA mi_heap TYPE REF TO if_ixml_element.
+
     CLASS-METHODS traverse
       IMPORTING
         ii_node TYPE REF TO if_ixml_node
         iv_ref  TYPE REF TO data.
+
+    CLASS-METHODS find_href_in_heap
+      IMPORTING
+        VALUE(iv_href) TYPE string
+      RETURNING
+        VALUE(ri_node) TYPE REF TO if_ixml_node.
 ENDCLASS.
 
 CLASS kernel_ixml_xml_to_data IMPLEMENTATION.
 
   METHOD build.
 
-    DATA li_first TYPE REF TO if_ixml_element.
-    DATA li_node TYPE REF TO if_ixml_node.
-    DATA lv_name TYPE string.
+    DATA li_first    TYPE REF TO if_ixml_element.
+    DATA li_node     TYPE REF TO if_ixml_node.
+    DATA lv_name     TYPE string.
     DATA li_iterator TYPE REF TO if_ixml_node_iterator.
+
+    mi_heap = ii_doc->find_from_name_ns( ''heap'' ).
+*    WRITE ''@KERNEL console.dir(this.mi_heap);''.
 
     li_first ?= ii_doc->get_root( )->get_first_child( ).
 
@@ -12083,25 +13951,54 @@ CLASS kernel_ixml_xml_to_data IMPLEMENTATION.
       depth     = 0
       namespace = '''' ).
     IF li_node IS NOT INITIAL.
-*      WRITE ''@KERNEL console.dir("found");''.
       traverse( ii_node = li_node
                 iv_ref  = iv_ref ).
-*    ELSE.
-*      WRITE ''@KERNEL console.dir("nah");''.
     ENDIF.
+  ENDMETHOD.
+
+  METHOD find_href_in_heap.
+
+    DATA li_iterator TYPE REF TO if_ixml_node_iterator.
+    DATA li_child    TYPE REF TO if_ixml_node.
+    DATA lv_id       TYPE string.
+
+    REPLACE FIRST OCCURRENCE OF ''#'' IN iv_href WITH ''''.
+    ASSERT mi_heap IS NOT INITIAL.
+    ASSERT iv_href IS NOT INITIAL.
+
+    li_iterator = mi_heap->get_children( )->create_iterator( ).
+
+    DO.
+      li_child = li_iterator->get_next( ).
+      IF li_child IS INITIAL.
+        EXIT. " current loop
+      ENDIF.
+      lv_id = li_child->get_attributes( )->get_named_item_ns( ''id'' )->get_value( ).
+      IF lv_id = iv_href.
+        ri_node = li_child.
+        RETURN.
+      ENDIF.
+    ENDDO.
+
+    ASSERT 1 = ''not found in heap''.
 
   ENDMETHOD.
 
   METHOD traverse.
 
-    DATA lo_type TYPE REF TO cl_abap_typedescr.
-    DATA li_child TYPE REF TO if_ixml_node.
-    DATA lv_name TYPE string.
+    DATA lo_type     TYPE REF TO cl_abap_typedescr.
+    DATA li_child    TYPE REF TO if_ixml_node.
+    DATA li_heap     TYPE REF TO if_ixml_node.
+    DATA li_iname    TYPE REF TO if_ixml_node.
+    DATA lv_name     TYPE string.
     DATA li_iterator TYPE REF TO if_ixml_node_iterator.
-    DATA lv_ref TYPE REF TO data.
-    FIELD-SYMBOLS <any> TYPE any.
+    DATA lv_ref      TYPE REF TO data.
+    DATA lv_value    TYPE string.
+    DATA li_href     TYPE REF TO if_ixml_node.
+
+    FIELD-SYMBOLS <any>   TYPE any.
     FIELD-SYMBOLS <field> TYPE any.
-    FIELD-SYMBOLS <tab> TYPE ANY TABLE.
+    FIELD-SYMBOLS <tab>   TYPE ANY TABLE.
 
     lo_type = cl_abap_typedescr=>describe_by_data( iv_ref->* ).
     CASE lo_type->kind.
@@ -12123,8 +14020,10 @@ CLASS kernel_ixml_xml_to_data IMPLEMENTATION.
         ENDDO.
       WHEN cl_abap_typedescr=>kind_elem.
         li_child = ii_node->get_first_child( ).
-        ASSIGN iv_ref->* TO <any>.
-        <any> = li_child->get_value( ).
+        IF li_child IS NOT INITIAL.
+          ASSIGN iv_ref->* TO <any>.
+          <any> = li_child->get_value( ).
+        ENDIF.
       WHEN cl_abap_typedescr=>kind_table.
         ASSIGN iv_ref->* TO <tab>.
         li_iterator = ii_node->get_children( )->create_iterator( ).
@@ -12136,17 +14035,81 @@ CLASS kernel_ixml_xml_to_data IMPLEMENTATION.
           CREATE DATA lv_ref LIKE LINE OF <tab>.
           ASSIGN lv_ref->* TO <any>.
           traverse( ii_node = li_child
-                  iv_ref  = lv_ref ).
+                    iv_ref  = lv_ref ).
           INSERT <any> INTO TABLE <tab>.
         ENDDO.
+      WHEN cl_abap_typedescr=>kind_ref.
+        ASSIGN iv_ref->* TO <any>.
+        IF <any> IS INITIAL.
+          " WRITE ''@KERNEL lv_rtti_name.set(fs_any_.getPointer().RTTIName);''.
+          " lv_internal = kernel_internal_name=>rtti_to_internal( lv_rtti_name ).
+          " WRITE ''@KERNEL fs_any_.pointer.value = new abap.Classes[lv_internal.get()]();''.
+
+          li_href = ii_node->get_attributes( )->get_named_item_ns( ''href'' ).
+          IF li_href IS INITIAL.
+            RETURN.
+          ENDIF.
+          lv_value = li_href->get_value( ).
+          ASSERT lv_value IS NOT INITIAL.
+          li_heap = find_href_in_heap( lv_value ).
+
+          li_iname = li_heap->get_attributes( )->get_named_item_ns( ''internalName'' ).
+          IF li_iname IS INITIAL AND lv_value(2) = ''#o''.
+* then its a non serializable object, not to be instantiated
+            RETURN.
+          ENDIF.
+
+          IF lv_value(2) = ''#o''.
+            lv_value = li_iname->get_value( ).
+            ASSERT lv_value IS NOT INITIAL.
+*          WRITE ''@KERNEL console.dir(lv_value);''.
+            WRITE ''@KERNEL fs_any_.pointer.value = new abap.Classes[lv_value.get()]();''.
+
+          " li_child = ii_node->get_attributes( )->get_named_item_ns( ''href'' ).
+          " WRITE ''@KERNEL console.dir(ii_node.get());''.
+
+            li_iterator = li_heap->get_first_child( )->get_children( )->create_iterator( ).
+            DO.
+              li_child = li_iterator->get_next( ).
+              IF li_child IS INITIAL.
+                EXIT. " current loop
+              ENDIF.
+              lv_name = li_child->get_name( ).
+              REPLACE FIRST OCCURRENCE OF ''.'' IN lv_name WITH ''~''.
+
+              ASSIGN <any>->(lv_name) TO <field>.
+              IF sy-subrc = 0.
+                GET REFERENCE OF <field> INTO lv_ref.
+                traverse( ii_node = li_child
+                          iv_ref  = lv_ref ).
+              ENDIF.
+            ENDDO.
+          ELSE.
+* its a data reference
+            " WRITE / lv_value.
+            " WRITE ''@KERNEL console.dir(fs_any_);''.
+            CREATE DATA <any>.
+            " WRITE ''@KERNEL console.dir(fs_any_);''.
+
+            li_child = li_heap->get_first_child( ).
+            GET REFERENCE OF <any> INTO lv_ref.
+
+            " WRITE ''@KERNEL console.dir(lv_ref);''.
+            traverse( ii_node = li_child
+                      iv_ref  = lv_ref->* ).
+          ENDIF.
+        ELSE.
+          ASSERT 1 = ''todo_ref2''.
+        ENDIF.
       WHEN OTHERS.
         WRITE ''@KERNEL console.dir(lo_type.get().kind.get());''.
+        ASSERT 1 = ''todo''.
     ENDCASE.
 
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('KERNEL_JSON_TO_IXML', 'CLASS kernel_json_to_ixml DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('KERNEL_JSON_TO_IXML                     ', 'CLASS kernel_json_to_ixml DEFINITION PUBLIC.
   PUBLIC SECTION.
     CLASS-METHODS build
       IMPORTING iv_json TYPE string
@@ -12231,7 +14194,7 @@ CLASS kernel_json_to_ixml IMPLEMENTATION.
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('KERNEL_AUTHORITY_CHECK', 'CLASS kernel_authority_check DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('KERNEL_AUTHORITY_CHECK                  ', 'CLASS kernel_authority_check DEFINITION PUBLIC.
   PUBLIC SECTION.
     CLASS-METHODS call.
   PRIVATE SECTION.
@@ -12245,7 +14208,7 @@ CLASS kernel_authority_check IMPLEMENTATION.
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('KERNEL_CALL', 'CLASS kernel_call DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('KERNEL_CALL                             ', 'CLASS kernel_call DEFINITION PUBLIC.
 * handling of ABAP statement CALL
   PUBLIC SECTION.
     CLASS-METHODS call
@@ -12271,7 +14234,7 @@ CLASS kernel_call IMPLEMENTATION.
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('KERNEL_CREATE_DATA_HANDLE', 'CLASS kernel_create_data_handle DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('KERNEL_CREATE_DATA_HANDLE               ', 'CLASS kernel_create_data_handle DEFINITION PUBLIC.
   PUBLIC SECTION.
     CLASS-METHODS call
       IMPORTING
@@ -12294,12 +14257,21 @@ ENDCLASS.');`);
         handle TYPE REF TO cl_abap_datadescr
       CHANGING
         dref   TYPE REF TO any.
+    CLASS-METHODS ref
+      IMPORTING
+        handle TYPE REF TO cl_abap_datadescr
+      CHANGING
+        dref   TYPE REF TO any.
 ENDCLASS.
 
 CLASS kernel_create_data_handle IMPLEMENTATION.
 
   METHOD call.
     ASSERT handle IS BOUND.
+
+    WRITE ''@KERNEL if (dref.constructor.name === "FieldSymbol") {''.
+    WRITE ''@KERNEL   dref = dref.getPointer();''.
+    WRITE ''@KERNEL }''.
 
     CASE handle->kind.
       WHEN cl_abap_typedescr=>kind_elem.
@@ -12311,36 +14283,62 @@ CLASS kernel_create_data_handle IMPLEMENTATION.
       WHEN cl_abap_typedescr=>kind_table.
         table( EXPORTING handle = handle
                CHANGING dref = dref ).
+      WHEN cl_abap_typedescr=>kind_ref.
+        ref( EXPORTING handle = handle
+             CHANGING dref = dref ).
       WHEN OTHERS.
         WRITE ''@KERNEL console.dir(handle);''.
         ASSERT 1 = ''todo''.
     ENDCASE.
   ENDMETHOD.
 
+  METHOD ref.
+    DATA lo_ref  TYPE REF TO cl_abap_refdescr.
+    DATA lo_data TYPE REF TO cl_abap_datadescr.
+    DATA field   TYPE REF TO data.
+
+    lo_ref ?= handle.
+    lo_data ?= lo_ref->get_referenced_type( ).
+    call(
+      EXPORTING
+        handle = lo_data
+      CHANGING
+        dref   = field ).
+
+    WRITE ''@KERNEL dref.assign(new abap.types.DataReference(field.getPointer()));''.
+  ENDMETHOD.
+
   METHOD struct.
     DATA lo_struct     TYPE REF TO cl_abap_structdescr.
     DATA lt_components TYPE cl_abap_structdescr=>component_table.
-    DATA ls_component  LIKE LINE OF lt_components.
     DATA field         TYPE REF TO data.
+    DATA lv_name       TYPE string.
+
+    FIELD-SYMBOLS <ls_component> LIKE LINE OF lt_components.
 
     lo_struct ?= handle.
     lt_components = lo_struct->get_components( ).
     WRITE ''@KERNEL let obj = {};''.
-    LOOP AT lt_components INTO ls_component.
+    LOOP AT lt_components ASSIGNING <ls_component>.
 *      WRITE ''@KERNEL console.dir(ls_component.get().name);''.
       call(
         EXPORTING
-          handle = lo_struct->get_component_type( ls_component-name )
+          handle = lo_struct->get_component_type( <ls_component>-name )
         CHANGING
           dref   = field ).
-      WRITE ''@KERNEL obj[ls_component.get().name.get().toLowerCase()] = field.getPointer();''.
+      lv_name = to_lower( <ls_component>-name ).
+      WRITE ''@KERNEL obj[lv_name.get()] = field.getPointer();''.
     ENDLOOP.
     WRITE ''@KERNEL dref.assign(new abap.types.Structure(obj));''.
   ENDMETHOD.
 
   METHOD table.
-    DATA lo_table TYPE REF TO cl_abap_tabledescr.
-    DATA field    TYPE REF TO data.
+    DATA lo_table     TYPE REF TO cl_abap_tabledescr.
+    DATA lt_keys      TYPE abap_table_keydescr_tab.
+    DATA lv_component TYPE string.
+    DATA field        TYPE REF TO data.
+
+    FIELD-SYMBOLS <ls_key> LIKE LINE OF lt_keys.
 
     lo_table ?= handle.
 
@@ -12350,10 +14348,30 @@ CLASS kernel_create_data_handle IMPLEMENTATION.
       CHANGING
         dref   = field ).
 
-    WRITE ''@KERNEL dref.assign(new abap.types.Table(field.getPointer()));''.
+    WRITE ''@KERNEL let options = {primaryKey: undefined, keyType: "DEFAULT", withHeader: false};''.
+    WRITE ''@KERNEL options.primaryKey = {name: "primary_key", type: "STANDARD", keyFields: [], isUnique: false};''.
+
+* todo, handle secondary keys,
+    lt_keys = lo_table->get_keys( ).
+    LOOP AT lt_keys ASSIGNING <ls_key> WHERE is_primary = abap_true.
+      IF <ls_key>-access_kind = cl_abap_tabledescr=>tablekind_sorted.
+        WRITE ''@KERNEL options.primaryKey.type = "SORTED";''.
+      ELSEIF <ls_key>-access_kind = cl_abap_tabledescr=>tablekind_hashed.
+        WRITE ''@KERNEL options.primaryKey.type = "HASHED";''.
+      ENDIF.
+      IF <ls_key>-is_unique = abap_true.
+        WRITE ''@KERNEL options.primaryKey.isUnique = true;''.
+      ENDIF.
+      LOOP AT <ls_key>-components INTO lv_component.
+        WRITE ''@KERNEL options.primaryKey.keyFields.push(lv_component.get().toLowerCase());''.
+      ENDLOOP.
+    ENDLOOP.
+
+    WRITE ''@KERNEL dref.assign(abap.types.TableFactory.construct(field.getPointer(), options));''.
   ENDMETHOD.
 
   METHOD elem.
+    DATA lv_half TYPE i.
     CASE handle->type_kind.
       WHEN cl_abap_typedescr=>typekind_float.
         CREATE DATA dref TYPE f.
@@ -12370,9 +14388,17 @@ CLASS kernel_create_data_handle IMPLEMENTATION.
       WHEN cl_abap_typedescr=>typekind_packed.
         CREATE DATA dref TYPE p LENGTH handle->length DECIMALS handle->decimals.
       WHEN cl_abap_typedescr=>typekind_char.
-        CREATE DATA dref TYPE c LENGTH handle->length.
+        lv_half = handle->length / 2.
+        CREATE DATA dref TYPE c LENGTH lv_half.
+* todo, this needs some redesign to work properly,
+        WRITE ''@KERNEL dref.getPointer().extra = {"qualifiedName": handle.get().relative_name};''.
+      WHEN cl_abap_typedescr=>typekind_num.
+        lv_half = handle->length / 2.
+        CREATE DATA dref TYPE n LENGTH lv_half.
       WHEN cl_abap_typedescr=>typekind_time.
         CREATE DATA dref TYPE t.
+      WHEN cl_abap_typedescr=>typekind_int8.
+        CREATE DATA dref TYPE int8.
       WHEN OTHERS.
         WRITE ''@KERNEL console.dir(handle);''.
         ASSERT 1 = ''todo''.
@@ -12380,7 +14406,47 @@ CLASS kernel_create_data_handle IMPLEMENTATION.
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('KERNEL_LOCK', 'CLASS kernel_lock DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('KERNEL_INTERNAL_NAME                    ', 'CLASS kernel_internal_name DEFINITION PUBLIC.
+  PUBLIC SECTION.
+    CLASS-METHODS internal_to_rtti
+      IMPORTING
+        iv_internal TYPE string
+      RETURNING
+        VALUE(rv_rtti) TYPE string.
+
+    CLASS-METHODS rtti_to_internal
+      IMPORTING
+        iv_rtti TYPE string
+      RETURNING
+        VALUE(rv_internal) TYPE string.
+ENDCLASS.
+
+CLASS kernel_internal_name IMPLEMENTATION.
+
+  METHOD internal_to_rtti.
+    rv_rtti = iv_internal.
+    IF rv_rtti CP ''*CLAS-*''.
+      REPLACE FIRST OCCURRENCE OF ''CLAS-'' IN rv_rtti WITH ''\\CLASS#POOL=''.
+      REPLACE FIRST OCCURRENCE OF ''-'' IN rv_rtti WITH ''\\CLASS=''.
+      REPLACE FIRST OCCURRENCE OF ''#'' IN rv_rtti WITH ''-''.
+    ELSE.
+      rv_rtti = ''\\CLASS='' && rv_rtti.
+    ENDIF.
+  ENDMETHOD.
+
+  METHOD rtti_to_internal.
+    rv_internal = iv_rtti.
+    IF rv_internal CP ''\\CLASS=*''.
+      REPLACE FIRST OCCURRENCE OF ''\\CLASS='' IN rv_internal WITH ''''.
+    ELSEIF rv_internal CP ''\\CLASS-POOL=*''.
+      REPLACE FIRST OCCURRENCE OF ''\\CLASS-POOL='' IN rv_internal WITH ''CLAS-''.
+      REPLACE FIRST OCCURRENCE OF ''\\CLASS='' IN rv_internal WITH ''-''.
+      REPLACE FIRST OCCURRENCE OF ''\\INTERFACE='' IN rv_internal WITH ''-''.
+    ENDIF.
+  ENDMETHOD.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('KERNEL_LOCK                             ', 'CLASS kernel_lock DEFINITION PUBLIC.
   PUBLIC SECTION.
     CLASS-METHODS enqueue
       IMPORTING
@@ -12407,23 +14473,40 @@ CLASS kernel_lock IMPLEMENTATION.
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('KERNEL_PUSH_CHANNELS', 'CLASS kernel_push_channels DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('KERNEL_PUSH_CHANNELS                    ', 'CLASS kernel_push_channels DEFINITION PUBLIC.
 * handling of ABAP statement WAIT FOR PUSH CHANNELS
   PUBLIC SECTION.
-    CLASS-METHODS wait.
+    CLASS-METHODS wait
+      IMPORTING
+        seconds TYPE i
+        cond    TYPE any.
   PRIVATE SECTION.
 ENDCLASS.
 
 CLASS kernel_push_channels IMPLEMENTATION.
 
   METHOD wait.
-* todo, await up to some seconds
-    WRITE ''@KERNEL await new Promise(resolve => setTimeout(resolve, 1000));''.
-* todo, check condition
+    DATA lv_seconds   TYPE i.
+    DATA lv_condition TYPE abap_bool.
+
+    lv_seconds = seconds * 1000.
+    ASSERT lv_seconds > 0.
+
+    WHILE lv_seconds > 0.
+      WRITE ''@KERNEL await new Promise(resolve => setTimeout(resolve, 100));''.
+      WRITE ''@KERNEL lv_condition = cond() ? "X" : " ";''.
+      IF lv_condition = abap_true.
+        sy-subrc = 0.
+        RETURN.
+      ENDIF.
+      lv_seconds = lv_seconds - 100.
+    ENDWHILE.
+
+    sy-subrc = 4.
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('KERNEL_SCAN_ABAP_SOURCE', 'CLASS kernel_scan_abap_source DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('KERNEL_SCAN_ABAP_SOURCE                 ', 'CLASS kernel_scan_abap_source DEFINITION PUBLIC.
 * handling of ABAP statement SCAN ABAP-SOURCE
   PUBLIC SECTION.
     CLASS-METHODS call IMPORTING input TYPE any.
@@ -12675,101 +14758,7 @@ CLASS kernel_scan_abap_source IMPLEMENTATION.
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_MATH', 'CLASS cl_abap_math DEFINITION PUBLIC.
-  PUBLIC SECTION.
-    CONSTANTS min_int4 TYPE i VALUE -2147483648.
-    CONSTANTS max_int4 TYPE i VALUE 2147483647.
-
-    CONSTANTS round_ceiling   TYPE i VALUE 0.
-    CONSTANTS round_up        TYPE i VALUE 1.
-    CONSTANTS round_half_up   TYPE i VALUE 2.
-    CONSTANTS round_half_even TYPE i VALUE 3.
-    CONSTANTS round_half_down TYPE i VALUE 4.
-    CONSTANTS round_down      TYPE i VALUE 5.
-    CONSTANTS round_floor     TYPE i VALUE 6.
-ENDCLASS.
-
-CLASS cl_abap_math IMPLEMENTATION.
-
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_RANDOM', 'CLASS cl_abap_random DEFINITION PUBLIC.
-  PUBLIC SECTION.
-    CLASS-METHODS create
-      IMPORTING
-        seed TYPE i OPTIONAL
-      RETURNING
-        VALUE(ro_random) TYPE REF TO cl_abap_random.
-    METHODS int RETURNING VALUE(rv_integer) TYPE i.
-    METHODS intinrange
-      IMPORTING
-        low  TYPE i
-        high TYPE i
-      RETURNING
-        VALUE(rv_integer) TYPE i.
-    CLASS-METHODS seed RETURNING VALUE(rv_seed) TYPE i.
-* todo, use "crypto." instead, see cl_abap_hmac which also uses crypto
-ENDCLASS.
-
-CLASS cl_abap_random IMPLEMENTATION.
-  METHOD create.
-    CREATE OBJECT ro_random.
-  ENDMETHOD.
-
-  METHOD int.
-* todo, currently only positive integers are returned
-    WRITE ''@KERNEL rv_integer.set(Math.floor(Math.random() * 2147483647));''.
-  ENDMETHOD.
-
-  METHOD seed.
-    WRITE ''@KERNEL rv_seed.set(Math.floor(Math.random() * 2147483647));''.
-  ENDMETHOD.
-
-  METHOD intinrange.
-* including "low" and "high" numbers
-    DATA lv_interval TYPE i.
-    ASSERT high > low.
-    ASSERT low >= 0.
-    lv_interval = high - low + 1.
-    rv_integer = abs( int( ) ).
-    rv_integer = rv_integer MOD lv_interval.
-    rv_integer = rv_integer + low.
-  ENDMETHOD.
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_RANDOM_INT', 'CLASS cl_abap_random_int DEFINITION PUBLIC FINAL CREATE PRIVATE.
-  PUBLIC SECTION.
-    CLASS-METHODS create
-      IMPORTING
-        seed TYPE i OPTIONAL
-        min  TYPE i DEFAULT -2147483648
-        max  TYPE i DEFAULT 2147483647
-        PREFERRED PARAMETER seed
-      RETURNING
-        VALUE(prng) TYPE REF TO cl_abap_random_int
-      RAISING
-        cx_abap_random.
-
-    METHODS get_next
-      RETURNING
-        VALUE(value) TYPE i.
-ENDCLASS.
-
-CLASS cl_abap_random_int IMPLEMENTATION.
-  METHOD create.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-  METHOD get_next.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_ABAP_RANDOM', 'CLASS cx_abap_random DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
-
-ENDCLASS.
-
-CLASS cx_abap_random IMPLEMENTATION.
-
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_NUMBERRANGE_RUNTIME', 'CLASS cl_numberrange_runtime DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_NUMBERRANGE_RUNTIME                  ', 'CLASS cl_numberrange_runtime DEFINITION PUBLIC.
   PUBLIC SECTION.
 
     TYPES nr_interval TYPE c LENGTH 2.
@@ -12812,7 +14801,7 @@ CLASS cl_numberrange_runtime IMPLEMENTATION.
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('KERNEL_NUMBERRANGE', 'CLASS kernel_numberrange DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('KERNEL_NUMBERRANGE                      ', 'CLASS kernel_numberrange DEFINITION PUBLIC.
   PUBLIC SECTION.
     CLASS-METHODS number_get
       IMPORTING
@@ -12849,7 +14838,287 @@ CLASS kernel_numberrange IMPLEMENTATION.
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_OO_FACTORY', 'CLASS cl_oo_factory DEFINITION PUBLIC CREATE PRIVATE.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_OA2C_CONFIG_WRITER_API               ', 'CLASS cl_oa2c_config_writer_api DEFINITION PUBLIC.
+  PUBLIC SECTION.
+    CONSTANTS c_granttype_cc TYPE oa2c_granttype VALUE 4.
+
+    CLASS-METHODS create
+      IMPORTING
+        i_profile                   TYPE oa2c_profile
+        i_configuration             TYPE oa2c_configuration OPTIONAL
+        i_client_id                 TYPE string
+        i_client_secret             TYPE string
+        i_authorization_endpoint    TYPE string OPTIONAL
+        i_token_endpoint            TYPE string OPTIONAL
+        i_target_path               TYPE string OPTIONAL
+        i_configured_granttype      TYPE oa2c_granttype DEFAULT 0
+      RETURNING
+        VALUE(ro_config_writer_api) TYPE REF TO cl_oa2c_config_writer_api
+      RAISING
+        cx_oa2c.
+
+    CLASS-METHODS load
+      IMPORTING
+        i_configuration             TYPE oa2c_configuration OPTIONAL
+      RETURNING
+        VALUE(ro_config_writer_api) TYPE REF TO cl_oa2c_config_writer_api
+      RAISING
+        cx_oa2c.
+
+    METHODS save
+      RAISING
+        cx_oa2c.
+
+    METHODS read
+      EXPORTING
+        e_client_id              TYPE string
+        e_authorization_endpoint TYPE string
+        e_token_endpoint         TYPE string
+        e_target_path            TYPE string
+        e_configured_granttype   TYPE oa2c_granttype.
+
+  PRIVATE SECTION.
+    TYPES: BEGIN OF ty_config,
+             configuration          TYPE oa2c_configuration,
+             client_id              TYPE string,
+             client_secret          TYPE string,
+             authorization_endpoint TYPE string,
+             token_endpoint         TYPE string,
+             target_path            TYPE string,
+             granttype              TYPE oa2c_granttype,
+           END OF ty_config.
+
+* this class currently only saves to memory for testing purposes
+    CLASS-DATA mt_saved_configs TYPE SORTED TABLE OF ty_config WITH UNIQUE KEY configuration.
+
+    DATA ms_config TYPE ty_config.
+ENDCLASS.
+
+CLASS cl_oa2c_config_writer_api IMPLEMENTATION.
+
+  METHOD create.
+    ASSERT i_configured_granttype = c_granttype_cc.
+
+    CREATE OBJECT ro_config_writer_api.
+    ro_config_writer_api->ms_config-configuration = i_configuration.
+    ro_config_writer_api->ms_config-client_id = i_client_id.
+    ro_config_writer_api->ms_config-client_secret = i_client_secret.
+    ro_config_writer_api->ms_config-authorization_endpoint = i_authorization_endpoint.
+    ro_config_writer_api->ms_config-token_endpoint = i_token_endpoint.
+    ro_config_writer_api->ms_config-target_path = i_target_path.
+    ro_config_writer_api->ms_config-granttype = i_configured_granttype.
+  ENDMETHOD.
+
+  METHOD save.
+
+    INSERT ms_config INTO TABLE mt_saved_configs.
+    ASSERT sy-subrc = 0.
+
+  ENDMETHOD.
+
+  METHOD load.
+
+    DATA ls_config TYPE ty_config.
+
+    READ TABLE mt_saved_configs INTO ls_config WITH KEY configuration = i_configuration.
+    IF sy-subrc <> 0.
+      RAISE EXCEPTION TYPE cx_oa2c_config_not_found.
+    ENDIF.
+
+    CREATE OBJECT ro_config_writer_api.
+    ro_config_writer_api->ms_config = ls_config.
+
+  ENDMETHOD.
+
+  METHOD read.
+
+    e_client_id = ms_config-client_id.
+    e_authorization_endpoint = ms_config-authorization_endpoint.
+    e_token_endpoint = ms_config-token_endpoint.
+    e_target_path = ms_config-target_path.
+    e_configured_granttype = ms_config-granttype.
+
+  ENDMETHOD.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_OAUTH2_CLIENT                        ', 'CLASS cl_oauth2_client DEFINITION PUBLIC.
+  PUBLIC SECTION.
+    INTERFACES if_oauth2_client.
+
+    CLASS-METHODS create
+      IMPORTING
+        i_profile               TYPE oa2c_profile
+        i_configuration         TYPE oa2c_configuration OPTIONAL
+      RETURNING
+        VALUE(ro_oauth2_client) TYPE REF TO if_oauth2_client
+      RAISING
+        cx_oa2c.
+
+  PRIVATE SECTION.
+    DATA mo_config_writer_api TYPE REF TO cl_oa2c_config_writer_api.
+    DATA mv_token             TYPE string.
+    DATA mv_scope             TYPE string.
+ENDCLASS.
+
+CLASS cl_oauth2_client IMPLEMENTATION.
+
+  METHOD create.
+
+    DATA lo_client TYPE REF TO cl_oauth2_client.
+    DATA lv_scope  TYPE string.
+
+    WRITE ''@KERNEL const scopes = abap.OA2P[i_profile.get().toUpperCase().trimEnd()].scopes;''.
+    WRITE ''@KERNEL lv_scope.set(scopes[0]);''.
+
+    CREATE OBJECT lo_client.
+    lo_client->mo_config_writer_api = cl_oa2c_config_writer_api=>load( i_configuration ).
+    lo_client->mv_scope = lv_scope.
+
+    ro_oauth2_client ?= lo_client.
+
+  ENDMETHOD.
+
+  METHOD if_oauth2_client~execute_cc_flow.
+
+    DATA lv_text          TYPE string.
+    DATA lv_code          TYPE i.
+    DATA lv_message       TYPE string.
+    DATA lv_cdata         TYPE string.
+    DATA lv_client_id     TYPE string.
+    DATA lv_client_secret TYPE string.
+    DATA lv_endpoint      TYPE string.
+    DATA lv_path          TYPE string.
+    DATA li_http_client   TYPE REF TO if_http_client.
+
+
+    mo_config_writer_api->read(
+      IMPORTING
+        e_client_id      = lv_client_id
+        e_token_endpoint = lv_endpoint
+        e_target_path    = lv_path ).
+
+    WRITE ''@KERNEL lv_client_secret.set(this.mo_config_writer_api.get().ms_config.get().client_secret);''.
+
+    cl_http_client=>create_by_url(
+      EXPORTING
+        url                = lv_endpoint && lv_path
+      IMPORTING
+        client             = li_http_client
+      EXCEPTIONS
+        argument_not_found = 1
+        plugin_not_active  = 2
+        internal_error     = 3
+        OTHERS             = 4 ).
+    IF sy-subrc <> 0.
+      RAISE EXCEPTION TYPE cx_oa2c.
+    ENDIF.
+
+    li_http_client->propertytype_logon_popup = if_http_client=>co_disabled.
+
+    li_http_client->request->set_method( ''POST'' ).
+
+    li_http_client->request->set_form_field(
+      name  = ''grant_type''
+      value = ''client_credentials'' ).
+    li_http_client->request->set_form_field(
+      name  = ''client_id''
+      value = lv_client_id ).
+    li_http_client->request->set_form_field(
+      name  = ''scope''
+      value = mv_scope ).
+    li_http_client->request->set_form_field(
+      name  = ''client_secret''
+      value = lv_client_secret ).
+    li_http_client->request->set_content_type( ''application/x-www-form-urlencoded'' ).
+
+    li_http_client->send(
+      EXCEPTIONS
+        http_communication_failure = 1
+        http_invalid_state         = 2
+        http_processing_failed     = 3
+        http_invalid_timeout       = 4
+        OTHERS                     = 5 ).
+    IF sy-subrc <> 0.
+      RAISE EXCEPTION TYPE cx_oa2c.
+    ENDIF.
+
+    li_http_client->receive(
+      EXCEPTIONS
+        http_communication_failure = 1
+        http_invalid_state         = 2
+        http_processing_failed     = 3
+        OTHERS                     = 4 ).
+    IF sy-subrc <> 0.
+      li_http_client->get_last_error(
+        IMPORTING
+          code    = lv_code
+          message = lv_message ).
+      RAISE EXCEPTION TYPE cx_oa2c.
+    ENDIF.
+
+    li_http_client->response->get_status( IMPORTING code = lv_code ).
+    lv_cdata = li_http_client->response->get_cdata( ).
+    li_http_client->close( ).
+
+    IF lv_code <> 200.
+      RAISE EXCEPTION TYPE cx_oa2c.
+    ENDIF.
+
+    FIND REGEX |"access_token":"([\\\\w\\\\.-]+)"| IN lv_cdata SUBMATCHES mv_token.
+    ASSERT sy-subrc = 0.
+
+  ENDMETHOD.
+
+  METHOD if_oauth2_client~set_token.
+    IF mv_token IS INITIAL.
+      RAISE EXCEPTION TYPE cx_oa2c_at_not_available.
+    ENDIF.
+
+    io_http_client->request->set_header_field(
+      name  = ''Authorization''
+      value = |Bearer { mv_token }| ).
+  ENDMETHOD.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_OA2C                                 ', 'CLASS cx_oa2c DEFINITION PUBLIC INHERITING FROM cx_static_check.
+  PUBLIC SECTION.
+ENDCLASS.
+
+CLASS cx_oa2c IMPLEMENTATION.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_OA2C_AT_NOT_AVAILABLE                ', 'CLASS cx_oa2c_at_not_available DEFINITION PUBLIC INHERITING FROM cx_oa2c.
+  PUBLIC SECTION.
+ENDCLASS.
+
+CLASS cx_oa2c_at_not_available IMPLEMENTATION.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_OA2C_CONFIG_NOT_FOUND                ', 'CLASS cx_oa2c_config_not_found DEFINITION PUBLIC INHERITING FROM cx_oa2c.
+  PUBLIC SECTION.
+ENDCLASS.
+
+CLASS cx_oa2c_config_not_found IMPLEMENTATION.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_OAUTH2_CLIENT                        ', 'INTERFACE if_oauth2_client PUBLIC.
+
+  CONSTANTS c_param_kind_header_field TYPE string VALUE ''H''.
+  CONSTANTS c_param_kind_form_field   TYPE string VALUE ''F''.
+
+  METHODS execute_cc_flow
+    RAISING
+      cx_oa2c.
+
+  METHODS set_token
+    IMPORTING
+      io_http_client TYPE REF TO if_http_client
+      i_param_kind   TYPE string OPTIONAL
+    RAISING
+      cx_oa2c.
+
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_OO_FACTORY                           ', 'CLASS cl_oo_factory DEFINITION PUBLIC CREATE PRIVATE.
   PUBLIC SECTION.
     INTERFACES if_oo_clif_source.
 
@@ -12886,159 +15155,19 @@ CLASS cl_oo_factory IMPLEMENTATION.
     SPLIT ls_data-data AT |\\n| INTO TABLE source.
   ENDMETHOD.
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_OO_CLIF_NOT_EXISTS', 'CLASS cx_oo_clif_not_exists DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_OO_CLIF_NOT_EXISTS                   ', 'CLASS cx_oo_clif_not_exists DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
 
 ENDCLASS.
 
 CLASS cx_oo_clif_not_exists IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_OO_CLIF_SOURCE', 'INTERFACE if_oo_clif_source PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_OO_CLIF_SOURCE                       ', 'INTERFACE if_oo_clif_source PUBLIC.
   METHODS get_source
     EXPORTING
       source TYPE string_table.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_MATCHER', 'CLASS cl_abap_matcher DEFINITION PUBLIC.
-
-  PUBLIC SECTION.
-    METHODS constructor
-      IMPORTING
-        pattern TYPE clike
-        ignore_case TYPE abap_bool
-        text TYPE clike.
-
-    METHODS find_all
-      RETURNING
-        VALUE(rt_matches) TYPE match_result_tab.
-
-    METHODS find_next
-      RETURNING
-        VALUE(found) TYPE abap_bool.
-
-    METHODS get_submatch
-      IMPORTING
-        index TYPE i
-      RETURNING
-        VALUE(match) TYPE string.
-
-    METHODS get_offset
-      RETURNING
-        VALUE(offset) TYPE i.
-
-    METHODS match
-      RETURNING
-        VALUE(success) TYPE abap_bool.
-
-    METHODS get_length
-      RETURNING
-        VALUE(length) TYPE i.
-
-  PRIVATE SECTION.
-    DATA mt_matches TYPE match_result_tab.
-    DATA mv_index TYPE i.
-    DATA mv_text TYPE string.
-    DATA mv_pattern TYPE string.
-
-ENDCLASS.
-
-CLASS cl_abap_matcher IMPLEMENTATION.
-
-  METHOD constructor.
-    IF ignore_case = abap_true.
-      FIND ALL OCCURRENCES OF REGEX pattern IN text RESULTS mt_matches IGNORING CASE.
-    ELSE.
-      FIND ALL OCCURRENCES OF REGEX pattern IN text RESULTS mt_matches.
-    ENDIF.
-    mv_pattern = pattern.
-    mv_text = text.
-  ENDMETHOD.
-
-  METHOD match.
-    FIND ALL OCCURRENCES OF REGEX |^{ mv_pattern }$| IN mv_text.
-    success = boolc( sy-subrc = 0 ).
-  ENDMETHOD.
-
-  METHOD find_all.
-    rt_matches = mt_matches.
-  ENDMETHOD.
-
-  METHOD find_next.
-    mv_index = mv_index + 1.
-    READ TABLE mt_matches INDEX mv_index TRANSPORTING NO FIELDS.
-    found = boolc( sy-subrc = 0 ).
-  ENDMETHOD.
-
-  METHOD get_submatch.
-    DATA ls_match LIKE LINE OF mt_matches.
-    DATA ls_submatch LIKE LINE OF ls_match-submatches.
-    READ TABLE mt_matches INDEX mv_index INTO ls_match.
-    READ TABLE ls_match-submatches INDEX index INTO ls_submatch.
-    IF sy-subrc = 0.
-      match = mv_text+ls_submatch-offset(ls_submatch-length).
-    ENDIF.
-  ENDMETHOD.
-
-  METHOD get_offset.
-    DATA ls_match LIKE LINE OF mt_matches.
-    READ TABLE mt_matches INDEX mv_index INTO ls_match.
-    offset = ls_match-offset.
-  ENDMETHOD.
-
-  METHOD get_length.
-    DATA ls_match LIKE LINE OF mt_matches.
-    READ TABLE mt_matches INDEX mv_index INTO ls_match.
-    length = ls_match-length.
-  ENDMETHOD.
-
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_REGEX', 'CLASS cl_abap_regex DEFINITION PUBLIC.
-
-  PUBLIC SECTION.
-    METHODS constructor
-      IMPORTING
-        pattern     TYPE clike
-        ignore_case TYPE abap_bool DEFAULT abap_false.
-
-    METHODS create_matcher
-      IMPORTING
-        text              TYPE clike
-      RETURNING
-        VALUE(ro_matcher) TYPE REF TO cl_abap_matcher.
-
-    CLASS-METHODS create_pcre
-      IMPORTING
-        pattern      TYPE clike
-        ignore_case  TYPE abap_bool DEFAULT abap_false
-      RETURNING
-        VALUE(regex) TYPE REF TO cl_abap_regex.
-
-  PRIVATE SECTION.
-    DATA mv_pattern     TYPE string.
-    DATA mv_ignore_case TYPE abap_bool.
-
-ENDCLASS.
-
-CLASS cl_abap_regex IMPLEMENTATION.
-
-  METHOD constructor.
-    mv_pattern = pattern.
-    mv_ignore_case = ignore_case.
-  ENDMETHOD.
-
-  METHOD create_pcre.
-    ASSERT 1 = ''todo''.
-  ENDMETHOD.
-
-  METHOD create_matcher.
-    CREATE OBJECT ro_matcher
-      EXPORTING
-        pattern     = mv_pattern
-        ignore_case = mv_ignore_case
-        text        = text.
-  ENDMETHOD.
-
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_CLASSDESCR', 'CLASS cl_abap_classdescr DEFINITION PUBLIC INHERITING FROM cl_abap_objectdescr.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_CLASSDESCR                      ', 'CLASS cl_abap_classdescr DEFINITION PUBLIC INHERITING FROM cl_abap_objectdescr.
   PUBLIC SECTION.
     CLASS-METHODS get_class_name
       IMPORTING
@@ -13051,25 +15180,35 @@ ENDCLASS.');`);
         VALUE(p_descr_ref) TYPE REF TO cl_abap_classdescr
       EXCEPTIONS
         super_class_not_found.
+
+    METHODS constructor
+      IMPORTING
+        p_object TYPE any OPTIONAL.
 ENDCLASS.
 
 CLASS cl_abap_classdescr IMPLEMENTATION.
+  METHOD constructor.
+    super->constructor( p_object ).
+  ENDMETHOD.
+
   METHOD get_class_name.
-    ASSERT 1 = ''todo''.
+    DATA lv_name TYPE string.
+    WRITE ''@KERNEL lv_name.set(p_object.get().constructor.INTERNAL_NAME);''.
+    p_name = kernel_internal_name=>internal_to_rtti( lv_name ).
   ENDMETHOD.
 
   METHOD get_super_class_type.
     ASSERT 1 = ''todo''.
   ENDMETHOD.
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_COMPLEXDESCR', 'CLASS cl_abap_complexdescr DEFINITION PUBLIC INHERITING FROM cl_abap_datadescr.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_COMPLEXDESCR                    ', 'CLASS cl_abap_complexdescr DEFINITION PUBLIC INHERITING FROM cl_abap_datadescr.
   PUBLIC SECTION.
 ENDCLASS.
 
 CLASS cl_abap_complexdescr IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_DATADESCR', 'CLASS cl_abap_datadescr DEFINITION PUBLIC INHERITING FROM cl_abap_typedescr.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_DATADESCR                       ', 'CLASS cl_abap_datadescr DEFINITION PUBLIC INHERITING FROM cl_abap_typedescr.
   PUBLIC SECTION.
     CLASS-METHODS get_data_type_kind
       IMPORTING
@@ -13097,7 +15236,7 @@ CLASS cl_abap_datadescr IMPLEMENTATION.
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_ELEMDESCR', 'CLASS cl_abap_elemdescr DEFINITION PUBLIC INHERITING FROM cl_abap_datadescr.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_ELEMDESCR                       ', 'CLASS cl_abap_elemdescr DEFINITION PUBLIC INHERITING FROM cl_abap_datadescr.
   PUBLIC SECTION.
     TYPES:
       BEGIN OF fixvalue,
@@ -13127,9 +15266,12 @@ ENDCLASS.');`);
         no_ddic_type.
 
     CLASS-METHODS get_i RETURNING VALUE(r_result) TYPE REF TO cl_abap_elemdescr.
+    CLASS-METHODS get_int8 RETURNING VALUE(r_result) TYPE REF TO cl_abap_elemdescr.
     CLASS-METHODS get_f RETURNING VALUE(r_result) TYPE REF TO cl_abap_elemdescr.
     CLASS-METHODS get_d RETURNING VALUE(r_result) TYPE REF TO cl_abap_elemdescr.
     CLASS-METHODS get_t RETURNING VALUE(r_result) TYPE REF TO cl_abap_elemdescr.
+    CLASS-METHODS get_decfloat16 RETURNING VALUE(r_result) TYPE REF TO cl_abap_elemdescr.
+    CLASS-METHODS get_decfloat34 RETURNING VALUE(r_result) TYPE REF TO cl_abap_elemdescr.
     CLASS-METHODS get_string RETURNING VALUE(p_result) TYPE REF TO cl_abap_elemdescr.
     CLASS-METHODS get_c
       IMPORTING
@@ -13138,7 +15280,7 @@ ENDCLASS.');`);
         VALUE(p_result) TYPE REF TO cl_abap_elemdescr.
     CLASS-METHODS get_p
       IMPORTING
-        p_length TYPE i
+        p_length   TYPE i
         p_decimals TYPE i
       RETURNING
         VALUE(p_result) TYPE REF TO cl_abap_elemdescr.
@@ -13164,8 +15306,18 @@ CLASS cl_abap_elemdescr IMPLEMENTATION.
     ASSERT 1 = ''todo''.
   ENDMETHOD.
 
-  METHOD get_n.
+  METHOD get_decfloat16.
     ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD get_decfloat34.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD get_n.
+    DATA foo TYPE REF TO data.
+    CREATE DATA foo TYPE n LENGTH p_length.
+    p_result ?= cl_abap_typedescr=>describe_by_data_ref( foo ).
   ENDMETHOD.
 
   METHOD get_x.
@@ -13183,11 +15335,19 @@ CLASS cl_abap_elemdescr IMPLEMENTATION.
     p_flddescr-position = 1.
     p_flddescr-leng     = length.
     p_flddescr-decimals = decimals.
+
+    WRITE ''@KERNEL p_flddescr.get().domname.set(abap.DDIC[this.relative_name.get()]?.domain || "");''.
+
 * todo, dfies-convexit
   ENDMETHOD.
 
   METHOD get_i.
     DATA foo TYPE i.
+    r_result ?= cl_abap_typedescr=>describe_by_data( foo ).
+  ENDMETHOD.
+
+  METHOD get_int8.
+    DATA foo TYPE int8.
     r_result ?= cl_abap_typedescr=>describe_by_data( foo ).
   ENDMETHOD.
 
@@ -13238,7 +15398,7 @@ CLASS cl_abap_elemdescr IMPLEMENTATION.
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_ENUMDESCR', 'CLASS cl_abap_enumdescr DEFINITION PUBLIC INHERITING FROM cl_abap_elemdescr.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_ENUMDESCR                       ', 'CLASS cl_abap_enumdescr DEFINITION PUBLIC INHERITING FROM cl_abap_elemdescr.
   PUBLIC SECTION.
     TYPES: BEGIN OF member,
              name  TYPE c LENGTH 30,
@@ -13251,35 +15411,40 @@ ENDCLASS.
 CLASS cl_abap_enumdescr IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_INTFDESCR', 'CLASS cl_abap_intfdescr DEFINITION PUBLIC INHERITING FROM cl_abap_objectdescr.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_INTFDESCR                       ', 'CLASS cl_abap_intfdescr DEFINITION PUBLIC INHERITING FROM cl_abap_objectdescr.
   PUBLIC SECTION.
 ENDCLASS.
 
 CLASS cl_abap_intfdescr IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_OBJECTDESCR', 'CLASS cl_abap_objectdescr DEFINITION PUBLIC INHERITING FROM cl_abap_typedescr.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_OBJECTDESCR                     ', 'CLASS cl_abap_objectdescr DEFINITION PUBLIC INHERITING FROM cl_abap_typedescr.
   PUBLIC SECTION.
-
     CONSTANTS changing  TYPE abap_parmkind VALUE ''C''.
     CONSTANTS exporting TYPE abap_parmkind VALUE ''E''.
     CONSTANTS importing TYPE abap_parmkind VALUE ''I''.
     CONSTANTS receiving TYPE abap_parmkind VALUE ''R''.
     CONSTANTS returning TYPE abap_parmkind VALUE ''R''.
 
-    CONSTANTS private_   TYPE abap_visibility VALUE ''I''.
+    CONSTANTS private   TYPE abap_visibility VALUE ''I''.
     CONSTANTS protected TYPE abap_visibility VALUE ''O''.
-    CONSTANTS public_    TYPE abap_visibility VALUE ''U''.
+    CONSTANTS public    TYPE abap_visibility VALUE ''U''.
 
     DATA attributes TYPE abap_attrdescr_tab READ-ONLY.
     DATA methods    TYPE abap_methdescr_tab READ-ONLY.
     DATA interfaces TYPE abap_intfdescr_tab READ-ONLY.
 
+    METHODS constructor
+      IMPORTING
+        p_object TYPE any OPTIONAL.
+
     METHODS get_attribute_type
       IMPORTING
-        p_name TYPE any
+        p_name             TYPE any
       RETURNING
-        VALUE(p_descr_ref) TYPE REF TO cl_abap_datadescr.
+        VALUE(p_descr_ref) TYPE REF TO cl_abap_datadescr
+      EXCEPTIONS
+        attribute_not_found.
 
     METHODS get_method_parameter_type
       IMPORTING
@@ -13302,11 +15467,103 @@ ENDCLASS.');`);
   PROTECTED SECTION.
     DATA mv_object_name TYPE string.
     DATA mv_object_type TYPE string.
+
+    TYPES: BEGIN OF ty_attribute_types,
+             name TYPE abap_attrname,
+             type TYPE REF TO cl_abap_datadescr,
+           END OF ty_attribute_types.
+    DATA mt_attribute_types TYPE STANDARD TABLE OF ty_attribute_types WITH DEFAULT KEY.
+
+    TYPES: BEGIN OF ty_parameter_types,
+             method    TYPE string,
+             parameter TYPE string,
+             type      TYPE REF TO data,
+           END OF ty_parameter_types.
+    DATA mt_parameter_types TYPE STANDARD TABLE OF ty_parameter_types WITH DEFAULT KEY.
 ENDCLASS.
 
 CLASS cl_abap_objectdescr IMPLEMENTATION.
+
+  METHOD constructor.
+    DATA lv_name  TYPE abap_attrname.
+    DATA lv_char1 TYPE c LENGTH 1.
+    DATA lv_any   TYPE string.
+
+    FIELD-SYMBOLS <attr>      TYPE abap_attrdescr.
+    FIELD-SYMBOLS <intf>      TYPE abap_intfdescr.
+    FIELD-SYMBOLS <method>    TYPE abap_methdescr.
+    FIELD-SYMBOLS <parameter> TYPE abap_parmdescr.
+    FIELD-SYMBOLS <atype>     LIKE LINE OF mt_attribute_types.
+    FIELD-SYMBOLS <ptype>     LIKE LINE OF mt_parameter_types.
+
+* set attributes
+    WRITE ''@KERNEL for (const a in p_object?.ATTRIBUTES || []) {''.
+    WRITE ''@KERNEL   lv_name.set(a);''.
+    APPEND INITIAL LINE TO attributes ASSIGNING <attr>.
+    APPEND INITIAL LINE TO mt_attribute_types ASSIGNING <atype>.
+    <attr>-name = lv_name.
+    <atype>-name = lv_name.
+    <attr>-is_interface = boolc( lv_name CA ''~'' ).
+    WRITE ''@KERNEL   lv_char1.set(p_object.ATTRIBUTES[a].is_constant);''.
+    <attr>-is_constant = lv_char1.
+    WRITE ''@KERNEL   lv_char1.set(p_object.ATTRIBUTES[a].is_class || "");''.
+    <attr>-is_class = lv_char1.
+    WRITE ''@KERNEL   lv_char1.set(p_object.ATTRIBUTES[a].visibility);''.
+    <attr>-visibility = lv_char1.
+    WRITE ''@KERNEL   lv_any = p_object.ATTRIBUTES[a].type();''.
+    <atype>-type ?= describe_by_data( lv_any ).
+    <attr>-type_kind = <atype>-type->type_kind.
+    <attr>-length = <atype>-type->length.
+    <attr>-decimals = <atype>-type->decimals.
+    WRITE ''@KERNEL }''.
+    SORT attributes BY is_interface DESCENDING name ASCENDING.
+
+* set interfaces
+    WRITE ''@KERNEL for (const a of p_object?.IMPLEMENTED_INTERFACES || []) {''.
+    WRITE ''@KERNEL   lv_name.set(a);''.
+    APPEND INITIAL LINE TO interfaces ASSIGNING <intf>.
+    <intf>-name = lv_name.
+    WRITE ''@KERNEL }''.
+    SORT interfaces BY name ASCENDING.
+
+* set methods
+    WRITE ''@KERNEL for (const a in p_object?.METHODS || []) {''.
+    WRITE ''@KERNEL   lv_name.set(a);''.
+    APPEND INITIAL LINE TO methods ASSIGNING <method>.
+    <method>-name = lv_name.
+    WRITE ''@KERNEL   lv_char1.set(p_object.METHODS[a].visibility);''.
+    <method>-visibility = lv_char1.
+* set parameters of methods
+    WRITE ''@KERNEL for (const p in p_object.METHODS[a].parameters || []) {''.
+    APPEND INITIAL LINE TO mt_parameter_types ASSIGNING <ptype>.
+    APPEND INITIAL LINE TO <method>-parameters ASSIGNING <parameter>.
+    <ptype>-method = <method>-name.
+    WRITE ''@KERNEL   lv_name.set(p);''.
+    <parameter>-name = lv_name.
+    <ptype>-parameter = lv_name.
+    WRITE ''@KERNEL   lv_any = p_object.METHODS[a].parameters[p].type();''.
+* hmm, cannot call describe_by_data() here, as it can cause inifnite recursion
+    GET REFERENCE OF lv_any INTO <ptype>-type.
+"     <parameter>-type_kind = <ptype>-type->type_kind.
+"     <parameter>-length = <ptype>-type->length.
+"     <parameter>-decimals = <ptype>-type->decimals.
+" * todo, set PARAM_KIND
+    WRITE ''@KERNEL }''.
+    WRITE ''@KERNEL }''.
+    SORT methods BY name ASCENDING.
+
+    super->constructor( ).
+  ENDMETHOD.
+
   METHOD get_method_parameter_type.
-    ASSERT 1 = ''todo''.
+    DATA ls_row LIKE LINE OF mt_parameter_types.
+*    WRITE ''@KERNEL   this.mt_parameter_types.array().map(e => console.dir(e.get()));''.
+    READ TABLE mt_parameter_types INTO ls_row WITH KEY method = p_method_name parameter = p_parameter_name.
+    IF sy-subrc = 0.
+      p_descr_ref ?= describe_by_data( ls_row-type->* ).
+    ELSE.
+      RAISE parameter_not_found.
+    ENDIF.
   ENDMETHOD.
 
   METHOD get_interface_type.
@@ -13314,24 +15571,18 @@ CLASS cl_abap_objectdescr IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD get_attribute_type.
-    DATA lv_name TYPE string.
-    DATA l_sub   TYPE string.
-    DATA l_any   TYPE string.
+    DATA lv_name TYPE abap_attrname.
+    DATA ls_type LIKE LINE OF mt_attribute_types.
 
-    lv_name = p_name.
-
-    WRITE ''@KERNEL let foo = abap.Classes[this.mv_object_name.get()];''.
-
-    CONCATENATE mv_object_name ''$'' lv_name INTO l_sub.
-    l_sub = to_lower( l_sub ).
-
-    " note that the typing here is misused
-    WRITE ''@KERNEL l_any = foo[l_sub.get()];''.
-
-    p_descr_ref ?= describe_by_data( l_any ).
+    lv_name = to_upper( p_name ).
+    READ TABLE mt_attribute_types INTO ls_type WITH KEY name = lv_name.
+    IF sy-subrc <> 0.
+      RAISE attribute_not_found.
+    ENDIF.
+    p_descr_ref = ls_type-type.
   ENDMETHOD.
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_REFDESCR', 'CLASS cl_abap_refdescr DEFINITION PUBLIC INHERITING FROM cl_abap_datadescr.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_REFDESCR                        ', 'CLASS cl_abap_refdescr DEFINITION PUBLIC INHERITING FROM cl_abap_datadescr.
   PUBLIC SECTION.
     METHODS get_referenced_type
       RETURNING VALUE(type) TYPE REF TO cl_abap_typedescr.
@@ -13339,18 +15590,22 @@ ENDCLASS.');`);
     CLASS-METHODS get_ref_to_data
       RETURNING
         VALUE(p_result) TYPE REF TO cl_abap_refdescr.
+
+  PRIVATE SECTION.
+    DATA referenced TYPE REF TO cl_abap_typedescr.
 ENDCLASS.
 
 CLASS cl_abap_refdescr IMPLEMENTATION.
   METHOD get_referenced_type.
-    type ?= me.
+    type = referenced.
   ENDMETHOD.
 
   METHOD get_ref_to_data.
-    ASSERT 1 = ''todo''.
+    DATA foo TYPE REF TO data.
+    p_result ?= cl_abap_typedescr=>describe_by_data( foo ).
   ENDMETHOD.
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_STRUCTDESCR', 'CLASS cl_abap_structdescr DEFINITION PUBLIC INHERITING FROM cl_abap_complexdescr.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_STRUCTDESCR                     ', 'CLASS cl_abap_structdescr DEFINITION PUBLIC INHERITING FROM cl_abap_complexdescr.
   PUBLIC SECTION.
     CLASS-METHODS
       construct_from_data
@@ -13378,22 +15633,28 @@ ENDCLASS.');`);
           not_found
           no_ddic_type.
 
-    METHODS is_ddic_type RETURNING VALUE(bool) TYPE abap_bool.
-
     METHODS get_component_type
-        IMPORTING
-          p_name TYPE any
-        RETURNING
-          VALUE(p_descr_ref) TYPE REF TO cl_abap_datadescr
-        EXCEPTIONS
-          component_not_found
-          unsupported_input_type.
+      IMPORTING
+        p_name             TYPE any
+      RETURNING
+        VALUE(p_descr_ref) TYPE REF TO cl_abap_datadescr
+      EXCEPTIONS
+        component_not_found
+        unsupported_input_type.
 
     METHODS get_included_view
       IMPORTING
-        p_level TYPE i OPTIONAL
+        p_level         TYPE i OPTIONAL
       RETURNING
         VALUE(p_result) TYPE included_view.
+
+    CLASS-METHODS get
+      IMPORTING
+        p_components    TYPE component_table
+      RETURNING
+        VALUE(p_result) TYPE REF TO cl_abap_structdescr
+      RAISING
+        cx_sy_struct_creation.
 
     CLASS-METHODS create
       IMPORTING
@@ -13406,17 +15667,13 @@ ENDCLASS.');`);
       RETURNING
         VALUE(p_result) TYPE symbol_table.
 
-    DATA components TYPE abap_compdescr_tab.
+    DATA components  TYPE abap_compdescr_tab.
     DATA struct_kind TYPE abap_structkind READ-ONLY.
 
   PRIVATE SECTION.
     METHODS update_components.
 
-    TYPES: BEGIN OF ty_refs,
-             name      TYPE string,
-             ref       TYPE REF TO cl_abap_datadescr,
-           END OF ty_refs.
-    DATA mt_refs TYPE STANDARD TABLE OF ty_refs.
+    DATA mt_refs TYPE component_table.
 ENDCLASS.
 
 CLASS cl_abap_structdescr IMPLEMENTATION.
@@ -13425,9 +15682,13 @@ CLASS cl_abap_structdescr IMPLEMENTATION.
     ASSERT 1 = ''todo''.
   ENDMETHOD.
 
+  METHOD get.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
   METHOD create.
     DATA ls_component LIKE LINE OF p_components.
-    DATA ls_ref LIKE LINE OF mt_refs.
+    DATA ls_ref       LIKE LINE OF mt_refs.
 
     IF lines( p_components ) = 0.
       RAISE EXCEPTION TYPE cx_sy_struct_attributes.
@@ -13438,6 +15699,8 @@ CLASS cl_abap_structdescr IMPLEMENTATION.
         RAISE EXCEPTION TYPE cx_sy_struct_comp_name.
       ELSEIF ls_component-type IS INITIAL.
         RAISE EXCEPTION TYPE cx_sy_struct_comp_type.
+      ELSEIF strlen( ls_component-name ) > 30. " todo, use abap_max_comp_name_ln
+        RAISE EXCEPTION TYPE cx_sy_struct_comp_name.
       ENDIF.
     ENDLOOP.
 
@@ -13445,7 +15708,7 @@ CLASS cl_abap_structdescr IMPLEMENTATION.
     LOOP AT p_components INTO ls_component.
       CLEAR ls_ref.
       ls_ref-name = ls_component-name.
-      ls_ref-ref  = ls_component-type.
+      ls_ref-type = ls_component-type.
       APPEND ls_ref TO ref->mt_refs.
     ENDLOOP.
     ref->update_components( ).
@@ -13455,7 +15718,24 @@ CLASS cl_abap_structdescr IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD get_included_view.
-    ASSERT 1 = ''todo''.
+    DATA ls_component LIKE LINE OF components.
+    DATA ls_view      LIKE LINE OF p_result.
+    DATA ls_ref       LIKE LINE OF mt_refs.
+
+    LOOP AT components INTO ls_component.
+      CLEAR ls_view.
+
+      ls_view-name = ls_component-name.
+      READ TABLE mt_refs WITH KEY name = ls_component-name INTO ls_ref.
+      IF sy-subrc = 0.
+        ls_view-type = ls_ref-type.
+      ENDIF.
+      IF ls_ref-as_include = abap_true.
+        CONTINUE.
+      ENDIF.
+
+      INSERT ls_view INTO TABLE p_result.
+    ENDLOOP.
   ENDMETHOD.
 
   METHOD get_ddic_field_list.
@@ -13496,15 +15776,13 @@ CLASS cl_abap_structdescr IMPLEMENTATION.
 
   ENDMETHOD.
 
-  METHOD is_ddic_type.
-    bool = ddic.
-  ENDMETHOD.
-
   METHOD construct_from_data.
 * todo, this method should be private
-    DATA lv_name      TYPE string.
-    DATA ls_ref       LIKE LINE OF mt_refs.
-    DATA lo_datadescr TYPE REF TO cl_abap_datadescr.
+    DATA lv_name       TYPE string.
+    DATA ls_ref        LIKE LINE OF mt_refs.
+    DATA lv_suffix     TYPE string.
+    DATA lv_as_include TYPE abap_bool.
+    DATA lo_datadescr  TYPE REF TO cl_abap_datadescr.
 
     FIELD-SYMBOLS <fs> TYPE any.
 
@@ -13516,7 +15794,18 @@ CLASS cl_abap_structdescr IMPLEMENTATION.
     ASSIGN COMPONENT lv_name OF STRUCTURE data TO <fs>.
     lo_datadescr ?= cl_abap_typedescr=>describe_by_data( <fs> ).
     ls_ref-name = lv_name.
-    ls_ref-ref  = lo_datadescr.
+    ls_ref-type = lo_datadescr.
+
+    WRITE ''@KERNEL if (INPUT.data?.getAsInclude) {''.
+    WRITE ''@KERNEL   lv_as_include.set(INPUT.data?.getAsInclude()?.[name.toLowerCase()] ? "X" : " ");''.
+    WRITE ''@KERNEL }''.
+    ls_ref-as_include = lv_as_include.
+
+    WRITE ''@KERNEL if (INPUT.data?.getSuffix) {''.
+    WRITE ''@KERNEL   lv_as_include.set(INPUT.data?.getSuffix()?.[name.toLowerCase()] || "");''.
+    WRITE ''@KERNEL }''.
+    ls_ref-suffix = lv_suffix.
+
     APPEND ls_ref TO descr->mt_refs.
     WRITE ''@KERNEL }''.
 
@@ -13525,48 +15814,51 @@ CLASS cl_abap_structdescr IMPLEMENTATION.
 
   METHOD update_components.
     DATA ls_component LIKE LINE OF components.
-    DATA ls_ref       LIKE LINE OF mt_refs.
+    FIELD-SYMBOLS <ls_ref> LIKE LINE OF mt_refs.
 
     CLEAR components.
-    LOOP AT mt_refs INTO ls_ref.
-      CLEAR ls_component.
-      ls_component-name = ls_ref-name.
-      ls_component-type_kind = ls_ref-ref->type_kind.
+    LOOP AT mt_refs ASSIGNING <ls_ref>.
+      ls_component-name = <ls_ref>-name.
+      ls_component-type_kind = <ls_ref>-type->type_kind.
+      ls_component-length = <ls_ref>-type->length.
+      ls_component-decimals = <ls_ref>-type->decimals.
       APPEND ls_component TO components.
     ENDLOOP.
   ENDMETHOD.
 
   METHOD get_components.
-    DATA ls_component LIKE LINE OF components.
-    DATA ret          LIKE LINE OF rt_components.
-    DATA ls_ref       LIKE LINE OF mt_refs.
-
-    LOOP AT components INTO ls_component.
-      CLEAR ret.
-      ret-name = ls_component-name.
-      READ TABLE mt_refs INTO ls_ref WITH KEY name = ls_component-name.
-      IF sy-subrc = 0.
-        ret-type = ls_ref-ref.
-      ENDIF.
-      " as_include type abap_bool,
-      " suffix     type string,
-      APPEND ret TO rt_components.
-    ENDLOOP.
+    rt_components = mt_refs.
   ENDMETHOD.
 
   METHOD get_component_type.
-    DATA line LIKE LINE OF mt_refs.
-    READ TABLE mt_refs INTO line WITH KEY name = p_name.
+    FIELD-SYMBOLS <line> LIKE LINE OF mt_refs.
+    READ TABLE mt_refs ASSIGNING <line> WITH KEY name = p_name.
     IF sy-subrc <> 0.
       RAISE component_not_found.
     ELSE.
-      p_descr_ref = line-ref.
+      p_descr_ref = <line>-type.
     ENDIF.
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_TABLEDESCR', 'CLASS cl_abap_tabledescr DEFINITION PUBLIC INHERITING FROM cl_abap_datadescr.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_TABLEDESCR                      ', 'CLASS cl_abap_tabledescr DEFINITION PUBLIC INHERITING FROM cl_abap_datadescr.
   PUBLIC SECTION.
+    DATA has_unique_key TYPE abap_bool READ-ONLY.
+    DATA key            TYPE abap_keydescr_tab READ-ONLY.
+    DATA key_defkind    TYPE abap_keydefkind READ-ONLY.
+    DATA table_kind     TYPE abap_tablekind.
+
+    CONSTANTS tablekind_any TYPE c LENGTH 1 VALUE ''A''.
+    CONSTANTS tablekind_std TYPE c LENGTH 1 VALUE ''S''.
+    CONSTANTS tablekind_index TYPE c LENGTH 1 VALUE ''I''.
+    CONSTANTS tablekind_hashed TYPE c LENGTH 1 VALUE ''H''.
+    CONSTANTS tablekind_sorted TYPE c LENGTH 1 VALUE ''O''.
+
+    CONSTANTS keydefkind_default TYPE c LENGTH 1 VALUE ''D''.
+    CONSTANTS keydefkind_tableline TYPE c LENGTH 1 VALUE ''L''.
+    CONSTANTS keydefkind_user TYPE c LENGTH 1 VALUE ''U''.
+    CONSTANTS keydefkind_empty TYPE c LENGTH 1 VALUE ''E''.
+
     CLASS-METHODS
       construct_from_data
         IMPORTING data TYPE any
@@ -13582,39 +15874,53 @@ ENDCLASS.');`);
 
     CLASS-METHODS get_with_keys
       IMPORTING
-        p_line_type TYPE REF TO cl_abap_datadescr
-        p_keys      TYPE abap_table_keydescr_tab
-      RETURNING VALUE(p_result) TYPE REF TO cl_abap_tabledescr.
+        p_line_type     TYPE REF TO cl_abap_datadescr
+        p_keys          TYPE abap_table_keydescr_tab
+      RETURNING
+        VALUE(p_result) TYPE REF TO cl_abap_tabledescr.
 
     CLASS-METHODS create
-      IMPORTING p_line_type TYPE REF TO cl_abap_typedescr
-      RETURNING VALUE(ref) TYPE REF TO cl_abap_tabledescr.
+      IMPORTING
+        p_line_type  TYPE REF TO cl_abap_typedescr
+        p_table_kind TYPE abap_tablekind DEFAULT tablekind_std
+        p_unique     TYPE abap_bool DEFAULT abap_false
+        p_key        TYPE abap_keydescr_tab OPTIONAL
+        p_key_kind   TYPE abap_keydefkind DEFAULT keydefkind_default
+      RETURNING
+        VALUE(ref) TYPE REF TO cl_abap_tabledescr.
 
-    DATA has_unique_key TYPE abap_bool READ-ONLY.
-    DATA key            TYPE abap_keydescr_tab READ-ONLY.
-    DATA key_defkind    TYPE abap_keydefkind READ-ONLY.
-    DATA table_kind     TYPE abap_tablekind.
-
-    CONSTANTS tablekind_any TYPE c LENGTH 1 VALUE ''A''.
-    CONSTANTS tablekind_std TYPE c LENGTH 1 VALUE ''S''.
-    CONSTANTS tablekind_index TYPE c LENGTH 1 VALUE ''I''.
-    CONSTANTS tablekind_hashed TYPE c LENGTH 1 VALUE ''H''.
-    CONSTANTS tablekind_sorted TYPE c LENGTH 1 VALUE ''O''.
-    CONSTANTS keydefkind_default TYPE c LENGTH 1 VALUE ''D''.
-    CONSTANTS keydefkind_tableline TYPE c LENGTH 1 VALUE ''L''.
-    CONSTANTS keydefkind_user TYPE c LENGTH 1 VALUE ''U''.
-    CONSTANTS keydefkind_empty TYPE c LENGTH 1 VALUE ''E''.
+    METHODS get_keys
+      RETURNING
+        VALUE(p_keys) TYPE abap_table_keydescr_tab.
 
   PRIVATE SECTION.
     DATA mo_line_type TYPE REF TO cl_abap_typedescr.
+    DATA mt_keys      TYPE abap_table_keydescr_tab.
 ENDCLASS.
 
 CLASS cl_abap_tabledescr IMPLEMENTATION.
+
   METHOD create.
-    ASSERT 1 = ''todo''.
+
+    CREATE OBJECT ref.
+    ref->has_unique_key = p_unique.
+    ref->mo_line_type   = p_line_type.
+    ref->key            = p_key.
+    ref->key_defkind    = p_key_kind.
+    ref->table_kind     = p_table_kind.
+
+    " cl_abap_typedescr
+    ref->type_kind      = typekind_table.
+    ref->kind           = kind_table.
+
+  ENDMETHOD.
+
+  METHOD get_keys.
+    p_keys = mt_keys.
   ENDMETHOD.
 
   METHOD get_with_keys.
+
     DATA ls_key LIKE LINE OF p_keys.
 
     IF lines( p_keys ) <> 1.
@@ -13628,8 +15934,12 @@ CLASS cl_abap_tabledescr IMPLEMENTATION.
     p_result->mo_line_type   = p_line_type.
     p_result->key_defkind    = ls_key-key_kind.
     p_result->table_kind     = ls_key-access_kind.
+    p_result->mt_keys        = p_keys.
+
+    " cl_abap_typedescr
     p_result->type_kind      = typekind_table.
     p_result->kind           = kind_table.
+
   ENDMETHOD.
 
   METHOD get.
@@ -13638,56 +15948,119 @@ CLASS cl_abap_tabledescr IMPLEMENTATION.
 
   METHOD construct_from_data.
 * todo, this method should be private
-    DATA lv_dummy TYPE i.
-    DATA lv_flag  TYPE abap_bool.
+    DATA lv_dummy      TYPE i.
+    DATA lv_flag       TYPE abap_bool.
+    DATA lv_str        TYPE string.
+    DATA lv_type       TYPE string.
+    DATA lo_struct     TYPE REF TO cl_abap_structdescr.
+    DATA lt_components TYPE cl_abap_structdescr=>component_table.
+    DATA ls_component  LIKE LINE OF lt_components.
+    DATA ls_key        TYPE LINE OF abap_keydescr_tab.
 
     CREATE OBJECT descr.
 
     WRITE ''@KERNEL lv_flag.set(data.getOptions()?.primaryKey?.isUnique === true ? "X" : "");''.
     descr->has_unique_key = lv_flag.
 
+    WRITE ''@KERNEL lv_type.set(data.getOptions()?.primaryKey?.type || "");''.
+    CASE lv_type.
+      WHEN ''STANDARD''.
+        descr->table_kind = tablekind_std.
+      WHEN ''SORTED''.
+        descr->table_kind = tablekind_sorted.
+      WHEN ''HASHED''.
+        descr->table_kind = tablekind_hashed.
+      WHEN OTHERS.
+        descr->table_kind = tablekind_std.
+    ENDCASE.
+
     WRITE ''@KERNEL lv_dummy = data.getRowType();''.
     descr->mo_line_type = cl_abap_typedescr=>describe_by_data( lv_dummy ).
+
+    WRITE ''@KERNEL lv_flag.set(data.getOptions()?.primaryKey?.keyFields.length > 0 ? "X" : "");''.
+    IF lv_flag = abap_true.
+      descr->key_defkind = keydefkind_user.
+
+      WRITE ''@KERNEL for (const k of data.getOptions()?.primaryKey?.keyFields) {''.
+      WRITE ''@KERNEL lv_str.set(k);''.
+      ls_key-name = lv_str.
+      APPEND ls_key TO descr->key.
+      WRITE ''@KERNEL }''.
+
+      IF lines( descr->key ) = 1 AND ls_key-name = ''TABLE_LINE''.
+        descr->key_defkind = keydefkind_tableline.
+      ENDIF.
+    ELSE.
+* EMPTY KEY currently not supported in open-abap
+      descr->key_defkind = keydefkind_default.
+      IF descr->mo_line_type->kind = kind_struct.
+        lo_struct ?= descr->mo_line_type.
+        lt_components = lo_struct->get_components( ).
+        LOOP AT lt_components INTO ls_component.
+          ls_key-name = ls_component-name.
+          APPEND ls_key TO descr->key.
+        ENDLOOP.
+      ENDIF.
+    ENDIF.
+
   ENDMETHOD.
 
   METHOD get_table_line_type.
     type ?= mo_line_type.
   ENDMETHOD.
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_TYPEDESCR', 'CLASS cl_abap_typedescr DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_TYPEDESCR                       ', 'CLASS cl_abap_typedescr DEFINITION PUBLIC.
 * todo, this class should be ABSTRACT
   PUBLIC SECTION.
     CLASS-METHODS
       describe_by_data
         IMPORTING p_data TYPE any
         RETURNING VALUE(type) TYPE REF TO cl_abap_typedescr.
+
     CLASS-METHODS
       describe_by_name
-        IMPORTING p_name TYPE clike
-        RETURNING VALUE(type) TYPE REF TO cl_abap_typedescr.
+        IMPORTING
+          p_name TYPE clike
+        RETURNING
+          VALUE(type) TYPE REF TO cl_abap_typedescr
+        EXCEPTIONS
+          type_not_found.
+
     CLASS-METHODS
       describe_by_data_ref
         IMPORTING p_data_ref TYPE REF TO data
         RETURNING VALUE(type) TYPE REF TO cl_abap_typedescr.
+
     CLASS-METHODS
       describe_by_object_ref
-        IMPORTING p_object_ref TYPE REF TO object
-        RETURNING VALUE(p_descr_ref) TYPE REF TO cl_abap_typedescr.
+        IMPORTING
+          p_object_ref TYPE REF TO object
+        RETURNING
+          VALUE(p_descr_ref) TYPE REF TO cl_abap_typedescr
+        EXCEPTIONS
+          reference_is_initial.
+
     METHODS get_ddic_header
       RETURNING
         VALUE(p_header) TYPE abap_bool. " hmm, todo
+
     METHODS
       get_relative_name
         RETURNING
           VALUE(name) TYPE string.
+
     METHODS
       is_ddic_type
         RETURNING
           VALUE(p_abap_bool) TYPE abap_bool.
 
+    METHODS is_instantiatable
+      RETURNING
+        VALUE(p_result) TYPE abap_bool.
+
     METHODS get_ddic_object
       RETURNING
-        VALUE(p_object) TYPE any
+        VALUE(p_object) TYPE string_table
       EXCEPTIONS
         not_found
         no_ddic_type.
@@ -13697,7 +16070,7 @@ ENDCLASS.');`);
     DATA ddic          TYPE abap_bool.
     DATA length        TYPE i.
     DATA decimals      TYPE i.
-    DATA absolute_name TYPE string.
+    DATA absolute_name TYPE abap_abstypename.
     DATA relative_name TYPE string.
 
     CONSTANTS typekind_any TYPE abap_typekind VALUE ''~''.
@@ -13719,6 +16092,7 @@ ENDCLASS.');`);
     CONSTANTS typekind_int2 TYPE abap_typekind VALUE ''s''.
     CONSTANTS typekind_int8 TYPE abap_typekind VALUE ''8''.
     CONSTANTS typekind_intf TYPE abap_typekind VALUE ''+''.
+    CONSTANTS typekind_iref TYPE abap_typekind VALUE ''m''.
     CONSTANTS typekind_num TYPE abap_typekind VALUE ''N''.
     CONSTANTS typekind_numeric TYPE abap_typekind VALUE ''%''.
     CONSTANTS typekind_oref TYPE abap_typekind VALUE ''r''.
@@ -13739,6 +16113,17 @@ ENDCLASS.');`);
     CONSTANTS kind_ref    TYPE c LENGTH 1 VALUE ''R''.
     CONSTANTS kind_class  TYPE c LENGTH 1 VALUE ''C''.
     CONSTANTS kind_intf   TYPE c LENGTH 1 VALUE ''I''.
+
+  PRIVATE SECTION.
+    CLASS-DATA gv_counter TYPE n LENGTH 10.
+
+    CLASS-METHODS describe_by_dashes
+      IMPORTING p_name TYPE clike
+      RETURNING VALUE(type) TYPE REF TO cl_abap_typedescr.
+
+    CLASS-METHODS is_deep
+      IMPORTING  io_struct TYPE REF TO cl_abap_structdescr
+      RETURNING VALUE(rv_deep) TYPE abap_bool.
 ENDCLASS.
 
 CLASS cl_abap_typedescr IMPLEMENTATION.
@@ -13747,18 +16132,54 @@ CLASS cl_abap_typedescr IMPLEMENTATION.
     ASSERT 1 = ''todo''.
   ENDMETHOD.
 
-  METHOD describe_by_name.
-    DATA ref     TYPE REF TO data.
-    DATA objectdescr TYPE REF TO cl_abap_objectdescr.
-    DATA oo_type TYPE string.
+  METHOD is_instantiatable.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
 
-    WRITE ''@KERNEL oo_type.set(abap.Classes[p_name.get().toUpperCase()]?.INTERNAL_TYPE || "");''.
+  METHOD describe_by_dashes.
+    DATA lt_parts   TYPE STANDARD TABLE OF string WITH DEFAULT KEY.
+    DATA lv_part    LIKE LINE OF lt_parts.
+    DATA lo_current TYPE REF TO cl_abap_typedescr.
+    DATA lo_struct  TYPE REF TO cl_abap_structdescr.
+
+    SPLIT p_name AT ''-'' INTO TABLE lt_parts.
+
+    LOOP AT lt_parts INTO lv_part.
+      IF lo_current IS INITIAL.
+        lo_current = describe_by_name( lv_part ).
+      ELSEIF lo_current->kind = kind_struct.
+        lo_struct ?= lo_current.
+        lo_current = lo_struct->get_component_type( lv_part ).
+      ENDIF.
+    ENDLOOP.
+
+    type = lo_current.
+  ENDMETHOD.
+
+  METHOD describe_by_name.
+    DATA ref         TYPE REF TO data.
+    DATA objectdescr TYPE REF TO cl_abap_objectdescr.
+    DATA oo_type     TYPE string.
+    DATA lv_any      TYPE string.
+
+* note, p_name might be internal name, so check and skip these,
+    IF p_name CA ''-'' AND p_name NP ''CLAS-*'' AND p_name NP ''PROG-*''.
+      type = describe_by_dashes( p_name ).
+      RETURN.
+    ENDIF.
+
+    WRITE ''@KERNEL oo_type.set(abap.Classes[p_name.get().toUpperCase().trimEnd()]?.INTERNAL_TYPE || "");''.
+    WRITE ''@KERNEL lv_any = abap.Classes[p_name.get().toUpperCase().trimEnd()];''.
 
     CASE oo_type.
       WHEN ''INTF''.
-        CREATE OBJECT type TYPE cl_abap_intfdescr.
+        CREATE OBJECT type TYPE cl_abap_intfdescr
+          EXPORTING
+            p_object = lv_any.
         type->type_kind = typekind_intf.
         type->kind = kind_intf.
+        type->relative_name = to_upper( p_name ).
+        type->absolute_name = ''\\CLASS='' && to_upper( p_name ).
         objectdescr ?= type.
         objectdescr->mv_object_name = to_upper( p_name ). " todo, this should give syntax error, as they are not friends
         objectdescr->mv_object_type = oo_type. " todo, this should give syntax error, as they are not friends
@@ -13766,6 +16187,12 @@ CLASS cl_abap_typedescr IMPLEMENTATION.
         CREATE OBJECT type TYPE cl_abap_classdescr.
         type->type_kind = typekind_class.
         type->kind = kind_class.
+        type->relative_name = to_upper( p_name ).
+        IF p_name CP ''CLAS-*''.
+          type->absolute_name = kernel_internal_name=>internal_to_rtti( p_name ).
+        ELSE.
+          type->absolute_name = ''\\CLASS='' && to_upper( p_name ).
+        ENDIF.
         objectdescr ?= type.
         objectdescr->mv_object_name = to_upper( p_name ). " todo, this should give syntax error, as they are not friends
         objectdescr->mv_object_type = oo_type. " todo, this should give syntax error, as they are not friends
@@ -13798,26 +16225,64 @@ CLASS cl_abap_typedescr IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD describe_by_object_ref.
-    DATA lv_name TYPE string.
+    DATA lv_name   TYPE string.
+    DATA lo_cdescr TYPE REF TO cl_abap_classdescr.
+    DATA lv_any    TYPE string.
 
-    CREATE OBJECT p_descr_ref TYPE cl_abap_classdescr.
-    p_descr_ref->type_kind = typekind_class.
-    p_descr_ref->kind = kind_class.
+    IF p_object_ref IS INITIAL.
+      RAISE reference_is_initial.
+    ENDIF.
+
+    WRITE ''@KERNEL lv_any = p_object_ref.get().constructor;''.
+
+    CREATE OBJECT lo_cdescr TYPE cl_abap_classdescr
+      EXPORTING
+        p_object = lv_any.
+    lo_cdescr->type_kind = typekind_class.
+    lo_cdescr->kind = kind_class.
 
     WRITE ''@KERNEL lv_name.set(p_object_ref.get().constructor.name.toUpperCase());''.
 
-    p_descr_ref->relative_name = lv_name.
-    p_descr_ref->absolute_name = ''\\CLASS='' && lv_name.
+    lo_cdescr->relative_name = lv_name.
+    lo_cdescr->absolute_name = ''\\CLASS='' && lv_name.
+
+    p_descr_ref = lo_cdescr.
+  ENDMETHOD.
+
+  METHOD is_deep.
+
+    DATA lt_components TYPE cl_abap_structdescr=>component_table.
+    FIELD-SYMBOLS <ls_component> LIKE LINE OF lt_components.
+
+    lt_components = io_struct->get_components( ).
+    rv_deep = abap_false.
+
+    LOOP AT lt_components ASSIGNING <ls_component>.
+      IF <ls_component>-type->kind = kind_struct
+          OR <ls_component>-type->type_kind = typekind_string
+          OR <ls_component>-type->type_kind = typekind_xstring
+          OR <ls_component>-type->kind = kind_table.
+        rv_deep = abap_true.
+        RETURN.
+      ENDIF.
+    ENDLOOP.
+
   ENDMETHOD.
 
   METHOD describe_by_data.
 
-    DATA lv_name     TYPE string.
-    DATA lv_prefix   TYPE string.
-    DATA lv_convexit TYPE string.
-    DATA lv_length   TYPE i.
-    DATA lv_decimals TYPE i.
-    DATA lo_elem     TYPE REF TO cl_abap_elemdescr.
+    DATA lo_elem      TYPE REF TO cl_abap_elemdescr.
+    DATA lo_ref       TYPE REF TO cl_abap_refdescr.
+    DATA lo_struct    TYPE REF TO cl_abap_structdescr.
+    DATA lv_any       TYPE string.
+    DATA lv_convexit  TYPE string.
+    DATA lv_ddicname  TYPE string.
+    DATA lv_decimals  TYPE i.
+    DATA lv_length    TYPE i.
+    DATA lv_name      TYPE string.
+    DATA lv_prefix    TYPE string.
+    DATA lv_qualified TYPE string.
+    DATA lv_rtti_name TYPE string.
 
     WRITE ''@KERNEL lv_name.set(p_data.constructor.name);''.
     WRITE ''@KERNEL lv_length.set(p_data.getLength ? p_data.getLength() : 0);''.
@@ -13832,6 +16297,15 @@ CLASS cl_abap_typedescr IMPLEMENTATION.
         type->length = 4.
         lo_elem ?= type.
         lo_elem->output_length = 11.
+        type->absolute_name = ''I''.
+      WHEN ''Integer8''.
+        CREATE OBJECT type TYPE cl_abap_elemdescr.
+        type->type_kind = typekind_int8.
+        type->kind = kind_elem.
+        type->length = 8.
+        lo_elem ?= type.
+        lo_elem->output_length = 20.
+        type->absolute_name = ''INT8''.
       WHEN ''Numc''.
         CREATE OBJECT type TYPE cl_abap_elemdescr.
         type->type_kind = typekind_num.
@@ -13839,7 +16313,7 @@ CLASS cl_abap_typedescr IMPLEMENTATION.
         type->length = lv_length * 2.
         lo_elem ?= type.
         lo_elem->output_length = lv_length.
-      WHEN ''Hex''.
+      WHEN ''Hex'' OR ''HexUInt8''.
         CREATE OBJECT type TYPE cl_abap_elemdescr.
         type->type_kind = typekind_hex.
         type->kind = kind_elem.
@@ -13853,6 +16327,7 @@ CLASS cl_abap_typedescr IMPLEMENTATION.
         type->length = 16.
         lo_elem ?= type.
         lo_elem->output_length = 8.
+        type->absolute_name = ''D''.
       WHEN ''Packed''.
         CREATE OBJECT type TYPE cl_abap_elemdescr.
         type->type_kind = typekind_packed.
@@ -13866,28 +16341,42 @@ CLASS cl_abap_typedescr IMPLEMENTATION.
         type->length = 12.
         lo_elem ?= type.
         lo_elem->output_length = 6.
+        type->absolute_name = ''T''.
       WHEN ''Float''.
         CREATE OBJECT type TYPE cl_abap_elemdescr.
         type->type_kind = typekind_float.
         type->kind = kind_elem.
+        type->absolute_name = ''F''.
+      WHEN ''DecFloat34''.
+        CREATE OBJECT type TYPE cl_abap_elemdescr.
+        type->type_kind = typekind_decfloat34.
+        type->kind = kind_elem.
       WHEN ''Structure''.
-        type ?= cl_abap_structdescr=>construct_from_data( p_data ).
-        type->type_kind = typekind_struct2.
+        lo_struct = cl_abap_structdescr=>construct_from_data( p_data ).
+        type ?= lo_struct.
+        IF is_deep( lo_struct ) = abap_true.
+          type->type_kind = typekind_struct2.
+        ELSE.
+          type->type_kind = typekind_struct1.
+        ENDIF.
         type->kind = kind_struct.
-      WHEN ''Table''.
+      WHEN ''Table'' OR ''HashedTable''.
         type ?= cl_abap_tabledescr=>construct_from_data( p_data ).
         type->type_kind = typekind_table.
         type->kind = kind_table.
+        type->length = 8. " yea, well, because it is. Pointer size?
       WHEN ''XString''.
         CREATE OBJECT type TYPE cl_abap_elemdescr.
         type->type_kind = typekind_xstring.
         type->kind = kind_elem.
         type->length = 8.
+        type->absolute_name = ''XSTRING''.
       WHEN ''String''.
         CREATE OBJECT type TYPE cl_abap_elemdescr.
         type->type_kind = typekind_string.
         type->kind = kind_elem.
         type->length = 8.
+        type->absolute_name = ''STRING''.
       WHEN ''Character''.
         CREATE OBJECT type TYPE cl_abap_elemdescr.
         type->type_kind = typekind_char.
@@ -13903,6 +16392,22 @@ CLASS cl_abap_typedescr IMPLEMENTATION.
         CREATE OBJECT type TYPE cl_abap_refdescr.
         type->type_kind = typekind_oref.
         type->kind = kind_ref.
+
+        lo_ref ?= type.
+        IF p_data IS INITIAL.
+* note: using the name doesnt work for local classes
+          WRITE ''@KERNEL lv_rtti_name.set(p_data.RTTIName || "");''.
+          IF lv_rtti_name CP ''\\CLASS-POOL=*''.
+* convert to internal name,
+            lv_rtti_name = kernel_internal_name=>rtti_to_internal( lv_rtti_name ).
+            lo_ref->referenced = describe_by_name( lv_rtti_name ).
+          ELSE.
+            WRITE ''@KERNEL lv_name.set(p_data.qualifiedName || "");''.
+            lo_ref->referenced = describe_by_name( lv_name ).
+          ENDIF.
+        ELSE.
+          lo_ref->referenced = describe_by_object_ref( p_data ).
+        ENDIF.
       WHEN ''UTCLong''.
         CREATE OBJECT type TYPE cl_abap_elemdescr.
         type->type_kind = typekind_utclong.
@@ -13911,18 +16416,30 @@ CLASS cl_abap_typedescr IMPLEMENTATION.
         CREATE OBJECT type TYPE cl_abap_refdescr.
         type->type_kind = typekind_dref.
         type->kind = kind_ref.
+
+        lo_ref ?= type.
+        WRITE ''@KERNEL lv_any = p_data.type;''.
+        lo_ref->referenced = describe_by_data( lv_any ).
       WHEN OTHERS.
         WRITE / lv_name.
         ASSERT 1 = ''todo_cl_abap_typedescr''.
     ENDCASE.
 
-    WRITE ''@KERNEL if (p_data.getQualifiedName && p_data.getQualifiedName() !== undefined) type.get().absolute_name.set(p_data.getQualifiedName());''.
-    WRITE ''@KERNEL if (p_data.getDDICName && p_data.getDDICName() !== undefined) type.get().absolute_name.set(p_data.getDDICName());''.
-    WRITE ''@KERNEL if (type.get().absolute_name.get() === "" && p_data.getType && p_data.getType().getQualifiedName() !== undefined) type.get().absolute_name.set(p_data.getType().getQualifiedName());''.
+*    WRITE ''@KERNEL console.dir(p_data);''.
+
+    WRITE ''@KERNEL lv_ddicname.set(p_data.getDDICName ? p_data.getDDICName() || "" : "");''.
+    WRITE ''@KERNEL lv_convexit.set(p_data.getConversionExit ? p_data.getConversionExit() || "" : "");''.
+    WRITE ''@KERNEL lv_qualified.set(p_data.getQualifiedName ? p_data.getQualifiedName() || "" : "");''.
+
+    IF lv_qualified NA ''-''.
+      type->absolute_name = lv_qualified.
+    ELSEIF lv_ddicname <> ''''.
+      type->absolute_name = lv_ddicname.
+    ENDIF.
 
 * this is not completely correct, local type names and ddic names might overlap, but will work for now,
 * todo: use/check getDDICName() in the future,
-    WRITE ''@KERNEL if(abap.DDIC[type.get().absolute_name.get().toUpperCase()]) { type.get().ddic.set("X"); }''.
+    WRITE ''@KERNEL if(abap.DDIC[type.get().absolute_name.get().toUpperCase().trimEnd()]) { type.get().ddic.set("X"); }''.
 
     TRANSLATE type->absolute_name TO UPPER CASE.
     TRANSLATE type->relative_name TO UPPER CASE.
@@ -13931,7 +16448,8 @@ CLASS cl_abap_typedescr IMPLEMENTATION.
       type->relative_name = ''ABAP_BOOL''.
       type->absolute_name = ''\\TYPE-POOL=ABAP\\TYPE=ABAP_BOOL''.
     ELSEIF type->absolute_name IS INITIAL.
-      type->absolute_name = ''ABSOLUTE_NAME_TODO''.
+      gv_counter = gv_counter + 1.
+      type->absolute_name = ''\\TYPE=%_T000000000000000'' && gv_counter.
     ELSEIF type->absolute_name CS ''=>''.
       SPLIT type->absolute_name AT ''=>'' INTO lv_prefix type->absolute_name.
       type->relative_name = type->absolute_name.
@@ -13944,7 +16462,6 @@ CLASS cl_abap_typedescr IMPLEMENTATION.
       type->absolute_name = ''\\TYPE='' && type->absolute_name.
     ENDIF.
 
-    WRITE ''@KERNEL if(p_data.getConversionExit && p_data.getConversionExit() !== undefined) lv_convexit.set(p_data.getConversionExit());''.
     IF lv_convexit <> ''''.
       lo_elem->edit_mask = ''=='' && lv_convexit.
     ENDIF.
@@ -13952,7 +16469,7 @@ CLASS cl_abap_typedescr IMPLEMENTATION.
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_SHM_AREA', 'CLASS cl_shm_area DEFINITION PUBLIC INHERITING FROM cx_shm_general_error ABSTRACT.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_SHM_AREA                             ', 'CLASS cl_shm_area DEFINITION PUBLIC INHERITING FROM cx_shm_general_error ABSTRACT.
   PUBLIC SECTION.
     CONSTANTS default_instance TYPE shm_inst_name VALUE ''$DEFAULT_INSTANCE$''.
     CONSTANTS invocation_mode_explicit TYPE shm_constr_invocation_mode VALUE 319200300.
@@ -13962,8 +16479,8 @@ ENDCLASS.');`);
     CONSTANTS affect_local_server TYPE shm_affect_server VALUE 281119720.
 
     DATA properties TYPE shm_properties READ-ONLY.
-    DATA inst_name TYPE shm_inst_name READ-ONLY.
-    DATA client TYPE mandt READ-ONLY.
+    DATA inst_name  TYPE shm_inst_name READ-ONLY.
+    DATA client     TYPE mandt READ-ONLY.
 
     METHODS detach_commit
       RAISING
@@ -14129,12 +16646,14 @@ ENDCLASS.');`);
         VALUE(rc)         TYPE shm_rc
       RAISING
         cx_shm_parameter_error.
+  PRIVATE SECTION.
+    CLASS-DATA mo_root TYPE REF TO object.
 ENDCLASS.
 
 CLASS cl_shm_area IMPLEMENTATION.
 
   METHOD is_valid.
-    ASSERT 1 = ''todo''.
+    valid = abap_true.
   ENDMETHOD.
 
   METHOD _free_instance71.
@@ -14142,15 +16661,27 @@ CLASS cl_shm_area IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD detach_commit.
-    ASSERT 1 = ''todo''.
+    RETURN.
   ENDMETHOD.
 
   METHOD detach.
-    ASSERT 1 = ''todo''.
+    RETURN.
   ENDMETHOD.
 
   METHOD _attach_read71.
-    ASSERT 1 = ''todo''.
+    DATA created TYPE REF TO object.
+    DATA lv_name TYPE string.
+
+    IF sneak_mode = abap_false AND mo_root IS INITIAL.
+      lv_name = area_name.
+* todo, this is an evil workaround
+      REPLACE FIRST OCCURRENCE OF ''_AREA'' IN lv_name WITH ''_ROOT''.
+      CREATE OBJECT created TYPE (lv_name).
+
+      _set_root( created ).
+    ENDIF.
+
+    root = mo_root.
   ENDMETHOD.
 
   METHOD _get_instance_infos71.
@@ -14166,7 +16697,7 @@ CLASS cl_shm_area IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD _set_root.
-    ASSERT 1 = ''todo''.
+    mo_root = root.
   ENDMETHOD.
 
   METHOD _invalidate_instance71.
@@ -14178,15 +16709,28 @@ CLASS cl_shm_area IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD _attach_update70.
-    ASSERT 1 = ''todo''.
+    DATA created TYPE REF TO object.
+    DATA lv_name TYPE string.
+
+    IF mo_root IS INITIAL.
+* todo, this should respect the auto build flag configuration from the SHMA area
+* todo, this is an evil workaround
+      REPLACE FIRST OCCURRENCE OF ''_AREA'' IN lv_name WITH ''_ROOT''.
+      CREATE OBJECT created TYPE (lv_name).
+
+      _set_root( created ).
+    ENDIF.
+* open-abap is currently single threaded, so no lock conflicts
+    root = mo_root.
   ENDMETHOD.
 
   METHOD _attach_write70.
-    ASSERT 1 = ''todo''.
+* open-abap is currently single threaded, so no lock conflicts
+    RETURN.
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_SHM_SERVICE', 'CLASS cl_shm_service DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_SHM_SERVICE                          ', 'CLASS cl_shm_service DEFINITION PUBLIC.
   PUBLIC SECTION.
     CLASS-METHODS initialize
       IMPORTING
@@ -14221,7 +16765,7 @@ ENDCLASS.
 CLASS cl_shm_service IMPLEMENTATION.
 
   METHOD initialize.
-    ASSERT 1 = ''todo''.
+    RETURN.
   ENDMETHOD.
 
   METHOD get_auto_build_class_name.
@@ -14238,161 +16782,172 @@ CLASS cl_shm_service IMPLEMENTATION.
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHMA_DYNAMIC', 'CLASS cx_shma_dynamic DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
-
-ENDCLASS.
-
-CLASS cx_shma_dynamic IMPLEMENTATION.
-
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHMA_INCONSISTENT', 'CLASS cx_shma_inconsistent DEFINITION PUBLIC INHERITING FROM cx_shma_dynamic.
-
-ENDCLASS.
-
-CLASS cx_shma_inconsistent IMPLEMENTATION.
-
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHMA_NOT_CONFIGURED', 'CLASS cx_shma_not_configured DEFINITION PUBLIC INHERITING FROM cx_shma_dynamic.
-
-ENDCLASS.
-
-CLASS cx_shma_not_configured IMPLEMENTATION.
-
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_ALREADY_DETACHED', 'CLASS cx_shm_already_detached DEFINITION PUBLIC INHERITING FROM cx_shm_general_error.
-
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_ALREADY_DETACHED                 ', 'CLASS cx_shm_already_detached DEFINITION PUBLIC INHERITING FROM cx_shm_general_error.
+  PUBLIC SECTION.
+    METHODS constructor
+      IMPORTING
+        textid    LIKE textid OPTIONAL
+        previous  LIKE previous OPTIONAL
+        area_name TYPE string OPTIONAL
+        inst_name TYPE string OPTIONAL
+        client    TYPE string OPTIONAL.
 ENDCLASS.
 
 CLASS cx_shm_already_detached IMPLEMENTATION.
 
+  METHOD constructor.
+    RETURN.
+  ENDMETHOD.
+
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_ATTACH_ERROR', 'CLASS cx_shm_attach_error DEFINITION PUBLIC INHERITING FROM cx_shm_error.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_ATTACH_ERROR                     ', 'CLASS cx_shm_attach_error DEFINITION PUBLIC INHERITING FROM cx_shm_error.
 
 ENDCLASS.
 
 CLASS cx_shm_attach_error IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_BUILD_FAILED', 'CLASS cx_shm_build_failed DEFINITION PUBLIC INHERITING FROM cx_shm_general_error.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_BUILD_FAILED                     ', 'CLASS cx_shm_build_failed DEFINITION PUBLIC INHERITING FROM cx_shm_general_error.
 
 ENDCLASS.
 
 CLASS cx_shm_build_failed IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_CHANGE_LOCK_ACTIVE', 'CLASS cx_shm_change_lock_active DEFINITION PUBLIC INHERITING FROM cx_shm_attach_error.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_CHANGE_LOCK_ACTIVE               ', 'CLASS cx_shm_change_lock_active DEFINITION PUBLIC INHERITING FROM cx_shm_attach_error.
 
 ENDCLASS.
 
 CLASS cx_shm_change_lock_active IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_COMPLETION_ERROR', 'CLASS cx_shm_completion_error DEFINITION PUBLIC INHERITING FROM cx_shm_detach_error.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_COMPLETION_ERROR                 ', 'CLASS cx_shm_completion_error DEFINITION PUBLIC INHERITING FROM cx_shm_detach_error.
 
 ENDCLASS.
 
 CLASS cx_shm_completion_error IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_DETACH_ERROR', 'CLASS cx_shm_detach_error DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_DETACH_ERROR                     ', 'CLASS cx_shm_detach_error DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
 
 ENDCLASS.
 
 CLASS cx_shm_detach_error IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_ERROR', 'CLASS cx_shm_error DEFINITION PUBLIC INHERITING FROM cx_static_check.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_ERROR                            ', 'CLASS cx_shm_error DEFINITION PUBLIC INHERITING FROM cx_static_check.
 
 ENDCLASS.
 
 CLASS cx_shm_error IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_EVENT_EXECUTION_FAILED', 'CLASS cx_shm_event_execution_failed DEFINITION PUBLIC INHERITING FROM cx_shm_completion_error.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_EVENT_EXECUTION_FAILED           ', 'CLASS cx_shm_event_execution_failed DEFINITION PUBLIC INHERITING FROM cx_shm_completion_error.
 
 ENDCLASS.
 
 CLASS cx_shm_event_execution_failed IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_EXCLUSIVE_LOCK_ACTIVE', 'CLASS cx_shm_exclusive_lock_active DEFINITION PUBLIC INHERITING FROM cx_shm_attach_error.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_EXCLUSIVE_LOCK_ACTIVE            ', 'CLASS cx_shm_exclusive_lock_active DEFINITION PUBLIC INHERITING FROM cx_shm_attach_error.
 
 ENDCLASS.
 
 CLASS cx_shm_exclusive_lock_active IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_GENERAL_ERROR', 'CLASS cx_shm_general_error DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_GENERAL_ERROR                    ', 'CLASS cx_shm_general_error DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
 
 ENDCLASS.
 
 CLASS cx_shm_general_error IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_INCONSISTENT', 'CLASS cx_shm_inconsistent DEFINITION PUBLIC INHERITING FROM cx_shm_attach_error.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_INCONSISTENT                     ', 'CLASS cx_shm_inconsistent DEFINITION PUBLIC INHERITING FROM cx_shm_attach_error.
 
 ENDCLASS.
 
 CLASS cx_shm_inconsistent IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_INITIAL_REFERENCE', 'CLASS cx_shm_initial_reference DEFINITION PUBLIC INHERITING FROM cx_shm_general_error.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_INITIAL_REFERENCE                ', 'CLASS cx_shm_initial_reference DEFINITION PUBLIC INHERITING FROM cx_shm_general_error.
 
 ENDCLASS.
 
 CLASS cx_shm_initial_reference IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_NO_ACTIVE_VERSION', 'CLASS cx_shm_no_active_version DEFINITION PUBLIC INHERITING FROM cx_shm_attach_error.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_NO_ACTIVE_VERSION                ', 'CLASS cx_shm_no_active_version DEFINITION PUBLIC INHERITING FROM cx_shm_attach_error.
 
 ENDCLASS.
 
 CLASS cx_shm_no_active_version IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_PARAMETER_ERROR', 'CLASS cx_shm_parameter_error DEFINITION PUBLIC INHERITING FROM cx_shm_general_error.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_PARAMETER_ERROR                  ', 'CLASS cx_shm_parameter_error DEFINITION PUBLIC INHERITING FROM cx_shm_general_error.
 
 ENDCLASS.
 
 CLASS cx_shm_parameter_error IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_PENDING_LOCK_REMOVED', 'CLASS cx_shm_pending_lock_removed DEFINITION PUBLIC INHERITING FROM cx_shm_attach_error.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_PENDING_LOCK_REMOVED             ', 'CLASS cx_shm_pending_lock_removed DEFINITION PUBLIC INHERITING FROM cx_shm_attach_error.
 
 ENDCLASS.
 
 CLASS cx_shm_pending_lock_removed IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_READ_LOCK_ACTIVE', 'CLASS cx_shm_read_lock_active DEFINITION PUBLIC INHERITING FROM cx_shm_attach_error.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_READ_LOCK_ACTIVE                 ', 'CLASS cx_shm_read_lock_active DEFINITION PUBLIC INHERITING FROM cx_shm_attach_error.
 
 ENDCLASS.
 
 CLASS cx_shm_read_lock_active IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_SECONDARY_COMMIT', 'CLASS cx_shm_secondary_commit DEFINITION PUBLIC INHERITING FROM cx_shm_detach_error.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_SECONDARY_COMMIT                 ', 'CLASS cx_shm_secondary_commit DEFINITION PUBLIC INHERITING FROM cx_shm_detach_error.
 
 ENDCLASS.
 
 CLASS cx_shm_secondary_commit IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_VERSION_LIMIT_EXCEEDED', 'CLASS cx_shm_version_limit_exceeded DEFINITION PUBLIC INHERITING FROM cx_shm_attach_error.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_VERSION_LIMIT_EXCEEDED           ', 'CLASS cx_shm_version_limit_exceeded DEFINITION PUBLIC INHERITING FROM cx_shm_attach_error.
 
 ENDCLASS.
 
 CLASS cx_shm_version_limit_exceeded IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_WRONG_HANDLE', 'CLASS cx_shm_wrong_handle DEFINITION PUBLIC INHERITING FROM cx_shm_general_error.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_WRONG_HANDLE                     ', 'CLASS cx_shm_wrong_handle DEFINITION PUBLIC INHERITING FROM cx_shm_general_error.
 
 ENDCLASS.
 
 CLASS cx_shm_wrong_handle IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SHM_BUILD_INSTANCE', 'INTERFACE if_shm_build_instance PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHMA_DYNAMIC                         ', 'CLASS cx_shma_dynamic DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+
+ENDCLASS.
+
+CLASS cx_shma_dynamic IMPLEMENTATION.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHMA_INCONSISTENT                    ', 'CLASS cx_shma_inconsistent DEFINITION PUBLIC INHERITING FROM cx_shma_dynamic.
+
+ENDCLASS.
+
+CLASS cx_shma_inconsistent IMPLEMENTATION.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHMA_NOT_CONFIGURED                  ', 'CLASS cx_shma_not_configured DEFINITION PUBLIC INHERITING FROM cx_shma_dynamic.
+
+ENDCLASS.
+
+CLASS cx_shma_not_configured IMPLEMENTATION.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SHM_BUILD_INSTANCE                   ', 'INTERFACE if_shm_build_instance PUBLIC.
   CLASS-METHODS build
     IMPORTING
       inst_name       TYPE shm_inst_name              DEFAULT cl_shm_area=>default_instance
@@ -14400,7 +16955,7 @@ ENDCLASS.');`);
     RAISING
       cx_shm_build_failed.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SHM_TRACE', 'INTERFACE if_shm_trace PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SHM_TRACE                            ', 'INTERFACE if_shm_trace PUBLIC.
 
   DATA: BEGIN OF variant,
           def_name         TYPE shmm_trc_variant_name,
@@ -14546,21 +17101,234 @@ ENDINTERFACE.');`);
       cx        TYPE REF TO cx_root.
 
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_SXML_STRING_READER', 'CLASS cl_sxml_string_reader DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_MIME_REPOSITORY_API                  ', 'CLASS cl_mime_repository_api DEFINITION PUBLIC FINAL CREATE PRIVATE.
+
+  PUBLIC SECTION.
+    INTERFACES if_mr_api.
+    ALIASES get_api FOR if_mr_api~get_api.
+ENDCLASS.
+
+CLASS cl_mime_repository_api IMPLEMENTATION.
+  METHOD if_mr_api~get_api.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_mr_api~get.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_mr_api~create_folder.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_mr_api~put.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_mr_api~delete.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_mr_api~file_list.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_mr_api~properties.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_mr_api~get_io_for_url.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_MR_API                               ', 'INTERFACE if_mr_api PUBLIC.
+
+  CLASS-METHODS get_api
+    IMPORTING
+      i_prefix        TYPE csequence DEFAULT space
+    RETURNING
+      VALUE(r_mr_api) TYPE REF TO if_mr_api.
+
+  METHODS get
+    IMPORTING
+      i_url             TYPE csequence
+      i_check_authority TYPE abap_bool DEFAULT abap_true
+    EXPORTING
+      e_is_folder       TYPE abap_bool
+      e_content         TYPE xstring
+      e_mime_type       TYPE csequence
+      e_loio            TYPE skwf_io
+    CHANGING
+      c_language        TYPE langu OPTIONAL
+    EXCEPTIONS
+      parameter_missing
+      error_occured
+      not_found
+      permission_failure.
+
+  METHODS create_folder
+    IMPORTING
+      i_url                     TYPE csequence
+      i_language                TYPE langu DEFAULT sy-langu
+      i_description             TYPE csequence OPTIONAL
+      i_check_authority         TYPE abap_bool DEFAULT abap_true
+      i_suppress_package_dialog TYPE abap_bool DEFAULT space
+      i_dev_package             TYPE devclass OPTIONAL
+      i_genflag                 TYPE abap_bool DEFAULT abap_false
+      i_corr_number             TYPE trkorr OPTIONAL
+      i_folder_loio             TYPE skwf_io OPTIONAL
+      i_suppress_dialogs        TYPE abap_bool OPTIONAL
+    EXPORTING
+      e_folder_io               TYPE skwf_io
+    EXCEPTIONS
+      parameter_missing
+      error_occured
+      cancelled
+      permission_failure
+      folder_exists.
+
+  METHODS put
+    IMPORTING
+      i_url                     TYPE csequence
+      i_content                 TYPE xstring
+      i_language                TYPE langu DEFAULT sy-langu
+      i_description             TYPE csequence OPTIONAL
+      i_check_authority         TYPE abap_bool DEFAULT abap_true
+      i_suppress_package_dialog TYPE abap_bool DEFAULT space
+      i_dev_package             TYPE devclass OPTIONAL
+      i_genflag                 TYPE abap_bool DEFAULT abap_false
+      i_corr_number             TYPE trkorr OPTIONAL
+      i_new_loio                TYPE skwf_io OPTIONAL
+      i_suppress_dialogs        TYPE abap_bool OPTIONAL
+    EXCEPTIONS
+      parameter_missing
+      error_occured
+      cancelled
+      permission_failure
+      data_inconsistency
+      new_loio_already_exists
+      is_folder.
+
+  METHODS delete
+    IMPORTING
+      i_url              TYPE csequence
+      i_delete_children  TYPE abap_bool DEFAULT abap_false
+      i_check_authority  TYPE abap_bool DEFAULT abap_true
+      i_corr_number      TYPE trkorr OPTIONAL
+      i_suppress_dialogs TYPE abap_bool OPTIONAL
+    EXCEPTIONS
+      parameter_missing
+      error_occured
+      cancelled
+      permission_failure
+      not_found.
+
+  METHODS file_list
+    IMPORTING
+      i_url             TYPE csequence
+      i_recursive_call  TYPE abap_bool DEFAULT abap_false
+      i_check_authority TYPE abap_bool DEFAULT abap_true
+    EXPORTING
+      e_files           TYPE string_table
+    EXCEPTIONS
+      parameter_missing
+      error_occured
+      not_found
+      permission_failure
+      is_not_folder.
+
+  METHODS properties
+    IMPORTING
+      i_url               TYPE csequence
+      i_check_authority   TYPE abap_bool DEFAULT abap_true
+    EXPORTING
+      e_is_folder         TYPE abap_bool
+      e_mime_type         TYPE csequence
+      e_name              TYPE string
+      e_size              TYPE i
+      e_bin_data          TYPE abap_bool
+      e_loio              TYPE skwf_io
+      e_phio              TYPE skwf_io
+      e_language          TYPE langu
+      e_phio_last_changed TYPE string " wrong, delete parameter?
+    EXCEPTIONS
+      parameter_missing
+      error_occured
+      not_found
+      permission_failure.
+
+  METHODS get_io_for_url
+    IMPORTING
+      i_url       TYPE csequence
+    EXPORTING
+      e_is_folder TYPE abap_bool
+      e_loio      TYPE skwf_io
+    EXCEPTIONS
+      parameter_missing
+      error_occured
+      not_found.
+
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_SEC_SXML_WRITER                      ', 'CLASS cl_sec_sxml_writer DEFINITION PUBLIC.
+  PUBLIC SECTION.
+    CONSTANTS co_aes128_algorithm TYPE string VALUE ''http://www.w3.org/2001/04/xmlenc#aes128-cbc'' ##NO_TEXT.
+    CONSTANTS co_aes192_algorithm TYPE string VALUE ''http://www.w3.org/2001/04/xmlenc#aes192-cbc'' ##NO_TEXT.
+    CONSTANTS co_aes256_algorithm TYPE string VALUE ''http://www.w3.org/2001/04/xmlenc#aes256-cbc'' ##NO_TEXT.
+
+    CLASS-METHODS crypt_aes_ctr
+      IMPORTING
+        input     TYPE xstring
+        key       TYPE xstring
+        iv        TYPE xstring
+        algorithm TYPE string DEFAULT co_aes128_algorithm
+      EXPORTING
+        result    TYPE xstring.
+ENDCLASS.
+
+CLASS cl_sec_sxml_writer IMPLEMENTATION.
+
+  METHOD crypt_aes_ctr.
+    DATA lv_algo TYPE string.
+
+    CASE algorithm.
+      WHEN co_aes128_algorithm.
+        lv_algo = ''aes-128-ctr''.
+      WHEN co_aes256_algorithm.
+        lv_algo = ''aes-256-ctr''.
+      WHEN OTHERS.
+        ASSERT 1 = ''todo''.
+    ENDCASE.
+
+    WRITE ''@KERNEL const crypto = await import("crypto");''.
+
+    WRITE ''@KERNEL const js_key = Buffer.from(key.get(), "hex");''.
+    WRITE ''@KERNEL const js_iv = Buffer.from(iv.get(), "hex");''.
+    WRITE ''@KERNEL const js_input = Buffer.from(input.get(), "hex");''.
+
+    WRITE ''@KERNEL const cipher = crypto.createDecipheriv(lv_algo.get(), js_key, js_iv);''.
+    WRITE ''@KERNEL const encrypted = cipher.update(js_input);''.
+
+    WRITE ''@KERNEL result.set(encrypted.toString("hex").toUpperCase());''.
+  ENDMETHOD.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_SXML_STRING_READER                   ', 'CLASS cl_sxml_string_reader DEFINITION PUBLIC.
   PUBLIC SECTION.
     CLASS-METHODS create
-      IMPORTING data TYPE xstring
-      RETURNING VALUE(reader) TYPE REF TO if_sxml_reader.
+      IMPORTING
+        input         TYPE xstring
+      RETURNING
+        VALUE(reader) TYPE REF TO if_sxml_reader.
 ENDCLASS.
 
 CLASS cl_sxml_string_reader IMPLEMENTATION.
   METHOD create.
     CREATE OBJECT reader TYPE lcl_reader
       EXPORTING
-        iv_json = cl_abap_codepage=>convert_from( data ).
+        iv_json = cl_abap_codepage=>convert_from( input ).
   ENDMETHOD.
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_SXML_STRING_WRITER', 'CLASS cl_sxml_string_writer DEFINITION PUBLIC FINAL CREATE PRIVATE.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_SXML_STRING_WRITER                   ', 'CLASS cl_sxml_string_writer DEFINITION PUBLIC FINAL CREATE PRIVATE.
 
   PUBLIC SECTION.
     INTERFACES if_sxml_writer.
@@ -14603,6 +17371,34 @@ CLASS cl_sxml_string_writer IMPLEMENTATION.
 
   METHOD constructor.
     mv_type = type.
+  ENDMETHOD.
+
+  METHOD if_sxml_writer~new_close_element.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_sxml_writer~write_attribute_raw.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_sxml_writer~new_value.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_sxml_writer~new_open_element.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_sxml_writer~write_value_raw.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_sxml_writer~write_namespace_declaration.
+    ASSERT 1 = ''todo''.
+  ENDMETHOD.
+
+  METHOD if_sxml_writer~write_node.
+    ASSERT 1 = ''todo''.
   ENDMETHOD.
 
   METHOD create.
@@ -14696,31 +17492,36 @@ CLASS cl_sxml_string_writer IMPLEMENTATION.
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SXML_ERROR', 'CLASS cx_sxml_error DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SXML_ERROR                           ', 'CLASS cx_sxml_error DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
 
 ENDCLASS.
 
 CLASS cx_sxml_error IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SXML_ILLEGAL_ARGUMENT_ERROR', 'CLASS cx_sxml_illegal_argument_error DEFINITION PUBLIC INHERITING FROM cx_sxml_error.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SXML_ILLEGAL_ARGUMENT_ERROR          ', 'CLASS cx_sxml_illegal_argument_error DEFINITION PUBLIC INHERITING FROM cx_sxml_error.
   PUBLIC SECTION.
 ENDCLASS.
 
 CLASS cx_sxml_illegal_argument_error IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SXML_NAME_ERROR', 'CLASS cx_sxml_name_error DEFINITION PUBLIC INHERITING FROM cx_sxml_error.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SXML_NAME_ERROR                      ', 'CLASS cx_sxml_name_error DEFINITION PUBLIC INHERITING FROM cx_sxml_error.
   PUBLIC SECTION.
 ENDCLASS.
 
 CLASS cx_sxml_name_error IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SXML_PARSE_ERROR', 'CLASS cx_sxml_parse_error DEFINITION PUBLIC INHERITING FROM cx_sxml_error.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SXML_PARSE_ERROR                     ', 'CLASS cx_sxml_parse_error DEFINITION PUBLIC INHERITING FROM cx_sxml_error.
   PUBLIC SECTION.
     METHODS constructor IMPORTING xml_offset TYPE i.
+    CONSTANTS kernel_parser TYPE sotr_conc VALUE ''00000000000000000000000000000000''.
+
+    DATA error_text TYPE string.
+    DATA rawstring  TYPE string.
     DATA xml_offset TYPE i.
+    DATA rc         TYPE i.
 ENDCLASS.
 
 CLASS cx_sxml_parse_error IMPLEMENTATION.
@@ -14729,14 +17530,14 @@ CLASS cx_sxml_parse_error IMPLEMENTATION.
     me->xml_offset = xml_offset.
   ENDMETHOD.
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SXML_STATE_ERROR', 'CLASS cx_sxml_state_error DEFINITION PUBLIC INHERITING FROM cx_sxml_error.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SXML_STATE_ERROR                     ', 'CLASS cx_sxml_state_error DEFINITION PUBLIC INHERITING FROM cx_sxml_error.
   PUBLIC SECTION.
 ENDCLASS.
 
 CLASS cx_sxml_state_error IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXML', 'INTERFACE if_sxml PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXML                                 ', 'INTERFACE if_sxml PUBLIC.
 
   TYPES xml_stream_type TYPE i.
 
@@ -14746,100 +17547,204 @@ ENDCLASS.');`);
   CONSTANTS co_xt_json TYPE xml_stream_type VALUE 4.
 
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXMLP_FACTORY', 'INTERFACE if_sxmlp_factory PUBLIC.
-  CLASS-METHODS create_list
-    IMPORTING
-      name        TYPE string
-      nsuri       TYPE string OPTIONAL
-      prefix      TYPE string OPTIONAL
-    RETURNING
-      VALUE(rval) TYPE REF TO if_sxmlp_list.
-ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXMLP_LIST', 'INTERFACE if_sxmlp_list PUBLIC.
-  METHODS add_part
-    IMPORTING
-      part TYPE REF TO if_sxmlp_part.
-ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXMLP_PART', 'INTERFACE if_sxmlp_part PUBLIC.
-
-ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXMLP_SIMPLE', 'INTERFACE if_sxmlp_simple PUBLIC.
-
-ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXML_ATTRIBUTE', 'INTERFACE if_sxml_attribute PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXML_ATTRIBUTE                       ', 'INTERFACE if_sxml_attribute PUBLIC.
   TYPES attributes TYPE STANDARD TABLE OF REF TO if_sxml_attribute WITH DEFAULT KEY.
   DATA: BEGIN OF qname,
-          name TYPE string,
+          name      TYPE string,
+          namespace TYPE string,
         END OF qname.
+  DATA prefix TYPE string READ-ONLY.
   DATA value_type TYPE if_sxml_value=>value_type.
   METHODS get_value RETURNING VALUE(value) TYPE string.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXML_CLOSE_ELEMENT', 'INTERFACE if_sxml_close_element PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXML_CLOSE_ELEMENT                   ', 'INTERFACE if_sxml_close_element PUBLIC.
   INTERFACES if_sxml_node.
 
   DATA: BEGIN OF qname,
-          name TYPE string,
+          name      TYPE string,
+          namespace TYPE string,
         END OF qname.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXML_NODE', 'INTERFACE if_sxml_node PUBLIC.
-  TYPES node_type TYPE i.
-  DATA type TYPE node_type.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXML_NAMED                           ', 'INTERFACE if_sxml_named PUBLIC.
 
+  TYPES: BEGIN OF pathnode,
+           BEGIN OF qname,
+             name      TYPE string,
+             namespace TYPE string,
+           END OF qname,
+           prefix         TYPE string,
+           child_position TYPE i,
+         END OF pathnode.
+  TYPES path TYPE STANDARD TABLE OF pathnode WITH DEFAULT KEY.
+
+  TYPES: BEGIN OF nsbinding,
+           prefix TYPE string,
+           nsuri  TYPE string,
+         END OF nsbinding.
+  TYPES nsbindings TYPE HASHED TABLE OF nsbinding WITH UNIQUE KEY prefix.
+
+  CONSTANTS co_use_default_xmlns TYPE string VALUE '':''.
+
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXML_NODE                            ', 'INTERFACE if_sxml_node PUBLIC.
+  TYPES node_type TYPE i.
+  DATA type TYPE node_type READ-ONLY.
+
+  CONSTANTS co_nt_initial TYPE node_type VALUE 0.
   CONSTANTS co_nt_element_open TYPE node_type VALUE 1.
   CONSTANTS co_nt_element_close TYPE node_type VALUE 2.
   CONSTANTS co_nt_value TYPE node_type VALUE 4.
   CONSTANTS co_nt_attribute TYPE node_type VALUE 32.
   CONSTANTS co_nt_final TYPE node_type VALUE 128.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXML_OPEN_ELEMENT', 'INTERFACE if_sxml_open_element PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXML_OPEN_ELEMENT                    ', 'INTERFACE if_sxml_open_element PUBLIC.
   INTERFACES if_sxml_node.
 
   DATA: BEGIN OF qname,
-          name TYPE string,
+          name      TYPE string,
+          namespace TYPE string,
         END OF qname.
+
+  DATA prefix TYPE string READ-ONLY.
 
   METHODS get_attributes
     RETURNING
       VALUE(attr) TYPE if_sxml_attribute=>attributes.
+
+  METHODS set_attribute
+    IMPORTING
+      name   TYPE string
+      nsuri  TYPE string OPTIONAL
+      prefix TYPE string OPTIONAL
+      value  TYPE string OPTIONAL
+    RETURNING
+      VALUE(attribute) TYPE REF TO if_sxml_attribute
+    RAISING
+      cx_sxml_name_error.
+
+  METHODS set_attributes
+    IMPORTING
+      attributes TYPE if_sxml_attribute=>attributes
+    RAISING
+      cx_sxml_name_error.
+
+  METHODS set_prefix
+    IMPORTING
+      prefix TYPE string OPTIONAL.
+
+  METHODS get_attribute_value
+    IMPORTING
+      !name TYPE string
+      !nsuri TYPE string OPTIONAL
+    RETURNING
+      VALUE(value) TYPE REF TO if_sxml_value.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXML_READER', 'INTERFACE if_sxml_reader PUBLIC.
-  DATA node_type TYPE if_sxml_node=>node_type READ-ONLY.
-  DATA name TYPE string READ-ONLY.
-  DATA value TYPE string READ-ONLY.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXML_READER                          ', 'INTERFACE if_sxml_reader PUBLIC.
+
+  DATA node_type  TYPE if_sxml_node=>node_type READ-ONLY.
+  DATA name       TYPE string READ-ONLY.
+  DATA value_type TYPE if_sxml_value=>value_type READ-ONLY.
+  DATA value      TYPE string READ-ONLY.
+  DATA value_raw  TYPE xstring READ-ONLY.
+
+  CONSTANTS co_opt_normalizing TYPE i VALUE 1.
+  CONSTANTS co_opt_keep_whitespace TYPE i VALUE 2.
+  CONSTANTS co_opt_asxml TYPE i VALUE 3.
+  CONSTANTS co_opt_sep_member TYPE i VALUE 4.
 
   METHODS
     read_next_node
       RETURNING VALUE(node) TYPE REF TO if_sxml_node.
 
-  METHODS
-    next_node
-      IMPORTING
-        value_type TYPE if_sxml_value=>value_type DEFAULT if_sxml_value=>co_vt_text
-      RAISING
-        cx_sxml_parse_error.
+  METHODS next_node
+    IMPORTING
+      value_type TYPE if_sxml_value=>value_type DEFAULT if_sxml_value=>co_vt_text
+    RAISING
+      cx_sxml_parse_error.
 
   METHODS next_attribute
     IMPORTING
       value_type TYPE if_sxml_value=>value_type OPTIONAL.
 
-  METHODS
-    skip_node
-      IMPORTING
-        writer TYPE REF TO if_sxml_writer OPTIONAL
-      RAISING
-        cx_sxml_parse_error.
+  METHODS skip_node
+    IMPORTING
+      writer TYPE REF TO if_sxml_writer OPTIONAL
+    RAISING
+      cx_sxml_parse_error.
+
+  METHODS set_option
+    IMPORTING
+      option TYPE i
+      value  TYPE abap_bool DEFAULT abap_true.
+
+  METHODS get_nsuri_by_prefix
+    IMPORTING
+      !prefix TYPE string
+    RETURNING
+      VALUE(nsuri) TYPE string.
+
+  METHODS get_prefix_by_nsuri
+    IMPORTING
+      !nsuri TYPE string
+    RETURNING
+      VALUE(prefix) TYPE string.
+
+  METHODS get_nsbindings
+    RETURNING
+      VALUE(nsbindings) TYPE if_sxml_named=>nsbindings.
+
+  METHODS get_path
+    RETURNING
+      VALUE(path) TYPE if_sxml_named=>path.
+
+  METHODS current_node.
+
+  METHODS read_current_node
+    RETURNING
+      VALUE(node) TYPE REF TO if_sxml_node.
+
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXML_VALUE', 'INTERFACE if_sxml_value PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXML_VALUE                           ', 'INTERFACE if_sxml_value PUBLIC.
 
   TYPES value_type TYPE i.
+  DATA type TYPE value_type.
   CONSTANTS co_vt_text TYPE value_type VALUE 2.
 
+  METHODS get_value
+    RETURNING
+      VALUE(value) TYPE string.
+  METHODS get_value_raw
+    RETURNING
+      VALUE(value) TYPE xstring.
+  METHODS set_value
+    IMPORTING
+      value TYPE string.
+  METHODS set_value_raw
+    IMPORTING
+      value TYPE xstring.
+
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXML_VALUE_NODE', 'INTERFACE if_sxml_value_node PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXML_VALUE_NODE                      ', 'INTERFACE if_sxml_value_node PUBLIC.
   INTERFACES if_sxml_node.
-  METHODS get_value RETURNING VALUE(val) TYPE string.
+
+  METHODS get_value
+    RETURNING
+      VALUE(value) TYPE string.
+
+  METHODS get_value_raw
+    RETURNING
+      VALUE(value) TYPE xstring.
+
+  METHODS set_value
+    IMPORTING
+      value TYPE string.
+
+  METHODS set_value_raw
+    IMPORTING
+      value TYPE xstring.
+
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXML_WRITER', 'INTERFACE if_sxml_writer PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXML_WRITER                          ', 'INTERFACE if_sxml_writer PUBLIC.
 
   CONSTANTS co_opt_normalizing TYPE i VALUE 1.
   CONSTANTS co_opt_no_empty TYPE i VALUE 2.
@@ -14864,12 +17769,26 @@ ENDINTERFACE.');`);
     RAISING
       cx_sxml_state_error.
 
+  CLASS-METHODS new_close_element
+    RETURNING
+      VALUE(element) TYPE REF TO if_sxml_close_element.
+
   METHODS write_attribute
     IMPORTING
       name   TYPE string
       nsuri  TYPE string OPTIONAL
       prefix TYPE string OPTIONAL
       value  TYPE string OPTIONAL
+    RAISING
+      cx_sxml_state_error
+      cx_sxml_name_error.
+
+  METHODS write_attribute_raw
+    IMPORTING
+      name   TYPE string
+      nsuri  TYPE string OPTIONAL
+      prefix TYPE string OPTIONAL
+      value  TYPE xstring OPTIONAL
     RAISING
       cx_sxml_state_error
       cx_sxml_name_error.
@@ -14885,15 +17804,75 @@ ENDINTERFACE.');`);
       option TYPE i
       value  TYPE abap_bool DEFAULT abap_true.
 
+  CLASS-METHODS new_open_element
+    IMPORTING
+      name   TYPE string
+      nsuri  TYPE string OPTIONAL
+      prefix TYPE string OPTIONAL
+    RETURNING
+      VALUE(element) TYPE REF TO if_sxml_open_element
+    RAISING
+      cx_sxml_name_error.
+
+  CLASS-METHODS new_value
+    RETURNING
+      VALUE(value) TYPE REF TO if_sxml_value_node.
+
+  METHODS write_namespace_declaration
+    IMPORTING
+      nsuri  TYPE string
+      prefix TYPE string OPTIONAL
+    RAISING
+      cx_sxml_name_error.
+
+  METHODS write_node
+    IMPORTING
+      node TYPE REF TO if_sxml_node
+    RAISING
+      cx_sxml_state_error.
+
+  METHODS write_value_raw
+    IMPORTING
+      value TYPE xstring
+    RAISING
+      cx_sxml_state_error.
+
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_APC_TCP_CLIENT_MANAGER', 'CLASS cl_apc_tcp_client_manager DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXMLP_FACTORY                        ', 'INTERFACE if_sxmlp_factory PUBLIC.
+  CLASS-METHODS create_list
+    IMPORTING
+      name        TYPE string
+      nsuri       TYPE string OPTIONAL
+      prefix      TYPE string OPTIONAL
+    RETURNING
+      VALUE(rval) TYPE REF TO if_sxmlp_list.
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXMLP_LIST                           ', 'INTERFACE if_sxmlp_list PUBLIC.
+  INTERFACES if_sxmlp_part.
+
+  METHODS add_part
+    IMPORTING
+      part TYPE REF TO if_sxmlp_part.
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXMLP_PART                           ', 'INTERFACE if_sxmlp_part PUBLIC.
+  METHODS serialize IMPORTING writer TYPE REF TO if_sxml_writer.
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXMLP_SIMPLE                         ', 'INTERFACE if_sxmlp_simple PUBLIC.
+
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_APC_TCP_CLIENT_MANAGER               ', 'CLASS cl_apc_tcp_client_manager DEFINITION PUBLIC.
   PUBLIC SECTION.
+    CONSTANTS co_protocol_type_tcp  TYPE i VALUE 1.
+    CONSTANTS co_protocol_type_tcps TYPE i VALUE 2.
+
     CLASS-METHODS create
       IMPORTING
         i_host          TYPE string
         i_port          TYPE string
         i_frame         TYPE if_abap_channel_types=>ty_apc_tcp_frame
         i_event_handler TYPE REF TO if_apc_wsp_event_handler
+        i_protocol      TYPE i DEFAULT co_protocol_type_tcp
+        i_ssl_id        TYPE ssfapplssl OPTIONAL
       RETURNING
         VALUE(ri_client) TYPE REF TO if_apc_wsp_client
       RAISING
@@ -14902,14 +17881,17 @@ ENDCLASS.
 
 CLASS cl_apc_tcp_client_manager IMPLEMENTATION.
   METHOD create.
+    DATA lv_port TYPE i.
+    lv_port = i_port.
     CREATE OBJECT ri_client TYPE lcl_client
       EXPORTING
-        iv_host    = i_host
-        iv_port    = i_port
-        io_handler = i_event_handler.
+        iv_host     = i_host
+        iv_port     = lv_port
+        io_handler  = i_event_handler
+        iv_protocol = i_protocol.
   ENDMETHOD.
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_APC_WSP_EXT_STATELESS_BASE', 'CLASS cl_apc_wsp_ext_stateless_base DEFINITION PUBLIC ABSTRACT.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_APC_WSP_EXT_STATELESS_BASE           ', 'CLASS cl_apc_wsp_ext_stateless_base DEFINITION PUBLIC ABSTRACT.
   PUBLIC SECTION.
     INTERFACES if_apc_wsp_extension.
 ENDCLASS.
@@ -14923,14 +17905,14 @@ CLASS cl_apc_wsp_ext_stateless_base IMPLEMENTATION.
     RETURN.
   ENDMETHOD.
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_APC_ERROR', 'CLASS cx_apc_error DEFINITION PUBLIC INHERITING FROM cx_static_check.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_APC_ERROR                            ', 'CLASS cx_apc_error DEFINITION PUBLIC INHERITING FROM cx_static_check.
 
 ENDCLASS.
 
 CLASS cx_apc_error IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_ABAP_CHANNEL_TYPES', 'INTERFACE if_abap_channel_types PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_ABAP_CHANNEL_TYPES                   ', 'INTERFACE if_abap_channel_types PUBLIC.
   TYPES: BEGIN OF ty_apc_tcp_frame,
            frame_type          TYPE i,
            fixed_length        TYPE i,
@@ -14942,12 +17924,12 @@ ENDCLASS.');`);
 
   TYPES ty_tihttpnvp TYPE tihttpnvp.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_APC_TCP_FRAME_TYPES', 'INTERFACE if_apc_tcp_frame_types PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_APC_TCP_FRAME_TYPES                  ', 'INTERFACE if_apc_tcp_frame_types PUBLIC.
   CONSTANTS co_frame_type_fixed_length TYPE i VALUE 1.
   CONSTANTS co_frame_type_terminator   TYPE i VALUE 2.
   CONSTANTS co_frame_type_length_field TYPE i VALUE 3.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_APC_WSP_BINDING_MANAGER', 'INTERFACE if_apc_wsp_binding_manager PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_APC_WSP_BINDING_MANAGER              ', 'INTERFACE if_apc_wsp_binding_manager PUBLIC.
   METHODS bind_amc_message_consumer
     IMPORTING
       i_application_id TYPE clike
@@ -14955,23 +17937,34 @@ ENDINTERFACE.');`);
     RAISING
       cx_apc_error.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_APC_WSP_CLIENT', 'INTERFACE if_apc_wsp_client PUBLIC.
-  METHODS connect.
-  METHODS close.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_APC_WSP_CLIENT                       ', 'INTERFACE if_apc_wsp_client PUBLIC.
+  METHODS connect
+    RAISING
+      cx_apc_error.
+
+  METHODS close
+    RAISING
+      cx_apc_error.
+
   METHODS get_message_manager
     RETURNING
       VALUE(ri_manager) TYPE REF TO if_apc_wsp_message_manager
     RAISING
       cx_apc_error.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_APC_WSP_EVENT_HANDLER', 'INTERFACE if_apc_wsp_event_handler PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_APC_WSP_EVENT_HANDLER                ', 'INTERFACE if_apc_wsp_event_handler PUBLIC.
   METHODS on_open.
+
   METHODS on_message
     IMPORTING i_message TYPE REF TO if_apc_wsp_message.
+
   METHODS on_close.
-  METHODS on_error.
+
+  METHODS on_error
+    IMPORTING
+      i_reason TYPE string.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_APC_WSP_EXTENSION', 'INTERFACE if_apc_wsp_extension PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_APC_WSP_EXTENSION                    ', 'INTERFACE if_apc_wsp_extension PUBLIC.
   METHODS on_start
     IMPORTING
       i_context         TYPE REF TO if_apc_wsp_server_context
@@ -14983,7 +17976,7 @@ ENDINTERFACE.');`);
       i_message_manager TYPE REF TO if_apc_wsp_message_manager
       i_context         TYPE REF TO if_apc_wsp_server_context.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_APC_WSP_INITIAL_REQUEST', 'INTERFACE if_apc_wsp_initial_request PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_APC_WSP_INITIAL_REQUEST              ', 'INTERFACE if_apc_wsp_initial_request PUBLIC.
   METHODS get_form_fields
     IMPORTING
       i_formfield_encoding TYPE i DEFAULT 0
@@ -14998,30 +17991,33 @@ ENDINTERFACE.');`);
     RAISING
       cx_apc_error.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_APC_WSP_MESSAGE', 'INTERFACE if_apc_wsp_message PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_APC_WSP_MESSAGE                      ', 'INTERFACE if_apc_wsp_message PUBLIC.
   METHODS get_binary
     RETURNING VALUE(rv_binary) TYPE xstring
     RAISING cx_apc_error.
+
   METHODS set_binary
     IMPORTING iv_binary TYPE xsequence
     RAISING cx_apc_error.
+
   METHODS get_text
     RETURNING VALUE(r_message) TYPE string
     RAISING cx_apc_error.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_APC_WSP_MESSAGE_MANAGER', 'INTERFACE if_apc_wsp_message_manager PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_APC_WSP_MESSAGE_MANAGER              ', 'INTERFACE if_apc_wsp_message_manager PUBLIC.
   METHODS create_message
     RETURNING
       VALUE(ri_message) TYPE REF TO if_apc_wsp_message
     RAISING
       cx_apc_error.
+
   METHODS send
     IMPORTING
       ii_message TYPE REF TO if_apc_wsp_message
     RAISING
       cx_apc_error.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_APC_WSP_SERVER_CONTEXT', 'INTERFACE if_apc_wsp_server_context PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_APC_WSP_SERVER_CONTEXT               ', 'INTERFACE if_apc_wsp_server_context PUBLIC.
   METHODS get_initial_request
     RETURNING VALUE(r_initial_request) TYPE REF TO if_apc_wsp_initial_request
     RAISING cx_apc_error.
@@ -15029,14 +18025,14 @@ ENDINTERFACE.');`);
     RETURNING VALUE(r_binding_manager) TYPE REF TO if_apc_wsp_binding_manager
     RAISING cx_apc_error.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_UNIT_ASSERT', 'CLASS cl_abap_unit_assert DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_ABAP_UNIT_ASSERT                     ', 'CLASS cl_abap_unit_assert DEFINITION PUBLIC.
   PUBLIC SECTION.
     CLASS-METHODS
       assert_equals
         IMPORTING
           act   TYPE any
           exp   TYPE any
-          msg   TYPE string OPTIONAL
+          msg   TYPE csequence OPTIONAL
           tol   TYPE f OPTIONAL
           quit  TYPE i OPTIONAL
           level TYPE i OPTIONAL.
@@ -15050,9 +18046,9 @@ ENDINTERFACE.');`);
     CLASS-METHODS
       assert_differs
         IMPORTING
-          act   TYPE any
-          exp   TYPE any
-          msg   TYPE string OPTIONAL
+          act   TYPE simple
+          exp   TYPE simple
+          msg   TYPE csequence OPTIONAL
           quit  TYPE i OPTIONAL
           level TYPE i OPTIONAL.
 
@@ -15062,7 +18058,7 @@ ENDINTERFACE.');`);
           lower  TYPE i
           upper  TYPE i
           number TYPE i
-          msg    TYPE string OPTIONAL
+          msg    TYPE csequence OPTIONAL
           quit   TYPE i OPTIONAL
           level  TYPE i OPTIONAL.
 
@@ -15070,7 +18066,7 @@ ENDINTERFACE.');`);
       assert_not_initial
         IMPORTING
           act   TYPE any
-          msg   TYPE string OPTIONAL
+          msg   TYPE csequence OPTIONAL
           quit  TYPE i OPTIONAL
           level TYPE i OPTIONAL.
 
@@ -15078,7 +18074,7 @@ ENDINTERFACE.');`);
       assert_initial
         IMPORTING
           act   TYPE any
-          msg   TYPE string OPTIONAL
+          msg   TYPE csequence OPTIONAL
           quit  TYPE i OPTIONAL
           level TYPE i OPTIONAL.
 
@@ -15102,7 +18098,7 @@ ENDINTERFACE.');`);
         IMPORTING
           exp   TYPE i DEFAULT 0
           act   TYPE i DEFAULT sy-subrc
-          msg   TYPE string OPTIONAL
+          msg   TYPE csequence OPTIONAL
           quit  TYPE i OPTIONAL
           level TYPE i OPTIONAL
         PREFERRED PARAMETER act.
@@ -15110,16 +18106,16 @@ ENDINTERFACE.');`);
     CLASS-METHODS
       assert_true
         IMPORTING
-          act TYPE abap_bool
-          msg TYPE string OPTIONAL
-          quit TYPE i OPTIONAL
+          act   TYPE abap_bool
+          msg   TYPE csequence OPTIONAL
+          quit  TYPE i OPTIONAL
           level TYPE i OPTIONAL.
 
     CLASS-METHODS
       assert_false
         IMPORTING
           act TYPE abap_bool
-          msg TYPE string OPTIONAL
+          msg TYPE csequence OPTIONAL
           quit TYPE i OPTIONAL
           level TYPE i OPTIONAL.
 
@@ -15137,29 +18133,118 @@ ENDINTERFACE.');`);
         IMPORTING
           act   TYPE clike
           exp   TYPE clike
-          msg   TYPE string OPTIONAL
+          msg   TYPE csequence OPTIONAL
           quit  TYPE i OPTIONAL
           level TYPE i OPTIONAL.
 
     CLASS-METHODS
       assert_bound
         IMPORTING
-          act TYPE any
-          msg TYPE string OPTIONAL
-          quit TYPE i OPTIONAL
+          act   TYPE any
+          msg   TYPE csequence OPTIONAL
+          quit  TYPE i OPTIONAL
           level TYPE i OPTIONAL.
 
     CLASS-METHODS
       assert_not_bound
         IMPORTING
-          act TYPE any
-          msg TYPE string OPTIONAL
-          quit TYPE i OPTIONAL
+          act   TYPE any
+          msg   TYPE csequence OPTIONAL
+          quit  TYPE i OPTIONAL
           level TYPE i OPTIONAL.
+
+    CLASS-METHODS
+      assert_text_matches
+        IMPORTING
+          pattern TYPE csequence
+          text    TYPE csequence
+          msg     TYPE csequence OPTIONAL
+          quit    TYPE i OPTIONAL
+          level   TYPE i OPTIONAL.
+
+  PRIVATE SECTION.
+    CLASS-METHODS
+      compare_tables
+        IMPORTING
+          act TYPE any
+          exp TYPE any.
 
 ENDCLASS.
 
 CLASS cl_abap_unit_assert IMPLEMENTATION.
+
+  METHOD compare_tables.
+
+    DATA index    TYPE i.
+    DATA type1    TYPE REF TO cl_abap_tabledescr.
+    DATA type2    TYPE REF TO cl_abap_tabledescr.
+    DATA lv_match TYPE abap_bool.
+
+    FIELD-SYMBOLS <tab1> TYPE INDEX TABLE.
+    FIELD-SYMBOLS <row1> TYPE any.
+    FIELD-SYMBOLS <tab2> TYPE INDEX TABLE.
+    FIELD-SYMBOLS <row2> TYPE any.
+
+    IF lines( act ) <> lines( exp ).
+      RAISE EXCEPTION TYPE kernel_cx_assert
+        EXPORTING
+          msg = |Expected table to contain { lines( exp ) } rows, got { lines( act ) }|.
+    ENDIF.
+
+    ASSIGN act TO <tab1>.
+    ASSIGN exp TO <tab2>.
+
+    type1 ?= cl_abap_typedescr=>describe_by_data( act ).
+    type2 ?= cl_abap_typedescr=>describe_by_data( exp ).
+*    WRITE ''@KERNEL console.dir(type1);''.
+    IF type1->table_kind = cl_abap_tabledescr=>tablekind_hashed
+        OR type2->table_kind = cl_abap_tabledescr=>tablekind_hashed.
+      LOOP AT <tab1> ASSIGNING <row1>.
+        lv_match = abap_false.
+        LOOP AT <tab2> ASSIGNING <row2>.
+          TRY.
+              assert_equals(
+                act = <row1>
+                exp = <row2> ).
+              lv_match = abap_true.
+              EXIT. " current loop
+            CATCH kernel_cx_assert.
+          ENDTRY.
+        ENDLOOP.
+        IF lv_match = abap_false.
+          RAISE EXCEPTION TYPE kernel_cx_assert
+            EXPORTING
+              msg = |Hashed table contents differs|.
+        ENDIF.
+      ENDLOOP.
+    ELSE.
+      DO lines( act ) TIMES.
+        index = sy-index.
+        READ TABLE <tab1> INDEX index ASSIGNING <row1>.
+        assert_subrc( ).
+        READ TABLE <tab2> INDEX index ASSIGNING <row2>.
+        assert_subrc( ).
+        assert_equals(
+          act = <row1>
+          exp = <row2> ).
+      ENDDO.
+    ENDIF.
+
+  ENDMETHOD.
+
+  METHOD assert_text_matches.
+    DATA lv_match TYPE abap_bool.
+    lv_match = boolc( contains(
+      val   = text
+      regex = pattern ) ).
+    IF lv_match = abap_false.
+      RAISE EXCEPTION TYPE kernel_cx_assert
+        EXPORTING
+          expected = pattern
+          actual   = text
+          msg      = msg.
+    ENDIF.
+  ENDMETHOD.
 
   METHOD abort.
     ASSERT 1 = ''todo''.
@@ -15216,9 +18301,9 @@ CLASS cl_abap_unit_assert IMPLEMENTATION.
           exp = exp ).
         RAISE EXCEPTION TYPE kernel_cx_assert
           EXPORTING
-            msg = |Expected different values|
-            act = act
-            exp = exp.
+            msg      = |Expected different values|
+            actual   = act
+            expected = exp.
       CATCH kernel_cx_assert.
         RETURN.
     ENDTRY.
@@ -15243,24 +18328,18 @@ CLASS cl_abap_unit_assert IMPLEMENTATION.
   METHOD assert_equals.
     DATA type1  TYPE c LENGTH 1.
     DATA type2  TYPE c LENGTH 1.
-    DATA index  TYPE i.
     DATA diff   TYPE f.
     DATA lv_exp TYPE string.
     DATA lv_act TYPE string.
     DATA lv_msg TYPE string.
 
-    FIELD-SYMBOLS <tab1> TYPE INDEX TABLE.
-    FIELD-SYMBOLS <row1> TYPE any.
-    FIELD-SYMBOLS <tab2> TYPE INDEX TABLE.
-    FIELD-SYMBOLS <row2> TYPE any.
-
     DESCRIBE FIELD act TYPE type1.
     DESCRIBE FIELD exp TYPE type2.
-*    WRITE ''@KERNEL console.dir(type1.get());''.
-*    WRITE ''@KERNEL console.dir(type2.get());''.
-    IF type1 CA ''CgyIFPDTXN''. " basic types
+    " WRITE ''@KERNEL console.dir(type1.get());''.
+    " WRITE ''@KERNEL console.dir(type2.get());''.
+    IF type1 CA ''CgyIFPDTXN8''. " basic types
       IF type2 IS NOT INITIAL.
-        IF type2 NA ''CgyIFPDTXN''.
+        IF type2 NA ''CgyIFPDTXN8''.
           RAISE EXCEPTION TYPE kernel_cx_assert
             EXPORTING
               msg = |Unexpected types|.
@@ -15276,22 +18355,9 @@ CLASS cl_abap_unit_assert IMPLEMENTATION.
     ENDIF.
 
     IF type1 = ''h''.
-      IF lines( act ) <> lines( exp ).
-        RAISE EXCEPTION TYPE kernel_cx_assert
-          EXPORTING
-            msg = |Expected table to contain { lines( exp ) } rows, got { lines( act ) }|.
-      ENDIF.
-      ASSIGN act TO <tab1>.
-      ASSIGN exp TO <tab2>.
-      DO lines( act ) TIMES.
-        index = sy-index.
-        READ TABLE <tab1> INDEX index ASSIGNING <row1>.
-        assert_subrc( ).
-        READ TABLE <tab2> INDEX index ASSIGNING <row2>.
-        assert_subrc( ).
-        assert_equals( act = <row1>
-                       exp = <row2> ).
-      ENDDO.
+      compare_tables(
+        act = act
+        exp = exp ).
     ELSEIF tol IS SUPPLIED.
       diff = exp - act.
 *      WRITE ''@KERNEL console.dir(tol);''.
@@ -15299,6 +18365,10 @@ CLASS cl_abap_unit_assert IMPLEMENTATION.
       IF diff >= tol.
         RAISE EXCEPTION TYPE kernel_cx_assert.
       ENDIF.
+    ELSEIF type1 = ''l''.
+      assert_equals(
+        act = act->*
+        exp = exp->* ).
     ELSEIF act <> exp.
       lv_act = lcl_dump=>to_string( act ).
       lv_exp = lcl_dump=>to_string( exp ).
@@ -15316,26 +18386,41 @@ CLASS cl_abap_unit_assert IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD assert_not_initial.
+    DATA lv_msg TYPE string.
     IF act IS INITIAL.
+      lv_msg = msg.
+      IF lv_msg IS INITIAL.
+        lv_msg = |Expected non initial value|.
+      ENDIF.
       RAISE EXCEPTION TYPE kernel_cx_assert
         EXPORTING
-          msg = |Expected non initial value|.
+          msg = lv_msg.
     ENDIF.
   ENDMETHOD.
 
   METHOD assert_initial.
+    DATA lv_msg TYPE string.
     IF act IS NOT INITIAL.
+      lv_msg = msg.
+      IF lv_msg IS INITIAL.
+        lv_msg = |Expected initial value|.
+      ENDIF.
       RAISE EXCEPTION TYPE kernel_cx_assert
         EXPORTING
-          msg = |Expected initial value|.
+          msg = lv_msg.
     ENDIF.
   ENDMETHOD.
 
   METHOD assert_subrc.
+    DATA lv_msg TYPE string.
     IF act <> exp.
+      lv_msg = msg.
+      IF lv_msg IS INITIAL.
+        lv_msg = |Expected sy-subrc to equal { exp }, got { act }|.
+      ENDIF.
       RAISE EXCEPTION TYPE kernel_cx_assert
         EXPORTING
-          msg = |Expected sy-subrc to equal { exp }, got { act }|.
+          msg = lv_msg.
     ENDIF.
   ENDMETHOD.
 
@@ -15346,7 +18431,165 @@ CLASS cl_abap_unit_assert IMPLEMENTATION.
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_ABAP_UNIT_CONSTANT', 'INTERFACE if_abap_unit_constant PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_FUNCTION_TEST_ENVIRONMENT            ', 'CLASS cl_function_test_environment DEFINITION PUBLIC.
+  PUBLIC SECTION.
+    INTERFACES if_function_test_environment.
+
+    "! Note: open-abap function module test doubles allows creating doubles for non-existing
+    "! function modules
+    CLASS-METHODS create
+      IMPORTING
+        function_modules                 TYPE if_function_test_environment=>tt_function_dependencies
+      RETURNING
+        VALUE(function_test_environment) TYPE REF TO if_function_test_environment.
+  PRIVATE SECTION.
+    TYPES: BEGIN OF ty_backup,
+             name   TYPE sxco_fm_name,
+             backup TYPE i,
+             double TYPE REF TO if_function_testdouble,
+           END OF ty_backup.
+    CLASS-DATA gt_backup TYPE SORTED TABLE OF ty_backup WITH UNIQUE KEY name.
+ENDCLASS.
+
+CLASS cl_function_test_environment IMPLEMENTATION.
+
+  METHOD create.
+    DATA lv_module LIKE LINE OF function_modules.
+    DATA ls_row    LIKE LINE OF gt_backup.
+
+    ASSERT lines( function_modules ) > 0.
+
+    LOOP AT function_modules INTO lv_module.
+      ls_row-name = lv_module.
+      CREATE OBJECT ls_row-double TYPE lcl_double
+        EXPORTING
+          iv_name = lv_module.
+      WRITE ''@KERNEL ls_row.get().backup = abap.FunctionModules[lv_module.get().trimEnd()];''.
+      INSERT ls_row INTO gt_backup.
+    ENDLOOP.
+
+    CREATE OBJECT function_test_environment TYPE cl_function_test_environment.
+  ENDMETHOD.
+
+  METHOD if_function_test_environment~get_double.
+    FIELD-SYMBOLS <ls_row> LIKE LINE OF gt_backup.
+
+    READ TABLE gt_backup ASSIGNING <ls_row> WITH KEY name = function_name.
+    ASSERT sy-subrc = 0.
+
+    result = <ls_row>-double.
+  ENDMETHOD.
+
+  METHOD if_function_test_environment~clear_doubles.
+    FIELD-SYMBOLS <ls_row> LIKE LINE OF gt_backup.
+
+    LOOP AT gt_backup ASSIGNING <ls_row>.
+      WRITE ''@KERNEL abap.FunctionModules[fs_ls_row_.get().name.get().trimEnd()] = fs_ls_row_.get().backup;''.
+    ENDLOOP.
+    CLEAR gt_backup.
+  ENDMETHOD.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_FTD_PARAMETER_NOT_FOUND              ', 'CLASS cx_ftd_parameter_not_found DEFINITION PUBLIC FINAL CREATE PUBLIC INHERITING FROM cx_no_check.
+
+ENDCLASS.
+
+CLASS cx_ftd_parameter_not_found IMPLEMENTATION.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_FTD_INPUT_ARGUMENTS                  ', 'INTERFACE if_ftd_input_arguments PUBLIC.
+
+  METHODS get_importing_parameter
+    IMPORTING
+      name          TYPE abap_parmname
+    RETURNING
+      VALUE(result) TYPE REF TO data
+    RAISING
+      cx_ftd_parameter_not_found.
+
+  METHODS get_table_parameter
+    IMPORTING
+      name          TYPE abap_parmname
+    RETURNING
+      VALUE(result) TYPE REF TO data
+    RAISING
+      cx_ftd_parameter_not_found.
+
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_FTD_INPUT_CONFIG_SETTER              ', 'INTERFACE if_ftd_input_config_setter PUBLIC.
+
+  METHODS ignore_all_parameters
+    RETURNING
+      VALUE(output_configuration_setter) TYPE REF TO if_ftd_output_config_setter.
+
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_FTD_INVOCATION_ANSWER                ', 'INTERFACE if_ftd_invocation_answer PUBLIC.
+
+  METHODS answer
+    IMPORTING
+      arguments TYPE REF TO if_ftd_input_arguments
+    CHANGING
+      result    TYPE REF TO if_ftd_invocation_result.
+
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_FTD_INVOCATION_RESULT                ', 'INTERFACE if_ftd_invocation_result PUBLIC.
+
+  METHODS get_output_configuration
+    RETURNING
+      VALUE(result) TYPE REF TO if_ftd_output_configuration.
+
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_FTD_OUTPUT_CONFIG_SETTER             ', 'INTERFACE if_ftd_output_config_setter PUBLIC.
+
+  METHODS then_answer
+    IMPORTING
+      answer      TYPE REF TO if_ftd_invocation_answer
+    RETURNING
+      VALUE(self) TYPE REF TO if_ftd_output_config_setter.
+
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_FTD_OUTPUT_CONFIGURATION             ', 'INTERFACE if_ftd_output_configuration PUBLIC.
+
+  METHODS set_exporting_parameter
+    IMPORTING
+      name        TYPE abap_parmname
+      value       TYPE any
+    RETURNING
+      VALUE(self) TYPE REF TO if_ftd_output_configuration
+    RAISING
+      cx_ftd_parameter_not_found.
+
+  METHODS set_table_parameter
+    IMPORTING
+      name  TYPE abap_parmname
+      value TYPE any
+    RETURNING
+      VALUE(self) TYPE REF TO if_ftd_output_configuration
+    RAISING
+      cx_ftd_parameter_not_found.
+
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_FUNCTION_TEST_ENVIRONMENT            ', 'INTERFACE if_function_test_environment PUBLIC.
+
+  TYPES tt_function_dependencies TYPE STANDARD TABLE OF sxco_fm_name WITH KEY table_line.
+
+  METHODS get_double
+    IMPORTING
+      function_name TYPE sxco_fm_name
+    RETURNING
+      VALUE(result) TYPE REF TO if_function_testdouble.
+
+  METHODS clear_doubles.
+
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_FUNCTION_TESTDOUBLE                  ', 'INTERFACE if_function_testdouble PUBLIC.
+
+  METHODS configure_call
+    RETURNING
+      VALUE(input_configuration_setter) TYPE REF TO if_ftd_input_config_setter.
+
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_ABAP_UNIT_CONSTANT                   ', 'INTERFACE if_abap_unit_constant PUBLIC.
   CONSTANTS:
     BEGIN OF severity,
       low               TYPE int1 VALUE 0,
@@ -15359,12 +18602,13 @@ ENDCLASS.');`);
       no     TYPE int1 VALUE 5,
     END OF quit.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_AUNIT_CONSTANTS', 'INTERFACE if_aunit_constants PUBLIC.
-  CONSTANTS no        TYPE i VALUE 0.
-  CONSTANTS critical  TYPE i VALUE 1.
-  CONSTANTS fatal     TYPE i VALUE 1.
-  CONSTANTS tolerable TYPE i VALUE 1.
-  CONSTANTS method    TYPE i VALUE 1.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_AUNIT_CONSTANTS                      ', 'INTERFACE if_aunit_constants PUBLIC.
+  CONSTANTS no        TYPE int1 VALUE 0.
+  CONSTANTS critical  TYPE int1 VALUE 1.
+  CONSTANTS fatal     TYPE int1 VALUE 1.
+  CONSTANTS tolerable TYPE int1 VALUE 1.
+  CONSTANTS method    TYPE int1 VALUE 1.
+  CONSTANTS class     TYPE int1 VALUE 2.
 
   CONSTANTS: BEGIN OF severity,
                low    TYPE int1 VALUE 0,
@@ -15377,7 +18621,7 @@ ENDINTERFACE.');`);
                test TYPE int1 VALUE 1,
              END OF quit.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('KERNEL_CX_ASSERT', 'CLASS kernel_cx_assert DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('KERNEL_CX_ASSERT                        ', 'CLASS kernel_cx_assert DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
   PUBLIC SECTION.
     DATA actual TYPE string.
     DATA expected TYPE string.
@@ -15404,7 +18648,7 @@ CLASS kernel_cx_assert IMPLEMENTATION.
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('KERNEL_UNIT_RUNNER', 'CLASS kernel_unit_runner DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('KERNEL_UNIT_RUNNER                      ', 'CLASS kernel_unit_runner DEFINITION PUBLIC.
   PUBLIC SECTION.
 * as of now, only global classes with local testclasses are supported
     TYPES: BEGIN OF ty_input_item,
@@ -15429,11 +18673,14 @@ ENDCLASS.');`);
              runtime     TYPE i,
              message     TYPE string,
              js_location TYPE string,
+             console     TYPE string,
            END OF ty_result_item.
     TYPES: BEGIN OF ty_result,
              list TYPE STANDARD TABLE OF ty_result_item WITH DEFAULT KEY,
              json TYPE string,
            END OF ty_result.
+
+    CLASS-DATA mv_console TYPE string.
 
     CLASS-METHODS run
       IMPORTING
@@ -15487,9 +18734,9 @@ CLASS kernel_unit_runner IMPLEMENTATION.
 * would like to keep the dependencies of this class minimal,
 * so not using CALL TRANSFORMATION or any other ABAP classes
 
-    DATA ls_list LIKE LINE OF it_list.
+    DATA ls_list    LIKE LINE OF it_list.
     DATA lt_strings TYPE STANDARD TABLE OF string WITH DEFAULT KEY.
-    DATA lv_string LIKE LINE OF lt_strings.
+    DATA lv_string  LIKE LINE OF lt_strings.
     DATA lv_message TYPE string.
 
 
@@ -15497,10 +18744,16 @@ CLASS kernel_unit_runner IMPLEMENTATION.
       lv_message = ls_list-message.
       REPLACE ALL OCCURRENCES OF |"| IN lv_message WITH |\\"|.
       REPLACE ALL OCCURRENCES OF |\\n| IN lv_message WITH |\\\\n|.
+
       REPLACE ALL OCCURRENCES OF |"| IN ls_list-expected WITH |\\"|.
       REPLACE ALL OCCURRENCES OF |\\n| IN ls_list-expected WITH |\\\\n|.
+
       REPLACE ALL OCCURRENCES OF |"| IN ls_list-actual WITH |\\"|.
       REPLACE ALL OCCURRENCES OF |\\n| IN ls_list-actual WITH |\\\\n|.
+
+      REPLACE ALL OCCURRENCES OF |"| IN ls_list-console WITH |\\"|.
+      REPLACE ALL OCCURRENCES OF |\\n| IN ls_list-console WITH |\\\\n|.
+
       lv_string = |\\{"class_name": "{ ls_list-class_name
         }","testclass_name": "{ ls_list-testclass_name
         }","method_name": "{ ls_list-method_name
@@ -15508,7 +18761,8 @@ CLASS kernel_unit_runner IMPLEMENTATION.
         }","actual": "{ ls_list-actual
         }","status": "{ ls_list-status
         }","runtime": { ls_list-runtime
-        },"message": "{ lv_message
+        },"console": "{ ls_list-console
+        }","message": "{ lv_message
         }","js_location": "{ ls_list-js_location }"\\}|.
       APPEND lv_string TO lt_strings.
     ENDLOOP.
@@ -15563,19 +18817,23 @@ CLASS kernel_unit_runner IMPLEMENTATION.
         ENDTRY.
 
         GET RUN TIME FIELD lv_time.
+        CLEAR mv_console.
         TRY.
             CALL METHOD lo_obj->(ls_input-method_name).
-            <ls_result>-status = gc_status-success.
+            <ls_result>-status  = gc_status-success.
+            <ls_result>-console = mv_console.
           CATCH kernel_cx_assert INTO lx_assert.
             <ls_result>-status      = gc_status-failed.
             <ls_result>-actual      = lx_assert->actual.
             <ls_result>-expected    = lx_assert->expected.
             <ls_result>-message     = lx_assert->msg.
             <ls_result>-js_location = get_location( lx_assert ).
+            <ls_result>-console     = mv_console.
           CATCH cx_root INTO lx_root.
-            <ls_result>-status  = gc_status-failed.
-            <ls_result>-message = |Some exception raised|. " todo, use RTTI to find the class name?
+            <ls_result>-status      = gc_status-failed.
+            <ls_result>-message     = |Some exception raised|. " todo, use RTTI to find the class name?
             <ls_result>-js_location = get_location( lx_root ).
+            <ls_result>-console     = mv_console.
         ENDTRY.
         GET RUN TIME FIELD lv_time.
         <ls_result>-runtime = lv_time.
@@ -15598,34 +18856,211 @@ CLASS kernel_unit_runner IMPLEMENTATION.
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_SYSTEM_UUID', 'CLASS cl_system_uuid DEFINITION PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_OSQL_TEST_ENVIRONMENT                ', 'CLASS cl_osql_test_environment DEFINITION PUBLIC.
+  PUBLIC SECTION.
+    INTERFACES if_osql_test_environment.
+
+    CLASS-METHODS create
+      IMPORTING
+        i_dependency_list TYPE if_osql_test_environment=>ty_t_sobjnames
+      RETURNING
+        VALUE(r_result)   TYPE REF TO if_osql_test_environment.
+
+  PRIVATE SECTION.
+    CONSTANTS mv_schema TYPE string VALUE ''double''.
+
+    DATA mt_tables TYPE if_osql_test_environment=>ty_t_sobjnames.
+    DATA mo_sql    TYPE REF TO cl_sql_statement.
+
+    METHODS initialize.
+    METHODS validate.
+    METHODS set_runtime_prefix.
+ENDCLASS.
+
+CLASS cl_osql_test_environment IMPLEMENTATION.
+
+  METHOD create.
+    DATA lo_env TYPE REF TO cl_osql_test_environment.
+
+    ASSERT sy-dbsys = ''sqlite''.
+
+    CREATE OBJECT lo_env.
+    lo_env->mt_tables = i_dependency_list.
+    CREATE OBJECT lo_env->mo_sql.
+    lo_env->initialize( ).
+
+    r_result = lo_env.
+
+  ENDMETHOD.
+
+  METHOD validate.
+
+    DATA ref           TYPE REF TO data.
+    DATA lv_table      LIKE LINE OF mt_tables.
+    FIELD-SYMBOLS <fs> TYPE any.
+
+    LOOP AT mt_tables INTO lv_table.
+      TRY.
+          CREATE DATA ref TYPE (lv_table).
+          ASSIGN ref->* TO <fs>.
+          SELECT SINGLE * FROM (lv_table) INTO <fs>.
+        CATCH cx_sy_create_data_error cx_sy_dynamic_osql_semantics.
+          WRITE ''@KERNEL throw new Error(\`table \${lv_table.get().trimEnd()} invalid or does not exist\`);''.
+      ENDTRY.
+    ENDLOOP.
+  ENDMETHOD.
+
+  METHOD initialize.
+
+    DATA lv_table  LIKE LINE OF mt_tables.
+    DATA lv_sql    TYPE string.
+    DATA lo_result TYPE REF TO cl_sql_result_set.
+    DATA lr_ref    TYPE REF TO data.
+
+    WRITE ''@KERNEL if (abap.dbo.schemaPrefix !== "") throw new Error("already prefixed");''.
+
+* validate that the tables to be doubled exists
+    validate( ).
+
+* https://www.sqlite.org/lang_attach.html
+    mo_sql->execute_update( |ATTACH DATABASE '':memory:'' AS { mv_schema };| ).
+
+    LOOP AT mt_tables INTO lv_table.
+      lv_table = to_lower( lv_table ).
+
+      lo_result = mo_sql->execute_query( |SELECT sql FROM main.sqlite_master WHERE type=''table'' AND name=''{ lv_table }'';| ).
+      GET REFERENCE OF lv_sql INTO lr_ref.
+      lo_result->set_param( lr_ref ).
+      lo_result->next( ).
+      lo_result->close( ).
+
+      REPLACE FIRST OCCURRENCE OF lv_table IN lv_sql WITH |{ mv_schema }''.''{ lv_table }|.
+      ASSERT sy-subrc = 0.
+
+      mo_sql->execute_update( lv_sql ).
+    ENDLOOP.
+
+    set_runtime_prefix( ).
+
+  ENDMETHOD.
+
+  METHOD set_runtime_prefix.
+
+    WRITE ''@KERNEL abap.dbo.schemaPrefix = this.mv_schema.get();''.
+
+  ENDMETHOD.
+
+  METHOD if_osql_test_environment~clear_doubles.
+    DATA lv_table LIKE LINE OF mt_tables.
+
+    LOOP AT mt_tables INTO lv_table.
+      lv_table = to_lower( lv_table ).
+      mo_sql->execute_update( |DELETE FROM { mv_schema }."{ lv_table }";| ).
+    ENDLOOP.
+  ENDMETHOD.
+
+  METHOD if_osql_test_environment~destroy.
+
+* https://www.sqlite.org/lang_detach.html
+    mo_sql->execute_update( |DETACH DATABASE { mv_schema };| ).
+
+    WRITE ''@KERNEL abap.dbo.schemaPrefix = "";''.
+
+  ENDMETHOD.
+
+  METHOD if_osql_test_environment~insert_test_data.
+    DATA lo_table_descr  TYPE REF TO cl_abap_tabledescr.
+    DATA lo_struct_descr TYPE REF TO cl_abap_structdescr.
+    DATA lv_table        TYPE string.
+
+    lo_table_descr ?= cl_abap_typedescr=>describe_by_data( i_data ).
+    lo_struct_descr ?= lo_table_descr->get_table_line_type( ).
+    lv_table = lo_struct_descr->get_relative_name( ).
+
+* sanity checks,
+    ASSERT lv_table IS NOT INITIAL.
+    READ TABLE mt_tables WITH KEY table_line = lv_table TRANSPORTING NO FIELDS.
+    ASSERT sy-subrc = 0.
+
+    INSERT (lv_table) FROM TABLE i_data.
+    ASSERT sy-subrc = 0.
+
+  ENDMETHOD.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_OSQL_TEST_ENVIRONMENT                ', 'INTERFACE if_osql_test_environment PUBLIC.
+
+  TYPES ty_s_sobjname  TYPE abap_compname.
+  TYPES ty_t_sobjnames TYPE STANDARD TABLE OF ty_s_sobjname WITH DEFAULT KEY.
+
+  METHODS clear_doubles.
+  METHODS destroy.
+
+  METHODS insert_test_data
+    IMPORTING
+      i_data TYPE ANY TABLE.
+
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CL_SYSTEM_UUID                          ', 'CLASS cl_system_uuid DEFINITION PUBLIC.
   PUBLIC SECTION.
     INTERFACES if_system_uuid_rfc4122_static.
     INTERFACES if_system_uuid_static.
+
+    ALIASES create_uuid_c32_static FOR if_system_uuid_static~create_uuid_c32.
+    ALIASES create_uuid_x16_static FOR if_system_uuid_static~create_uuid_x16.
+  PRIVATE SECTION.
+    CLASS-METHODS random RETURNING VALUE(rv_str) TYPE string.
 ENDCLASS.
 
 CLASS cl_system_uuid IMPLEMENTATION.
 
+  METHOD random.
+    " browser and node
+    WRITE ''@KERNEL if (cl_system_uuid.CRYPTO === undefined) cl_system_uuid.CRYPTO = await import("crypto");''.
+    WRITE ''@KERNEL if (cl_system_uuid.CRYPTO.randomUUID) {''.
+    WRITE ''@KERNEL   rv_str.set(cl_system_uuid.CRYPTO.randomUUID());''.
+    WRITE ''@KERNEL } else {''.
+    WRITE ''@KERNEL   rv_str = window.crypto.randomUUID();''.
+    WRITE ''@KERNEL }''.
+  ENDMETHOD.
+
   METHOD if_system_uuid_static~create_uuid_x16.
-    WRITE ''@KERNEL const crypto = await import("crypto");''.
-    WRITE ''@KERNEL uuid.set(crypto.randomBytes(16).toString("hex").toUpperCase());''.
+    DATA lv_str TYPE string.
+    lv_str = random( ).
+    REPLACE ALL OCCURRENCES OF ''-'' IN lv_str WITH ''''.
+    TRANSLATE lv_str TO UPPER CASE.
+    uuid = lv_str(32).
+  ENDMETHOD.
+
+  METHOD if_system_uuid_static~create_uuid_c32.
+    DATA lv_str TYPE string.
+    lv_str = random( ).
+    REPLACE ALL OCCURRENCES OF ''-'' IN lv_str WITH ''''.
+    uuid = lv_str(32).
+    TRANSLATE uuid TO UPPER CASE.
   ENDMETHOD.
 
   METHOD if_system_uuid_rfc4122_static~create_uuid_c36_by_version.
     ASSERT version = 4.
-    WRITE ''@KERNEL const crypto = await import("crypto");''.
-    WRITE ''@KERNEL uuid.set(crypto.randomUUID());''.
+    uuid = random( ).
+  ENDMETHOD.
+
+  METHOD if_system_uuid_static~create_uuid_c22.
+    DATA lv_str TYPE string.
+    lv_str = random( ).
+    REPLACE ALL OCCURRENCES OF ''-'' IN lv_str WITH ''''.
+    uuid = lv_str(22).
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_UUID_ERROR', 'CLASS cx_uuid_error DEFINITION PUBLIC INHERITING FROM cx_static_check.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_UUID_ERROR                           ', 'CLASS cx_uuid_error DEFINITION PUBLIC INHERITING FROM cx_static_check.
 
 ENDCLASS.
 
 CLASS cx_uuid_error IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SYSTEM_UUID_RFC4122_STATIC', 'INTERFACE if_system_uuid_rfc4122_static PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SYSTEM_UUID_RFC4122_STATIC           ', 'INTERFACE if_system_uuid_rfc4122_static PUBLIC.
   CLASS-METHODS create_uuid_c36_by_version
     IMPORTING
       version TYPE i
@@ -15634,14 +19069,27 @@ ENDCLASS.');`);
     RAISING
       cx_uuid_error.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SYSTEM_UUID_STATIC', 'INTERFACE if_system_uuid_static PUBLIC.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SYSTEM_UUID_STATIC                   ', 'INTERFACE if_system_uuid_static PUBLIC.
   CLASS-METHODS create_uuid_x16
     RETURNING
       VALUE(uuid) TYPE sysuuid_x16
     RAISING
       cx_uuid_error.
+
+  CLASS-METHODS create_uuid_c32
+    RETURNING
+      VALUE(uuid) TYPE sysuuid_c32
+    RAISING
+      cx_uuid_error.
+
+  CLASS-METHODS create_uuid_c22
+    RETURNING
+      VALUE(uuid) TYPE sysuuid_c22
+    RAISING
+      cx_uuid_error.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO t000 ('MANDT', 'CCCATEGORY', 'CCNOCLIIND') VALUES ('123', '', '');`);
+  insert.push(`INSERT INTO t000 ('mandt', 'cccategory', 'ccnocliind') VALUES ('123', '', '');`);
+
   const {setup} = await import("../setup.mjs");
   await setup(globalThis.abap, schemas, insert);
 }

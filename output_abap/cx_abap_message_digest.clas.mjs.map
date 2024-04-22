@@ -4,7 +4,7 @@
     "cx_abap_message_digest.clas.abap"
   ],
   "names": [],
-  "mappings": ";;;AAIA;;;;;;;;;AAEA",
+  "mappings": ";;;AAIA;;;;;;;;;;;;;;;AAEA",
   "file": "cx_abap_message_digest.clas.mjs",
   "sourceRoot": ""
 }

@@ -1,10 +1,10 @@
 {
   "version": 3,
   "sources": [
-    "..\\downport\\zcl_aff_test_types.clas.testclasses.abap"
+    "../downport/zcl_aff_test_types.clas.testclasses.abap"
   ],
   "names": [],
-  "mappings": ";;;AAOA;;;;;;;;EAEE;QACO,2dAAgD;QAEhD,yEAAqC;QACrC,yEAAgB;QAChB,uEAAmC;+BACxC,QAAS,wEAA0C;IAEnD,UAAQ,KAAK;yKAIkB;4LAG+B;IAG9D,WAAQ,oGAA8C;6JAGlC;iLAG+B;EACrD;AAEF",
+  "mappings": ";;;AAOA;;;;;;;;;;;;;;EAEE;QACO,8eAAgD;QAEhD,kHAAqC;QACrC,kHAAgB;QAChB,8GAAmC;+BACxC,QAAS,wEAA0C;IAEnD,UAAQ,KAAK;yKAIkB;4LAG+B;IAG9D,WAAQ,oGAA8C;6JAGlC;iLAG+B;EACrD;AAEF",
   "file": "zcl_aff_test_types.clas.testclasses.mjs",
   "sourceRoot": ""
 }

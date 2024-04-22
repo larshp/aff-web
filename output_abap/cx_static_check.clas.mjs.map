@@ -4,7 +4,7 @@
     "cx_static_check.clas.abap"
   ],
   "names": [],
-  "mappings": ";;AAaA;;;EAEE;;;;;;;;;;;;;;;kEAGyB;IACzB;;AAEF",
+  "mappings": ";;AASA;;;;;;;;;;;EAEE;;;;;kEAGyB;IACzB;;AAEF",
   "file": "cx_static_check.clas.mjs",
   "sourceRoot": ""
 }
